@@ -13,5 +13,15 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="DevExpress.XamarinForms.Scheduler" />
+    <None Remove="Schedule\" />
+    <None Remove="Exercises\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Schedule\" />
+    <Folder Include="Exercises\" />
   </ItemGroup>
 </Project>

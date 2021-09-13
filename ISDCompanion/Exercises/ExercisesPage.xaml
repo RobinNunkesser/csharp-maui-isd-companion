@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ISDCompanion"
+    x:Class="ISDCompanion.ExercisesPage">
+    <ContentPage.Content>
+        <TableView Intent="Menu">
+            <TableRoot>
+                <TableSection Title="Netzwerke">
+                    <TextCell Text="Bitcodierungen" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:BitencodingsPage}" />
+                </TableSection>
+                <TableSection Title="Betriebssysteme">
+                     <TextCell Text="Seitenersetzung" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:PageReplacementPage}" />
+                </TableSection>
+            </TableRoot>
+        </TableView>            
+    </ContentPage.Content>
+</ContentPage>
