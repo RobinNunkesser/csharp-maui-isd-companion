@@ -24,5 +24,14 @@
             </Tab.Icon>-->
             <ShellContent ContentTemplate="{DataTemplate local:SchedulePage}" />
         </Tab>
+        <Tab Title="Einstellungen">
+            <!--<Tab.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="outline_account_tree_black_24pt" />
+                    <On Platform="Android" Value="ic_baseline_account_tree_24" />
+                </OnPlatform>
+            </Tab.Icon>-->
+            <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" />
+        </Tab>
      </TabBar>
 </Shell>
