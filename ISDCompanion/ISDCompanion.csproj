@@ -20,22 +20,22 @@
     <None Remove="Schedule\" />
     <None Remove="Exercises\" />
     <None Remove="Settings\" />
-    <None Remove="Settings\licenses.html" />
+    <None Remove="Licenses\" />
+    <None Remove="Licenses\xamarin_essentials.html" />
+    <None Remove="Licenses\xamarin_essentials %28copy%29.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />
     <Folder Include="Exercises\" />
     <Folder Include="Settings\" />
+    <Folder Include="Licenses\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Settings\licenses.html" />
+    <EmbeddedResource Include="Licenses\xamarin_essentials.html" />
+    <EmbeddedResource Include="Licenses\xamarin_forms.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
-      <DependentUpon>LicensesPage.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensesPage.xaml.cs">
       <DependentUpon>LicensesPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

@@ -7,8 +7,17 @@
     <ContentPage.Content>
         <TableView Intent="Settings">
             <TableRoot>
-                <TableSection Title="Über">
-                    <TextCell Text="Acknowledgements" Command="{Binding LicensesCommand}" />
+                <TableSection Title="Acknowledgements">
+                    <TextCell Text="Xamarin.Forms" Command="{Binding LicensesCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>xamarin_forms.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell> 
+                    <TextCell Text="Xamarin.Essentials" Command="{Binding LicensesCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>xamarin_essentials.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell> 
                 </TableSection>
             </TableRoot>
         </TableView>                    

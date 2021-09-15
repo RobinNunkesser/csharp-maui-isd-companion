@@ -10,9 +10,9 @@ namespace ISDCompanion
 
         public SettingsViewModel(INavigation navigation)
         {
-            LicensesCommand = new Command(async () =>
+            LicensesCommand = new Command<string>(async (string licenseFile) =>
             {                
-                await navigation.PushAsync(new LicensesPage());
+                await navigation.PushAsync(new LicensesPage(licenseFile));
             });
         }
 
