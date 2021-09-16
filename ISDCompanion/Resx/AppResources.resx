@@ -30,4 +30,10 @@
 	<data name="NewValues">
         <value>New Values</value>
     </data>
+	<data name="Requests">
+        <value>Requests</value>
+    </data>
+	<data name="ShowSolution">
+        <value>Show solution</value>
+    </data>	
 </root>

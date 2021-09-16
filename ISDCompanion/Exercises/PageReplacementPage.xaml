@@ -2,12 +2,13 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ISDCompanion.PageReplacementPage"
-    Title="Seitenersetzung">
+    Title="{xct:Translate PageReplacement}">
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Horizontal">
-                <Label Text="Folge" VerticalOptions="Center"/>
+                <Label Text="{xct:Translate Requests}" VerticalOptions="Center"/>
                 <Label Text="{Binding ReferenceRequests}" VerticalOptions="Center">
                     <Label.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
@@ -18,11 +19,11 @@
                     </Label.FontFamily>
                 </Label>
             </StackLayout>
-            <Picker x:Name="StrategyPicker" Title="Lösung anzeigen" TitleColor="Red"
+            <Picker x:Name="StrategyPicker" Title="{xct:Translate ShowSolution}" TitleColor="Red"
                     SelectedIndex="{Binding SelectedStrategy}">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>Optimale Strategie</x:String>
+                        <x:String>Optimal</x:String>
                         <x:String>FIFO</x:String>
                         <x:String>Least Recently Used</x:String>
                         <x:String>Second Chance / Clock</x:String>
@@ -35,19 +36,58 @@
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding .[0]}"/>
-                                    <Label Text="{Binding .[1]}"/>
-                                    <Label Text="{Binding .[2]}"/>
-                                    <Label Text="{Binding .[3]}"/>
-                                    <Label Text="{Binding .[4]}"/>
-                                </StackLayout>                                
+                                    <Label Text="{Binding .[0]}" HorizontalOptions="StartAndExpand">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="CourierNewPSMT" />
+                                                <On Platform="Android" Value="monospace" />
+                                                <On Platform="UWP" Value="Courier New" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label Text="{Binding .[1]}" HorizontalOptions="EndAndExpand">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="CourierNewPSMT" />
+                                                <On Platform="Android" Value="monospace" />
+                                                <On Platform="UWP" Value="Courier New" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label Text="{Binding .[2]}" HorizontalOptions="EndAndExpand">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="CourierNewPSMT" />
+                                                <On Platform="Android" Value="monospace" />
+                                                <On Platform="UWP" Value="Courier New" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label Text="{Binding .[3]}" HorizontalOptions="EndAndExpand">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="CourierNewPSMT" />
+                                                <On Platform="Android" Value="monospace" />
+                                                <On Platform="UWP" Value="Courier New" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label Text="{Binding .[4]}" HorizontalOptions="EndAndExpand">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="CourierNewPSMT" />
+                                                <On Platform="Android" Value="monospace" />
+                                                <On Platform="UWP" Value="Courier New" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
-                        <!--<TextCell Text="{Binding .[0]}" Detail="{Binding .[1]}" />-->
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Neue Werte" VerticalOptions="EndAndExpand" Command="{Binding NewParams}"/>
+            <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

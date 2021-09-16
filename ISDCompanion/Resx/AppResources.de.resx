@@ -29,5 +29,11 @@
     </data>
 	<data name="NewValues">
         <value>Neue Werte</value>
+    </data>
+	<data name="Requests">
+        <value>Folge</value>
+    </data>
+	<data name="ShowSolution">
+        <value>Lösung anzeigen</value>
     </data>	
 </root>

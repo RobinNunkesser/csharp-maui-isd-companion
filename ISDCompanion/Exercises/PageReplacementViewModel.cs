@@ -70,14 +70,28 @@ namespace ISDCompanion
 
             if (solution != null)
             {
-                Items = solution.Select(sim => new string[] {
-                            $"{sim.Element}",
-                            $"{sim.Frames[0]} ({sim.FrameInformation[0]})",
-                            $"{sim.Frames[1]} ({sim.FrameInformation[1]})",
-                            $"{sim.Frames[2]} ({sim.FrameInformation[2]})",
-                            $"{sim.Frames[3]} ({sim.FrameInformation[3]})"}).ToList();
+                Items = solution.Select(Present).ToList();
             }
             OnPropertyChanged("Items");
+        }
+
+        private string[] Present(SimulationResult sim)
+        {
+            var element = sim.Element;
+            var frames = sim.Frames.Select(Present).ToList();
+            var frameInformation = sim.FrameInformation.Select(Present).ToList();
+            return new string[] {
+        $"{element}",
+        $"{frames[0]} ({frameInformation[0]})",
+        $"{frames[1]} ({frameInformation[1]})",
+        $"{frames[2]} ({frameInformation[2]})",
+        $"{frames[3]} ({frameInformation[3]})"};
+        }
+
+        private string Present(int arg)
+        {
+            if (arg == int.MaxValue) return "-";//"∞";
+            return $"{arg}";
         }
 
         private void Initialize()
