@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:local="clr-namespace:ISDCompanion"   
-    x:Class="ISDCompanion.ExercisesPage">
+    x:Class="ISDCompanion.ExercisesPage"
+    Title="{xct:Translate Exercises}">
     <ContentPage.Content>
         <TableView Intent="Menu">
             <TableRoot>

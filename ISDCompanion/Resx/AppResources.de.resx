@@ -23,5 +23,8 @@
     </data>
 	<data name="PageReplacement">
         <value>Seitenersetzung</value>
+    </data>
+	<data name="Exercises">
+        <value>Übungen</value>
     </data>	
 </root>

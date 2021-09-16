@@ -70,5 +70,11 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("PageReplacement", resourceCulture);
             }
         }
+        
+        internal static string Exercises {
+            get {
+                return ResourceManager.GetString("Exercises", resourceCulture);
+            }
+        }
     }
 }
