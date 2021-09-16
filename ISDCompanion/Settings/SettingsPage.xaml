@@ -8,6 +8,11 @@
         <TableView Intent="Settings">
             <TableRoot>
                 <TableSection Title="Acknowledgements">
+                    <TextCell Text="Xamarin.CommunityToolkit" Command="{Binding LicensesCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>xamarin_communitytoolkit.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell> 
                     <TextCell Text="Xamarin.Forms" Command="{Binding LicensesCommand}">
                         <TextCell.CommandParameter>
                             <x:String>xamarin_forms.html</x:String>
@@ -17,7 +22,7 @@
                         <TextCell.CommandParameter>
                             <x:String>xamarin_essentials.html</x:String>
                         </TextCell.CommandParameter>
-                    </TextCell> 
+                    </TextCell>                    
                 </TableSection>
             </TableRoot>
         </TableView>                    

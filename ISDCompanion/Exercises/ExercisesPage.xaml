@@ -2,16 +2,17 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ISDCompanion"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:local="clr-namespace:ISDCompanion"   
     x:Class="ISDCompanion.ExercisesPage">
     <ContentPage.Content>
         <TableView Intent="Menu">
             <TableRoot>
-                <TableSection Title="Netzwerke">
-                    <TextCell Text="Bitcodierungen" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:BitencodingsPage}" />
+                <TableSection Title="{xct:Translate Networks}">
+                    <TextCell Text="{xct:Translate Bitencodings}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:BitencodingsPage}" />                    
                 </TableSection>
-                <TableSection Title="Betriebssysteme">
-                     <TextCell Text="Seitenersetzung" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:PageReplacementPage}" />
+                <TableSection Title="{xct:Translate OperatingSystems}">
+                     <TextCell Text="{xct:Translate PageReplacement}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:PageReplacementPage}" />
                 </TableSection>
             </TableRoot>
         </TableView>            

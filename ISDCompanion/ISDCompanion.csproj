@@ -14,6 +14,8 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.1.5" />
+    <PackageReference Include="Xamarin.Forms.Svg" Version="1.0.3" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DevExpress.XamarinForms.Scheduler" />
@@ -22,22 +24,49 @@
     <None Remove="Settings\" />
     <None Remove="Licenses\" />
     <None Remove="Licenses\xamarin_essentials.html" />
-    <None Remove="Licenses\xamarin_essentials %28copy%29.html" />
+    <None Remove="Licenses\xamarin_forms.html" />
+    <None Remove="Xamarin.Forms.Svg" />
+    <None Remove="Resources\" />
+    <None Remove="Resources\ISD3_WiSe21-22_20210908.svg" />
+    <None Remove="Xamarin.CommunityToolkit" />
+    <None Remove="Resx\" />
+    <None Remove="Licenses\xamarin_forms %28copy%29.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />
     <Folder Include="Exercises\" />
     <Folder Include="Settings\" />
     <Folder Include="Licenses\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resx\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Licenses\xamarin_essentials.html" />
     <EmbeddedResource Include="Licenses\xamarin_forms.html" />
+    <EmbeddedResource Include="Resources\tiger.svg" />    
+    <EmbeddedResource Include="Resources\ISD3_WiSe21-22_20210908.svg" />
+    <EmbeddedResource Include="Licenses\xamarin_forms %28copy%29.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
       <DependentUpon>LicensesPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Resx\AppResources.Designer.cs">
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resx\AppResources.de.Designer.cs">
+      <DependentUpon>AppResources.de.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resx\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resx\AppResources.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

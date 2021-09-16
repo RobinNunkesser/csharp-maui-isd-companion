@@ -3,8 +3,21 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ISDCompanion.BitencodingsPage"
+    xmlns:svg="clr-namespace:Xamarin.Forms.Svg;assembly=SvgImageSource"
     Title="Bitcodierungen">
     <ContentPage.Content>
-        
+        <StackLayout>
+        <Image>
+            <Image.Source>
+                <svg:SvgImageSource Source="ISD3_WiSe21-22_20210908.svg"/>
+            </Image.Source>     
+        </Image>
+        <Image HeightRequest="50" WidthRequest="50">
+            <Image.Source>
+                <svg:SvgImageSource Source="tiger.svg" Width="50" Height="50"/>
+            </Image.Source>     
+        </Image>
+
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,5 +1,8 @@
 ﻿using System;
+using ISDCompanion.Resx;
+using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Forms;
+using Xamarin.Forms.Svg;
 using Xamarin.Forms.Xaml;
 
 namespace ISDCompanion
@@ -9,7 +12,13 @@ namespace ISDCompanion
         public App()
         {
             DevExpress.XamarinForms.Scheduler.Initializer.Init();
+
+            LocalizationResourceManager.Current.PropertyChanged += (sender, e) => AppResources.Culture = LocalizationResourceManager.Current.CurrentCulture;
+            LocalizationResourceManager.Current.Init(AppResources.ResourceManager);
+
             InitializeComponent();
+
+            SvgImageSource.RegisterAssembly();
 
             MainPage = new AppShell();
         }
