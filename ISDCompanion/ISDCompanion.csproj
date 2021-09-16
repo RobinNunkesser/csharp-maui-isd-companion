@@ -17,6 +17,7 @@
     <PackageReference Include="Xamarin.Forms.Svg" Version="1.0.3" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
     <PackageReference Include="NetworksExam" Version="0.1.0" />
+    <PackageReference Include="OperatingSystemsExam" Version="0.1.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DevExpress.XamarinForms.Scheduler" />
@@ -32,6 +33,7 @@
     <None Remove="Xamarin.CommunityToolkit" />
     <None Remove="Resx\" />
     <None Remove="NetworksExam" />
+    <None Remove="OperatingSystemsExam" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />

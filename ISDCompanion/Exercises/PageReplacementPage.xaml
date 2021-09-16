@@ -5,6 +5,49 @@
     x:Class="ISDCompanion.PageReplacementPage"
     Title="Seitenersetzung">
     <ContentPage.Content>
-        
+        <StackLayout VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Folge" VerticalOptions="Center"/>
+                <Label Text="{Binding ReferenceRequests}" VerticalOptions="Center">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="CourierNewPSMT" />
+                            <On Platform="Android" Value="monospace" />
+                            <On Platform="UWP" Value="Courier New" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            </StackLayout>
+            <Picker x:Name="StrategyPicker" Title="Lösung anzeigen" TitleColor="Red"
+                    SelectedIndex="{Binding SelectedStrategy}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Optimale Strategie</x:String>
+                        <x:String>FIFO</x:String>
+                        <x:String>Least Recently Used</x:String>
+                        <x:String>Second Chance / Clock</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <ListView ItemsSource="{Binding Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding .[0]}"/>
+                                    <Label Text="{Binding .[1]}"/>
+                                    <Label Text="{Binding .[2]}"/>
+                                    <Label Text="{Binding .[3]}"/>
+                                    <Label Text="{Binding .[4]}"/>
+                                </StackLayout>                                
+                            </ViewCell.View>
+                        </ViewCell>
+                        <!--<TextCell Text="{Binding .[0]}" Detail="{Binding .[1]}" />-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Neue Werte" VerticalOptions="EndAndExpand" Command="{Binding NewParams}"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -10,6 +10,7 @@ namespace ISDCompanion
         public PageReplacementPage()
         {
             InitializeComponent();
+            BindingContext = new PageReplacementViewModel();
         }
     }
 }
