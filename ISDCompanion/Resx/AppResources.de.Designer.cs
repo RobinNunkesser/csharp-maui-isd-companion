@@ -76,5 +76,11 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("Exercises", resourceCulture);
             }
         }
+        
+        internal static string NewValues {
+            get {
+                return ResourceManager.GetString("NewValues", resourceCulture);
+            }
+        }
     }
 }

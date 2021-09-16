@@ -26,5 +26,8 @@
     </data>
 	<data name="Exercises">
         <value>Exercises</value>
-    </data>	
+    </data>
+	<data name="NewValues">
+        <value>New Values</value>
+    </data>
 </root>

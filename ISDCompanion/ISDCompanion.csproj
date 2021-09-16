@@ -16,6 +16,7 @@
     <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.1.5" />
     <PackageReference Include="Xamarin.Forms.Svg" Version="1.0.3" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
+    <PackageReference Include="NetworksExam" Version="0.1.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DevExpress.XamarinForms.Scheduler" />
@@ -30,7 +31,7 @@
     <None Remove="Resources\ISD3_WiSe21-22_20210908.svg" />
     <None Remove="Xamarin.CommunityToolkit" />
     <None Remove="Resx\" />
-    <None Remove="Licenses\xamarin_forms %28copy%29.html" />
+    <None Remove="NetworksExam" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />
@@ -45,7 +46,6 @@
     <EmbeddedResource Include="Licenses\xamarin_forms.html" />
     <EmbeddedResource Include="Resources\tiger.svg" />    
     <EmbeddedResource Include="Resources\ISD3_WiSe21-22_20210908.svg" />
-    <EmbeddedResource Include="Licenses\xamarin_forms %28copy%29.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
