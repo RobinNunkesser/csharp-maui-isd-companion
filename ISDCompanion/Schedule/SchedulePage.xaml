@@ -5,28 +5,32 @@
     xmlns:dxsch="http://schemas.devexpress.com/xamarin/2014/forms/scheduler"
     xmlns:local="clr-namespace:ISDCompanion"
     x:Class="ISDCompanion.SchedulePage">
-    <ContentPage.BindingContext>
-        <local:ScheduleViewModel/>
-    </ContentPage.BindingContext>
     <ContentPage.Content>
         <dxsch:WorkWeekView>
-        <dxsch:WorkWeekView.DataStorage>
-            <dxsch:SchedulerDataStorage>
-                <dxsch:SchedulerDataStorage.DataSource>
-                    <dxsch:DataSource AppointmentsSource="{Binding Appointments}">
-                        <dxsch:DataSource.AppointmentMappings>
-                            <dxsch:AppointmentMappings 
-                            Id="Id" 
-                            Start="StartTime" 
-                            End="EndTime" 
-                            Subject="Subject"
-                            LabelId="LabelId"
-                            Location="Location"/>
-                        </dxsch:DataSource.AppointmentMappings>
-                    </dxsch:DataSource>
-                </dxsch:SchedulerDataStorage.DataSource>
-            </dxsch:SchedulerDataStorage>
-        </dxsch:WorkWeekView.DataStorage>
-    </dxsch:WorkWeekView>
+            <dxsch:WorkWeekView.DataStorage>
+                <dxsch:SchedulerDataStorage>
+                    <dxsch:SchedulerDataStorage.DataSource>
+                        <dxsch:DataSource AppointmentsSource="{Binding Appointments}">
+                            <dxsch:DataSource.AppointmentMappings>
+                                <dxsch:AppointmentMappings
+                                    Start="Start" 
+                                    End="End"
+                                    AllDay="AllDay"
+                                    Subject="Subject"
+                                    Id="Id"
+                                    LabelId="LabelId"
+                                    Location="Location"                                    
+                                    />
+                                <!-- Description="Description"
+                                    RecurrenceInfo="RecurrenceInfo"
+                                    Reminder="Reminder"
+                                    StatusId="StatusId" 
+                                    Type="Type" -->                                    
+                            </dxsch:DataSource.AppointmentMappings>
+                        </dxsch:DataSource>
+                    </dxsch:SchedulerDataStorage.DataSource>
+                </dxsch:SchedulerDataStorage>
+            </dxsch:WorkWeekView.DataStorage>
+        </dxsch:WorkWeekView>
     </ContentPage.Content>
 </ContentPage>

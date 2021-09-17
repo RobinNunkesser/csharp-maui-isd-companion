@@ -11,5 +11,11 @@ namespace ISDCompanion
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BindingContext = new ScheduleViewModel();
+        }
     }
 }
