@@ -44,7 +44,7 @@ namespace ISDCompanion
                             case 2: return AppointmentHelper.appointmentsSem6CySe;
                             default: return null;
                         }
-                    case 7:
+                    case 6:
                         switch (Specialization)
                         {
                             case 0: return AppointmentHelper.appointmentsSem7MoCo;

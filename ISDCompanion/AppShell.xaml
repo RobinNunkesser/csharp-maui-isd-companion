@@ -7,15 +7,6 @@
     x:Class="ISDCompanion.AppShell"
     Title="Companion">    
     <TabBar>
-        <Tab Title="{xct:Translate Mensa}">
-            <Tab.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="outline_restaurant_menu_black_24pt" />
-                    <On Platform="Android" Value="ic_baseline_restaurant_menu_24" />
-                </OnPlatform>
-            </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate local:MensaPage}" />
-        </Tab>
         <Tab Title="{xct:Translate Schedule}">
             <Tab.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -25,14 +16,14 @@
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:SchedulePage}" />
         </Tab>
-        <Tab Title="{xct:Translate Profs}">
+        <Tab Title="{xct:Translate Mensa}">
             <Tab.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="outline_school_black_24pt" />
-                    <On Platform="Android" Value="ic_baseline_school_24" />
+                    <On Platform="iOS" Value="outline_restaurant_menu_black_24pt" />
+                    <On Platform="Android" Value="ic_baseline_restaurant_menu_24" />
                 </OnPlatform>
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate local:ProfsPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:MensaPage}" />
         </Tab>
         <Tab Title="{xct:Translate Exercises}">
             <Tab.Icon>
@@ -42,6 +33,15 @@
                 </OnPlatform>
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:ExercisesPage}" />
+        </Tab>
+        <Tab Title="{xct:Translate Profs}">
+            <Tab.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="outline_school_black_24pt" />
+                    <On Platform="Android" Value="ic_baseline_school_24" />
+                </OnPlatform>
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:ProfsPage}" />
         </Tab>
         <Tab Title="{xct:Translate Settings}">
             <Tab.Icon>

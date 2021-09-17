@@ -8,7 +8,7 @@
     x:Class="ISDCompanion.SchedulePage"
     Title="{xct:Translate Schedule}">
     <ContentPage.Content>
-        <dxsch:WorkWeekView>
+        <dxsch:WorkWeekView WorkTime="8:00:00-18:00:00" ShowWorkTimeOnly="True">
             <dxsch:WorkWeekView.DataStorage>
                 <dxsch:SchedulerDataStorage>
                     <dxsch:SchedulerDataStorage.DataSource>
