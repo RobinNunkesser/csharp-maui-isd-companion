@@ -47,5 +47,8 @@
     </data>
 	<data name="Schedule">
         <value>Stundenplan</value>
-    </data>	
+    </data>
+    <data name="Specialization">
+        <value>Vertiefung</value>
+    </data>    
 </root>

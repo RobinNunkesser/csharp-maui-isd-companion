@@ -2,16 +2,17 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ISDCompanion.SettingsPage"
-    Title="Einstellungen">
+    Title="{xct:Translate Settings}">
     <ContentPage.Content>
         <TableView Intent="Settings">
             <TableRoot>
-                <TableSection Title="Settings">
+                <TableSection Title="{xct:Translate Settings}">
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Semester" HorizontalOptions="StartAndExpand"/>
+                            <StackLayout Orientation="Horizontal" Padding="16,0,16,0">
+                                <Label Text="Semester" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
                                 <Picker Title="Semester" HorizontalOptions="EndAndExpand"
                                     SelectedIndex="{Binding Semester}">
                                     <Picker.ItemsSource>
@@ -31,9 +32,9 @@
                     </ViewCell>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Vertiefung" HorizontalOptions="StartAndExpand"/>
-                                <Picker Title="Vertiefung" HorizontalOptions="EndAndExpand"
+                            <StackLayout Orientation="Horizontal" Padding="16,0,16,0">
+                                <Label Text="{xct:Translate Specialization}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                <Picker Title="{xct:Translate Specialization}" HorizontalOptions="EndAndExpand"
                                     SelectedIndex="{Binding Specialization}">
                                     <Picker.ItemsSource>
                                         <x:Array Type="{x:Type x:String}">
@@ -48,6 +49,21 @@
                     </ViewCell>
                 </TableSection>
                 <TableSection Title="Acknowledgements">
+                    <TextCell Text="DevExpress.XamarinForms.Scheduler" Command="{Binding LicensesCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>devexpress_xamarinforms_scheduler.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="NetworksExam" Command="{Binding LicensesCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>networksexam.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="OperatingSystemsExam" Command="{Binding LicensesCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>operatingsystemsexam.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>                     
                     <TextCell Text="Xamarin.CommunityToolkit" Command="{Binding LicensesCommand}">
                         <TextCell.CommandParameter>
                             <x:String>xamarin_communitytoolkit.html</x:String>

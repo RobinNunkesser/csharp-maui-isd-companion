@@ -118,5 +118,11 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("Schedule", resourceCulture);
             }
         }
+        
+        internal static string Specialization {
+            get {
+                return ResourceManager.GetString("Specialization", resourceCulture);
+            }
+        }
     }
 }

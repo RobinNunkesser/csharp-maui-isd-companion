@@ -23,7 +23,7 @@ namespace ISDCompanion.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            Xamarin.Forms.Svg.iOS.SvgImage.Init();
+            
             DevExpress.XamarinForms.Scheduler.iOS.Initializer.Init();
             LoadApplication(new App());
 

@@ -58,9 +58,6 @@
     <PackageReference Include="DevExpress.XamarinForms.Scheduler">
       <Version>21.1.5</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms.Svg">
-      <Version>1.0.3</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />

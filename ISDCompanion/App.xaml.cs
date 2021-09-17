@@ -2,7 +2,6 @@
 using ISDCompanion.Resx;
 using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Forms;
-using Xamarin.Forms.Svg;
 using Xamarin.Forms.Xaml;
 
 namespace ISDCompanion
@@ -17,9 +16,7 @@ namespace ISDCompanion
             LocalizationResourceManager.Current.Init(AppResources.ResourceManager);
 
             InitializeComponent();
-
-            SvgImageSource.RegisterAssembly();
-
+            
             MainPage = new AppShell();
         }
 

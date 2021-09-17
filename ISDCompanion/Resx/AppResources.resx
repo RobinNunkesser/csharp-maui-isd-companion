@@ -47,5 +47,8 @@
     </data>
 	<data name="Schedule">
         <value>Schedule</value>
-    </data>	
+    </data>
+	<data name="Specialization">
+        <value>Specialization</value>
+    </data>    
 </root>

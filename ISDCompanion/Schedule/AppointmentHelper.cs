@@ -24,15 +24,15 @@ namespace ISDCompanion
 
         static AppointmentHelper()
         {
-
+            var svsv = CreateRecurrentAppointment("21.09.2021 08:00", 120, "SSP CySe III - System Verifikation und System Validierung VL", occurrences: 20);            
+            appointmentsSem7CySe.AddRange(svsv);
         }
 
         private static List<AppointmentItem> CreateRecurrentAppointment(string dateString,int lengthInMinutes, string subject, string location = "", bool allDay = false, int occurrences = 1 )
         {
             var appointments = new List<AppointmentItem>();
             var startDate = DateTime.ParseExact(dateString, format, CultureInfo.InvariantCulture);
-            var endDate = startDate;
-            endDate.AddMinutes(lengthInMinutes);
+            var endDate = startDate.AddMinutes(lengthInMinutes);
             for (int i = 0; i < occurrences; i++)
             {
                 var appointment = new AppointmentItem()
@@ -44,55 +44,11 @@ namespace ISDCompanion
                     Location = location
                 };
                 appointments.Add(appointment);
-                startDate.AddDays(7);
-                endDate.AddDays(7);
+                startDate = startDate.AddDays(7);
+                endDate = endDate.AddDays(7);
             }
             return appointments;
         }
-
-        private static List<AppointmentItem> Appointments0 = new List<AppointmentItem>() {
-                new AppointmentItem()
-        {
-            Id = 0,
-                    AllDay = false,
-                    Start = DayInWeek(DayOfWeek.Monday).AddHours(8),
-                    End = DayInWeek(DayOfWeek.Monday).AddHours(10),
-                    Subject = "Montag 1",
-                    LabelId = 1,
-                    Location = "Raum 3"
-                },
-                new AppointmentItem()
-        {
-            Id = 1,
-                    AllDay = false,
-                    Start = DayInWeek(DayOfWeek.Wednesday).AddHours(10),
-                    End = DayInWeek(DayOfWeek.Wednesday).AddHours(12),
-                    Subject = "Mittwcoh 1",
-                    LabelId = 1,
-                    Location = "Raum 3"
-                } };
-
-        private static List<AppointmentItem> Appointments1 = new List<AppointmentItem>() {
-                new AppointmentItem()
-        {
-            Id = 0,
-                    AllDay = false,
-                    Start = DayInWeek(DayOfWeek.Monday).AddHours(8),
-                    End = DayInWeek(DayOfWeek.Monday).AddHours(10),
-                    Subject = "Montag 2",
-                    LabelId = 1,
-                    Location = "Raum 3"
-                },
-                new AppointmentItem()
-        {
-            Id = 1,
-                    AllDay = false,
-                    Start = DayInWeek(DayOfWeek.Wednesday).AddHours(10),
-                    End = DayInWeek(DayOfWeek.Wednesday).AddHours(12),
-                    Subject = "Mittwcoh 2",
-                    LabelId = 1,
-                    Location = "Raum 3"
-                } };
 
         private static DateTime DayInWeek(DayOfWeek dayOfWeek)
         {
