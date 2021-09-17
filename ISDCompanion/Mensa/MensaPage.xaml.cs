@@ -10,6 +10,7 @@ namespace ISDCompanion
         public MensaPage()
         {
             InitializeComponent();
+            Browser.Source = "https://www.studierendenwerk-pb.de/gastronomie/speiseplaene/";
         }
     }
 }

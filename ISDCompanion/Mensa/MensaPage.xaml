@@ -2,8 +2,10 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="ISDCompanion.MensaPage">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="ISDCompanion.MensaPage"
+    Title="{xct:Translate Mensa}">
+    <StackLayout>
+        <WebView x:Name="Browser" HeightRequest="1000" WidthRequest="1000"/>
+    </StackLayout>        
 </ContentPage>

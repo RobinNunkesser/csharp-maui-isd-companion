@@ -5,12 +5,12 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public partial class ProfsPage : ContentPage
+    public partial class ProfPage : ContentPage
     {
-        public ProfsPage()
+        public ProfPage(string source)
         {
             InitializeComponent();
-            BindingContext = new ProfsViewModel(Navigation);
+            Browser.Source = source;
         }
     }
 }

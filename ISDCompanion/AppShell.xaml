@@ -23,7 +23,7 @@
                     <On Platform="Android" Value="ic_baseline_calendar_today_24" />
                 </OnPlatform>
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate local:ProfsPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:SchedulePage}" />
         </Tab>
         <Tab Title="{xct:Translate Profs}">
             <Tab.Icon>
@@ -32,7 +32,7 @@
                     <On Platform="Android" Value="ic_baseline_school_24" />
                 </OnPlatform>
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate local:SchedulePage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:ProfsPage}" />
         </Tab>
         <Tab Title="{xct:Translate Exercises}">
             <Tab.Icon>
