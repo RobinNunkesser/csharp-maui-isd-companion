@@ -35,5 +35,17 @@
     </data>
 	<data name="ShowSolution">
         <value>Lösung anzeigen</value>
+    </data>
+	<data name="Settings">
+        <value>Einstellungen</value>
+    </data>
+	<data name="Profs">
+        <value>Profs</value>
+    </data>
+	<data name="Mensa">
+        <value>Mensa</value>
+    </data>
+	<data name="Schedule">
+        <value>Stundenplan</value>
     </data>	
 </root>

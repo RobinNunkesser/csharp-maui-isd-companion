@@ -94,5 +94,29 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("ShowSolution", resourceCulture);
             }
         }
+        
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        internal static string Profs {
+            get {
+                return ResourceManager.GetString("Profs", resourceCulture);
+            }
+        }
+        
+        internal static string Mensa {
+            get {
+                return ResourceManager.GetString("Mensa", resourceCulture);
+            }
+        }
+        
+        internal static string Schedule {
+            get {
+                return ResourceManager.GetString("Schedule", resourceCulture);
+            }
+        }
     }
 }

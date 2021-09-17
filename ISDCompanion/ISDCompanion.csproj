@@ -29,11 +29,12 @@
     <None Remove="Licenses\xamarin_forms.html" />
     <None Remove="Xamarin.Forms.Svg" />
     <None Remove="Resources\" />
-    <None Remove="Resources\ISD3_WiSe21-22_20210908.svg" />
     <None Remove="Xamarin.CommunityToolkit" />
     <None Remove="Resx\" />
     <None Remove="NetworksExam" />
     <None Remove="OperatingSystemsExam" />
+    <None Remove="Mensa\" />
+    <None Remove="Profs\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />
@@ -42,12 +43,12 @@
     <Folder Include="Licenses\" />
     <Folder Include="Resources\" />
     <Folder Include="Resx\" />
+    <Folder Include="Mensa\" />
+    <Folder Include="Profs\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Licenses\xamarin_essentials.html" />
     <EmbeddedResource Include="Licenses\xamarin_forms.html" />
-    <EmbeddedResource Include="Resources\tiger.svg" />    
-    <EmbeddedResource Include="Resources\ISD3_WiSe21-22_20210908.svg" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">

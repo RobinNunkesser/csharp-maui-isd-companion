@@ -35,5 +35,17 @@
     </data>
 	<data name="ShowSolution">
         <value>Show solution</value>
+    </data>
+	<data name="Settings">
+        <value>Settings</value>
+    </data>
+	<data name="Profs">
+        <value>Profs</value>
+    </data>
+	<data name="Mensa">
+        <value>Mensa</value>
+    </data>
+	<data name="Schedule">
+        <value>Schedule</value>
     </data>	
 </root>

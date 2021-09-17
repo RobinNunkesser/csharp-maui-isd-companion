@@ -14,14 +14,31 @@ namespace ISDCompanion
             Appointments = new List<Appointment>() {
                 new Appointment() {
                     Id = 0,
-                    StartTime = DateTime.Now,
-                    EndTime = DateTime.Now.AddHours(2),
-                    Subject = "Betrieb",
+                    StartTime = DayInWeek(DayOfWeek.Monday).AddHours(8),
+                    EndTime = DayInWeek(DayOfWeek.Monday).AddHours(10),
+                    Subject = "Montag",
                     LabelId = 1,
                     Location = "Raum 3"
-                } };
+                },
+                new Appointment() {
+                    Id = 1,
+                    StartTime = DayInWeek(DayOfWeek.Wednesday).AddHours(10),
+                    EndTime = DayInWeek(DayOfWeek.Wednesday).AddHours(12),
+                    Subject = "Mittwcoh",
+                    LabelId = 1,
+                    Location = "Raum 3"
+                }
+            };
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /*private Appointment CreateAppointment(int weekday) {
+            DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + weekday);
+        }*/
+        private DateTime DayInWeek(DayOfWeek dayOfWeek)
+        {
+            return DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)dayOfWeek);
+        }
     }
 }
