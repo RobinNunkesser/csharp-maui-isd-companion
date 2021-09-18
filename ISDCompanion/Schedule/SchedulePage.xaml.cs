@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using DevExpress.XamarinForms.Core.Themes;
 using Xamarin.Forms;
 
 namespace ISDCompanion
@@ -9,6 +9,12 @@ namespace ISDCompanion
     {
         public SchedulePage()
         {
+            var currentTheme = Application.Current.RequestedTheme;
+            switch (currentTheme)
+            {
+                case OSAppTheme.Light: ThemeManager.ThemeName = Theme.Light; break;
+                case OSAppTheme.Dark: ThemeManager.ThemeName = Theme.Dark; break;
+            }            
             InitializeComponent();
         }
 
