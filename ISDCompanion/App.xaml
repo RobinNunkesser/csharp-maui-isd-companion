@@ -144,5 +144,10 @@
                         Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, 
                                     Light={StaticResource BackgroundColorLight}}" />
         </Style>
+        <Style TargetType="TableView">
+            <Setter Property="BackgroundColor"
+                    Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, 
+                                    Light={StaticResource BackgroundColorLight}}" />
+        </Style>                 
     </Application.Resources>
 </Application>

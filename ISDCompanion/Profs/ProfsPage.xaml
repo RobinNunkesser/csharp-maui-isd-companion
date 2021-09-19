@@ -5,6 +5,8 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ISDCompanion.ProfsPage"
     Title="{xct:Translate Profs}">
+    <ContentPage.Resources>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <TableView Intent="Data">
             <TableRoot>

@@ -10,10 +10,17 @@
         <TableView Intent="Menu">
             <TableRoot>
                 <TableSection Title="{xct:Translate Networks}">
-                    <TextCell Text="{xct:Translate Bitencodings}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:BitencodingsPage}" />                    
+                    <TextCell Text="{xct:Translate Bitencodings}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:BitencodingsPage}"
+                              TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}"
+                              />                    
                 </TableSection>
                 <TableSection Title="{xct:Translate OperatingSystems}">
-                     <TextCell Text="{xct:Translate PageReplacement}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:PageReplacementPage}" />
+                     <TextCell Text="{xct:Translate PageReplacement}"
+                               Command="{Binding NavigateCommand}"
+                               CommandParameter="{x:Type local:PageReplacementPage}"
+                               TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}"/>
                 </TableSection>
             </TableRoot>
         </TableView>            
