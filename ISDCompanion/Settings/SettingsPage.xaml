@@ -15,7 +15,7 @@
                                 <Label Text="Semester"
                                        HorizontalOptions="StartAndExpand"
                                        VerticalOptions="Center"
-                                       TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}"/>
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"/>
                                 <Picker Title="Semester" HorizontalOptions="EndAndExpand"
                                     SelectedIndex="{Binding Semester}">
                                     <Picker.ItemsSource>
@@ -39,7 +39,7 @@
                                 <Label Text="{xct:Translate Specialization}"
                                        HorizontalOptions="StartAndExpand"
                                        VerticalOptions="Center"
-                                       TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}"/>
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"/>
                                 <Picker Title="{xct:Translate Specialization}" HorizontalOptions="EndAndExpand"
                                     SelectedIndex="{Binding Specialization}">
                                     <Picker.ItemsSource>
@@ -55,44 +55,43 @@
                     </ViewCell>
                 </TableSection>
                 <TableSection Title="Acknowledgements">
-                    <TextCell Text="DevExpress.XamarinForms.Scheduler"
-                              Command="{Binding LicensesCommand}"
-                              TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}">
+                    <TextCell Text="DevExpress.XamarinForms.Scheduler"                              
+                              Command="{Binding LicensesCommand}">
                         <TextCell.CommandParameter>
                             <x:String>devexpress_xamarinforms_scheduler.html</x:String>
                         </TextCell.CommandParameter>
                     </TextCell>
                     <TextCell Text="NetworksExam"
                               Command="{Binding LicensesCommand}"
-                              TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}">
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
                         <TextCell.CommandParameter>
                             <x:String>networksexam.html</x:String>
                         </TextCell.CommandParameter>
                     </TextCell>
                     <TextCell Text="OperatingSystemsExam"
                               Command="{Binding LicensesCommand}"
-                              TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}">
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
                         <TextCell.CommandParameter>
                             <x:String>operatingsystemsexam.html</x:String>
                         </TextCell.CommandParameter>
                     </TextCell>                     
                     <TextCell Text="Xamarin.CommunityToolkit"
                               Command="{Binding LicensesCommand}"
-                              TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}">
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
                         <TextCell.CommandParameter>
                             <x:String>xamarin_communitytoolkit.html</x:String>
                         </TextCell.CommandParameter>
                     </TextCell>
                     <TextCell Text="Xamarin.Forms"
                               Command="{Binding LicensesCommand}"
-                              TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}">
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
                         <TextCell.CommandParameter>
                             <x:String>xamarin_forms.html</x:String>
                         </TextCell.CommandParameter>
                     </TextCell>
                     <TextCell Text="Xamarin.Essentials"
                               Command="{Binding LicensesCommand}"
-                              TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}">
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
                         <TextCell.CommandParameter>
                             <x:String>xamarin_essentials.html</x:String>
                         </TextCell.CommandParameter>

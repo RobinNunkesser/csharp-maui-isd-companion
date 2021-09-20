@@ -13,14 +13,14 @@
                     <TextCell Text="{xct:Translate Bitencodings}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:BitencodingsPage}"
-                              TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />                    
                 </TableSection>
                 <TableSection Title="{xct:Translate OperatingSystems}">
                      <TextCell Text="{xct:Translate PageReplacement}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:PageReplacementPage}"
-                               TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}"/>
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
                 </TableSection>
             </TableRoot>
         </TableView>            

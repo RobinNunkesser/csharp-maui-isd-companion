@@ -3,44 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ISDCompanion.App">
     <Application.Resources>
-        <Color x:Key="TransparentColor">Transparent</Color>
-
-        <!-- Light colors -->
-        <Color x:Key="LightPageBackgroundColor">White</Color>
-        <Color x:Key="LightNavigationBarColor">WhiteSmoke</Color>
-        <Color x:Key="LightPrimaryColor">WhiteSmoke</Color>
-        <Color x:Key="LightSecondaryColor">Black</Color>
-        <Color x:Key="LightPrimaryTextColor">Black</Color>
-        <Color x:Key="LightSecondaryTextColor">White</Color>
-        <Color x:Key="LightTertiaryTextColor">Gray</Color>
-
-        <!-- Dark colors -->
-        <Color x:Key="DarkPageBackgroundColor">Black</Color>
-        <Color x:Key="DarkNavigationBarColor">Teal</Color>
-        <Color x:Key="DarkPrimaryColor">Teal</Color>
-        <Color x:Key="DarkSecondaryColor">White</Color>
-        <Color x:Key="DarkPrimaryTextColor">White</Color>
-        <Color x:Key="DarkSecondaryTextColor">White</Color>
-        <Color x:Key="DarkTertiaryTextColor">WhiteSmoke</Color>
-
-        <Color x:Key="BackgroundColorDark">#111111</Color>
+        <Color x:Key="BackgroundColorDark">#000000</Color>
         <Color x:Key="BackgroundColorLight">#ffffff</Color>
         <Color x:Key="TextColorDark">#ffffff</Color>
-        <Color x:Key="TextColorLight">#000000</Color>
+        <Color x:Key="TextColorLight">#2F2F2F</Color>
 
         <Color x:Key="HeaderBarBackgroundColorLight">#F7F7F7</Color>
-        <Color x:Key="HeaderBarBackgroundColorDark">#111111</Color>
+        <Color x:Key="HeaderBarBackgroundColorDark">#121212</Color>
         <Color x:Key="HeaderBarTextColorLight">#020202</Color>
         <Color x:Key="HeaderBarTextColorDark">#FFFFFF</Color>
 
         <Color x:Key="TabBarBackgroundColorLight">#F7F7F7</Color>
-        <Color x:Key="TabBarBackgroundColorDark">#111111</Color>
+        <Color x:Key="TabBarBackgroundColorDark">#121212</Color>
         <Color x:Key="TabBarForegroundColorLight">#007aff</Color>
-        <Color x:Key="TabBarForegroundColorDark">#FFFFFF</Color>
+        <Color x:Key="TabBarForegroundColorDark">#007aff</Color>
         <Color x:Key="TabBarUnselectedColorLight">#959595</Color>
         <Color x:Key="TabBarUnselectedColorDark">#959595</Color>
         <Color x:Key="TabBarTitleColorLight">#007aff</Color>
-        <Color x:Key="TabBarTitleColorDark">#FFFFFF</Color>
+        <Color x:Key="TabBarTitleColorDark">#007aff</Color>
 
         <Color x:Key="ButtonBackgroundColorLight">#2196F3</Color>
         <Color x:Key="ButtonBackgroundColorDark">#2196F3</Color>
@@ -58,53 +38,8 @@
         <Color x:Key="PrimaryBackgroundLight">#2196F3</Color>
         <Color x:Key="PrimaryTextDark">#ffffff</Color>
         <Color x:Key="PrimaryTextLight">#ffffff</Color>        
-
-        <Style TargetType="NavigationPage">
-            <Setter Property="BarBackgroundColor"
-                    Value="{AppThemeBinding Light={StaticResource LightNavigationBarColor}, Dark={StaticResource DarkNavigationBarColor}}" />
-            <Setter Property="BarTextColor"
-                    Value="{AppThemeBinding Light={StaticResource LightSecondaryColor}, Dark={StaticResource DarkSecondaryColor}}" />
-        </Style>
-
-        <Style x:Key="ButtonStyle"
-               TargetType="Button">
-            <Setter Property="BackgroundColor"
-                    Value="{AppThemeBinding Light={StaticResource LightPrimaryColor}, Dark={StaticResource DarkPrimaryColor}}" />
-            <Setter Property="TextColor"
-                    Value="{AppThemeBinding Light={StaticResource LightSecondaryColor}, Dark={StaticResource DarkSecondaryColor}}" />
-            <Setter Property="HeightRequest"
-                    Value="45" />
-            <Setter Property="WidthRequest"
-                    Value="190" />
-            <Setter Property="CornerRadius"
-                    Value="18" />
-        </Style>
-
-        <Style x:Key="LargeLabelStyle"
-               TargetType="Label">
-            <Setter Property="TextColor"
-                    Value="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}" />
-            <Setter Property="FontSize"
-                    Value="30" />
-        </Style>
-
-        <Style x:Key="MediumLabelStyle"
-               TargetType="Label">
-            <Setter Property="TextColor"
-                    Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
-            <Setter Property="FontSize"
-                    Value="25" />
-        </Style>
-
-        <Style x:Key="SmallLabelStyle"
-               TargetType="Label">
-            <Setter Property="TextColor"
-                    Value="{AppThemeBinding Light={StaticResource LightTertiaryTextColor}, Dark={StaticResource DarkTertiaryTextColor}}" />
-            <Setter Property="FontSize"
-                    Value="15" />
-        </Style>
-
-        <Style TargetType="Button">
+      
+        <!--<Style TargetType="Button">
             <Setter Property="TextColor" 
                         Value="{AppThemeBinding Dark={StaticResource ButtonTextColorDark}, 
                                     Light={StaticResource ButtonTextColorLight}}" />
@@ -128,7 +63,7 @@
                     </VisualStateGroup>
                 </VisualStateGroupList>
             </Setter>
-        </Style>
+        </Style>-->
 
 
         <Style TargetType="ContentPage">
