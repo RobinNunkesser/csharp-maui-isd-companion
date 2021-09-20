@@ -29,3 +29,5 @@ _nugetassetstimestamp=637674756108721264
 typemapkind=strings-asm
 androidsupportedabis=armeabi-v7a
 arm64-v8a
+x86
+x86_64

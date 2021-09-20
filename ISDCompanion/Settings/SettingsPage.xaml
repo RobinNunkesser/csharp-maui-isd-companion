@@ -56,7 +56,8 @@
                 </TableSection>
                 <TableSection Title="Acknowledgements">
                     <TextCell Text="DevExpress.XamarinForms.Scheduler"                              
-                              Command="{Binding LicensesCommand}">
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
                         <TextCell.CommandParameter>
                             <x:String>devexpress_xamarinforms_scheduler.html</x:String>
                         </TextCell.CommandParameter>
