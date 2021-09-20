@@ -21,15 +21,16 @@
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor"
-                        Value="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark}, 
-                                    Light={StaticResource HeaderBarBackgroundColorLight}}"/>
+                        Value="{AppThemeBinding Dark={StaticResource TabBarBackgroundColorDark}, 
+                                    Light={StaticResource TabBarBackgroundColorLight}}"/>
                 <Setter Property="Shell.TabBarForegroundColor" 
-                        Value="{AppThemeBinding Dark={StaticResource HeaderBarTextColorDark}, 
-                                    Light={StaticResource HeaderBarTextColorLight}}"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                        Value="{AppThemeBinding Dark={StaticResource TabBarForegroundColorDark}, 
+                                    Light={StaticResource TabBarForegroundColorLight}}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Dark={StaticResource TabBarUnselectedColorDark}, 
+                                    Light={StaticResource TabBarUnselectedColorLight}}"/>
                 <Setter Property="Shell.TabBarTitleColor" 
-                        Value="{AppThemeBinding Dark={StaticResource HeaderBarTextColorDark}, 
-                                    Light={StaticResource HeaderBarTextColorLight}}"/>
+                        Value="{AppThemeBinding Dark={StaticResource TabBarTitleColorDark}, 
+                                    Light={StaticResource TabBarTitleColorLight}}"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />

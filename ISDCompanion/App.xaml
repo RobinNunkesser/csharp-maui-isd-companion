@@ -23,17 +23,24 @@
         <Color x:Key="DarkSecondaryTextColor">White</Color>
         <Color x:Key="DarkTertiaryTextColor">WhiteSmoke</Color>
 
-        <!-- Colors from Mitchell Sellers -->
-
         <Color x:Key="BackgroundColorDark">#111111</Color>
         <Color x:Key="BackgroundColorLight">#ffffff</Color>
         <Color x:Key="TextColorDark">#ffffff</Color>
         <Color x:Key="TextColorLight">#000000</Color>
 
-        <Color x:Key="HeaderBarBackgroundColorLight">#2196F3</Color>
+        <Color x:Key="HeaderBarBackgroundColorLight">#F7F7F7</Color>
         <Color x:Key="HeaderBarBackgroundColorDark">#111111</Color>
-        <Color x:Key="HeaderBarTextColorLight">#FFFFFF</Color>
+        <Color x:Key="HeaderBarTextColorLight">#020202</Color>
         <Color x:Key="HeaderBarTextColorDark">#FFFFFF</Color>
+
+        <Color x:Key="TabBarBackgroundColorLight">#F7F7F7</Color>
+        <Color x:Key="TabBarBackgroundColorDark">#111111</Color>
+        <Color x:Key="TabBarForegroundColorLight">#007aff</Color>
+        <Color x:Key="TabBarForegroundColorDark">#FFFFFF</Color>
+        <Color x:Key="TabBarUnselectedColorLight">#959595</Color>
+        <Color x:Key="TabBarUnselectedColorDark">#959595</Color>
+        <Color x:Key="TabBarTitleColorLight">#007aff</Color>
+        <Color x:Key="TabBarTitleColorDark">#FFFFFF</Color>
 
         <Color x:Key="ButtonBackgroundColorLight">#2196F3</Color>
         <Color x:Key="ButtonBackgroundColorDark">#2196F3</Color>
@@ -50,7 +57,7 @@
         <Color x:Key="PrimaryBackgroundDark">#2196F3</Color>
         <Color x:Key="PrimaryBackgroundLight">#2196F3</Color>
         <Color x:Key="PrimaryTextDark">#ffffff</Color>
-        <Color x:Key="PrimaryTextLight">#ffffff</Color>
+        <Color x:Key="PrimaryTextLight">#ffffff</Color>        
 
         <Style TargetType="NavigationPage">
             <Setter Property="BarBackgroundColor"
