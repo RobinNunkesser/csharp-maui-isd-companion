@@ -31,7 +31,7 @@ namespace Mensa.Infrastructure.STWPB
 
         public async Task<List<Meal>> GetTodaysHammMeals()
         {
-            var meals = await HttpClient.GetFromJsonAsync<List<Meal>>($"fileadmin/shareddata/access2.php?id={Secret.id}&restaurant=mensa-hamm", Converter.Options);
+            var meals = await HttpClient.GetFromJsonAsync<List<Meal>>($"fileadmin/shareddata/access2.php?id={Secret.id}&restaurant=mensa-hamm&date=2021-09-27", Converter.Options);
             return meals;
         }
     }

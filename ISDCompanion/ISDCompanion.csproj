@@ -42,6 +42,7 @@
     <None Remove="Quiz\" />
     <None Remove="TriviaPorts" />
     <None Remove="Licenses\triviaports.html" />
+    <None Remove="Common\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />
@@ -53,6 +54,7 @@
     <Folder Include="Mensa\" />
     <Folder Include="Profs\" />
     <Folder Include="Quiz\" />
+    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Licenses\xamarin_essentials.html" />

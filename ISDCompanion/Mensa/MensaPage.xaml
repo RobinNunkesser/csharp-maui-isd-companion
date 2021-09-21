@@ -3,9 +3,36 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:local="clr-namespace:ISDCompanion"
     x:Class="ISDCompanion.MensaPage"
     Title="{xct:Translate Mensa}">
-    <StackLayout>
-        <WebView x:Name="Browser" HeightRequest="1000" WidthRequest="1000"/>
-    </StackLayout>        
+    <ListView IsGroupingEnabled="true" HasUnevenRows="true"
+                  ItemsSource="{Binding Meals}"
+                  GroupDisplayBinding="{Binding LongName}"
+                  GroupShortNameBinding="{Binding ShortName}">
+        <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal"
+                                 HeightRequest="90"
+                                 VerticalOptions="FillAndExpand">
+                                <Image Source="{Binding Image}"
+                                     WidthRequest="90" HeightRequest="90" />
+                                <StackLayout Orientation="Vertical"
+                                     HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Name}"
+                                         FontAttributes="Bold"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Start" />
+                                    <Label Text="{Binding Name}"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
