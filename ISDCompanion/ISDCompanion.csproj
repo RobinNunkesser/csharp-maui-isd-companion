@@ -17,6 +17,7 @@
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
     <PackageReference Include="NetworksExam" Version="0.1.0" />
     <PackageReference Include="OperatingSystemsExam" Version="0.1.0" />
+    <PackageReference Include="TriviaPorts" Version="0.1.1" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DevExpress.XamarinForms.Scheduler" />
@@ -38,6 +39,9 @@
     <None Remove="Licenses\networksexam.html" />
     <None Remove="Licenses\operatingsystemsexam.html" />
     <None Remove="Licenses\xamarin_communitytoolkit.html" />
+    <None Remove="Quiz\" />
+    <None Remove="TriviaPorts" />
+    <None Remove="Licenses\triviaports.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />
@@ -48,6 +52,7 @@
     <Folder Include="Resx\" />
     <Folder Include="Mensa\" />
     <Folder Include="Profs\" />
+    <Folder Include="Quiz\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Licenses\xamarin_essentials.html" />
@@ -56,6 +61,7 @@
     <EmbeddedResource Include="Licenses\networksexam.html" />
     <EmbeddedResource Include="Licenses\operatingsystemsexam.html" />
     <EmbeddedResource Include="Licenses\xamarin_communitytoolkit.html" />
+    <EmbeddedResource Include="Licenses\triviaports.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">

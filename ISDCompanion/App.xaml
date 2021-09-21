@@ -9,12 +9,12 @@
         <Color x:Key="TextColorLight">#2F2F2F</Color>
 
         <Color x:Key="HeaderBarBackgroundColorLight">#F7F7F7</Color>
-        <Color x:Key="HeaderBarBackgroundColorDark">#121212</Color>
+        <Color x:Key="HeaderBarBackgroundColorDark">#101010</Color>
         <Color x:Key="HeaderBarTextColorLight">#020202</Color>
         <Color x:Key="HeaderBarTextColorDark">#FFFFFF</Color>
 
         <Color x:Key="TabBarBackgroundColorLight">#F7F7F7</Color>
-        <Color x:Key="TabBarBackgroundColorDark">#121212</Color>
+        <Color x:Key="TabBarBackgroundColorDark">#101010</Color>
         <Color x:Key="TabBarForegroundColorLight">#007aff</Color>
         <Color x:Key="TabBarForegroundColorDark">#007aff</Color>
         <Color x:Key="TabBarUnselectedColorLight">#959595</Color>

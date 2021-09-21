@@ -75,6 +75,13 @@
                         <TextCell.CommandParameter>
                             <x:String>operatingsystemsexam.html</x:String>
                         </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="TriviaPorts"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>triviaports.html</x:String>
+                        </TextCell.CommandParameter>
                     </TextCell>                     
                     <TextCell Text="Xamarin.CommunityToolkit"
                               Command="{Binding LicensesCommand}"
