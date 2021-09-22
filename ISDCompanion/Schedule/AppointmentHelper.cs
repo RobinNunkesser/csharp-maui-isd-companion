@@ -24,6 +24,22 @@ namespace ISDCompanion
 
         static AppointmentHelper()
         {
+            // 1
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("27.09.2021 09:00", 120, "Physik VL", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("27.09.2021 11:00", 120, "Biologie VL", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("27.09.2021 15:00", 120, "Chemie VL", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("28.09.2021 08:00", 120, "Personal Skills I VL/ÜB", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("28.09.2021 10:00", 60, "Technisches Englisch I VL", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("28.09.2021 11:00", 60, "Physik ÜB", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("28.09.2021 13:00", 120, "Technische Informatik I ÜB", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("29.09.2021 09:00", 120, "Grundlagen der Programmierung VL", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("29.09.2021 14:00", 120, "Mathematik I VL", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("29.09.2021 16:00", 120, "Technische Informatik I VL", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("30.09.2021 09:00", 60, "Mathematik I", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("30.09.2021 11:00", 120, "Grundlagen der Programmierung ÜB", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("30.09.2021 13:00", 120, "Technisches Englisch I ÜB", occurrences: 19));
+            appointmentsSem1.AddRange(CreateRecurrentAppointment("30.09.2021 15:00", 120, "Mathematik I ÜB", occurrences: 19));
+
             // 3
             appointmentsSem3.AddRange(CreateRecurrentAppointment("20.09.2021 09:00", 120, "Praktische Informatik VL", occurrences: 20));
             appointmentsSem3.AddRange(CreateRecurrentAppointment("20.09.2021 11:00", 120, "Embedded Systems I VL", occurrences: 20));

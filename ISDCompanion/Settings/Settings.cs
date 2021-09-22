@@ -7,7 +7,7 @@ namespace ISDCompanion
 {
     public static class Settings
     {
-        private static readonly int SemesterDefault = 2;
+        private static readonly int SemesterDefault = 0;
         private static readonly int SpecializationDefault = 0;
 
         public static int Semester
