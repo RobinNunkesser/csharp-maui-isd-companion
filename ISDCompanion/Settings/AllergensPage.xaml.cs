@@ -10,6 +10,7 @@ namespace ISDCompanion
         public AllergensPage()
         {
             InitializeComponent();
+            BindingContext = new AllergensViewModel();
         }
     }
 }
