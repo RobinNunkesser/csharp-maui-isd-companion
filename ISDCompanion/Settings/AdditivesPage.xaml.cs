@@ -10,6 +10,7 @@ namespace ISDCompanion
         public AdditivesPage()
         {
             InitializeComponent();
+            BindingContext = new AdditivesViewModel();
         }
     }
 }

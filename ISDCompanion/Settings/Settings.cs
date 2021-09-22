@@ -10,6 +10,7 @@ namespace ISDCompanion
         private static readonly int SemesterDefault = 0;
         private static readonly int SpecializationDefault = 0;
         private static readonly int AllergensDefault = 0b11111111111111;
+        private static readonly int AdditivesDefault = 0b111111111111111;
 
         public static int Semester
         {
@@ -25,6 +26,11 @@ namespace ISDCompanion
         {
             get => (Allergens)Preferences.Get(nameof(Allergens), AllergensDefault);
             set => Preferences.Set(nameof(Allergens), (int)value);
+        }
+        public static Additives Additives
+        {
+            get => (Additives)Preferences.Get(nameof(Additives), AdditivesDefault);
+            set => Preferences.Set(nameof(Additives), (int)value);
         }
 
         public static List<AppointmentItem> Appointments
