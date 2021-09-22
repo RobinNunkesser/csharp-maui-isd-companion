@@ -124,5 +124,197 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("Specialization", resourceCulture);
             }
         }
+        
+        internal static string PricesLabel {
+            get {
+                return ResourceManager.GetString("PricesLabel", resourceCulture);
+            }
+        }
+        
+        internal static string Allergens {
+            get {
+                return ResourceManager.GetString("Allergens", resourceCulture);
+            }
+        }
+        
+        internal static string A1 {
+            get {
+                return ResourceManager.GetString("A1", resourceCulture);
+            }
+        }
+        
+        internal static string A2 {
+            get {
+                return ResourceManager.GetString("A2", resourceCulture);
+            }
+        }
+        
+        internal static string A3 {
+            get {
+                return ResourceManager.GetString("A3", resourceCulture);
+            }
+        }
+        
+        internal static string A4 {
+            get {
+                return ResourceManager.GetString("A4", resourceCulture);
+            }
+        }
+        
+        internal static string A5 {
+            get {
+                return ResourceManager.GetString("A5", resourceCulture);
+            }
+        }
+        
+        internal static string A6 {
+            get {
+                return ResourceManager.GetString("A6", resourceCulture);
+            }
+        }
+        
+        internal static string A7 {
+            get {
+                return ResourceManager.GetString("A7", resourceCulture);
+            }
+        }
+        
+        internal static string A8 {
+            get {
+                return ResourceManager.GetString("A8", resourceCulture);
+            }
+        }
+        
+        internal static string A9 {
+            get {
+                return ResourceManager.GetString("A9", resourceCulture);
+            }
+        }
+        
+        internal static string A10 {
+            get {
+                return ResourceManager.GetString("A10", resourceCulture);
+            }
+        }
+        
+        internal static string A11 {
+            get {
+                return ResourceManager.GetString("A11", resourceCulture);
+            }
+        }
+        
+        internal static string A12 {
+            get {
+                return ResourceManager.GetString("A12", resourceCulture);
+            }
+        }
+        
+        internal static string A13 {
+            get {
+                return ResourceManager.GetString("A13", resourceCulture);
+            }
+        }
+        
+        internal static string A14 {
+            get {
+                return ResourceManager.GetString("A14", resourceCulture);
+            }
+        }
+        
+        internal static string Additives {
+            get {
+                return ResourceManager.GetString("Additives", resourceCulture);
+            }
+        }
+        
+        internal static string Z1 {
+            get {
+                return ResourceManager.GetString("Z1", resourceCulture);
+            }
+        }
+        
+        internal static string Z2 {
+            get {
+                return ResourceManager.GetString("Z2", resourceCulture);
+            }
+        }
+        
+        internal static string Z3 {
+            get {
+                return ResourceManager.GetString("Z3", resourceCulture);
+            }
+        }
+        
+        internal static string Z4 {
+            get {
+                return ResourceManager.GetString("Z4", resourceCulture);
+            }
+        }
+        
+        internal static string Z5 {
+            get {
+                return ResourceManager.GetString("Z5", resourceCulture);
+            }
+        }
+        
+        internal static string Z6 {
+            get {
+                return ResourceManager.GetString("Z6", resourceCulture);
+            }
+        }
+        
+        internal static string Z7 {
+            get {
+                return ResourceManager.GetString("Z7", resourceCulture);
+            }
+        }
+        
+        internal static string Z8 {
+            get {
+                return ResourceManager.GetString("Z8", resourceCulture);
+            }
+        }
+        
+        internal static string Z9 {
+            get {
+                return ResourceManager.GetString("Z9", resourceCulture);
+            }
+        }
+        
+        internal static string Z10 {
+            get {
+                return ResourceManager.GetString("Z10", resourceCulture);
+            }
+        }
+        
+        internal static string Z11 {
+            get {
+                return ResourceManager.GetString("Z11", resourceCulture);
+            }
+        }
+        
+        internal static string Z12 {
+            get {
+                return ResourceManager.GetString("Z12", resourceCulture);
+            }
+        }
+        
+        internal static string Z13 {
+            get {
+                return ResourceManager.GetString("Z13", resourceCulture);
+            }
+        }
+        
+        internal static string Z14 {
+            get {
+                return ResourceManager.GetString("Z14", resourceCulture);
+            }
+        }
+        
+        internal static string Z15 {
+            get {
+                return ResourceManager.GetString("Z15", resourceCulture);
+            }
+        }
     }
 }

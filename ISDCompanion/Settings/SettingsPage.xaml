@@ -3,6 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:local="clr-namespace:ISDCompanion"   
     x:Class="ISDCompanion.SettingsPage"
     Title="{xct:Translate Settings}">
     <ContentPage.Content>
@@ -52,7 +53,15 @@
                                 </Picker>
                             </StackLayout>
                         </ViewCell.View>
-                    </ViewCell>
+                    </ViewCell>                    
+                     <TextCell Text="{xct:Translate Allergens}"
+                               Command="{Binding NavigateCommand}"
+                               CommandParameter="{x:Type local:AllergensPage}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                
+                     <TextCell Text="{xct:Translate Additives}"
+                               Command="{Binding NavigateCommand}"
+                               CommandParameter="{x:Type local:AdditivesPage}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                
                 </TableSection>
                 <TableSection Title="Acknowledgements">
                     <TextCell Text="DevExpress.XamarinForms.Scheduler"                              

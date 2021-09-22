@@ -50,5 +50,43 @@
     </data>
 	<data name="Specialization">
         <value>Specialization</value>
-    </data>    
+    </data>
+	<data name="PricesLabel">
+        <value>Students / Staff / Guests</value>
+    </data>
+    <data name="Allergens">
+        <value>Allergens</value>
+    </data>
+    <data name="A1"><value>Gluten</value></data>
+    <data name="A2"><value>Shellfish and products/foods containing shellfish</value></data>
+    <data name="A3"><value>Eggs and products/foods containing eggs</value></data>
+    <data name="A4"><value>Fish</value></data>
+    <data name="A5"><value>Peanuts and products/foods containing peanuts</value></data>
+    <data name="A6"><value>Soy and products/foods containing soy</value></data>
+    <data name="A7"><value>Milk and products/foods containing milk (including lactose)</value></data>
+    <data name="A8"><value>Nuts and products/foods containing nuts</value></data>
+    <data name="A9"><value>Celery and products/foods containing celery</value></data>
+    <data name="A10"><value>Mustard and products/foods containing mustard</value></data>
+    <data name="A11"><value>Sesame and products/foods containing sesame</value></data>
+    <data name="A12"><value>Sulfur und sulfite</value></data>
+    <data name="A13"><value>Lupine and products/foods containing lupine</value></data>
+    <data name="A14"><value>Mollusk and products/foods containing mollusk</value></data>
+    <data name="Additives">
+        <value>Additives</value>
+    </data>
+     <data name="Z1"><value>Food coloring</value></data>
+    <data name="Z2"><value>Preservatives</value></data>
+    <data name="Z3"><value>Antioxidants</value></data>
+    <data name="Z4"><value>Flavor enhancer</value></data>
+    <data name="Z5"><value>Phosphate</value></data>
+    <data name="Z6"><value>Sulphureted</value></data>
+    <data name="Z7"><value>Waxed</value></data>
+    <data name="Z8"><value>Blackened</value></data>
+    <data name="Z9"><value>Sweetener(s)</value></data>
+    <data name="Z10"><value>Contains phenylalanine</value></data>
+    <data name="Z11"><value>Taurine</value></data>
+    <data name="Z12"><value>Nitrite pickling salt</value></data>
+    <data name="Z13"><value>Caffeinated</value></data>
+    <data name="Z14"><value>Contains quinine</value></data>
+    <data name="Z15"><value>Milk protein</value></data>
 </root>

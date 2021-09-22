@@ -7,7 +7,7 @@ namespace ISDCompanion
     public class SettingsViewModel
     {
         public ICommand LicensesCommand { get; set; }
-
+        public ICommand NavigateCommand { get; set; }
 
         public int Semester {
             get => Settings.Semester;
@@ -25,6 +25,11 @@ namespace ISDCompanion
             LicensesCommand = new Command<string>(async (string licenseFile) =>
             {                
                 await navigation.PushAsync(new LicensesPage(licenseFile));
+            });
+            NavigateCommand = new Command<Type>(async (Type pageType) =>
+            {
+                Page page = (Page)Activator.CreateInstance(pageType);
+                await navigation.PushAsync(page);
             });
         }
 

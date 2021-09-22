@@ -50,5 +50,43 @@
     </data>
     <data name="Specialization">
         <value>Vertiefung</value>
-    </data>    
+    </data>
+    	<data name="PricesLabel">
+        <value>Studierende / Bedienstete / Gäste</value>
+    </data>
+    <data name="Allergens">
+        <value>Allergene</value>
+    </data>
+    <data name="A1"><value>glutenhaltig</value></data>
+    <data name="A2"><value>Krebstiere und Krebstiererzeugnisse</value></data>
+    <data name="A3"><value>Eier und Eiererzeugnisse</value></data>
+    <data name="A4"><value>Fisch</value></data>
+    <data name="A5"><value>Erdnüsse und Erdnusserzeugnisse</value></data>
+    <data name="A6"><value>Soja und Sojaerzeugnisse</value></data>
+    <data name="A7"><value>Milch und Milcherzeugnisse(einschließlich Lactose)</value></data>
+    <data name="A8"><value>Schalenfrüchte sowie daraus hergest. Erzeugnisse</value></data>
+    <data name="A9"><value>Sellerie und Sellerieerzeugnisse</value></data>
+    <data name="A10"><value>Senf und Senferzeugnisse</value></data>
+    <data name="A11"><value>Sesamsamen und Sesamsamenerzeugnisse</value></data>
+    <data name="A12"><value>Schwefeldioxid und Sulfite</value></data>
+    <data name="A13"><value>Lupinen und Lupinenerzeugnisse</value></data>
+    <data name="A14"><value>Weichtiere und Weichtiererzeugnisse</value></data>
+    <data name="Additives">
+        <value>Zusatzstoffe</value>
+    </data>
+    <data name="Z1"><value>mit Farbstoff(en)</value></data>
+    <data name="Z2"><value>mit Konservierungsstoff(en)</value></data>
+    <data name="Z3"><value>mit Antioxidationsmittel</value></data>
+    <data name="Z4"><value>mit Geschmacksverstärker(n)</value></data>
+    <data name="Z5"><value>mit Phosphat</value></data>
+    <data name="Z6"><value>geschwefelt</value></data>
+    <data name="Z7"><value>gewachst</value></data>
+    <data name="Z8"><value>geschwärzt</value></data>
+    <data name="Z9"><value>mit Süßungsmittel(n)</value></data>
+    <data name="Z10"><value>enthält eine Phenylalaninquelle</value></data>
+    <data name="Z11"><value>mit Taurin</value></data>
+    <data name="Z12"><value>mit Nitratpökelsalz</value></data>
+    <data name="Z13"><value>koffeinhaltig</value></data>
+    <data name="Z14"><value>chininhaltig</value></data>
+    <data name="Z15"><value>Milcheiweiß</value></data>
 </root>

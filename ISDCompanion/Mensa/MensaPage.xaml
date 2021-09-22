@@ -25,6 +25,9 @@
                                          FontAttributes="Bold"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalOptions="Start" />
+                                    <Label Text="{xct:Translate PricesLabel}"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="End" />
                                     <Label Text="{Binding Name}"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalOptions="End" />
