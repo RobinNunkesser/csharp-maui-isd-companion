@@ -352,5 +352,29 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("Show", resourceCulture);
             }
         }
+        
+        internal static string Maindishes {
+            get {
+                return ResourceManager.GetString("Maindishes", resourceCulture);
+            }
+        }
+        
+        internal static string Soups {
+            get {
+                return ResourceManager.GetString("Soups", resourceCulture);
+            }
+        }
+        
+        internal static string Sidedishes {
+            get {
+                return ResourceManager.GetString("Sidedishes", resourceCulture);
+            }
+        }
+        
+        internal static string Desserts {
+            get {
+                return ResourceManager.GetString("Desserts", resourceCulture);
+            }
+        }
     }
 }

@@ -20,7 +20,7 @@
         <ListView IsGroupingEnabled="true" HasUnevenRows="true"
                   ItemsSource="{Binding Meals}"
                   GroupDisplayBinding="{Binding LongName}"
-                  GroupShortNameBinding="{Binding ShortName}">
+                  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -39,7 +39,7 @@
                                     <Label Text="{xct:Translate PricesLabel}"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalOptions="End" />
-                                    <Label Text="{Binding Name}"
+                                    <Label Text="{Binding Price}"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalOptions="End" />
                                 </StackLayout>

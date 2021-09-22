@@ -12,13 +12,13 @@ namespace ISDCompanion
 
         public bool A1
         {
-            get => Settings.Additives.HasFlag(Additives.A1);
+            get => Settings.Additives.HasFlag(Additives.FoodColoring);
             set
             {
                 if (value != A1)
                 {
-                    Settings.Additives |= Additives.A1;
-                    if (!value) Settings.Additives ^= Additives.A1;
+                    Settings.Additives |= Additives.FoodColoring;
+                    if (!value) Settings.Additives ^= Additives.FoodColoring;
                     OnPropertyChanged();
                 }
             }
@@ -26,13 +26,13 @@ namespace ISDCompanion
 
         public bool A2
         {
-            get => Settings.Additives.HasFlag(Additives.A2);
+            get => Settings.Additives.HasFlag(Additives.Preservatives);
             set
             {
                 if (value != A2)
                 {
-                    Settings.Additives |= Additives.A2;
-                    if (!value) Settings.Additives ^= Additives.A2;
+                    Settings.Additives |= Additives.Preservatives;
+                    if (!value) Settings.Additives ^= Additives.Preservatives;
                     OnPropertyChanged();
                 }
             }
@@ -40,13 +40,13 @@ namespace ISDCompanion
 
         public bool A3
         {
-            get => Settings.Additives.HasFlag(Additives.A3);
+            get => Settings.Additives.HasFlag(Additives.Antioxidants);
             set
             {
                 if (value != A3)
                 {
-                    Settings.Additives |= Additives.A3;
-                    if (!value) Settings.Additives ^= Additives.A3;
+                    Settings.Additives |= Additives.Antioxidants;
+                    if (!value) Settings.Additives ^= Additives.Antioxidants;
                     OnPropertyChanged();
                 }
             }
@@ -54,13 +54,13 @@ namespace ISDCompanion
 
         public bool A4
         {
-            get => Settings.Additives.HasFlag(Additives.A4);
+            get => Settings.Additives.HasFlag(Additives.FlavorEnhancer);
             set
             {
                 if (value != A4)
                 {
-                    Settings.Additives |= Additives.A4;
-                    if (!value) Settings.Additives ^= Additives.A4;
+                    Settings.Additives |= Additives.FlavorEnhancer;
+                    if (!value) Settings.Additives ^= Additives.FlavorEnhancer;
                     OnPropertyChanged();
                 }
             }
@@ -68,13 +68,13 @@ namespace ISDCompanion
 
         public bool A5
         {
-            get => Settings.Additives.HasFlag(Additives.A5);
+            get => Settings.Additives.HasFlag(Additives.Phosphate);
             set
             {
                 if (value != A5)
                 {
-                    Settings.Additives |= Additives.A5;
-                    if (!value) Settings.Additives ^= Additives.A5;
+                    Settings.Additives |= Additives.Phosphate;
+                    if (!value) Settings.Additives ^= Additives.Phosphate;
                     OnPropertyChanged();
                 }
             }
@@ -82,13 +82,13 @@ namespace ISDCompanion
 
         public bool A6
         {
-            get => Settings.Additives.HasFlag(Additives.A6);
+            get => Settings.Additives.HasFlag(Additives.Sulphureted);
             set
             {
                 if (value != A6)
                 {
-                    Settings.Additives |= Additives.A6;
-                    if (!value) Settings.Additives ^= Additives.A6;
+                    Settings.Additives |= Additives.Sulphureted;
+                    if (!value) Settings.Additives ^= Additives.Sulphureted;
                     OnPropertyChanged();
                 }
             }
@@ -96,13 +96,13 @@ namespace ISDCompanion
 
         public bool A7
         {
-            get => Settings.Additives.HasFlag(Additives.A7);
+            get => Settings.Additives.HasFlag(Additives.Waxed);
             set
             {
                 if (value != A7)
                 {
-                    Settings.Additives |= Additives.A7;
-                    if (!value) Settings.Additives ^= Additives.A7;
+                    Settings.Additives |= Additives.Waxed;
+                    if (!value) Settings.Additives ^= Additives.Waxed;
                     OnPropertyChanged();
                 }
             }
@@ -110,13 +110,13 @@ namespace ISDCompanion
 
         public bool A8
         {
-            get => Settings.Additives.HasFlag(Additives.A8);
+            get => Settings.Additives.HasFlag(Additives.Blackend);
             set
             {
                 if (value != A8)
                 {
-                    Settings.Additives |= Additives.A8;
-                    if (!value) Settings.Additives ^= Additives.A8;
+                    Settings.Additives |= Additives.Blackend;
+                    if (!value) Settings.Additives ^= Additives.Blackend;
                     OnPropertyChanged();
                 }
             }
@@ -124,13 +124,13 @@ namespace ISDCompanion
 
         public bool A9
         {
-            get => Settings.Additives.HasFlag(Additives.A9);
+            get => Settings.Additives.HasFlag(Additives.Sweetener);
             set
             {
                 if (value != A9)
                 {
-                    Settings.Additives |= Additives.A9;
-                    if (!value) Settings.Additives ^= Additives.A9;
+                    Settings.Additives |= Additives.Sweetener;
+                    if (!value) Settings.Additives ^= Additives.Sweetener;
                     OnPropertyChanged();
                 }
             }
@@ -138,13 +138,13 @@ namespace ISDCompanion
 
         public bool A10
         {
-            get => Settings.Additives.HasFlag(Additives.A10);
+            get => Settings.Additives.HasFlag(Additives.Phenylalanine);
             set
             {
                 if (value != A10)
                 {
-                    Settings.Additives |= Additives.A10;
-                    if (!value) Settings.Additives ^= Additives.A10;
+                    Settings.Additives |= Additives.Phenylalanine;
+                    if (!value) Settings.Additives ^= Additives.Phenylalanine;
                     OnPropertyChanged();
                 }
             }
@@ -152,13 +152,13 @@ namespace ISDCompanion
 
         public bool A11
         {
-            get => Settings.Additives.HasFlag(Additives.A11);
+            get => Settings.Additives.HasFlag(Additives.Taurine);
             set
             {
                 if (value != A11)
                 {
-                    Settings.Additives |= Additives.A11;
-                    if (!value) Settings.Additives ^= Additives.A11;
+                    Settings.Additives |= Additives.Taurine;
+                    if (!value) Settings.Additives ^= Additives.Taurine;
                     OnPropertyChanged();
                 }
             }
@@ -166,13 +166,13 @@ namespace ISDCompanion
 
         public bool A12
         {
-            get => Settings.Additives.HasFlag(Additives.A12);
+            get => Settings.Additives.HasFlag(Additives.NitritePicklingSalt);
             set
             {
                 if (value != A12)
                 {
-                    Settings.Additives |= Additives.A12;
-                    if (!value) Settings.Additives ^= Additives.A12;
+                    Settings.Additives |= Additives.NitritePicklingSalt;
+                    if (!value) Settings.Additives ^= Additives.NitritePicklingSalt;
                     OnPropertyChanged();
                 }
             }
@@ -180,13 +180,13 @@ namespace ISDCompanion
 
         public bool A13
         {
-            get => Settings.Additives.HasFlag(Additives.A13);
+            get => Settings.Additives.HasFlag(Additives.Caffeinated);
             set
             {
                 if (value != A13)
                 {
-                    Settings.Additives |= Additives.A13;
-                    if (!value) Settings.Additives ^= Additives.A13;
+                    Settings.Additives |= Additives.Caffeinated;
+                    if (!value) Settings.Additives ^= Additives.Caffeinated;
                     OnPropertyChanged();
                 }
             }
@@ -194,13 +194,13 @@ namespace ISDCompanion
 
         public bool A14
         {
-            get => Settings.Additives.HasFlag(Additives.A14);
+            get => Settings.Additives.HasFlag(Additives.Quinine);
             set
             {
                 if (value != A14)
                 {
-                    Settings.Additives |= Additives.A14;
-                    if (!value) Settings.Additives ^= Additives.A14;
+                    Settings.Additives |= Additives.Quinine;
+                    if (!value) Settings.Additives ^= Additives.Quinine;
                     OnPropertyChanged();
                 }
             }
@@ -208,13 +208,13 @@ namespace ISDCompanion
 
         public bool A15
         {
-            get => Settings.Additives.HasFlag(Additives.A15);
+            get => Settings.Additives.HasFlag(Additives.MilkProtein);
             set
             {
                 if (value != A15)
                 {
-                    Settings.Additives |= Additives.A15;
-                    if (!value) Settings.Additives ^= Additives.A15;
+                    Settings.Additives |= Additives.MilkProtein;
+                    if (!value) Settings.Additives ^= Additives.MilkProtein;
                     OnPropertyChanged();
                 }
             }

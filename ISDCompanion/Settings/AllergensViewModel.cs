@@ -11,13 +11,13 @@ namespace ISDCompanion
         }
 
         public bool A1 {
-            get => Settings.Allergens.HasFlag(Allergens.A1);
+            get => Settings.Allergens.HasFlag(Allergens.Gluten);
             set
             {
                 if (value != A1)
                 {
-                    Settings.Allergens |= Allergens.A1;
-                    if (!value) Settings.Allergens ^= Allergens.A1;
+                    Settings.Allergens |= Allergens.Gluten;
+                    if (!value) Settings.Allergens ^= Allergens.Gluten;
                     OnPropertyChanged();
                 }
             }
@@ -25,13 +25,13 @@ namespace ISDCompanion
 
         public bool A2
         {
-            get => Settings.Allergens.HasFlag(Allergens.A2);
+            get => Settings.Allergens.HasFlag(Allergens.Shellfish);
             set
             {
                 if (value != A2)
                 {
-                    Settings.Allergens |= Allergens.A2;
-                    if (!value) Settings.Allergens ^= Allergens.A2;
+                    Settings.Allergens |= Allergens.Shellfish;
+                    if (!value) Settings.Allergens ^= Allergens.Shellfish;
                     OnPropertyChanged();
                 }
             }
@@ -39,13 +39,13 @@ namespace ISDCompanion
 
         public bool A3
         {
-            get => Settings.Allergens.HasFlag(Allergens.A3);
+            get => Settings.Allergens.HasFlag(Allergens.Eggs);
             set
             {
                 if (value != A3)
                 {
-                    Settings.Allergens |= Allergens.A3;
-                    if (!value) Settings.Allergens ^= Allergens.A3;
+                    Settings.Allergens |= Allergens.Eggs;
+                    if (!value) Settings.Allergens ^= Allergens.Eggs;
                     OnPropertyChanged();
                 }
             }
@@ -53,13 +53,13 @@ namespace ISDCompanion
 
         public bool A4
         {
-            get => Settings.Allergens.HasFlag(Allergens.A4);
+            get => Settings.Allergens.HasFlag(Allergens.Fish);
             set
             {
                 if (value != A4)
                 {
-                    Settings.Allergens |= Allergens.A4;
-                    if (!value) Settings.Allergens ^= Allergens.A4;
+                    Settings.Allergens |= Allergens.Fish;
+                    if (!value) Settings.Allergens ^= Allergens.Fish;
                     OnPropertyChanged();
                 }
             }
@@ -67,13 +67,13 @@ namespace ISDCompanion
 
         public bool A5
         {
-            get => Settings.Allergens.HasFlag(Allergens.A5);
+            get => Settings.Allergens.HasFlag(Allergens.Peanuts);
             set
             {
                 if (value != A5)
                 {
-                    Settings.Allergens |= Allergens.A5;
-                    if (!value) Settings.Allergens ^= Allergens.A5;
+                    Settings.Allergens |= Allergens.Peanuts;
+                    if (!value) Settings.Allergens ^= Allergens.Peanuts;
                     OnPropertyChanged();
                 }
             }
@@ -81,13 +81,13 @@ namespace ISDCompanion
 
         public bool A6
         {
-            get => Settings.Allergens.HasFlag(Allergens.A6);
+            get => Settings.Allergens.HasFlag(Allergens.Soy);
             set
             {
                 if (value != A6)
                 {
-                    Settings.Allergens |= Allergens.A6;
-                    if (!value) Settings.Allergens ^= Allergens.A6;
+                    Settings.Allergens |= Allergens.Soy;
+                    if (!value) Settings.Allergens ^= Allergens.Soy;
                     OnPropertyChanged();
                 }
             }
@@ -95,13 +95,13 @@ namespace ISDCompanion
 
         public bool A7
         {
-            get => Settings.Allergens.HasFlag(Allergens.A7);
+            get => Settings.Allergens.HasFlag(Allergens.Milk);
             set
             {
                 if (value != A7)
                 {
-                    Settings.Allergens |= Allergens.A7;
-                    if (!value) Settings.Allergens ^= Allergens.A7;
+                    Settings.Allergens |= Allergens.Milk;
+                    if (!value) Settings.Allergens ^= Allergens.Milk;
                     OnPropertyChanged();
                 }
             }
@@ -109,13 +109,13 @@ namespace ISDCompanion
 
         public bool A8
         {
-            get => Settings.Allergens.HasFlag(Allergens.A8);
+            get => Settings.Allergens.HasFlag(Allergens.Nuts);
             set
             {
                 if (value != A8)
                 {
-                    Settings.Allergens |= Allergens.A8;
-                    if (!value) Settings.Allergens ^= Allergens.A8;
+                    Settings.Allergens |= Allergens.Nuts;
+                    if (!value) Settings.Allergens ^= Allergens.Nuts;
                     OnPropertyChanged();
                 }
             }
@@ -123,13 +123,13 @@ namespace ISDCompanion
 
         public bool A9
         {
-            get => Settings.Allergens.HasFlag(Allergens.A9);
+            get => Settings.Allergens.HasFlag(Allergens.Celery);
             set
             {
                 if (value != A9)
                 {
-                    Settings.Allergens |= Allergens.A9;
-                    if (!value) Settings.Allergens ^= Allergens.A9;
+                    Settings.Allergens |= Allergens.Celery;
+                    if (!value) Settings.Allergens ^= Allergens.Celery;
                     OnPropertyChanged();
                 }
             }
@@ -137,13 +137,13 @@ namespace ISDCompanion
 
         public bool A10
         {
-            get => Settings.Allergens.HasFlag(Allergens.A10);
+            get => Settings.Allergens.HasFlag(Allergens.Mustard);
             set
             {
                 if (value != A10)
                 {
-                    Settings.Allergens |= Allergens.A10;
-                    if (!value) Settings.Allergens ^= Allergens.A10;
+                    Settings.Allergens |= Allergens.Mustard;
+                    if (!value) Settings.Allergens ^= Allergens.Mustard;
                     OnPropertyChanged();
                 }
             }
@@ -151,13 +151,13 @@ namespace ISDCompanion
 
         public bool A11
         {
-            get => Settings.Allergens.HasFlag(Allergens.A11);
+            get => Settings.Allergens.HasFlag(Allergens.Sesame);
             set
             {
                 if (value != A11)
                 {
-                    Settings.Allergens |= Allergens.A11;
-                    if (!value) Settings.Allergens ^= Allergens.A11;
+                    Settings.Allergens |= Allergens.Sesame;
+                    if (!value) Settings.Allergens ^= Allergens.Sesame;
                     OnPropertyChanged();
                 }
             }
@@ -165,13 +165,13 @@ namespace ISDCompanion
 
         public bool A12
         {
-            get => Settings.Allergens.HasFlag(Allergens.A12);
+            get => Settings.Allergens.HasFlag(Allergens.Sulfur);
             set
             {
                 if (value != A12)
                 {
-                    Settings.Allergens |= Allergens.A12;
-                    if (!value) Settings.Allergens ^= Allergens.A12;
+                    Settings.Allergens |= Allergens.Sulfur;
+                    if (!value) Settings.Allergens ^= Allergens.Sulfur;
                     OnPropertyChanged();
                 }
             }
@@ -179,13 +179,13 @@ namespace ISDCompanion
 
         public bool A13
         {
-            get => Settings.Allergens.HasFlag(Allergens.A13);
+            get => Settings.Allergens.HasFlag(Allergens.Lupine);
             set
             {
                 if (value != A13)
                 {
-                    Settings.Allergens |= Allergens.A13;
-                    if (!value) Settings.Allergens ^= Allergens.A13;
+                    Settings.Allergens |= Allergens.Lupine;
+                    if (!value) Settings.Allergens ^= Allergens.Lupine;
                     OnPropertyChanged();
                 }
             }
@@ -193,13 +193,13 @@ namespace ISDCompanion
 
         public bool A14
         {
-            get => Settings.Allergens.HasFlag(Allergens.A14);
+            get => Settings.Allergens.HasFlag(Allergens.Mollusk);
             set
             {
                 if (value != A14)
                 {
-                    Settings.Allergens |= Allergens.A14;
-                    if (!value) Settings.Allergens ^= Allergens.A14;
+                    Settings.Allergens |= Allergens.Mollusk;
+                    if (!value) Settings.Allergens ^= Allergens.Mollusk;
                     OnPropertyChanged();
                 }
             }
