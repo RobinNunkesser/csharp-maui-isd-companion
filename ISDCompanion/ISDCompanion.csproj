@@ -87,4 +87,8 @@
       <LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
+    <ProjectReference Include="..\Mensa.Infrastructure.Adapter\Mensa.Infrastructure.Adapter.csproj" />
+  </ItemGroup>
 </Project>

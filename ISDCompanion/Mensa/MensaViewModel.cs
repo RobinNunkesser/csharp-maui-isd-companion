@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using ISDCompanion.Resx;
+using Mensa.Core;
+using Mensa.Core.Ports;
+using Mensa.Infrastructure.Adapter;
 
 namespace ISDCompanion
 {
     public class MensaViewModel
     {
-        public ObservableCollection<SectionViewModel<IMeal>> Meals { get; set; } 
+        public ObservableCollection<SectionViewModel<IMeal>> Meals { get; set; }
 
         public MensaViewModel()
-        {
+        {            
             Meals = new ObservableCollection<SectionViewModel<IMeal>>();
             var mainDishes = new SectionViewModel<IMeal>()
             {
