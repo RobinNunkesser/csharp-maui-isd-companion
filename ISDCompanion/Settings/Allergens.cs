@@ -5,19 +5,19 @@ namespace ISDCompanion
     public enum Allergens
     {
         None = 0,
-        A1 = 1 << 0,
-        A2 = 1 << 1,
-        A3 = 1 << 2,
-        A4 = 1 << 3,
-        A5 = 1 << 4,
-        A6 = 1 << 5,
-        A7 = 1 << 6,
-        A8 = 1 << 7,
-        A9 = 1 << 8,
-        A10 = 1 << 9,
-        A11 = 1 << 10,
-        A12 = 1 << 11,
-        A13 = 1 << 12,
-        A14 = 1 << 13
+        Gluten = 1 << 0,
+        Shellfish = 1 << 1,
+        Eggs = 1 << 2,
+        Fish = 1 << 3,
+        Peanuts = 1 << 4,
+        Soy = 1 << 5,
+        Milk = 1 << 6,
+        Nuts = 1 << 7,
+        Celery = 1 << 8,
+        Mustard = 1 << 9,
+        Sesame = 1 << 10,
+        Sulfur = 1 << 11,
+        Lupine = 1 << 12,
+        Mollusk = 1 << 13
     }
 }

@@ -5,20 +5,20 @@ namespace ISDCompanion
     public enum Additives
     {
         None = 0,
-        A1 = 1 << 0,
-        A2 = 1 << 1,
-        A3 = 1 << 2,
-        A4 = 1 << 3,
-        A5 = 1 << 4,
-        A6 = 1 << 5,
-        A7 = 1 << 6,
-        A8 = 1 << 7,
-        A9 = 1 << 8,
-        A10 = 1 << 9,
-        A11 = 1 << 10,
-        A12 = 1 << 11,
-        A13 = 1 << 12,
-        A14 = 1 << 13,
-        A15 = 1 << 14
+        FoodColoring = 1 << 0,
+        Preservatives = 1 << 1,
+        Antioxidants = 1 << 2,
+        FlavorEnhancer = 1 << 3,
+        Phosphate = 1 << 4,
+        Sulphureted = 1 << 5,
+        Waxed = 1 << 6,
+        Blackend = 1 << 7,
+        Sweetener = 1 << 8,
+        Phenylalanine = 1 << 9,
+        Taurine = 1 << 10,
+        NitritePicklingSalt = 1 << 11,
+        Caffeinated = 1 << 12,
+        Quinine = 1 << 13,
+        MilkProtein = 1 << 14
     }
 }
