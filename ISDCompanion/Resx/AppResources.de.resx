@@ -89,4 +89,22 @@
     <data name="Z13"><value>koffeinhaltig</value></data>
     <data name="Z14"><value>chininhaltig</value></data>
     <data name="Z15"><value>Milcheiweiß</value></data>
+    <data name="Error">
+        <value>Fehler</value>
+    </data>
+    <data name="Info">
+        <value>Info</value>
+    </data>
+    <data name="OK">
+        <value>OK</value>
+    </data>
+    <data name="Cancel">
+        <value>Abbrechen</value>
+    </data>
+    <data name="MensaInfo">
+        <value>Weitere Informationen zu Inhaltsstoffen und Nährwerten gibt es auf der Webseite des Studierendenwerks Paderborn.</value>
+    </data>
+    <data name="Show">
+        <value>Anzeigen</value>
+    </data>
 </root>

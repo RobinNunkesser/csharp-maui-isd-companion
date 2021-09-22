@@ -12,7 +12,7 @@
                 <TableSection Title="{xct:Translate Settings}">
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Orientation="Horizontal" Padding="24,0,16,0">
+                            <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
                                 <Label Text="Semester"
                                        HorizontalOptions="StartAndExpand"
                                        VerticalOptions="Center"
@@ -36,7 +36,7 @@
                     </ViewCell>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Orientation="Horizontal" Padding="16,0,16,0">
+                            <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
                                 <Label Text="{xct:Translate Specialization}"
                                        HorizontalOptions="StartAndExpand"
                                        VerticalOptions="Center"

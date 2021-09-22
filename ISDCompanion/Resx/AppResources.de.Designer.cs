@@ -316,5 +316,41 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("Z15", resourceCulture);
             }
         }
+        
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        internal static string Info {
+            get {
+                return ResourceManager.GetString("Info", resourceCulture);
+            }
+        }
+        
+        internal static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        internal static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        internal static string MensaInfo {
+            get {
+                return ResourceManager.GetString("MensaInfo", resourceCulture);
+            }
+        }
+        
+        internal static string Show {
+            get {
+                return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
     }
 }

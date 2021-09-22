@@ -217,6 +217,26 @@
     <ImageAsset Include="Assets.xcassets\restaurant_menu-black-ios\outline_restaurant_menu_black_18pt.xcassets\outline_restaurant_menu_black_18pt.imageset\outline_restaurant_menu_black_18pt_3x.png" />
     <ImageAsset Include="Assets.xcassets\restaurant_menu-black-ios\outline_restaurant_menu_black_18pt.xcassets\outline_restaurant_menu_black_18pt.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\restaurant_menu-black-ios\outline_restaurant_menu_black_18pt.xcassets\outline_restaurant_menu_black_18pt.imageset\outline_restaurant_menu_black_18pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_24pt.xcassets\outline_info_black_24pt.imageset\outline_info_black_24pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_24pt.xcassets\outline_info_black_24pt.imageset\outline_info_black_24pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_24pt.xcassets\outline_info_black_24pt.imageset\outline_info_black_24pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_24pt.xcassets\outline_info_black_24pt.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_20pt.xcassets\outline_info_black_20pt.imageset\outline_info_black_20pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_20pt.xcassets\outline_info_black_20pt.imageset\outline_info_black_20pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_20pt.xcassets\outline_info_black_20pt.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_20pt.xcassets\outline_info_black_20pt.imageset\outline_info_black_20pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_18pt.xcassets\outline_info_black_18pt.imageset\outline_info_black_18pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_18pt.xcassets\outline_info_black_18pt.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_18pt.xcassets\outline_info_black_18pt.imageset\outline_info_black_18pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_18pt.xcassets\outline_info_black_18pt.imageset\outline_info_black_18pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_48pt.xcassets\outline_info_black_48pt.imageset\outline_info_black_48pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_48pt.xcassets\outline_info_black_48pt.imageset\outline_info_black_48pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_48pt.xcassets\outline_info_black_48pt.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_48pt.xcassets\outline_info_black_48pt.imageset\outline_info_black_48pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_36pt.xcassets\outline_info_black_36pt.imageset\outline_info_black_36pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_36pt.xcassets\outline_info_black_36pt.imageset\outline_info_black_36pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_36pt.xcassets\outline_info_black_36pt.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\info-black-ios\outline_info_black_36pt.xcassets\outline_info_black_36pt.imageset\outline_info_black_36pt_2x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

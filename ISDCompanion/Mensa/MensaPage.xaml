@@ -6,11 +6,22 @@
     xmlns:local="clr-namespace:ISDCompanion"
     x:Class="ISDCompanion.MensaPage"
     Title="{xct:Translate Mensa}">
-    <ListView IsGroupingEnabled="true" HasUnevenRows="true"
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="ToolbarItem_Clicked" >
+            <ToolbarItem.IconImageSource>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="outline_info_black_24pt" />
+                    <On Platform="Android" Value="ic_baseline_info_24" />
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ListView IsGroupingEnabled="true" HasUnevenRows="true"
                   ItemsSource="{Binding Meals}"
                   GroupDisplayBinding="{Binding LongName}"
                   GroupShortNameBinding="{Binding ShortName}">
-        <ListView.ItemTemplate>
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
@@ -37,5 +48,6 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-    </ListView>
+        </ListView>
+    </ContentPage.Content>
 </ContentPage>

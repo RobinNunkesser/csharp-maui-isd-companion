@@ -89,4 +89,22 @@
     <data name="Z13"><value>Caffeinated</value></data>
     <data name="Z14"><value>Contains quinine</value></data>
     <data name="Z15"><value>Milk protein</value></data>
+    <data name="Error">
+        <value>Error</value>
+    </data>
+    <data name="Info">
+        <value>Info</value>
+    </data>
+    <data name="OK">
+        <value>OK</value>
+    </data>
+    <data name="Cancel">
+        <value>Cancel</value>
+    </data>
+    <data name="MensaInfo">
+        <value>Ingredients/Nutritional information is available at Studierendenwerk Paderborn's web page.</value>
+    </data>
+    <data name="Show">
+        <value>Show</value>
+    </data>
 </root>
