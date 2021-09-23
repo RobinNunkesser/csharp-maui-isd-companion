@@ -8,16 +8,13 @@ using Mensa.Infrastructure.STWPB;
 
 namespace Mensa.Infrastructure.Adapter
 {
-    public class MealRepository : IRepository<int, IMeal>
+    public class MealRepository : IDataSource<int, IMeal>
     {
-        public Task<Result<int>> Create(IMeal entity)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly string _language;
 
-        public Task<Result<bool>> Delete(int id)
+        public MealRepository(string language)
         {
-            throw new NotImplementedException();
+            _language = language;
         }
 
         public Task<Result<IMeal>> Retrieve(int id)
@@ -29,7 +26,7 @@ namespace Mensa.Infrastructure.Adapter
         {
             try
             {
-                var api = new MensaAPI();
+                var api = new MensaAPI(_language);
                 var meals = await api.GetTodaysHammMeals();                
                 return new Result<List<IMeal>>(meals.Select((meal) => (IMeal)meal.ToMeal()).ToList());
             }
@@ -40,9 +37,5 @@ namespace Mensa.Infrastructure.Adapter
 
         }
 
-        public Task<Result<bool>> Update(int id, IMeal entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

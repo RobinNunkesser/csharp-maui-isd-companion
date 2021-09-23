@@ -4,6 +4,7 @@ using ISDCompanion.Resx;
 using Mensa.Core;
 using Mensa.Core.Ports;
 using Mensa.Infrastructure.Adapter;
+using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -11,7 +12,7 @@ namespace ISDCompanion
 {
     public partial class MensaPage : ContentPage
     {
-        private IGetMealsService service = new GetMealsService(new MealRepository());
+        private IGetMealsService service = new GetMealsService(new MealRepository(LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName));
 
         public MensaPage()
         {

@@ -9,9 +9,9 @@ namespace Mensa.Core
 {
     public class GetMealsService : IGetMealsService
     {
-        private readonly IRepository<int, IMeal> _repository;
+        private readonly IDataSource<int, IMeal> _repository;
 
-        public GetMealsService(IRepository<int, IMeal> repository)
+        public GetMealsService(IDataSource<int, IMeal> repository)
         {
             _repository = repository;
         }

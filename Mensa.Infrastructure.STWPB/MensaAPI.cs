@@ -13,7 +13,7 @@ namespace Mensa.Infrastructure.STWPB
     {
         public static HttpClient HttpClient;
 
-        public MensaAPI()
+        public MensaAPI(string acceptLanguage)
         {
             HttpClient = new HttpClient()
             {
@@ -21,6 +21,7 @@ namespace Mensa.Infrastructure.STWPB
             };
 
             HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpClient.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue(acceptLanguage));
         }
 
         public async Task<List<Meal>> GetMeals()

@@ -4,13 +4,19 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="MealPorts" />
     <None Remove="CommonPorts" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MealPorts" Version="0.1.0" />
-    <PackageReference Include="CommonPorts" Version="0.1.0" />
+    <PackageReference Include="CommonPorts" Version="0.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mensa.Infrastructure.STWPB\Mensa.Infrastructure.STWPB.csproj" />
