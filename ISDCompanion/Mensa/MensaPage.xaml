@@ -27,7 +27,8 @@
                         <ViewCell.View>
                             <StackLayout Orientation="Horizontal"
                                  HeightRequest="90"
-                                 VerticalOptions="FillAndExpand">
+                                 VerticalOptions="FillAndExpand"
+                                         Padding="20,8,20,8">
                                 <Image Source="{Binding Image}"
                                      WidthRequest="90" HeightRequest="90" />
                                 <StackLayout Orientation="Vertical"

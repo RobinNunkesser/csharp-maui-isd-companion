@@ -15,7 +15,7 @@
     <None Remove="CommonPorts" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MealPorts" Version="0.1.0" />
+    <PackageReference Include="MealPorts" Version="0.2.0" />
     <PackageReference Include="CommonPorts" Version="0.2.0" />
   </ItemGroup>
   <ItemGroup>

@@ -13,9 +13,13 @@ namespace Mensa.Infrastructure.Adapter
             {
                 STWPB.Category.None => Category.None,
                 STWPB.Category.Dessert => Category.Dessert,
+                STWPB.Category.DessertCounter => Category.Dessert,
                 STWPB.Category.Dish => Category.Dish,
+                STWPB.Category.DishDefault => Category.Dish,
+                STWPB.Category.DishGrill => Category.Dish,
                 STWPB.Category.Empty => Category.None,
                 STWPB.Category.Sidedish => Category.Sidedish,
+                STWPB.Category.Soups => Category.Soup,
                 _ => Category.None,
             };
 

@@ -107,8 +107,8 @@
     <data name="Show">
         <value>Show</value>
     </data>
-    <data name="Maindishes"><value>Essen</value></data>
-    <data name="Soups"><value>Suppen</value></data>
-    <data name="Sidedishes"><value>Beilagen</value></data>
+    <data name="Maindishes"><value>Dishes</value></data>
+    <data name="Soups"><value>Soups</value></data>
+    <data name="Sidedishes"><value>Side dishes</value></data>
     <data name="Desserts"><value>Desserts</value></data>
 </root>

@@ -117,7 +117,15 @@ namespace Mensa.Infrastructure.STWPB
         Dessert,
         Dish,
         Empty,
-        Sidedish };
+        Sidedish,
+        Soups,
+        [EnumMember(Value = "dish-default")]
+        DishDefault,
+        [EnumMember(Value = "dessert-counter")]
+        DessertCounter,
+        [EnumMember(Value = "dish-grill")]
+        DishGrill
+    };
 
     public enum CategoryDe {
         [EnumMember(Value = "")]

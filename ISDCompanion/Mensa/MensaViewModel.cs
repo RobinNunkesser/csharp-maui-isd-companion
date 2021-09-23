@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using ISDCompanion.Resx;
+using MealPorts;
 using Mensa.Core;
 using Mensa.Core.Ports;
 using Mensa.Infrastructure.Adapter;
@@ -11,22 +13,27 @@ namespace ISDCompanion
     {
         public ObservableCollection<SectionViewModel<IMeal>> Meals { get; set; }
 
+        private SectionViewModel<IMeal> mainDishes;
+        private SectionViewModel<IMeal> soups;
+        private SectionViewModel<IMeal> sideDishes;
+        private SectionViewModel<IMeal> desserts;
+
         public MensaViewModel()
         {            
             Meals = new ObservableCollection<SectionViewModel<IMeal>>();
-            var mainDishes = new SectionViewModel<IMeal>()
+            mainDishes = new SectionViewModel<IMeal>()
             {
                 LongName = AppResources.Maindishes
             };
-            var soups = new SectionViewModel<IMeal>()
+            soups = new SectionViewModel<IMeal>()
             {
                 LongName = AppResources.Soups
             };
-            var sideDishes = new SectionViewModel<IMeal>()
+            sideDishes = new SectionViewModel<IMeal>()
             {
                 LongName = AppResources.Sidedishes
             };
-            var desserts = new SectionViewModel<IMeal>()
+            desserts = new SectionViewModel<IMeal>()
             {
                 LongName = AppResources.Desserts
             };
@@ -34,14 +41,57 @@ namespace ISDCompanion
             Meals.Add(soups);
             Meals.Add(sideDishes);
             Meals.Add(desserts);
-
-            mainDishes.Add(new Meal() {
-                Name = "Ochsenschwanzsuppe",
-                Image = "http://www.studentenwerk-pb.de/fileadmin/imports/images/speiseleitsystem/7244.jpg",
-                Price = "23,5"
-            });
-
             
+        }
+
+        internal void SetMeals(List<IMeal> meals)
+        {
+            mainDishes.Clear();
+            soups.Clear();
+            sideDishes.Clear();
+            desserts.Clear();
+            foreach (var meal in meals)
+            {
+                var excludeMeal = false;
+                foreach (Allergens flagToCheck in Enum.GetValues(typeof(Allergens)))
+                {
+                    if (flagToCheck != Allergens.None &&
+                        meal.Allergens.HasFlag(flagToCheck) &&
+                        !Settings.Allergens.HasFlag(flagToCheck))
+                    {
+                        excludeMeal = true;
+                        break;
+                    }
+                }
+                foreach (Additives flagToCheck in Enum.GetValues(typeof(Additives)))
+                {
+                    if (flagToCheck != Additives.None &&
+                        meal.Additives.HasFlag(flagToCheck) &&
+                        !Settings.Additives.HasFlag(flagToCheck))
+                    {
+                        excludeMeal = true;
+                        break;
+                    }
+                }
+                if (excludeMeal) continue;
+                switch (meal.Category)
+                {                        
+                    case Category.Dessert:
+                        desserts.Add(meal);
+                        break;
+                    case Category.Dish:
+                        mainDishes.Add(meal);
+                        break;
+                    case Category.Soup:
+                        soups.Add(meal);
+                        break;
+                    case Category.None:
+                    case Category.Sidedish:
+                    default:
+                        sideDishes.Add(meal);
+                        break;
+                }
+            }
         }
     }
 }

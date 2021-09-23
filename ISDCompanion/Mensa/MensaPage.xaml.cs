@@ -13,11 +13,12 @@ namespace ISDCompanion
     public partial class MensaPage : ContentPage
     {
         private IGetMealsService service = new GetMealsService(new MealRepository(LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName));
+        private MensaViewModel viewModel = new MensaViewModel();
 
         public MensaPage()
         {
             InitializeComponent();
-            BindingContext = new MensaViewModel();
+            BindingContext = viewModel;
         }
 
         protected override void OnAppearing()
@@ -28,7 +29,7 @@ namespace ISDCompanion
 
         private void Success(List<MealPorts.IMeal> meals)
         {
-            Console.WriteLine(meals);
+            viewModel.SetMeals(meals);
         }
 
         private async void Error(Exception ex)
