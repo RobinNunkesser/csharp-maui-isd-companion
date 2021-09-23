@@ -17,7 +17,7 @@ namespace Mensa.Infrastructure.STWPB
         {
             HttpClient = new HttpClient()
             {
-                BaseAddress = new Uri("http://www.studentenwerk-pb.de")
+                BaseAddress = new Uri("https://www.studentenwerk-pb.de")
             };
 
             HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
