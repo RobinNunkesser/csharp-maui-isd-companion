@@ -111,4 +111,6 @@
     <data name="Soups"><value>Soups</value></data>
     <data name="Sidedishes"><value>Side dishes</value></data>
     <data name="Desserts"><value>Desserts</value></data>
+    <data name="NoMeals"><value>No meals to display. Mensa closed?</value></data>
+    <data name="ErrorMessage"><value>Error while fetching the data. Please try again later.</value></data>    
 </root>

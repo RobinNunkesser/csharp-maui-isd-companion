@@ -376,5 +376,17 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("Desserts", resourceCulture);
             }
         }
+        
+        internal static string NoMeals {
+            get {
+                return ResourceManager.GetString("NoMeals", resourceCulture);
+            }
+        }
+        
+        internal static string ErrorMessage {
+            get {
+                return ResourceManager.GetString("ErrorMessage", resourceCulture);
+            }
+        }
     }
 }

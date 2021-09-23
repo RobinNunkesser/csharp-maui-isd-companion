@@ -27,14 +27,20 @@ namespace ISDCompanion
             service.Execute("", Success, Error);
         }
 
-        private void Success(List<MealPorts.IMeal> meals)
+        private async void Success(List<MealPorts.IMeal> meals)
         {
-            viewModel.SetMeals(meals);
+            if (meals.Count > 0)
+            {
+                viewModel.SetMeals(meals);
+            } else
+            {
+                await DisplayAlert(AppResources.Error, AppResources.NoMeals, AppResources.OK);
+            }
         }
 
         private async void Error(Exception ex)
         {
-            await DisplayAlert(AppResources.Error, ex.Message, AppResources.OK);
+            await DisplayAlert(AppResources.Error, AppResources.ErrorMessage, AppResources.OK);
         }
 
 

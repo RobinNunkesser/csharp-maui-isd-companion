@@ -111,5 +111,7 @@
     <data name="Soups"><value>Suppen</value></data>
     <data name="Sidedishes"><value>Beilagen</value></data>
     <data name="Desserts"><value>Desserts</value></data>
+    <data name="NoMeals"><value>Keine Essen zur Anzeige. Mensa geschlossen?</value></data>
+    <data name="ErrorMessage"><value>Fehler beim Abrufen der Daten. Bitte später erneut probieren.</value></data>    
 </root>
 

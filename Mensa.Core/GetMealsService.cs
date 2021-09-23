@@ -10,6 +10,9 @@ namespace Mensa.Core
     public class GetMealsService : IGetMealsService
     {
         private readonly IDataSource<int, IMeal> _repository;
+        private static readonly string format = "yyyy-MM-dd";
+        private string lastSuccess = null;
+        private List<IMeal> lastMeals;
 
         public GetMealsService(IDataSource<int, IMeal> repository)
         {
@@ -18,7 +21,17 @@ namespace Mensa.Core
 
         public async Task Execute(string inDTO, Action<List<IMeal>> successHandler, Action<Exception> errorHandler)
         {
-            var result = await _repository.RetrieveAll();
+            Result<List<IMeal>> result;
+            if (DateTime.Now.ToString(format)!=lastSuccess) { 
+                result = await _repository.RetrieveAll();
+                result.Match((success) => {
+                    lastSuccess = DateTime.Now.ToString(format);
+                    lastMeals = success;
+                }, (error) => { });
+            } else
+            {
+                result = new Result<List<IMeal>>(lastMeals);
+            }
             result.Match(successHandler, errorHandler);
         }
     }
