@@ -12,8 +12,8 @@ namespace ISDCompanion
 {
     public partial class MensaPage : ContentPage
     {
-        private IGetMealsService service = new GetMealsService(new MealRepository(LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName));
-        private MensaViewModel viewModel = new MensaViewModel();
+        private readonly IGetMealsService service = new GetMealsService(new MealRepository(LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName));
+        private readonly MensaViewModel viewModel = new();
 
         public MensaPage()
         {
@@ -24,7 +24,7 @@ namespace ISDCompanion
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            service.Execute("", Success, Error);
+            service.Execute(Success, Error);
         }
 
         private async void Success(List<MealPorts.IMeal> meals)

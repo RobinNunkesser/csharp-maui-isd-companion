@@ -64,13 +64,34 @@
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                
                 </TableSection>
                 <TableSection Title="Acknowledgements">
+                    <TextCell Text="CommonPorts"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>triviaports.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>                     
                     <TextCell Text="DevExpress.XamarinForms.Scheduler"                              
                               Command="{Binding LicensesCommand}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
                         <TextCell.CommandParameter>
                             <x:String>devexpress_xamarinforms_scheduler.html</x:String>
                         </TextCell.CommandParameter>
-                    </TextCell>
+                    </TextCell>                    
+                    <TextCell Text="Macross.Json.Extensions"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>macross_json_extensions.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>                     
+                    <TextCell Text="MealPorts"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>mealports.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>                     
                     <TextCell Text="NetworksExam"
                               Command="{Binding LicensesCommand}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
@@ -84,7 +105,28 @@
                         <TextCell.CommandParameter>
                             <x:String>operatingsystemsexam.html</x:String>
                         </TextCell.CommandParameter>
+                    </TextCell>                    
+                    <TextCell Text="System.Net.Http"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>system_net_http.html</x:String>
+                        </TextCell.CommandParameter>
                     </TextCell>
+                    <TextCell Text="System.Net.Http.Json"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>system_net_http_json.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="System.Text.Json"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>system_text_json.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>                    
                     <TextCell Text="TriviaPorts"
                               Command="{Binding LicensesCommand}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">

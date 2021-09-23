@@ -5,7 +5,7 @@ using MealPorts;
 
 namespace Mensa.Core.Ports
 {
-    public interface IGetMealsService : IService<string,List<IMeal>>
+    public interface IGetMealsService : IService<List<IMeal>>
     {
     }
 }

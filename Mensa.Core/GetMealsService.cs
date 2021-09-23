@@ -19,7 +19,7 @@ namespace Mensa.Core
             _repository = repository;
         }
 
-        public async Task Execute(string inDTO, Action<List<IMeal>> successHandler, Action<Exception> errorHandler)
+        public async Task Execute(Action<List<IMeal>> successHandler, Action<Exception> errorHandler)
         {
             Result<List<IMeal>> result;
             if (DateTime.Now.ToString(format)!=lastSuccess) { 
