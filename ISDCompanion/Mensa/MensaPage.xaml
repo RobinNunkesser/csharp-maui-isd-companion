@@ -25,12 +25,10 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Orientation="Horizontal"
-                                 HeightRequest="90"
+                            <StackLayout Orientation="Horizontal"                                 
                                  VerticalOptions="FillAndExpand"
                                          Padding="20,8,20,8">
-                                <Image Source="{Binding Image}"
-                                     WidthRequest="90" HeightRequest="90" />
+                                <Image Source="{Binding Image}" WidthRequest="90"/>
                                 <StackLayout Orientation="Vertical"
                                      HorizontalOptions="StartAndExpand">
                                     <Label Text="{Binding Name}"
