@@ -2,8 +2,31 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="ISDCompanion.Quiz.QuizPage">
+    x:Class="ISDCompanion.QuizPage">
     <ContentPage.Content>
-        
+        <StackLayout>
+            <Label Text="{Binding Question}" HorizontalOptions="Center"
+             VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+            <Label x:Name="answerLabel" Text="{Binding Answer}" HorizontalOptions="Center"
+             VerticalOptions="Center" Opacity="0" />
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                <Button x:Name="falseButton" Text="Falsch" HorizontalOptions="CenterAndExpand" 
+                    Clicked="Answer_Clicked"
+                    Command="{Binding AnswerCommand}">
+                    <Button.CommandParameter>
+                        <x:Boolean>False</x:Boolean>
+                    </Button.CommandParameter>
+                </Button>
+                <Button x:Name="trueButton" Text="Richtig" HorizontalOptions="CenterAndExpand" 
+                    Clicked="Answer_Clicked"
+                    Command="{Binding AnswerCommand}">
+                    <Button.CommandParameter>
+                        <x:Boolean>True</x:Boolean>
+                    </Button.CommandParameter>
+                </Button>
+            </StackLayout>
+            <Button x:Name="skipButton" Text="Überspringen" HorizontalOptions="Center" VerticalOptions="End" 
+                Command="{Binding SkipCommand}"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
