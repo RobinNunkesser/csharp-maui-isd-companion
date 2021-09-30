@@ -14,12 +14,21 @@
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:BitencodingsPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
+                              />
+                    <TextCell Text="{xct:Translate Quiz}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:QuizPage}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />                    
                 </TableSection>
                 <TableSection Title="{xct:Translate OperatingSystems}">
                      <TextCell Text="{xct:Translate PageReplacement}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:PageReplacementPage}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
+                     <TextCell Text="{xct:Translate Buddy}"
+                               Command="{Binding NavigateCommand}"
+                               CommandParameter="{x:Type local:BuddyPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
                 </TableSection>
             </TableRoot>
