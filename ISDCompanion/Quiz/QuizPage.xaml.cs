@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using TriviaPorts;
 using Xamarin.Forms;
 
 namespace ISDCompanion
 {
     public partial class QuizPage : ContentPage
     {
-        public QuizPage()
+        public QuizPage(IQuestion[] questions)
         {
             InitializeComponent();
-            BindingContext = new QuizViewModel();
+            BindingContext = new QuizViewModel(questions);
         }
 
         async void Answer_Clicked(object sender, System.EventArgs e)

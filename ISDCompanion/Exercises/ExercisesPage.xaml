@@ -16,8 +16,7 @@
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
                     <TextCell Text="{xct:Translate Quiz}"
-                              Command="{Binding NavigateCommand}"
-                              CommandParameter="{x:Type local:QuizPage}"
+                              Command="{Binding NetworksQuizCommand}"                              
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />                    
                 </TableSection>
@@ -30,6 +29,10 @@
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:BuddyPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
+                     <TextCell Text="{xct:Translate Quiz}"
+                              Command="{Binding OpSysQuizCommand}"                              
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
+                              />                    
                 </TableSection>
             </TableRoot>
         </TableView>            

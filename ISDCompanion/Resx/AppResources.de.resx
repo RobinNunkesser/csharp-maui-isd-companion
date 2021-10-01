@@ -112,6 +112,11 @@
     <data name="Sidedishes"><value>Beilagen</value></data>
     <data name="Desserts"><value>Desserts</value></data>
     <data name="NoMeals"><value>Keine Essen zur Anzeige. Mensa geschlossen?</value></data>
-    <data name="ErrorMessage"><value>Fehler beim Abrufen der Daten. Bitte später erneut probieren.</value></data>    
+    <data name="ErrorMessage"><value>Fehler beim Abrufen der Daten. Bitte später erneut probieren.</value></data>
+    <data name="Quiz"><value>Quiz</value></data>
+    <data name="Buddy"><value>Buddy</value></data>
+    <data name="Right"><value>Richtig</value></data>   
+    <data name="Wrong"><value>Falsch</value></data>
+    <data name="Skip"><value>Überspringen</value></data>
 </root>
 

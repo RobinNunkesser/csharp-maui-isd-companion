@@ -388,5 +388,35 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("ErrorMessage", resourceCulture);
             }
         }
+        
+        internal static string Quiz {
+            get {
+                return ResourceManager.GetString("Quiz", resourceCulture);
+            }
+        }
+        
+        internal static string Buddy {
+            get {
+                return ResourceManager.GetString("Buddy", resourceCulture);
+            }
+        }
+        
+        internal static string Right {
+            get {
+                return ResourceManager.GetString("Right", resourceCulture);
+            }
+        }
+        
+        internal static string Wrong {
+            get {
+                return ResourceManager.GetString("Wrong", resourceCulture);
+            }
+        }
+        
+        internal static string Skip {
+            get {
+                return ResourceManager.GetString("Skip", resourceCulture);
+            }
+        }
     }
 }

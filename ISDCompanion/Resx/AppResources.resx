@@ -112,5 +112,10 @@
     <data name="Sidedishes"><value>Side dishes</value></data>
     <data name="Desserts"><value>Desserts</value></data>
     <data name="NoMeals"><value>No meals to display. Mensa closed?</value></data>
-    <data name="ErrorMessage"><value>Error while fetching the data. Please try again later.</value></data>    
+    <data name="ErrorMessage"><value>Error while fetching the data. Please try again later.</value></data>
+    <data name="Quiz"><value>Quiz</value></data>
+    <data name="Buddy"><value>Buddy</value></data>
+    <data name="Right"><value>Right</value></data>   
+    <data name="Wrong"><value>Wrong</value></data>
+    <data name="Skip"><value>Skip</value></data>
 </root>
