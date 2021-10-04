@@ -424,5 +424,11 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("CRC", resourceCulture);
             }
         }
+        
+        internal static string MST {
+            get {
+                return ResourceManager.GetString("MST", resourceCulture);
+            }
+        }
     }
 }

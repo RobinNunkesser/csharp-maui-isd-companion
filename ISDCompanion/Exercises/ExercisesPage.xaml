@@ -20,6 +20,11 @@
                               CommandParameter="{x:Type local:CRCPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
+                    <TextCell Text="{xct:Translate MST}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:MSTPage}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
+                              />
                     <TextCell Text="{xct:Translate Quiz}"
                               Command="{Binding NetworksQuizCommand}"                              
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"

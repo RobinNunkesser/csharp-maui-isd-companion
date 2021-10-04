@@ -119,5 +119,6 @@
     <data name="Wrong"><value>Falsch</value></data>
     <data name="Skip"><value>Überspringen</value></data>
     <data name="CRC"><value>CRC</value></data>
+    <data name="MST"><value>Minimaler Spannbaum</value></data>
 </root>
 
