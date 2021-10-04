@@ -118,4 +118,5 @@
     <data name="Right"><value>Right</value></data>   
     <data name="Wrong"><value>Wrong</value></data>
     <data name="Skip"><value>Skip</value></data>
+    <data name="CRC"><value>CRC</value></data>
 </root>

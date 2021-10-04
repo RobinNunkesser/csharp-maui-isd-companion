@@ -25,6 +25,7 @@ namespace ISDCompanion.iOS
             global::Xamarin.Forms.Forms.Init();
             
             DevExpress.XamarinForms.Scheduler.iOS.Initializer.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

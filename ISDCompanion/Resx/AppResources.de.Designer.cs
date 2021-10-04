@@ -418,5 +418,11 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("Skip", resourceCulture);
             }
         }
+        
+        internal static string CRC {
+            get {
+                return ResourceManager.GetString("CRC", resourceCulture);
+            }
+        }
     }
 }

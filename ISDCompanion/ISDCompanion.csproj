@@ -17,9 +17,9 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.1.5" />
+    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.1.6" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
-    <PackageReference Include="NetworksExam" Version="0.3.0" />
+    <PackageReference Include="NetworksExam" Version="0.4.0" />
     <PackageReference Include="OperatingSystemsExam" Version="0.2.0" />
     <PackageReference Include="TriviaPorts" Version="0.1.1" />
   </ItemGroup>
@@ -53,6 +53,8 @@
     <None Remove="Licenses\system_net_http.html" />
     <None Remove="Licenses\system_net_http_json.html" />
     <None Remove="Licenses\system_text_json.html" />
+    <None Remove="Microcharts.Forms" />
+    <None Remove="DevExpress.XamarinForms.Charts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />
