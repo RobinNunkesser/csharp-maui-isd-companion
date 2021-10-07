@@ -53,6 +53,10 @@
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:SchedulingPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
+                     <TextCell Text="{xct:Translate RealtimeScheduling}"
+                               Command="{Binding NavigateCommand}"
+                               CommandParameter="{x:Type local:RealtimeSchedulingPage}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                    
                      <TextCell Text="{xct:Translate Quiz}"
                               Command="{Binding OpSysQuizCommand}"                              
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"

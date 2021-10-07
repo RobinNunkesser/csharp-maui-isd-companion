@@ -455,6 +455,12 @@ namespace ISDCompanion.Resx {
             }
         }
         
+        internal static string RealtimeScheduling {
+            get {
+                return ResourceManager.GetString("RealtimeScheduling", resourceCulture);
+            }
+        }
+        
         internal static string Processes {
             get {
                 return ResourceManager.GetString("Processes", resourceCulture);

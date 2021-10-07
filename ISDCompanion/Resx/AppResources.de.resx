@@ -124,6 +124,7 @@
     <data name="Netmasks"><value>Netzmasken</value></data>
     <data name="Address"><value>Adresse</value></data>
     <data name="Scheduling"><value>Scheduling</value></data>
+    <data name="RealtimeScheduling"><value>Echtzeitscheduling</value></data>
     <data name="Processes"><value>Prozesse</value></data>
 </root>
 
