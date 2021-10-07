@@ -25,6 +25,16 @@
                               CommandParameter="{x:Type local:MSTPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
+                    <TextCell Text="{xct:Translate ShortestPaths}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:ShortestPathsPage}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
+                              />
+                    <TextCell Text="{xct:Translate Netmasks}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:NetmaskPage}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
+                              />
                     <TextCell Text="{xct:Translate Quiz}"
                               Command="{Binding NetworksQuizCommand}"                              
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
@@ -38,6 +48,10 @@
                      <TextCell Text="{xct:Translate Buddy}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:BuddyPage}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
+                     <TextCell Text="{xct:Translate Scheduling}"
+                               Command="{Binding NavigateCommand}"
+                               CommandParameter="{x:Type local:SchedulingPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
                      <TextCell Text="{xct:Translate Quiz}"
                               Command="{Binding OpSysQuizCommand}"                              

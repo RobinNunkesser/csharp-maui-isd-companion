@@ -120,4 +120,9 @@
     <data name="Skip"><value>Skip</value></data>
     <data name="CRC"><value>CRC</value></data>
     <data name="MST"><value>Minimum Spanning Tree</value></data>
+    <data name="ShortestPaths"><value>Shortest Paths</value></data>
+    <data name="Netmasks"><value>Netmasks</value></data>
+    <data name="Address"><value>Address</value></data>
+    <data name="Scheduling"><value>Scheduling</value></data>
+    <data name="Processes"><value>Processes</value></data>
 </root>

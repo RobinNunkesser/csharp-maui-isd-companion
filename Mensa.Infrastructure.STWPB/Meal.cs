@@ -108,7 +108,9 @@ namespace Mensa.Infrastructure.STWPB
         [EnumMember(Value = "low-calorie")]
         LowCalorie,
         [EnumMember(Value = "lactose-free")]
-        LactoseFree
+        LactoseFree,
+        [EnumMember(Value = "gluten-free")]
+        GlutenFree
     };
 
     public enum Category {
@@ -151,7 +153,14 @@ namespace Mensa.Infrastructure.STWPB
         [EnumMember(Value = "mensa-hamm")]
         MensaHamm,
         [EnumMember(Value = "mensa-lippstadt")]
-        MensaLippstadt };
+        MensaLippstadt,
+        [EnumMember(Value = "mensa-academica-paderborn")]
+        MensaAcademicaPaderborn,
+        [EnumMember(Value = "mensa-forum-paderborn")]
+        MensaForumPaderborn,
+        [EnumMember(Value = "one-way-snack")]
+        OneWaySnack
+    };
 
     public static class Serialize
     {

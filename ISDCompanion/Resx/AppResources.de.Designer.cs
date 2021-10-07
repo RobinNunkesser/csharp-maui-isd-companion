@@ -430,5 +430,35 @@ namespace ISDCompanion.Resx {
                 return ResourceManager.GetString("MST", resourceCulture);
             }
         }
+        
+        internal static string ShortestPaths {
+            get {
+                return ResourceManager.GetString("ShortestPaths", resourceCulture);
+            }
+        }
+        
+        internal static string Netmasks {
+            get {
+                return ResourceManager.GetString("Netmasks", resourceCulture);
+            }
+        }
+        
+        internal static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        internal static string Scheduling {
+            get {
+                return ResourceManager.GetString("Scheduling", resourceCulture);
+            }
+        }
+        
+        internal static string Processes {
+            get {
+                return ResourceManager.GetString("Processes", resourceCulture);
+            }
+        }
     }
 }
