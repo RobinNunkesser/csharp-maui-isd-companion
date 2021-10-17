@@ -15,4 +15,3 @@ jobs:
       - run: cd Mensa.Core && dotnet build
       - run: cd Mensa.Infrastructure.Adapter && dotnet build
       - run: cd Mensa.Infrastructure.STWPB && dotnet build
-      - run: cd Mensa.Infrastructure.STWPB.Tests && dotnet test
