@@ -1,0 +1,19 @@
+name: CI
+on: 
+  push:
+  schedule:
+    - cron:  '0 1 * * *'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET SDK 
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: '5.0.x'
+      - run: cd ISDCompanion && dotnet build
+      - run: cd Mensa.Core && dotnet build
+      - run: cd Mensa.Infrastructure.Adapter && dotnet build
+      - run: cd Mensa.Infrastructure.STWPB && dotnet build
+      - run: cd Mensa.Infrastructure.STWPB.Tests && dotnet test
