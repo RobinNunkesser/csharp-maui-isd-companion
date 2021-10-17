@@ -159,7 +159,9 @@ namespace Mensa.Infrastructure.STWPB
         [EnumMember(Value = "mensa-forum-paderborn")]
         MensaForumPaderborn,
         [EnumMember(Value = "one-way-snack")]
-        OneWaySnack
+        OneWaySnack,
+        [EnumMember(Value = "zm2")]
+        ZM2
     };
 
     public static class Serialize
