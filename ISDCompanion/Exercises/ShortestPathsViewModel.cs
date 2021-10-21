@@ -8,10 +8,8 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class ShortestPathsViewModel : INotifyPropertyChanged
+    public class ShortestPathsViewModel : ExerciseViewModel
     {
-        public ICommand NewParams { get; set; }
-
         private string graph = "";
         public string Graph
         {
@@ -40,13 +38,7 @@ namespace ISDCompanion
             }
         }
 
-        public ShortestPathsViewModel()
-        {
-            Initialize();
-            NewParams = new Command(Initialize);
-        }
-
-        private void Initialize()
+        protected override void Initialize()
         {
             var parameters = new ShortestPathsParameters();
             var solver = new ShortestPathsSolver();
@@ -70,12 +62,6 @@ namespace ISDCompanion
 
             Solution = solutionString;
         }
-
-        #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") =>
-          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        #endregion
 
     }
 

@@ -7,10 +7,8 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class RealtimeSchedulingViewModel : INotifyPropertyChanged
+    public class RealtimeSchedulingViewModel : ExerciseViewModel
     {
-        public ICommand NewParams { get; set; }
-
         private string requests;
         public string Requests
         {
@@ -53,13 +51,7 @@ namespace ISDCompanion
             }
         }
 
-        public RealtimeSchedulingViewModel()
-        {
-            Initialize();
-            NewParams = new Command(Initialize);
-        }
-
-        private void Initialize()
+        protected override void Initialize()
         {
             var parameters = new RealtimeSchedulingParameters();
 
@@ -76,12 +68,6 @@ namespace ISDCompanion
             RMSSolution = string.Join("", new RMSSolver().Solve(parameters).Processes);
 
         }
-
-        #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") =>
-          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        #endregion
 
     }
 }

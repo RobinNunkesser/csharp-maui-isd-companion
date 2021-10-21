@@ -7,10 +7,8 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class BuddyViewModel : INotifyPropertyChanged
+    public class BuddyViewModel : ExerciseViewModel
     {
-        public ICommand NewParams { get; set; }
-
         private string requests;
         public string Requests
         {
@@ -53,13 +51,7 @@ namespace ISDCompanion
             }
         }
 
-        public BuddyViewModel()
-        {
-            Initialize();
-            NewParams = new Command(Initialize);
-        }
-
-        private void Initialize()
+        protected override void Initialize()
         {
             var parameters = new BuddyParameters();
             var solver = new BuddySolver();
@@ -80,12 +72,6 @@ namespace ISDCompanion
             FreeOrder = $"Free {parameters.FreeOrder[0]}, {parameters.FreeOrder[1]}, {parameters.FreeOrder[2]}, {parameters.FreeOrder[3]}, {parameters.FreeOrder[4]}";
             Solution = solutionString;
         }
-
-        #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") =>
-          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        #endregion
 
     }
 }

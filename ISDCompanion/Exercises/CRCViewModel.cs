@@ -8,10 +8,8 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class CRCViewModel : INotifyPropertyChanged
+    public class CRCViewModel : ExerciseViewModel
     {
-        public ICommand NewParams { get; set; }
-
         private string bits = "";
         public string Bits
         {
@@ -55,13 +53,7 @@ namespace ISDCompanion
         }
 
 
-        public CRCViewModel()
-        {
-            Initialize();
-            NewParams = new Command(Initialize);
-        }
-
-        private void Initialize()
+        protected override void Initialize()
         {
             var parameters = new CRCParameters();
             var solver = new CRCSolver();
@@ -71,12 +63,6 @@ namespace ISDCompanion
             Calculation = solution.Calculation;
             Check = solution.Check;
         }
-
-        #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") =>
-          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        #endregion
 
     }
 

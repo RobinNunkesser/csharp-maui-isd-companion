@@ -8,10 +8,8 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class MSTViewModel : INotifyPropertyChanged
+    public class MSTViewModel : ExerciseViewModel
     {
-        public ICommand NewParams { get; set; }
-
         private string graph = "";
         public string Graph
         {
@@ -40,13 +38,7 @@ namespace ISDCompanion
             }
         }
 
-        public MSTViewModel()
-        {
-            Initialize();
-            NewParams = new Command(Initialize);
-        }
-
-        private void Initialize()
+        protected override void Initialize()
         {
             var parameters = new MinimumSpanningTreeParameters();
             var solver = new MinimumSpanningTreeSolver();
@@ -70,12 +62,6 @@ namespace ISDCompanion
 
             Solution = solutionString;
         }
-
-        #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") =>
-          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        #endregion
 
     }
 

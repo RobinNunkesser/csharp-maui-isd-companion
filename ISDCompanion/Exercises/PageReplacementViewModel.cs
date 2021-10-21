@@ -10,11 +10,10 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class PageReplacementViewModel : INotifyPropertyChanged
+    public class PageReplacementViewModel : ExerciseViewModel
     {
 
         public List<string[]> Items { get; set; }
-        public ICommand NewParams { get; set; }
         private string referenceRequests;
         public string ReferenceRequests
         {
@@ -48,12 +47,6 @@ namespace ISDCompanion
         private List<SimulationResult> optimalSolution;
         private List<SimulationResult> lruSolution;
         private List<SimulationResult> fifoSolution;
-
-        public PageReplacementViewModel()
-        {
-            Initialize();
-            NewParams = new Command(Initialize);
-        }
 
         private void ComputeItems()
         {
@@ -94,7 +87,7 @@ namespace ISDCompanion
             return $"{arg}";
         }
 
-        private void Initialize()
+        protected override void Initialize()
         {
 
             SelectedStrategy = -1;
@@ -119,10 +112,5 @@ namespace ISDCompanion
 
         }
 
-        #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") =>
-          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        #endregion
     }
 }

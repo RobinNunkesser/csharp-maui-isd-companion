@@ -7,10 +7,8 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class SchedulingViewModel : INotifyPropertyChanged
+    public class SchedulingViewModel : ExerciseViewModel
     {
-        public ICommand NewParams { get; set; }
-
         private string processes;
         public string Processes
         {
@@ -81,13 +79,7 @@ namespace ISDCompanion
             }
         }
 
-        public SchedulingViewModel()
-        {
-            Initialize();
-            NewParams = new Command(Initialize);
-        }
-
-        private void Initialize()
+        protected override void Initialize()
         {
             var parameters = new SchedulingParameters();
             var processes = "";
@@ -106,10 +98,5 @@ namespace ISDCompanion
 
         }
 
-        #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") =>
-          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        #endregion
     }
 }

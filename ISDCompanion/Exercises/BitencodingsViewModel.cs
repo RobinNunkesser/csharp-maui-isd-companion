@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class BitencodingsViewModel : INotifyPropertyChanged
+    public class BitencodingsViewModel : ExerciseViewModel
     {
         private string bits;
         public string Bits
@@ -64,15 +64,7 @@ namespace ISDCompanion
             }
         }
 
-        public ICommand NewParams { get; set; }
-
-        public BitencodingsViewModel()
-        {
-            Initialize();
-            NewParams = new Command(Initialize);
-        }
-
-        private void Initialize()
+        protected override void Initialize()
         {
             var parameters = new BitencodingParameters();
             var solver = new BitencodingSolver();
@@ -83,10 +75,5 @@ namespace ISDCompanion
             MLT3 = string.Join("", solution.MLT3);
         }
 
-        #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") =>
-          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        #endregion
     }
 }

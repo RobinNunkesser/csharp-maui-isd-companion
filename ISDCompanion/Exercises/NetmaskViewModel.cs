@@ -7,10 +7,8 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class NetmaskViewModel : INotifyPropertyChanged
+    public class NetmaskViewModel : ExerciseViewModel
     {
-        public ICommand NewParams { get; set; }
-
         private string address;
         public string Address
         {
@@ -53,13 +51,7 @@ namespace ISDCompanion
             }
         }
 
-        public NetmaskViewModel()
-        {
-            Initialize();
-            NewParams = new Command(Initialize);
-        }
-
-        private void Initialize()
+        protected override void Initialize()
         {
             var parameters = new NetmaskParameters();
             var solver = new NetmaskSolver();
@@ -70,10 +62,5 @@ namespace ISDCompanion
             Host = solution.HostAddress.ToString();
         }
 
-        #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") =>
-          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        #endregion
     }
 }

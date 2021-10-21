@@ -49,7 +49,6 @@
     <None Remove="Licenses\triviaports.html" />
     <None Remove="Common\" />
     <None Remove="Licenses\commonports.html" />
-    <None Remove="Licenses\mealports.html" />
     <None Remove="Licenses\macross_json_extensions.html" />
     <None Remove="Licenses\system_net_http.html" />
     <None Remove="Licenses\system_net_http_json.html" />
@@ -61,6 +60,7 @@
     <None Remove="Italbytz.Ports.Trivia" />
     <None Remove="Italbytz.Adapters.Exam.OperatingSystems" />
     <None Remove="Italbytz.Adapters.Exam.Networks" />
+    <None Remove="Licenses\italbytz_ports_meal.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />
@@ -83,12 +83,12 @@
     <EmbeddedResource Include="Licenses\xamarin_communitytoolkit.html" />
     <EmbeddedResource Include="Licenses\italbytz_ports_trivia.html" />
     <EmbeddedResource Include="Licenses\italbytz_ports_common.html" />
-    <EmbeddedResource Include="Licenses\mealports.html" />
     <EmbeddedResource Include="Licenses\macross_json_extensions.html" />
     <EmbeddedResource Include="Licenses\system_net_http.html" />
     <EmbeddedResource Include="Licenses\system_net_http_json.html" />
     <EmbeddedResource Include="Licenses\system_text_json.html" />
     <EmbeddedResource Include="Licenses\xam_plugins_logging.html" />
+    <EmbeddedResource Include="Licenses\italbytz_ports_meal.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
