@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DevExpress.XamarinForms.Scheduler;
-using MealPorts;
+using Italbytz.Ports.Meal;
 using Xamarin.Essentials;
 
 namespace ISDCompanion

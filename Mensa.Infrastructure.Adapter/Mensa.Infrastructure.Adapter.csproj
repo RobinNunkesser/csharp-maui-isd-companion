@@ -13,12 +13,14 @@
   <ItemGroup>
     <None Remove="MealPorts" />
     <None Remove="CommonPorts" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="MealPorts" Version="0.2.0" />
-    <PackageReference Include="CommonPorts" Version="0.2.0" />
+    <None Remove="Italbytz.Ports.Common" />
+    <None Remove="Italbytz.Ports.Meal" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mensa.Infrastructure.STWPB\Mensa.Infrastructure.STWPB.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Italbytz.Ports.Common" Version="0.2.1" />
+    <PackageReference Include="Italbytz.Ports.Meal" Version="0.2.1" />
   </ItemGroup>
 </Project>

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CommonPorts;
-using MealPorts;
+using Italbytz.Ports.Common;
+using Italbytz.Ports.Meal;
 using Mensa.Infrastructure.STWPB;
 
 namespace Mensa.Infrastructure.Adapter

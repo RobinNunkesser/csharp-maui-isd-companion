@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using NetworksExam.MinimumSpanningTree;
+using Italbytz.Adapters.Exam.Networks;
 using Xamarin.Forms;
 
 namespace ISDCompanion

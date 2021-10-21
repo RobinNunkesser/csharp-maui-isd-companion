@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using OperatingSystemsExam.Scheduling;
+using Italbytz.Adapters.Exam.OperatingSystems;
 using Xamarin.Forms;
 
 namespace ISDCompanion
@@ -99,7 +99,7 @@ namespace ISDCompanion
 
             Processes = processes;
 
-            FCFS = $"{new FIFOSolver().Solve(parameters).Time}";
+            FCFS = $"{new FCFSSolver().Solve(parameters).Time}";
             SJF = $"{new ShortestJobFirstSolver().Solve(parameters).Time}";
             RR = $"{new RoundRobinSolver().Solve(parameters).Time}";
             Prio = $"{new PrioritySchedulingSolver().Solve(parameters).Time}";

@@ -4,8 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using OperatingSystemsExam.PageReplacement;
-using OperatingSystemsExam.PageReplacement.Adapters;
+using Italbytz.Adapters.Exam.OperatingSystems;
+using Italbytz.Infrastructure.Exam.OperatingSystems.PageReplacement;
 using Xamarin.Forms;
 
 namespace ISDCompanion
@@ -108,10 +108,10 @@ namespace ISDCompanion
             optimalSolution = new OptimalSolver().Solve(parameters);
             optimalSolution.RemoveAt(0);
 
-            fifoSolution = new FifoSolver().Solve(parameters);
+            fifoSolution = new FIFOSolver().Solve(parameters);
             fifoSolution.RemoveAt(0);
 
-            lruSolution = new LruSolver().Solve(parameters);
+            lruSolution = new LRUSolver().Solve(parameters);
             lruSolution.RemoveAt(0);
 
             clockSolution = new ClockSolver().Solve(parameters);

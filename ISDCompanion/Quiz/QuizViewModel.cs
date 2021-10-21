@@ -4,8 +4,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using ISDCompanion.Resx;
-using RandomExtensions;
-using TriviaPorts;
+using Italbytz.Extensions;
+using Italbytz.Ports.Trivia;
 using Xamarin.Forms;
 
 namespace ISDCompanion

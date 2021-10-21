@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using MealPorts;
+using Italbytz.Ports.Meal;
 
 namespace Mensa.Infrastructure.Adapter
 {

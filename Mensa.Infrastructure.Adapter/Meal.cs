@@ -1,5 +1,5 @@
 ﻿using System;
-using MealPorts;
+using Italbytz.Ports.Meal;
 
 namespace Mensa.Infrastructure.Adapter
 {

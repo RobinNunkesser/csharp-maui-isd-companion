@@ -8,12 +8,14 @@
     <None Remove="CommonPorts" />
     <None Remove="MealPorts" />
     <None Remove="Ports\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="CommonPorts" Version="0.2.0" />
-    <PackageReference Include="MealPorts" Version="0.1.0" />
+    <None Remove="Italbytz.Ports.Meal" />
+    <None Remove="Italbytz.Ports.Common" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Ports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Italbytz.Ports.Meal" Version="0.2.1" />
+    <PackageReference Include="Italbytz.Ports.Common" Version="0.2.1" />
   </ItemGroup>
 </Project>

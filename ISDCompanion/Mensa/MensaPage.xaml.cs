@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ISDCompanion.Resx;
+using Italbytz.Ports.Meal;
 using Mensa.Core;
 using Mensa.Core.Ports;
 using Mensa.Infrastructure.Adapter;
@@ -27,7 +28,7 @@ namespace ISDCompanion
             service.Execute(Success, Error);
         }
 
-        private async void Success(List<MealPorts.IMeal> meals)
+        private async void Success(List<IMeal> meals)
         {
             if (meals.Count > 0)
             {

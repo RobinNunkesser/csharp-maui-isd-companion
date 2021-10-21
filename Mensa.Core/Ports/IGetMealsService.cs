@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using CommonPorts;
-using MealPorts;
+using Italbytz.Ports.Common;
+using Italbytz.Ports.Meal;
 
 namespace Mensa.Core.Ports
 {

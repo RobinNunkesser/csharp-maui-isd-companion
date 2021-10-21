@@ -61,6 +61,9 @@
     <PackageReference Include="DevExpress.XamarinForms.Scheduler">
       <Version>21.1.6</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugins.Logging">
+      <Version>1.1.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />

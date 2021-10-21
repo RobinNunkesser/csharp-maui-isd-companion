@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using ISDCompanion.Resx;
-using MealPorts;
+using Italbytz.Ports.Meal;
 using Mensa.Core;
 using Mensa.Core.Ports;
 using Mensa.Infrastructure.Adapter;

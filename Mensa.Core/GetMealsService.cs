@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CommonPorts;
-using MealPorts;
+using Italbytz.Ports.Common;
+using Italbytz.Ports.Meal;
 using Mensa.Core.Ports;
 
 namespace Mensa.Core

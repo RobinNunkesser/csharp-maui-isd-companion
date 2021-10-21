@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using OperatingSystemsExam.Scheduling.Realtime;
+using Italbytz.Adapters.Exam.OperatingSystems;
 using Xamarin.Forms;
 
 namespace ISDCompanion
@@ -61,7 +61,7 @@ namespace ISDCompanion
 
         private void Initialize()
         {
-            var parameters = new SchedulingParameters();
+            var parameters = new RealtimeSchedulingParameters();
 
             var requests = "";
             var index = 0;
