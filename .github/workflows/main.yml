@@ -13,5 +13,3 @@ jobs:
         with:
           dotnet-version: '5.0.x'
       - run: cd Mensa.Core && dotnet build
-      - run: cd Mensa.Infrastructure.Adapter && dotnet build
-      - run: cd Mensa.Infrastructure.STWPB && dotnet build
