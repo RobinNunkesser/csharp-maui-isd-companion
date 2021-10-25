@@ -5,7 +5,6 @@ using ISDCompanion.Resx;
 using Italbytz.Ports.Meal;
 using Mensa.Core;
 using Mensa.Core.Ports;
-using Mensa.Infrastructure.Adapter;
 
 namespace ISDCompanion
 {

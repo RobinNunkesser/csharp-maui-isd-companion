@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using ISDCompanion.Resx;
+using Italbytz.Adapters.Meal.STWPB;
 using Italbytz.Ports.Meal;
 using Mensa.Core;
 using Mensa.Core.Ports;
-using Mensa.Infrastructure.Adapter;
 using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -13,7 +13,7 @@ namespace ISDCompanion
 {
     public partial class MensaPage : ContentPage
     {
-        private readonly IGetMealsService service = new GetMealsService(new MealRepository(LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName));
+        private readonly IGetMealsService service = new GetMealsService(new MealRepository(Secrets.id, LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName));
         private readonly MensaViewModel viewModel = new();
 
         public MensaPage()

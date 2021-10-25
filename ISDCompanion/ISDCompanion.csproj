@@ -23,6 +23,7 @@
     <PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
     <PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.4.2" />
     <PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.5.2" />
+    <PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.1.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DevExpress.XamarinForms.Scheduler" />
@@ -61,6 +62,8 @@
     <None Remove="Italbytz.Adapters.Exam.OperatingSystems" />
     <None Remove="Italbytz.Adapters.Exam.Networks" />
     <None Remove="Licenses\italbytz_ports_meal.html" />
+    <None Remove="Licenses\italbytz_adapters_exam_networks %28copy%29.html" />
+    <None Remove="Italbytz.Adapters.Meal.STWPB" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />
@@ -89,6 +92,7 @@
     <EmbeddedResource Include="Licenses\system_text_json.html" />
     <EmbeddedResource Include="Licenses\xam_plugins_logging.html" />
     <EmbeddedResource Include="Licenses\italbytz_ports_meal.html" />
+    <EmbeddedResource Include="Licenses\italbytz_adapters_meal_stwpb.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
@@ -113,7 +117,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
     <ProjectReference Include="..\Mensa.Infrastructure.Adapter\Mensa.Infrastructure.Adapter.csproj" />
+    <ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
   </ItemGroup>
 </Project>

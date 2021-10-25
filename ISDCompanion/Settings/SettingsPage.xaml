@@ -85,6 +85,13 @@
                             <x:String>italbytz_adapters_exam_operatingsystems.html</x:String>
                         </TextCell.CommandParameter>
                     </TextCell>
+                    <TextCell Text="Italbytz.Adapters.Meal.STWPB"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>italbytz_adapters_meal_stwpb.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
                     <TextCell Text="Italbytz.Ports.Common"
                               Command="{Binding LicensesCommand}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
