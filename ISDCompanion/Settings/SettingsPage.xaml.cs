@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using ISDCompanion.Resx;
 using Xamarin.Forms;
 
 namespace ISDCompanion
@@ -12,6 +12,5 @@ namespace ISDCompanion
             InitializeComponent();
             BindingContext = new SettingsViewModel(Navigation);
         }
-
     }
 }

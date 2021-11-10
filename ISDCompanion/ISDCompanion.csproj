@@ -23,7 +23,7 @@
     <PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
     <PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.4.2" />
     <PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.5.2" />
-    <PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.1.0" />
+    <PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.2.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DevExpress.XamarinForms.Scheduler" />

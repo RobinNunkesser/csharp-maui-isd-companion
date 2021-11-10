@@ -6,6 +6,11 @@
     xmlns:local="clr-namespace:ISDCompanion"
     x:Class="ISDCompanion.MensaPage"
     Title="{xct:Translate Mensa}">
+    <ContentPage.Resources>
+		<ResourceDictionary>
+			<local:PriceConverter x:Key="priceConverter" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="ToolbarItem_Clicked" >
             <ToolbarItem.IconImageSource>
@@ -35,10 +40,7 @@
                                          FontAttributes="Bold"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalOptions="Start" />
-                                    <Label Text="{xct:Translate PricesLabel}"
-                                         HorizontalOptions="FillAndExpand"
-                                         VerticalOptions="End" />
-                                    <Label Text="{Binding Price}"
+                                    <Label Text="{Binding Price, Converter={StaticResource priceConverter}}"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalOptions="End" />
                                 </StackLayout>

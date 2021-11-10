@@ -126,4 +126,8 @@
     <data name="Scheduling"><value>Scheduling</value></data>
     <data name="RealtimeScheduling"><value>Realtime Scheduling</value></data>
     <data name="Processes"><value>Processes</value></data>
+    <data name="Status"><value>Status</value></data>
+    <data name="Student"><value>Student</value></data>
+    <data name="Staff"><value>Staff</value></data>
+    <data name="Guest"><value>Guest</value></data>
 </root>

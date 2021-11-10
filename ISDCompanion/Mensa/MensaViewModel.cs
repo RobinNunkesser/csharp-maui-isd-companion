@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using ISDCompanion.Resx;
 using Italbytz.Ports.Meal;
-using Mensa.Core;
-using Mensa.Core.Ports;
 
 namespace ISDCompanion
 {
@@ -51,6 +49,8 @@ namespace ISDCompanion
             desserts.Clear();
             foreach (var meal in meals)
             {
+
+
                 var excludeMeal = false;
                 foreach (Allergens flagToCheck in Enum.GetValues(typeof(Allergens)))
                 {
@@ -93,4 +93,5 @@ namespace ISDCompanion
             }
         }
     }
+
 }

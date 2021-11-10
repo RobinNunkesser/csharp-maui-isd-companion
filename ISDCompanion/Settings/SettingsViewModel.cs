@@ -1,13 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Input;
+using ISDCompanion.Resx;
 using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class SettingsViewModel
+    public class SettingsViewModel : ViewModel
     {
         public ICommand LicensesCommand { get; set; }
         public ICommand NavigateCommand { get; set; }
+
+        public int Status
+        {
+            get => Settings.Status;
+            set => Settings.Status = value;
+        }
 
         public int Semester {
             get => Settings.Semester;
@@ -22,6 +30,7 @@ namespace ISDCompanion
 
         public SettingsViewModel(INavigation navigation)
         {
+            OnPropertyChanged();
             LicensesCommand = new Command<string>(async (string licenseFile) =>
             {                
                 await navigation.PushAsync(new LicensesPage(licenseFile));

@@ -14,9 +14,9 @@ androidlinkskip=
 androidsdkbuildtoolsversion=30.0.2
 androidsdkpath=/users/nunkesser/library/android/sdk/
 androidndkpath=/users/nunkesser/library/developer/xamarin/android-sdk-macosx/ndk-bundle/
-javasdkpath=/users/nunkesser/library/developer/xamarin/jdk/microsoft_dist_openjdk_8.0.25/
+javasdkpath=/library/java/javavirtualmachines/microsoft-11.jdk/contents/home/
 androidsequencepointsmode=none
-xamarinandroidversion=11.3.0-4
+xamarinandroidversion=12.0.0-3
 monosymbolarchive=false
 androiduselatestplatformsdk=false
 targetframeworkversion=v11.0
@@ -25,9 +25,10 @@ androidgeneratejnimarshalmethods=false
 os=unix
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=637707549894519375
+_nugetassetstimestamp=637721356388963941
 typemapkind=strings-asm
 androidsupportedabis=armeabi-v7a
 arm64-v8a
 x86
 x86_64
+androidmanifestplaceholders=

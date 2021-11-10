@@ -8,11 +8,17 @@ namespace ISDCompanion
 {
     public static class Settings
     {
+        private static readonly int StatusDefault = 0;
         private static readonly int SemesterDefault = 0;
         private static readonly int SpecializationDefault = 0;
         private static readonly int AllergensDefault = 0b11111111111111;
         private static readonly int AdditivesDefault = 0b111111111111111;
 
+        public static int Status
+        {
+            get => Preferences.Get(nameof(Status), StatusDefault);
+            set => Preferences.Set(nameof(Status), value);
+        }
         public static int Semester
         {
             get => Preferences.Get(nameof(Semester), SemesterDefault);

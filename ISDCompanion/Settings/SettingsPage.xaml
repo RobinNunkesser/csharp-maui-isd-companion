@@ -13,6 +13,30 @@
                     <ViewCell>
                         <ViewCell.View>
                             <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
+                                <Label Text="{xct:Translate Status}"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"/>
+                                <Picker
+                                    x:Name="StatusPicker"
+                                    Title="{xct:Translate Status}"
+                                    HorizontalOptions="EndAndExpand"
+                                    SelectedIndex="{Binding Status}"
+                                    >
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>Studierende</x:String>
+                                            <x:String>Bedienstete</x:String>
+                                            <x:String>Gäste</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
                                 <Label Text="Semester"
                                        HorizontalOptions="StartAndExpand"
                                        VerticalOptions="Center"
