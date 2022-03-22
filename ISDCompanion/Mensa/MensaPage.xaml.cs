@@ -13,19 +13,28 @@ namespace ISDCompanion
 {
     public partial class MensaPage : ContentPage
     {
-        private readonly IGetMealsService service = new GetMealsService(new MealRepository(Secrets.id, LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName));
+        private readonly Mensa.Core.Ports.IGetMealsService service;
         private readonly MensaViewModel viewModel = new();
 
         public MensaPage()
         {
-            InitializeComponent();
+            InitializeComponent();            
             BindingContext = viewModel;
+            var repository = new MealRepository(Secrets.id, LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName);
+            service = new GetMealsService(repository);
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
-            service.Execute(Success, Error);
+            try
+            {
+                Success(await service.Execute());
+            }
+            catch (Exception ex)
+            {
+                Error(ex);
+            }             
         }
 
         private async void Success(List<IMeal> meals)

@@ -15,7 +15,7 @@
     <Folder Include="Ports\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Italbytz.Ports.Meal" Version="0.3.0" />
-    <PackageReference Include="Italbytz.Ports.Common" Version="0.2.1" />
+    <PackageReference Include="Italbytz.Ports.Meal" Version="0.5.0" />
+    <PackageReference Include="Italbytz.Ports.Common" Version="0.4.0" />
   </ItemGroup>
 </Project>

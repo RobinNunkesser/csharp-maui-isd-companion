@@ -7,7 +7,7 @@ using Mensa.Core.Ports;
 
 namespace Mensa.Core
 {
-    public class GetMealsService : IGetMealsService
+    public class GetMealsService : Ports.IGetMealsService
     {
         private readonly IDataSource<int, IMeal> _repository;
         private static readonly string format = "yyyy-MM-dd";
@@ -19,20 +19,15 @@ namespace Mensa.Core
             _repository = repository;
         }
 
-        public async Task Execute(Action<List<IMeal>> successHandler, Action<Exception> errorHandler)
+        public async Task<List<IMeal>> Execute()
         {
-            Result<List<IMeal>> result;
-            if (DateTime.Now.ToString(format)!=lastSuccess) { 
-                result = await _repository.RetrieveAll();
-                result.Match((success) => {
-                    lastSuccess = DateTime.Now.ToString(format);
-                    lastMeals = success;
-                }, (error) => { });
-            } else
+            if (DateTime.Now.ToString(format) != lastSuccess)
             {
-                result = new Result<List<IMeal>>(lastMeals);
+                var meals = await _repository.RetrieveAll();
+                lastSuccess = DateTime.Now.ToString(format);
+                lastMeals = meals;
             }
-            result.Match(successHandler, errorHandler);
+            return lastMeals;
         }
     }
 }
