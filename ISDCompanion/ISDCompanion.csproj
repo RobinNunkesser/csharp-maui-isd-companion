@@ -15,10 +15,10 @@
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.1.6" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.2.6" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.1" />
     <PackageReference Include="Xam.Plugins.Logging" Version="1.1.1" />
     <PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
     <PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.6.0" />
