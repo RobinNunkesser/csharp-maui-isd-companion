@@ -21,8 +21,8 @@
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
     <PackageReference Include="Xam.Plugins.Logging" Version="1.1.1" />
     <PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
-    <PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.4.2" />
-    <PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.5.2" />
+    <PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.6.0" />
+    <PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.8.0" />
     <PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.3.0" />
   </ItemGroup>
   <ItemGroup>

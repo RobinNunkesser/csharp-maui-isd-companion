@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Infrastructure.Exam.OperatingSystems.PageReplacement;
+using Italbytz.Ports.Exam.OperatingSystems;
 using Xamarin.Forms;
 
 namespace ISDCompanion
@@ -43,16 +44,16 @@ namespace ISDCompanion
             }
         }
 
-        private List<SimulationResult> clockSolution;
-        private List<SimulationResult> optimalSolution;
-        private List<SimulationResult> lruSolution;
-        private List<SimulationResult> fifoSolution;
+        private List<IPageReplacementStep> clockSolution;
+        private List<IPageReplacementStep> optimalSolution;
+        private List<IPageReplacementStep> lruSolution;
+        private List<IPageReplacementStep> fifoSolution;
 
         private void ComputeItems()
         {
             Items = new List<string[]>();
 
-            List<SimulationResult> solution = null;
+            List<IPageReplacementStep> solution = null;
             switch (selectedStrategy)
             {
                 case 0: solution = optimalSolution; break;
@@ -68,7 +69,7 @@ namespace ISDCompanion
             OnPropertyChanged("Items");
         }
 
-        private string[] Present(SimulationResult sim)
+        private string[] Present(IPageReplacementStep sim)
         {
             var element = sim.Element;
             var frames = sim.Frames.Select(Present).ToList();
@@ -98,16 +99,16 @@ namespace ISDCompanion
             };
             ReferenceRequests = string.Join("", parameters.ReferenceRequests);
 
-            optimalSolution = new OptimalSolver().Solve(parameters);
+            optimalSolution = new OptimalSolver().Solve(parameters).Steps;
             optimalSolution.RemoveAt(0);
 
-            fifoSolution = new FIFOSolver().Solve(parameters);
+            fifoSolution = new FIFOSolver().Solve(parameters).Steps;
             fifoSolution.RemoveAt(0);
 
-            lruSolution = new LRUSolver().Solve(parameters);
+            lruSolution = new LRUSolver().Solve(parameters).Steps;
             lruSolution.RemoveAt(0);
 
-            clockSolution = new ClockSolver().Solve(parameters);
+            clockSolution = new ClockSolver().Solve(parameters).Steps;
             clockSolution.RemoveAt(0);
 
         }
