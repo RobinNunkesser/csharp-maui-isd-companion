@@ -4,10 +4,70 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:local="clr-namespace:ISDCompanion"   
+    xmlns:model="clr-namespace:ISDCompanion.Models"
     x:Class="ISDCompanion.ExercisesPage"
+    x:DataType="local:ExercisesViewModel"
     Title="{xct:Translate Exercises}">
     <ContentPage.Content>
-        <TableView Intent="Menu">
+
+        <StackLayout BindableLayout.ItemsSource="{Binding Semesters}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <xct:Expander x:DataType="model:Semester">
+                        <xct:Expander.Header>
+                            <Label Text="{Binding Semester_Title}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   Padding="10, 10, 0, 5"/>
+                        </xct:Expander.Header>
+                        <StackLayout BindableLayout.ItemsSource="{Binding Modules}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <xct:Expander x:DataType="model:Module">
+                                        <xct:Expander.Header>
+                                            <Label Text="{Binding Module_Title}"
+                                                   FontSize="18"
+                                                   Padding="30, 5, 0, 0"/>
+                                        </xct:Expander.Header>
+                                        <StackLayout BindableLayout.ItemsSource="{Binding Topics}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <xct:Expander x:DataType="model:Topic">
+                                                        <xct:Expander.Header>
+                                                            <Label Text="{Binding Topic_Title}"
+                                                                   FontSize="16"
+                                                                   Padding="50, 5, 0, 5"/>
+                                                        </xct:Expander.Header>
+                                                        <StackLayout BindableLayout.ItemsSource="{Binding Exercises}">
+                                                            <BindableLayout.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <xct:Expander x:DataType="model:Exercise">
+                                                                        <xct:Expander.Header>
+                                                                            <Label Text="{Binding Exercise_Title}"
+                                                                                   FontSize="14"
+                                                                                   Padding="70, 0, 0, 0"/>
+                                                                        </xct:Expander.Header>
+                                                                    </xct:Expander>
+                                                                </DataTemplate>
+                                                            </BindableLayout.ItemTemplate>
+                                                        </StackLayout>
+                                                    </xct:Expander>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </StackLayout>
+                                    </xct:Expander>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </xct:Expander>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+
+       
+
+
+        <!--<TableView Intent="Menu">
             <TableRoot>
                 <TableSection Title="{xct:Translate Networks}">
                     <TextCell Text="{xct:Translate Bitencodings}"
@@ -63,6 +123,6 @@
                               />                    
                 </TableSection>
             </TableRoot>
-        </TableView>            
+        </TableView>-->            
     </ContentPage.Content>
 </ContentPage>
