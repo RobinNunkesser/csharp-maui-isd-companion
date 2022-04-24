@@ -41,13 +41,17 @@
                                                         <StackLayout BindableLayout.ItemsSource="{Binding Exercises}">
                                                             <BindableLayout.ItemTemplate>
                                                                 <DataTemplate>
-                                                                    <xct:Expander x:DataType="model:Exercise">
-                                                                        <xct:Expander.Header>
-                                                                            <Label Text="{Binding Exercise_Title}"
-                                                                                   FontSize="14"
-                                                                                   Padding="70, 0, 0, 0"/>
-                                                                        </xct:Expander.Header>
-                                                                    </xct:Expander>
+                                                                    <StackLayout x:DataType="model:Exercise">
+                                                                        <Label Text="{Binding Exercise_Title}"
+                                                                               FontSize="14"
+                                                                               Padding="70, 0, 0, 0"/>
+                                                                        <StackLayout.GestureRecognizers>
+                                                                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:ExercisesViewModel}}, Path=ExerciseTapped}"
+                                                                                                  CommandParameter="{Binding .}">
+                                                                            </TapGestureRecognizer>
+                                                                        </StackLayout.GestureRecognizers>
+                                                                    </StackLayout>
                                                                 </DataTemplate>
                                                             </BindableLayout.ItemTemplate>
                                                         </StackLayout>
@@ -64,7 +68,7 @@
             </BindableLayout.ItemTemplate>
         </StackLayout>
 
-       
+
 
 
         <!--<TableView Intent="Menu">
@@ -123,6 +127,6 @@
                               />                    
                 </TableSection>
             </TableRoot>
-        </TableView>-->            
+        </TableView>-->
     </ContentPage.Content>
 </ContentPage>

@@ -14,13 +14,18 @@ namespace ISDCompanion
         public ICommand NetworksQuizCommand { get; set; }
         public ICommand OpSysQuizCommand { get; set; }
 
+        private INavigation _navigation;
+
         public Command<Exercise> ExerciseTapped { get; }
 
         public ExercisesViewModel(INavigation navigation)
         {
+            _navigation = navigation;
             _semesters = new ObservableCollection<Semester>();
 
             PopulateData();
+
+            ExerciseTapped = new Command<Exercise>(OnExerciseSelected);
 
             NavigateCommand = new Command<Type>(async (Type pageType) =>
             {
@@ -37,6 +42,17 @@ namespace ISDCompanion
             });
         }
 
+        private async void OnExerciseSelected(Exercise obj)
+        {
+            if (obj == null)
+            {
+                return;
+            }
+
+            Page page = (Page)Activator.CreateInstance(Type.GetType(obj.CommandParameter));
+            await _navigation.PushAsync(page);
+        }
+
         private void PopulateData()
         {
             ObservableCollection<Exercise> networks = new ObservableCollection<Exercise>();
@@ -45,35 +61,35 @@ namespace ISDCompanion
             {
                 Exercise_Title = "Bitencodings",
                 Command = "{Binding NavigateCommand}",
-                CommandParameter = "{x:Type local:BitencodingsPage}"
+                CommandParameter = "ISDCompanion.BitencodingsPage, ISDCompanion"
             });
 
             networks.Add(new Exercise
             {
                 Exercise_Title = "CRC",
                 Command = "{Binding NavigateCommand}",
-                CommandParameter = "{x:Type local:CRCPage}"
+                CommandParameter = "ISDCompanion.CRCPage, ISDCompanion"
             });
 
             networks.Add(new Exercise
             {
                 Exercise_Title = "MST",
                 Command = "{Binding NavigateCommand}",
-                CommandParameter = "{x:Type local:MSTPage}"
+                CommandParameter = "ISDCompanion.MSTPage, ISDCompanion"
             });
 
             networks.Add(new Exercise
             {
                 Exercise_Title = "ShortestPaths",
                 Command = "{Binding NavigateCommand}",
-                CommandParameter = "{x:Type local:ShortestPathsPage}"
+                CommandParameter = "ISDCompanion.ShortestPathsPage, ISDCompanion"
             });
 
             networks.Add(new Exercise
             {
                 Exercise_Title = "Netmasks",
                 Command = "{Binding NavigateCommand}",
-                CommandParameter = "{x:Type local:NetmaskPage}"
+                CommandParameter = "ISDCompanion.NetmaskPage, ISDCompanion"
             });
 
 
@@ -84,28 +100,28 @@ namespace ISDCompanion
             {
                 Exercise_Title = "PageReplacement",
                 Command = "{Binding NavigateCommand}",
-                CommandParameter = "{x:Type local:PageReplacementPage}"
+                CommandParameter = "ISDCompanion.PageReplacementPage, ISDCompanion"
             });
 
             opsys.Add(new Exercise
             {
                 Exercise_Title = "Buddy",
                 Command = "{Binding NavigateCommand}",
-                CommandParameter = "{x:Type local:BuddyPage}"
+                CommandParameter = "ISDCompanion.BuddyPage, ISDCompanion"
             });
 
             opsys.Add(new Exercise
             {
                 Exercise_Title = "Scheduling",
                 Command = "{Binding NavigateCommand}",
-                CommandParameter = "{x:Type local:SchedulingPage}"
+                CommandParameter = "ISDCompanion.SchedulingPage, ISDCompanion"
             });
 
             opsys.Add(new Exercise
             {
                 Exercise_Title = "RealtimeScheduling",
                 Command = "{Binding NavigateCommand}",
-                CommandParameter = "{x:Type local:RealtimeSchedulingPage}"
+                CommandParameter = "ISDCompanion.RealtimeSchedulingPage, ISDCompanion"
             });
 
 
@@ -115,13 +131,13 @@ namespace ISDCompanion
             temp_Topics.Add(new Topic
             {
                 Topic_Title = "Betriebssysteme",
-                Exercises = networks
+                Exercises = opsys
             }); 
             
             temp_Topics.Add(new Topic
             {
                 Topic_Title = "Netzwerke",
-                Exercises = opsys
+                Exercises = networks
             });
 
             ObservableCollection<Module> temp_Modules = new ObservableCollection<Module>();
@@ -142,6 +158,18 @@ namespace ISDCompanion
         }
 
         private ObservableCollection<Semester> _semesters { get; set; }
+
+        //public ObservableCollection<Exercise> Exercises
+        //{
+        //    get 
+        //    { 
+        //        return _exercises; 
+        //    }
+        //    private set
+        //    {
+        //        _exercises = value;
+        //    }
+        //}
 
         public ObservableCollection<Semester> Semesters
         {
