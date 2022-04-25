@@ -4,9 +4,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ISDCompanion.ExerciseBasicLayoutPage"
-    Title="{xct:Translate ExerciseBasicLayout}">
+    Title="{xct:Translate ExerciseBasicLayout}"
+    >
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="Red"></Setter>
+            </Style>
+            <Style TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="Green"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem Clicked="ToolbarItem_Clicked" >
+        <ToolbarItem>
             <ToolbarItem.IconImageSource>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="outline_info_black_24pt" />
@@ -18,7 +33,7 @@
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <StackLayout VerticalOptions="FillAndExpand">
-                <ScrollView Orientation="Horizontal">
+                <ScrollView Orientation="Horizontal" BackgroundColor="Red">
                     <StackLayout Orientation="Horizontal">
                         <Label FontSize="Large">Test</Label>
                         <Label>Test</Label>
