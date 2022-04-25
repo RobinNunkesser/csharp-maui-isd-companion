@@ -60,7 +60,11 @@
                      <TextCell Text="{xct:Translate Quiz}"
                               Command="{Binding OpSysQuizCommand}"                              
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
-                              />                    
+                              />
+                    <TextCell Text="{xct:Translate ExerciseBasicLayout}"
+                               Command="{Binding NavigateCommand}"
+                               CommandParameter="{x:Type local:ExerciseBasicLayoutPage}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
                 </TableSection>
             </TableRoot>
         </TableView>            

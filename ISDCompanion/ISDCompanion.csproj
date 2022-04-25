@@ -67,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />
-    <Folder Include="Exercises\" />
     <Folder Include="Settings\" />
     <Folder Include="Licenses\" />
     <Folder Include="Resources\" />
@@ -95,12 +94,17 @@
     <EmbeddedResource Include="Licenses\italbytz_adapters_meal_stwpb.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Exercises\ExerciseBasicLayoutPage.xaml.cs">
+      <DependentUpon>ExerciseBasicLayoutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
       <DependentUpon>LicensesPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Resx\AppResources.Designer.cs">
       <DependentUpon>AppResources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Update="Resx\AppResources.de.Designer.cs">
       <DependentUpon>AppResources.de.resx</DependentUpon>
