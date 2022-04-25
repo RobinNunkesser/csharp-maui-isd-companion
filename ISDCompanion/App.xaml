@@ -37,7 +37,9 @@
         <Color x:Key="PrimaryBackgroundDark">#2196F3</Color>
         <Color x:Key="PrimaryBackgroundLight">#2196F3</Color>
         <Color x:Key="PrimaryTextDark">#ffffff</Color>
-        <Color x:Key="PrimaryTextLight">#ffffff</Color>        
+        <Color x:Key="PrimaryTextLight">#ffffff</Color>
+
+        <Color x:Key=""></Color>
       
         <!--<Style TargetType="Button">
             <Setter Property="TextColor" 

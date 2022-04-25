@@ -7,33 +7,26 @@
     Title="{xct:Translate ExerciseBasicLayout}"
     >
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Text="Item 1" Priority="1" />
+        <ToolbarItem Name="MenuItem2" Order="Secondary" Text="Item 2" Priority="2" />
+        <ToolbarItem Name="MenuItem3" Order="Secondary"  Text="Item 3" Priority="3" />
+        <ToolbarItem Name="MenuItem4" Order="Secondary"  Text="Item 4" Priority="4" />
+    </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="StackLayout">
-                <Setter Property="BackgroundColor" Value="Red"></Setter>
-            </Style>
-            <Style TargetType="ContentPage">
-                <Setter Property="BackgroundColor" Value="Green"></Setter>
+                <Setter Property="BackgroundColor" Value="White"></Setter>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem>
-            <ToolbarItem.IconImageSource>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="outline_info_black_24pt" />
-                    <On Platform="Android" Value="ic_baseline_info_24" />
-                </OnPlatform>
-            </ToolbarItem.IconImageSource>
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <StackLayout VerticalOptions="FillAndExpand">
-                <ScrollView Orientation="Horizontal" BackgroundColor="Red">
+                <ScrollView Orientation="Horizontal">
                     <StackLayout Orientation="Horizontal">
                         <Label FontSize="Large">Test</Label>
                         <Label>Test</Label>
