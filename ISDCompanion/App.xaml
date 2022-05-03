@@ -8,10 +8,15 @@
         <Color x:Key="TextColorDark">#ffffff</Color>
         <Color x:Key="TextColorLight">#2F2F2F</Color>
 
-        <Color x:Key="HeaderBarBackgroundColorLight">#F7F7F7</Color>
+        <Color x:Key="HeaderBarBackgroundColorLight">#ffffff</Color>
         <Color x:Key="HeaderBarBackgroundColorDark">#101010</Color>
         <Color x:Key="HeaderBarTextColorLight">#020202</Color>
         <Color x:Key="HeaderBarTextColorDark">#FFFFFF</Color>
+
+        <Color x:Key="HeaderMenuBackgroundColorLight">#F7F7F7</Color>
+        <Color x:Key="HeaderMenuBackgroundColorDark">#101010</Color>
+        <Color x:Key="HeaderMenuTextColorLight">#020202</Color>
+        <Color x:Key="HeaderMenuTextColorDark">#FFFFFF</Color>
 
         <Color x:Key="TabBarBackgroundColorLight">#F7F7F7</Color>
         <Color x:Key="TabBarBackgroundColorDark">#101010</Color>
@@ -39,8 +44,12 @@
         <Color x:Key="PrimaryTextDark">#ffffff</Color>
         <Color x:Key="PrimaryTextLight">#ffffff</Color>
 
-        <Color x:Key=""></Color>
-      
+
+
+
+
+
+
         <!--<Style TargetType="Button">
             <Setter Property="TextColor" 
                         Value="{AppThemeBinding Dark={StaticResource ButtonTextColorDark}, 

@@ -8,52 +8,98 @@
     >
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuItem1" Order="Primary" Text="Item 1" Priority="1" />
-        <ToolbarItem Name="MenuItem2" Order="Secondary" Text="Item 2" Priority="2" />
-        <ToolbarItem Name="MenuItem3" Order="Secondary"  Text="Item 3" Priority="3" />
-        <ToolbarItem Name="MenuItem4" Order="Secondary"  Text="Item 4" Priority="4" />
+        <ToolbarItem Name="MenuItem2" Order="Secondary" Text="Item 1" Priority="2" />
+        <ToolbarItem Name="MenuItem3" Order="Secondary"  Text="Item 2" Priority="3" />
+        <ToolbarItem Name="MenuItem4" Order="Secondary"  Text="Item 3" Priority="4" />
     </ContentPage.ToolbarItems>
-
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style TargetType="StackLayout">
-                <Setter Property="BackgroundColor" Value="White"></Setter>
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
-
     <ContentPage.Content>
-        <ScrollView Orientation="Vertical">
-            <StackLayout VerticalOptions="FillAndExpand">
-                <ScrollView Orientation="Horizontal">
-                    <StackLayout Orientation="Horizontal">
-                        <Label FontSize="Large">Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
-                        <Label>Test</Label>
+        <xct:TabView TabStripBackgroundColor="White" TabStripHeight="40" IsSwipeEnabled="False">
+            <xct:TabViewItem Text="Übung">
+                <xct:TabViewItem.Content>
+                    <StackLayout Padding="20, 5, 20, 20">
+                        <Frame>
+                            <StackLayout>
+                                <ImageButton BackgroundColor="White" Source="ic_baseline_info_24" VerticalOptions="Start" HorizontalOptions="End"></ImageButton>
+                                <ScrollView HeightRequest="400" Margin="0, 10, 0, 0">
+                                    <StackLayout>
+                                        <Frame BackgroundColor="DarkBlue" Padding="24" CornerRadius="0">
+                                            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                                        </Frame>
+                                        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+                                        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+                                        <Label FontSize="16" Padding="30,24,30,0">
+                                        </Label>
+                                        <Frame BackgroundColor="Green" Padding="24" CornerRadius="0">
+                                            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                                        </Frame>
+                                        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+                                        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+                                        <Label FontSize="16" Padding="30,24,30,0">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="Learn more at "/>
+                                                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Frame BackgroundColor="Green" Padding="24" CornerRadius="0">
+                                            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                                        </Frame>
+                                        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+                                        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+                                        <Label FontSize="16" Padding="30,24,30,0">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="Learn more at "/>
+                                                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+
+
+                                </ScrollView>
+                            </StackLayout>
+
+                        </Frame>
+
                     </StackLayout>
-                </ScrollView>
-            </StackLayout>
-        </ScrollView>
+                </xct:TabViewItem.Content>
+            </xct:TabViewItem>
+
+
+
+
+
+
+
+            <xct:TabViewItem Text="Quiz">
+                <xct:TabViewItem.Content>
+                    <StackLayout>
+                        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                        </Frame>
+                        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+                        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+                        <Label FontSize="16" Padding="30,24,30,0">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Learn more at "/>
+                                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </xct:TabViewItem.Content>
+            </xct:TabViewItem>
+        </xct:TabView>
+
+
     </ContentPage.Content>
 </ContentPage>
