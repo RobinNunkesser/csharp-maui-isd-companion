@@ -178,14 +178,61 @@ namespace ISDCompanion
             tableGen.SetBorderForRow(7);
             tableGen.SetBorderForRow(8);
 
+            tableGen.RemoveBorder(0, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(0, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(0, 0, TableGen.Border.BorderPosition.Bot);
 
+            tableGen.RemoveBorder(1, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(1, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(1, 0, TableGen.Border.BorderPosition.Bot);
 
+            tableGen.RemoveBorder(2, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(2, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(2, 0, TableGen.Border.BorderPosition.Bot);
 
-            var label1 = new Label() { Text = "Test 1" };
-            var label2 = new Label() { Text = "Test 2" };
+            tableGen.RemoveBorder(3, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(3, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(3, 0, TableGen.Border.BorderPosition.Bot);
 
-            tableGen.AddElement(0, 0, label1);
-            tableGen.AddElement(0, 1, label2);
+            tableGen.RemoveBorder(4, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(4, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(4, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(5, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(5, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(5, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(6, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(6, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(6, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(7, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(7, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(7, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(8, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(8, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(8, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.SetColumnWidth(0, 80);
+
+            List<Label> labels = new List<Label>();
+
+            labels.Add(new Label() { Text = "Ref." });
+            labels.Add(new Label() { Text = "Kachel 1" });
+            labels.Add(new Label() { Text = "Kachel 2" });
+            labels.Add(new Label() { Text = "Kachel 3" });
+            labels.Add(new Label() { Text = "Abstand 1" });
+            labels.Add(new Label() { Text = "Abstand 2" });
+            labels.Add(new Label() { Text = "Abstand 3" });
+
+            tableGen.AddElement(0, 0, labels[0]);
+            tableGen.AddElement(2, 0, labels[1]);
+            tableGen.AddElement(3, 0, labels[2]);
+            tableGen.AddElement(4, 0, labels[3]);
+            tableGen.AddElement(6, 0, labels[4]);
+            tableGen.AddElement(7, 0, labels[5]);
+            tableGen.AddElement(8, 0, labels[6]);
 
             _Table = tableGen.Grid;
         }
