@@ -2,11 +2,18 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+    xmlns:local="clr-namespace:ISDCompanion"
     x:Class="ISDCompanion.PageReplacementPage"
+    x:DataType="local:PageReplacementViewModel"
     Title="{xct:Translate PageReplacement}">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand">
+        <ScrollView Padding="50" Orientation="Horizontal">
+            <ContentView Content="{Binding Table}">
+                
+            </ContentView>
+        </ScrollView>
+        <!--<StackLayout VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Horizontal">
                 <Label Text="{xct:Translate Requests}" VerticalOptions="Center"/>
                 <Label Text="{Binding ReferenceRequests}" VerticalOptions="Center">
@@ -88,6 +95,6 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}"/>
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

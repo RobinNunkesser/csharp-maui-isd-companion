@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -7,6 +8,7 @@ using System.Windows.Input;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Infrastructure.Exam.OperatingSystems.PageReplacement;
 using Italbytz.Ports.Exam.OperatingSystems;
+using TableGen;
 using Xamarin.Forms;
 
 namespace ISDCompanion
@@ -111,7 +113,81 @@ namespace ISDCompanion
             clockSolution = new ClockSolver().Solve(parameters).Steps;
             clockSolution.RemoveAt(0);
 
+            InitTableTest();
         }
 
+        public Grid Table
+        {
+            get 
+            { 
+                return _Table; 
+            }
+            private set 
+            {
+                _Table = value; 
+            }
+        }
+
+        private Grid _Table { get; set; }
+
+
+        private void InitTableTest()
+        {
+            /*
+            Neue Funktionen für TableGen selber programmieren oder Pascal überlassen --> Klare Trennung?
+
+
+            
+            -   Vorhande Funktionen auch für Zeilen und Spalten, nicht nur Zellen.
+            -   (height, width) ist anders als bei Excel :( --> (width, height)
+            -   Layout für Texte anpassen/anpassbar machen: Zentriert
+            -   Title Row/Column? 
+
+            */
+
+
+            var tableGen = new TableGen.TableGen(10, 9, 25, 50);
+
+            //tableGen.SetBorderForCell(0, 0, TableGen.Border.BorderPosition.Top);
+            //tableGen.SetBorderForCell(0, 0, TableGen.Border.BorderPosition.Left);
+            //tableGen.SetBorderForCell(0, 0, TableGen.Border.BorderPosition.Right);
+            //tableGen.SetBorderForCell(0, 0, TableGen.Border.BorderPosition.Bot);
+
+            //tableGen.SetBorderForCell(0, 1, TableGen.Border.BorderPosition.Top);
+            //tableGen.SetBorderForCell(0, 1, TableGen.Border.BorderPosition.Left);
+            //tableGen.SetBorderForCell(0, 1, TableGen.Border.BorderPosition.Right);
+            //tableGen.SetBorderForCell(0, 1, TableGen.Border.BorderPosition.Bot);
+
+            //tableGen.SetBorderForCell(1, 0, TableGen.Border.BorderPosition.Top);
+            //tableGen.SetBorderForCell(1, 0, TableGen.Border.BorderPosition.Left);
+            //tableGen.SetBorderForCell(1, 0, TableGen.Border.BorderPosition.Right);
+            //tableGen.SetBorderForCell(1, 0, TableGen.Border.BorderPosition.Bot);
+
+            //tableGen.SetBorderForCell(1, 1, TableGen.Border.BorderPosition.Top);
+            //tableGen.SetBorderForCell(1, 1, TableGen.Border.BorderPosition.Left);
+            //tableGen.SetBorderForCell(1, 1, TableGen.Border.BorderPosition.Right);
+            //tableGen.SetBorderForCell(1, 1, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.SetBorderForRow(0);
+
+            tableGen.SetBorderForRow(2);
+            tableGen.SetBorderForRow(3);
+            tableGen.SetBorderForRow(4);
+
+            tableGen.SetBorderForRow(6);
+            tableGen.SetBorderForRow(7);
+            tableGen.SetBorderForRow(8);
+
+
+
+
+            var label1 = new Label() { Text = "Test 1" };
+            var label2 = new Label() { Text = "Test 2" };
+
+            tableGen.AddElement(0, 0, label1);
+            tableGen.AddElement(0, 1, label2);
+
+            _Table = tableGen.Grid;
+        }
     }
 }
