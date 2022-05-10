@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ISDCompanion.ExerciseBasicLayoutPage"
+    xmlns:fontAwesome="clr-namespace:FontAwesome"
     Title="{xct:Translate ExerciseBasicLayout}"
     >
 
@@ -20,6 +21,9 @@
                         <Frame>
                             <StackLayout>
                                 <ImageButton BackgroundColor="White" Source="ic_baseline_info_24" VerticalOptions="Start" HorizontalOptions="End"></ImageButton>
+
+                                <Label FontSize="Large" FontAttributes="Bold" FontFamily="ACC" Text="&#xe4c6;"></Label>
+
                                 <ScrollView HeightRequest="400" Margin="0, 10, 0, 0">
                                     <StackLayout>
                                         <Frame BackgroundColor="DarkBlue" Padding="24" CornerRadius="0">

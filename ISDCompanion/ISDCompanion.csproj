@@ -27,6 +27,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="DevExpress.XamarinForms.Scheduler" />
+    <None Remove="Resources\Fonts\FA-Regular-400.otf" />
+    <None Remove="Resources\Fonts\FA-Solid-900.otf" />
     <None Remove="Schedule\" />
     <None Remove="Exercises\" />
     <None Remove="Settings\" />
@@ -69,7 +71,6 @@
     <Folder Include="Schedule\" />
     <Folder Include="Settings\" />
     <Folder Include="Licenses\" />
-    <Folder Include="Resources\" />
     <Folder Include="Resx\" />
     <Folder Include="Mensa\" />
     <Folder Include="Profs\" />
@@ -92,6 +93,8 @@
     <EmbeddedResource Include="Licenses\xam_plugins_logging.html" />
     <EmbeddedResource Include="Licenses\italbytz_ports_meal.html" />
     <EmbeddedResource Include="Licenses\italbytz_adapters_meal_stwpb.html" />
+    <EmbeddedResource Include="Resources\Fonts\FA-Regular-400.otf" />
+    <EmbeddedResource Include="Resources\Fonts\FA-Solid-900.otf" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Exercises\ExerciseBasicLayoutPage.xaml.cs">

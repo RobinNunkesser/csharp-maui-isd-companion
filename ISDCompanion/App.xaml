@@ -45,7 +45,7 @@
         <Color x:Key="PrimaryTextLight">#ffffff</Color>
 
 
-
+        <x:String x:Key="IconCoffee">&#xe4c6;</x:String>
 
 
 
