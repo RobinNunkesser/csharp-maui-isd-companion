@@ -8,11 +8,26 @@
     x:DataType="local:PageReplacementViewModel"
     Title="{xct:Translate PageReplacement}">
     <ContentPage.Content>
-        <ScrollView Padding="50" Orientation="Horizontal">
-            <ContentView Content="{Binding Table}">
-                
-            </ContentView>
-        </ScrollView>
+        <StackLayout>
+            <Picker x:Name="StrategyPicker" Title="{xct:Translate ShowSolution}" TitleColor="Red"
+                    SelectedIndex="{Binding SelectedStrategy}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Optimal</x:String>
+                        <x:String>FIFO</x:String>
+                        <x:String>Least Recently Used</x:String>
+                        <x:String>Second Chance / Clock</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <ScrollView Padding="50" Orientation="Horizontal">
+                <ContentView Content="{Binding Table}">
+
+                </ContentView>
+            </ScrollView>
+        </StackLayout>
+
+
         <!--<StackLayout VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Horizontal">
                 <Label Text="{xct:Translate Requests}" VerticalOptions="Center"/>
