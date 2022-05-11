@@ -15,28 +15,72 @@
                 <DataTemplate>
                     <xct:Expander x:DataType="model:Semester">
                         <xct:Expander.Header>
-                            <Label Text="{Binding Semester_Title}"
+                            <Grid>
+                                <Label Text="{Binding Semester_Title}"
                                    FontSize="18"
                                    FontAttributes="Bold"
-                                   Padding="10, 10, 0, 5"/>
+                                   Padding="10, 10, 0, 0"/>
+                                <Image Source="expand_48.png"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Start">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image"
+                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                                     Value="True">
+                                            <Setter Property="Source"
+                                                    Value="collapse_48.png" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+                            </Grid>
                         </xct:Expander.Header>
                         <StackLayout BindableLayout.ItemsSource="{Binding Modules}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
                                     <xct:Expander x:DataType="model:Module">
                                         <xct:Expander.Header>
-                                            <Label Text="{Binding Module_Title}"
+                                            <Grid>
+                                                <Label Text="{Binding Module_Title}"
                                                    FontSize="18"
-                                                   Padding="30, 5, 0, 0"/>
+                                                   Padding="35, 5, 0, 0"/>
+                                                <Image Source="expand_40.png"
+                                                       HorizontalOptions="End"
+                                                       VerticalOptions="Start"
+                                                       Margin="0, 0, 4, 0">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image"
+                                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                                                     Value="True">
+                                                            <Setter Property="Source"
+                                                                    Value="collapse_40.png" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
                                         </xct:Expander.Header>
                                         <StackLayout BindableLayout.ItemsSource="{Binding Topics}">
                                             <BindableLayout.ItemTemplate>
                                                 <DataTemplate>
                                                     <xct:Expander x:DataType="model:Topic">
                                                         <xct:Expander.Header>
-                                                            <Label Text="{Binding Topic_Title}"
+                                                            <Grid>
+                                                                <Label Text="{Binding Topic_Title}"
                                                                    FontSize="16"
-                                                                   Padding="50, 5, 0, 5"/>
+                                                                   Padding="60, 5, 0, 5"/>
+                                                                <Image Source="expand_24.png"
+                                                                       HorizontalOptions="End"
+                                                                       VerticalOptions="Start"
+                                                                       Margin="0, 0, 12, 0">
+                                                                    <Image.Triggers>
+                                                                        <DataTrigger TargetType="Image"
+                                                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                                                                     Value="True">
+                                                                            <Setter Property="Source"
+                                                                                    Value="collapse_24.png" />
+                                                                        </DataTrigger>
+                                                                    </Image.Triggers>
+                                                                </Image>
+                                                            </Grid>
                                                         </xct:Expander.Header>
                                                         <StackLayout BindableLayout.ItemsSource="{Binding Exercises}">
                                                             <BindableLayout.ItemTemplate>
@@ -44,7 +88,7 @@
                                                                     <StackLayout x:DataType="model:Exercise">
                                                                         <Label Text="{Binding Exercise_Title}"
                                                                                FontSize="14"
-                                                                               Padding="70, 0, 0, 0"/>
+                                                                               Padding="85, 0, 0, 0"/>
                                                                         <StackLayout.GestureRecognizers>
                                                                             <TapGestureRecognizer NumberOfTapsRequired="1" 
                                                                                                   Command="{Binding Source={RelativeSource AncestorType={x:Type local:ExercisesViewModel}}, Path=ExerciseTapped}"
