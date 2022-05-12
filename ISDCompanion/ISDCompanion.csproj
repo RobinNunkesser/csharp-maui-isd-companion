@@ -24,6 +24,7 @@
     <PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.6.0" />
     <PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.8.1" />
     <PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.3.0" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DevExpress.XamarinForms.Scheduler" />
