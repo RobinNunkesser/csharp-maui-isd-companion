@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ISDCompanion.ExerciseBasicLayoutPage"
-    xmlns:fontAwesome="clr-namespace:FontAwesome"
+    xmlns:fontAwesome="clr-namespace:FontAwesome" xmlns:yummi="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     Title="{xct:Translate ExerciseBasicLayout}"
     >
 
@@ -14,106 +14,83 @@
         <ToolbarItem Name="MenuItem4" Order="Secondary"  Text="Item 3" Priority="4" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <xct:TabView TabStripBackgroundColor="WhiteSmoke" TabStripHeight="40" IsSwipeEnabled="False">
-            <xct:TabViewItem Text="Übung">
-                <xct:TabViewItem.Content>
-                    <StackLayout Padding="15, 5, 15, 20">
-                        <StackLayout>
-                            <Frame CornerRadius="20">
-                                <StackLayout>
-                                <ImageButton BackgroundColor="White" Source="ic_baseline_info_24" VerticalOptions="Start" HorizontalOptions="End"></ImageButton>
-                                <ScrollView Margin="0, 10, 0, 0">
-                                    <StackLayout>
-                                        <Frame BackgroundColor="DarkBlue" Padding="24" CornerRadius="0">
-                                            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-                                        </Frame>
-                                        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-                                        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-                                        <Label FontSize="16" Padding="30,24,30,0">
-                                        </Label>
-                                        <Frame BackgroundColor="Green" Padding="24" CornerRadius="0">
-                                            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-                                        </Frame>
-                                        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-                                        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-                                        <Label FontSize="16" Padding="30,24,30,0">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <FormattedString.Spans>
-                                                        <Span Text="Learn more at "/>
-                                                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                                                    </FormattedString.Spans>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Frame BackgroundColor="Green" Padding="24" CornerRadius="0">
-                                            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-                                        </Frame>
-                                        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-                                        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-                                        <Label FontSize="16" Padding="30,24,30,0">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <FormattedString.Spans>
-                                                        <Span Text="Learn more at "/>
-                                                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                                                    </FormattedString.Spans>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </StackLayout>
-                                </ScrollView>
+       
+                    <StackLayout Padding="10, 20, 10, 15">
+                        <StackLayout Padding="0, 0, 0, 10">
+                            <yummi:PancakeView CornerRadius="20, 20, 20, 20">
+                                <yummi:PancakeView.Shadow>
+                                    <yummi:DropShadow></yummi:DropShadow>
+                                </yummi:PancakeView.Shadow>
+                                <StackLayout Padding="0, 5, 0, 0">
+                                    <ImageButton Padding="5, 5, 5, 5" BackgroundColor="White" Source="ic_baseline_info_24" VerticalOptions="Start" HorizontalOptions="End"></ImageButton>
+                                    <ScrollView Margin="0, 10, 0, 0">
+                                        <StackLayout>
+                                            <Frame BackgroundColor="DarkBlue" Padding="24" CornerRadius="0">
+                                                <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                                            </Frame>
+                                            <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+                                            <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+                                            <Label FontSize="16" Padding="30,24,30,0">
+                                            </Label>
+                                            <Frame BackgroundColor="Green" Padding="24" CornerRadius="0">
+                                                <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                                            </Frame>
+                                            <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+                                            <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+                                            <Label FontSize="16" Padding="30,24,30,0">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Learn more at "/>
+                                                            <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Frame BackgroundColor="Green" Padding="24" CornerRadius="0">
+                                                <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                                            </Frame>
+                                            <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+                                            <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+                                            <Label FontSize="16" Padding="30,24,30,0">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Learn more at "/>
+                                                            <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <StackLayout Orientation="Vertical" Padding="40, 10, 40, 0">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <StackLayout HorizontalOptions="StartAndExpand">
+                                                        <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" FontFamily="ACC" Text="&#x2039;"></Label>
+                                                        <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">Previous</Label>
+                                                    </StackLayout>
+                                                    <StackLayout HorizontalOptions="EndAndExpand">
+                                                        <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" FontFamily="ACC" Text="&#x203a;"></Label>
+                                                        <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">Next</Label>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <StackLayout HorizontalOptions="Center">
+                                                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" FontFamily="ACC" Text="&#x00bb;"></Label>
+                                                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">Result</Label>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                    </ScrollView>
                                 </StackLayout>
-                            </Frame>
+                            </yummi:PancakeView>
                         </StackLayout>
-                        <StackLayout Orientation="Vertical" Padding="40, 10, 40, 0">
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout HorizontalOptions="StartAndExpand">
-                                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" FontFamily="ACC" Text="&#x2039;"></Label>
-                                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">Previous</Label>
-                                </StackLayout>
-                                <StackLayout HorizontalOptions="EndAndExpand">
-                                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" FontFamily="ACC" Text="&#x203a;"></Label>
-                                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">Next</Label>
-                                </StackLayout>
-                            </StackLayout>
-                            <StackLayout HorizontalOptions="Center">
-                                <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" FontFamily="ACC" Text="&#x00bb;"></Label>
-                                <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">Result</Label>
-                            </StackLayout>
-                        </StackLayout>
+
                     </StackLayout>
-                </xct:TabViewItem.Content>
-            </xct:TabViewItem>
 
 
 
 
 
-
-
-            <xct:TabViewItem Text="Quiz">
-                <xct:TabViewItem.Content>
-                    <StackLayout>
-                        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-                            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-                        </Frame>
-                        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-                        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-                        <Label FontSize="16" Padding="30,24,30,0">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <FormattedString.Spans>
-                                        <Span Text="Learn more at "/>
-                                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                                    </FormattedString.Spans>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                    </StackLayout>
-                </xct:TabViewItem.Content>
-            </xct:TabViewItem>
-        </xct:TabView>
 
 
     </ContentPage.Content>

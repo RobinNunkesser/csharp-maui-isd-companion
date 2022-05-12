@@ -18,7 +18,7 @@
         <Color x:Key="HeaderMenuTextColorLight">#020202</Color>
         <Color x:Key="HeaderMenuTextColorDark">#FFFFFF</Color>
 
-        <Color x:Key="TabBarBackgroundColorLight">#F7F7F7</Color>
+        <Color x:Key="TabBarBackgroundColorLight">#ffffff</Color>
         <Color x:Key="TabBarBackgroundColorDark">#101010</Color>
         <Color x:Key="TabBarForegroundColorLight">#007aff</Color>
         <Color x:Key="TabBarForegroundColorDark">#007aff</Color>
