@@ -87,11 +87,11 @@ namespace ISDCompanion.Services
             tableGen.AddElement(7, 0, labels[5]);
             tableGen.AddElement(8, 0, labels[6]);
 
-            for(int i = 0; i < steps.Count; i++)
-            {
-                Label label = new Label(){ Text = "1" };
-                tableGen.AddElement(1, i, label);
-            }
+            //for(int i = 0; i < steps.Count; i++)
+            //{
+            //    Label label = new Label(){ Text = "1" };
+            //    tableGen.AddElement(1, i, label);
+            //}
 
             return tableGen.Grid;
         }

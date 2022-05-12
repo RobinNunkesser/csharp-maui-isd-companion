@@ -9,7 +9,7 @@
     Title="{xct:Translate PageReplacement}">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="StrategyPicker" Title="{xct:Translate ShowSolution}" TitleColor="Red"
+            <!--<Picker x:Name="StrategyPicker" Title="{xct:Translate ShowSolution}" TitleColor="Red"
                     SelectedIndex="{Binding SelectedStrategy}">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
@@ -19,7 +19,7 @@
                         <x:String>Second Chance / Clock</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
-            </Picker>
+            </Picker>-->
             <ScrollView Padding="50" Orientation="Horizontal">
                 <ContentView Content="{Binding Table}">
 

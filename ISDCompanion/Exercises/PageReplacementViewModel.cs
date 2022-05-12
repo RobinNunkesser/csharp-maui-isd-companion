@@ -125,7 +125,7 @@ namespace ISDCompanion
             clockSolution = new ClockSolver().Solve(parameters).Steps;
             clockSolution.RemoveAt(0);
 
-            InitTableTest();
+            ComputeItems();
         }
 
         public Grid Table
