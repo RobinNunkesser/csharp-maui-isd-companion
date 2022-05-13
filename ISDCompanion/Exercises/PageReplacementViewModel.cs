@@ -60,7 +60,7 @@ namespace ISDCompanion
 
             if(selectedStrategy == -1)
             {
-                selectedStrategy = 0;
+                selectedStrategy = 3;
             }
 
             switch (selectedStrategy)
@@ -68,12 +68,27 @@ namespace ISDCompanion
                 case 0: solution = optimalSolution; 
                     if (solution != null)
                     {
-                        _Table = TableGenService.GenerateTable_PageReplacement_Optimal(solution);
+                        _Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.Optimal);
                     }
                     break;
-                case 1: solution = fifoSolution; break;
-                case 2: solution = lruSolution; break;
-                case 3: solution = clockSolution; break;
+                case 1: solution = fifoSolution;
+                    if (solution != null)
+                    {
+                        _Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.FIFO);
+                    }
+                    break;
+                case 2: solution = lruSolution;
+                    if (solution != null)
+                    {
+                        _Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.LRU);
+                    }
+                    break;
+                case 3: solution = clockSolution;
+                    if (solution != null)
+                    {
+                        _Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.SecondChance);
+                    }
+                    break;
             }
 
             if (solution != null)
