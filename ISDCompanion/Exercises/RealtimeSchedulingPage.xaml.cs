@@ -13,10 +13,10 @@ namespace ISDCompanion
             BindingContext = new RealtimeSchedulingViewModel();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            Switch.IsToggled = false;
-        }
+        //private void Button_Clicked(object sender, EventArgs e)
+        //{
+        //    Switch.IsToggled = false;
+        //}
     }
     
 }

@@ -7,6 +7,26 @@
     Title="{xct:Translate RealtimeScheduling}">
     <ContentPage.Content>
         <StackLayout>
+            <!--<Picker x:Name="StrategyPicker" Title="{xct:Translate ShowSolution}" TitleColor="Red"
+                    SelectedIndex="{Binding SelectedStrategy}" Margin="5">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Optimal</x:String>
+                        <x:String>FIFO</x:String>
+                        <x:String>Least Recently Used</x:String>
+                        <x:String>Second Chance / Clock</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>-->
+            <ScrollView Padding="50" Orientation="Horizontal">
+                <ContentView Content="{Binding Table}">
+
+                </ContentView>
+            </ScrollView>
+        </StackLayout>
+        
+        
+        <!--<StackLayout>
             <Label Text="{Binding Requests}" VerticalOptions="Center">
                     <Label.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
@@ -45,6 +65,6 @@
                     </Label.FontFamily>
                 </Label>
             <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>
