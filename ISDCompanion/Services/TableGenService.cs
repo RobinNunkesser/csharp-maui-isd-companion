@@ -1,4 +1,5 @@
-﻿using Italbytz.Ports.Exam.OperatingSystems;
+﻿using Italbytz.Adapters.Exam.OperatingSystems;
+using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -452,6 +453,109 @@ namespace ISDCompanion.Services
                 if (edf[i] == 2)
                 {
                     tableGen.SetBackGroundColor(10, i + 1, Color_C);
+                }
+            }
+
+            return tableGen.Grid;
+        }
+
+        #endregion
+
+        #region Buddy
+
+        public static Grid GenerateTable_Buddy(BuddyParameters parameters, IBuddySolution solution)
+        {
+            var tableGen = new TableGen.TableGen(33, 10, 25, 25);
+
+            tableGen.SetBorderForRow(0);
+            tableGen.SetBorderForRow(1);
+            tableGen.SetBorderForRow(2);
+            tableGen.SetBorderForRow(3);
+            tableGen.SetBorderForRow(4);
+            tableGen.SetBorderForRow(5);
+            tableGen.SetBorderForRow(6);
+            tableGen.SetBorderForRow(7);
+            tableGen.SetBorderForRow(8);
+            tableGen.SetBorderForRow(9);
+            //tableGen.SetBorderForRow(10);
+
+            tableGen.RemoveBorder(0, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(0, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(0, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(1, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(1, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(1, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(2, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(2, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(2, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(3, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(3, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(3, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(4, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(4, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(4, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(5, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(5, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(5, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(6, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(6, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(6, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(7, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(7, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(7, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(8, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(8, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(8, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.RemoveBorder(9, 0, TableGen.Border.BorderPosition.Top);
+            tableGen.RemoveBorder(9, 0, TableGen.Border.BorderPosition.Left);
+            tableGen.RemoveBorder(9, 0, TableGen.Border.BorderPosition.Bot);
+
+            //tableGen.RemoveBorder(10, 0, TableGen.Border.BorderPosition.Top);
+            //tableGen.RemoveBorder(10, 0, TableGen.Border.BorderPosition.Left);
+            //tableGen.RemoveBorder(10, 0, TableGen.Border.BorderPosition.Bot);
+
+            tableGen.SetColumnWidth(0, 80);
+
+            List<Label> labels = new List<Label>();
+
+            labels.Add(new Label() { Text = parameters.Processes[0] + " (" + parameters.Requests[0] + ")" });
+            labels.Add(new Label() { Text = parameters.Processes[1] + " (" + parameters.Requests[1] + ")" });
+            labels.Add(new Label() { Text = parameters.Processes[2] + " (" + parameters.Requests[2] + ")" });
+            labels.Add(new Label() { Text = parameters.Processes[3] + " (" + parameters.Requests[3] + ")" });
+            labels.Add(new Label() { Text = parameters.Processes[4] + " (" + parameters.Requests[4] + ")" });
+            labels.Add(new Label() { Text = "Free " + parameters.FreeOrder[0] });
+            labels.Add(new Label() { Text = "Free " + parameters.FreeOrder[1] });
+            labels.Add(new Label() { Text = "Free " + parameters.FreeOrder[2] });
+            labels.Add(new Label() { Text = "Free " + parameters.FreeOrder[3] });
+            labels.Add(new Label() { Text = "Free " + parameters.FreeOrder[4] });
+
+            tableGen.AddElement(0, 0, labels[0]);
+            tableGen.AddElement(1, 0, labels[1]);
+            tableGen.AddElement(2, 0, labels[2]);
+            tableGen.AddElement(3, 0, labels[3]);
+            tableGen.AddElement(4, 0, labels[4]);
+            tableGen.AddElement(5, 0, labels[5]);
+            tableGen.AddElement(6, 0, labels[6]);
+            tableGen.AddElement(7, 0, labels[7]);
+            tableGen.AddElement(8, 0, labels[8]);
+            tableGen.AddElement(9, 0, labels[9]);
+                       
+
+            for(int i = 0; i < solution.History.Count; i++)
+            {
+                for(int j = 0; j < solution.History[i].Length; j++)
+                {
+                    string letter= solution.History[i][j] == -1 ? "" : parameters.Processes[solution.History[i][j]];
+                    tableGen.AddCenteredElement(i, j + 1, new Label() { Text = letter });
                 }
             }
 
