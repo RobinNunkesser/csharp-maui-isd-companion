@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Xamarin.Forms;
 
@@ -51,6 +52,21 @@ namespace ISDCompanion
             }
         }
 
+        public Grid Table
+        {
+            get
+            {
+                return _Table;
+            }
+            private set
+            {
+                _Table = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Grid _Table { get; set; }
+
         protected override void Initialize()
         {
             var parameters = new RealtimeSchedulingParameters();
@@ -64,8 +80,10 @@ namespace ISDCompanion
             }
 
             Requests = requests;
-            EDFSolution = string.Join("", new EDFSolver().Solve(parameters).Processes);
-            RMSSolution = string.Join("", new RMSSolver().Solve(parameters).Processes);
+            //EDFSolution = string.Join("", new EDFSolver().Solve(parameters).Processes);
+            //RMSSolution = string.Join("", new RMSSolver().Solve(parameters).Processes);
+
+            Table = TableGenService.GenerateTable_RealtimeScheduling(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
 
         }
 

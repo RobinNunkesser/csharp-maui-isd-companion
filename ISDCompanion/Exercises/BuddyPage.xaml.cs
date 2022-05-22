@@ -13,9 +13,9 @@ namespace ISDCompanion
             BindingContext = new BuddyViewModel();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            Switch.IsToggled = false;
-        }
+        //private void Button_Clicked(object sender, EventArgs e)
+        //{
+        //    Switch.IsToggled = false;
+        //}
     }
 }

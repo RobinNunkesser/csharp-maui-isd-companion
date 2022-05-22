@@ -117,6 +117,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\TableGen\TableGen.csproj" />
     <ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
   </ItemGroup>
 </Project>

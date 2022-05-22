@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Xamarin.Forms;
 
@@ -51,6 +52,22 @@ namespace ISDCompanion
             }
         }
 
+        public Grid Table
+        {
+            get
+            {
+                return _Table;
+            }
+            private set
+            {
+                _Table = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Grid _Table { get; set; }
+
+
         protected override void Initialize()
         {
             var parameters = new BuddyParameters();
@@ -58,6 +75,8 @@ namespace ISDCompanion
             var solution = solver.Solve(parameters);
 
             var solutionString = "";
+
+            Table = TableGenService.GenerateTable_Buddy(parameters, solution);
 
             foreach (var entry in solution.History)
             {

@@ -6,7 +6,15 @@
     x:Class="ISDCompanion.BuddyPage"
     Title="{xct:Translate Buddy}">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <ScrollView Padding="50" Orientation="Horizontal">
+                <ContentView Content="{Binding Table}">
+
+                </ContentView>
+            </ScrollView>
+        </StackLayout>
+
+        <!--<StackLayout VerticalOptions="FillAndExpand">
                 <Label Text="{xct:Translate Requests}" VerticalOptions="Center"/>
                 <Label Text="{Binding Requests}" VerticalOptions="Center">
                     <Label.FontFamily>
@@ -41,6 +49,6 @@
                     </Label.FontFamily>
                 </Label>
             <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

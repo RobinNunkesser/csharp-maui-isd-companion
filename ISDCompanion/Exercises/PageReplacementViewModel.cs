@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Infrastructure.Exam.OperatingSystems.PageReplacement;
 using Italbytz.Ports.Exam.OperatingSystems;
+using TableGen;
 using Xamarin.Forms;
 
 namespace ISDCompanion
@@ -29,7 +32,7 @@ namespace ISDCompanion
             }
         }
 
-        private int selectedStrategy;
+        private int selectedStrategy = 0;
         public int SelectedStrategy
         {
             get => selectedStrategy;
@@ -54,12 +57,38 @@ namespace ISDCompanion
             Items = new List<string[]>();
 
             List<IPageReplacementStep> solution = null;
+
+            if(selectedStrategy == -1)
+            {
+                selectedStrategy = 0;
+            }
+
             switch (selectedStrategy)
             {
-                case 0: solution = optimalSolution; break;
-                case 1: solution = fifoSolution; break;
-                case 2: solution = lruSolution; break;
-                case 3: solution = clockSolution; break;
+                case 0: solution = optimalSolution; 
+                    if (solution != null)
+                    {
+                        Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.Optimal);
+                    }
+                    break;
+                case 1: solution = fifoSolution;
+                    if (solution != null)
+                    {
+                        Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.FIFO);
+                    }
+                    break;
+                case 2: solution = lruSolution;
+                    if (solution != null)
+                    {
+                        Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.LRU);
+                    }
+                    break;
+                case 3: solution = clockSolution;
+                    if (solution != null)
+                    {
+                        Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.SecondChance);
+                    }
+                    break;
             }
 
             if (solution != null)
@@ -111,7 +140,29 @@ namespace ISDCompanion
             clockSolution = new ClockSolver().Solve(parameters).Steps;
             clockSolution.RemoveAt(0);
 
+            ComputeItems();
         }
 
+        public Grid Table
+        {
+            get 
+            { 
+                return _Table; 
+            }
+            private set 
+            {
+                _Table = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Grid _Table { get; set; }
+
+
+        private void InitTableTest()
+        {
+
+
+        }
     }
 }
