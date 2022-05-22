@@ -11,7 +11,6 @@ namespace ISDCompanion
         {
             InitializeComponent();
             BindingContext = new ExerciseBasicLayoutViewModel();
-
         }
     }
 }

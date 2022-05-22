@@ -25,6 +25,7 @@
                                     <ImageButton Padding="5, 5, 5, 5" BackgroundColor="White" Source="ic_baseline_info_24" VerticalOptions="Start" HorizontalOptions="End"></ImageButton>
                                     <ScrollView Margin="0, 10, 0, 0">
                                         <StackLayout>
+                                            
                                             <Frame BackgroundColor="DarkBlue" Padding="24" CornerRadius="0">
                                                 <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
                                             </Frame>

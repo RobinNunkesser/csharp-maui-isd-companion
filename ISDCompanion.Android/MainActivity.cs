@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using AndroidX.Core.View;
 using ISDCompanion.Helpers;
 using Xamarin.Forms;
-
+using Android.Views;
 
 [assembly: Dependency(typeof(ISDCompanion.Droid.Environment))]
 
@@ -24,8 +24,13 @@ namespace ISDCompanion.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            
+
             LoadApplication(new App());
+            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
+            {
+                Window.SetNavigationBarColor(Android.Graphics.Color.White);
+                Window.DecorView.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.LightNavigationBar;
+            }
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
