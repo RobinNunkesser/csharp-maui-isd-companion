@@ -4,14 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ISDCompanion.ExerciseBasicLayoutPage"
-    xmlns:fontAwesome="clr-namespace:FontAwesome" xmlns:yummi="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:yummi="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     Title="{xct:Translate ExerciseBasicLayout}"
     >
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuItem2" Order="Secondary" Text="Item 1" Priority="2" />
-        <ToolbarItem Name="MenuItem3" Order="Secondary"  Text="Item 2" Priority="3" />
-        <ToolbarItem Name="MenuItem4" Order="Secondary"  Text="Item 3" Priority="4" />
+        <ToolbarItem Name="Testname" Order="Primary" Text="Item 1" Priority="1" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
        
