@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dxsch="http://schemas.devexpress.com/xamarin/2014/forms/scheduler"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:local="clr-namespace:ISDCompanion"    
+    x:Class="ISDCompanion.SchedulePage"
+    Title="{xct:Translate Schedule}">
+    <ContentPage.Content>
+        <dxsch:WorkWeekView WorkTime="8:00:00-18:00:00" ShowWorkTimeOnly="True">
+            <dxsch:WorkWeekView.DataStorage>
+                <dxsch:SchedulerDataStorage>
+                    <dxsch:SchedulerDataStorage.DataSource>
+                        <dxsch:DataSource AppointmentsSource="{Binding Appointments}">
+                            <dxsch:DataSource.AppointmentMappings>
+                                <dxsch:AppointmentMappings
+                                    Start="Start" 
+                                    End="End"
+                                    AllDay="AllDay"
+                                    Subject="Subject"
+                                    Id="Id"
+                                    LabelId="LabelId"
+                                    Location="Location"                                    
+                                    />
+                                <!-- Description="Description"
+                                    RecurrenceInfo="RecurrenceInfo"
+                                    Reminder="Reminder"
+                                    StatusId="StatusId" 
+                                    Type="Type" -->                                    
+                            </dxsch:DataSource.AppointmentMappings>
+                        </dxsch:DataSource>
+                    </dxsch:SchedulerDataStorage.DataSource>
+                </dxsch:SchedulerDataStorage>
+            </dxsch:WorkWeekView.DataStorage>
+        </dxsch:WorkWeekView>
+    </ContentPage.Content>
+</ContentPage>

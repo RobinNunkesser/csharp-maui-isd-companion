@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="CommonPorts" />
+    <None Remove="MealPorts" />
+    <None Remove="Ports\" />
+    <None Remove="Italbytz.Ports.Meal" />
+    <None Remove="Italbytz.Ports.Common" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Italbytz.Ports.Meal" Version="0.5.0" />
+    <PackageReference Include="Italbytz.Ports.Common" Version="0.4.0" />
+  </ItemGroup>
+</Project>

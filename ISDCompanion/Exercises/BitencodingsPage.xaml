@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="ISDCompanion.BitencodingsPage"    
+    Title="{xct:Translate Bitencodings}">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="Bits" VerticalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="NRZ" VerticalOptions="Center"/>
+                <Label Grid.Row="2" Grid.Column="0" Text="NRZ-I" VerticalOptions="Center"/>
+                <Label Grid.Row="3" Grid.Column="0" Text="MLT-3" VerticalOptions="Center"/>
+                <Switch Grid.Row="1" Grid.Column="1" x:Name="SwitchNRZ" IsToggled="false"/>
+                <Switch Grid.Row="2" Grid.Column="1" x:Name="SwitchNRZI" IsToggled="false"/>
+                <Switch Grid.Row="3" Grid.Column="1" x:Name="SwitchMLT3" IsToggled="false"/>
+                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Bits}" VerticalOptions="Center">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="CourierNewPSMT" />
+                            <On Platform="Android" Value="monospace" />
+                            <On Platform="UWP" Value="Courier New" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <Label Grid.Row="1" Grid.Column="2" Text="{Binding NRZ}" VerticalOptions="Center"
+                       IsVisible="{Binding Source={x:Reference SwitchNRZ}, Path=IsToggled}">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="CourierNewPSMT" />
+                            <On Platform="Android" Value="monospace" />
+                            <On Platform="UWP" Value="Courier New" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <Label Grid.Row="2" Grid.Column="2" Text="{Binding NRZI}" VerticalOptions="Center"
+                       IsVisible="{Binding Source={x:Reference SwitchNRZI}, Path=IsToggled}">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="CourierNewPSMT" />
+                            <On Platform="Android" Value="monospace" />
+                            <On Platform="UWP" Value="Courier New" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <Label Grid.Row="3" Grid.Column="2" Text="{Binding MLT3}" VerticalOptions="Center"
+                       IsVisible="{Binding Source={x:Reference SwitchMLT3}, Path=IsToggled}">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="CourierNewPSMT" />
+                            <On Platform="Android" Value="monospace" />
+                            <On Platform="UWP" Value="Courier New" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            </Grid>
+            <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

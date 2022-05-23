@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="ISDCompanion.ProfsPage"
+    Title="{xct:Translate Profs}">
+    <ContentPage.Resources>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <TableView Intent="Data">
+            <TableRoot>
+                <TableSection>
+                    <TextCell Text="Prof. Dr.-Ing. Florian Berndt"
+                              Detail="Werkstoffkunde"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-ing-florian-berndt</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Prof. Dr. Julia Grewe"
+                              Detail="Wirtschaftsinformatik, insbesondere betriebliches Informationsmanagement"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-julia-grewe</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="M. Sc. Daniel Kientopf"
+                              Detail="Informatik und ingenieurwissenschaftliche Grundlagen"/>
+                    <TextCell Text="Prof. Dr. René Krenz-Baath"
+                              Detail="Technische Informatik Embedded Systems"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-rené-krenz-baath</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Prof. Dr.-Ing. Bettina Nocke"
+                              Detail="Technische Gebäudeausrüstung"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-ing-bettina-nocke</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Prof. Dr. Robin Nunkesser"
+                              Detail="Mobile Computing"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-robin-nunkesser</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Prof. Dr.-Ing. Jan Pelzl"
+                              Detail="Computer Security"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-ing-jan-pelzl</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Prof. Dr. Eva Ponick"
+                              Detail="Wirtschaftsinformatik und Grundlagen der Wirtschaftswissenschaften"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-eva-ponick</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Prof. Dr. Zoia Runovska"
+                              Detail="Anwendungsbezogene Mathematik"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-zoia-runovska</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Joachim Strack"
+                              Detail="Business and Technical English"/>
+                    <TextCell Text="Prof. Dr.-Ing. Alexander Stuckenholz"
+                              Detail="Praktische Informatik"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-ing-alexander-stuckenholz</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Prof. Dr. Jens Thorn"
+                              Detail="Allgemeine Betriebswirtschaftslehre, insbesondere Rechnungswesen und Controlling"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-jens-thorn</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Prof. Dr. Gabriele Wieczorek"
+                              Detail="Industrielle Statistik und Wahrscheinlichkeitstheorie"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-gabriele-wieczorek</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Prof. Dr.-Ing. Alf Zips"
+                              Detail="Angewandte Betriebswirtschaftslehre in technologieorientierten Unternehmen"
+                              Command="{Binding ProfCommand}">
+                        <TextCell.CommandParameter>
+                            <x:String>https://www.hshl.de/personen/prof-dr-ing-alf-zips</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

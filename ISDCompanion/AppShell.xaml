@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:local="clr-namespace:ISDCompanion"
+    x:Class="ISDCompanion.AppShell"
+    Title="Companion">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" 
+                        Value="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark}, 
+                                    Light={StaticResource HeaderBarBackgroundColorLight}}" />
+                <Setter Property="Shell.ForegroundColor" 
+                        Value="{AppThemeBinding Dark={StaticResource HeaderBarTextColorDark}, 
+                                    Light={StaticResource HeaderBarTextColorLight}}" />
+                <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Dark={StaticResource HeaderBarTextColorDark}, 
+                                    Light={StaticResource HeaderBarTextColorLight}}"/>
+                
+                
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor"
+                        Value="{AppThemeBinding Dark={StaticResource TabBarBackgroundColorDark}, 
+                                    Light={StaticResource TabBarBackgroundColorLight}}"/>
+                <Setter Property="Shell.TabBarForegroundColor" 
+                        Value="{AppThemeBinding Dark={StaticResource TabBarForegroundColorDark}, 
+                                    Light={StaticResource TabBarForegroundColorLight}}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Dark={StaticResource TabBarUnselectedColorDark}, 
+                                    Light={StaticResource TabBarUnselectedColorLight}}"/>
+                <Setter Property="Shell.TabBarTitleColor" 
+                        Value="{AppThemeBinding Dark={StaticResource TabBarTitleColorDark}, 
+                                    Light={StaticResource TabBarTitleColorLight}}"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+
+            <!--
+            Default Styles for all Flyout Items
+            https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
+            -->
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource HeaderBarTextColorDark}, 
+                        Light={StaticResource HeaderBarTextColorLight}}"></Setter>
+            </Style>
+            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" 
+                                            Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, 
+                                    Light={StaticResource BackgroundColorLight}}" />
+                                    <Setter TargetName="FlyoutItemLabel" 
+                                            Property="Label.TextColor" 
+                                            Value="{AppThemeBinding Dark={StaticResource TextColorDark}, 
+                                    Light={StaticResource TextColorLight}}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" 
+                                            Value="{AppThemeBinding Dark={StaticResource PrimaryBackgroundDark}, 
+                                    Light={StaticResource PrimaryBackgroundLight}}"/>
+                                    <Setter TargetName="FlyoutItemLabel" 
+                                            Property="Label.TextColor" 
+                                            Value="{AppThemeBinding Dark={StaticResource PrimaryTextDark}, 
+                                    Light={StaticResource PrimaryTextLight}}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <!--
+            Custom Style you can apply to any Flyout Item
+            -->
+            <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter TargetName="FlyoutItemLabel" 
+                                            Property="Label.TextColor" 
+                                            Value="{AppThemeBinding Dark={StaticResource TextColorDark}, 
+                                    Light={StaticResource TextColorLight}}"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <Tab Title="{xct:Translate Schedule}">
+            <Tab.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="outline_calendar_today_black_24pt" />
+                    <On Platform="Android" Value="ic_baseline_calendar_today_24" />
+                </OnPlatform>
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:SchedulePage}" />
+        </Tab>
+        <Tab Title="{xct:Translate Mensa}">
+            <Tab.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="outline_restaurant_menu_black_24pt" />
+                    <On Platform="Android" Value="ic_baseline_restaurant_menu_24" />
+                </OnPlatform>
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:MensaPage}" />
+        </Tab>
+        <Tab Title="{xct:Translate Exercises}">
+            <Tab.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="outline_assignment_black_24pt" />
+                    <On Platform="Android" Value="ic_baseline_assignment_24" />
+                </OnPlatform>
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:ExercisesPage}" />
+        </Tab>
+        <Tab Title="{xct:Translate Profs}">
+            <Tab.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="outline_school_black_24pt" />
+                    <On Platform="Android" Value="ic_baseline_school_24" />
+                </OnPlatform>
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:ProfsPage}" />
+        </Tab>
+        <Tab Title="{xct:Translate Settings}">
+            <Tab.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="outline_settings_black_24pt" />
+                    <On Platform="Android" Value="ic_baseline_settings_24" />
+                </OnPlatform>
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" />
+        </Tab>
+    </TabBar>
+</Shell>

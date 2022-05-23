@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:local="clr-namespace:ISDCompanion"   
+    x:Class="ISDCompanion.SettingsPage"
+    Title="{xct:Translate Settings}">
+    <ContentPage.Content>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection Title="{xct:Translate Settings}">
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
+                                <Label Text="{xct:Translate Status}"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"/>
+                                <Picker
+                                    x:Name="StatusPicker"
+                                    Title="{xct:Translate Status}"
+                                    HorizontalOptions="EndAndExpand"
+                                    SelectedIndex="{Binding Status}"
+                                    >
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>Studierende</x:String>
+                                            <x:String>Bedienstete</x:String>
+                                            <x:String>Gäste</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
+                                <Label Text="Semester"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"/>
+                                <Picker Title="Semester" HorizontalOptions="EndAndExpand"
+                                    SelectedIndex="{Binding Semester}">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>1</x:String>
+                                            <x:String>2</x:String>
+                                            <x:String>3</x:String>
+                                            <x:String>4</x:String>
+                                            <x:String>5</x:String>
+                                            <x:String>6</x:String>
+                                            <x:String>7</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
+                                <Label Text="{xct:Translate Specialization}"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"/>
+                                <Picker Title="{xct:Translate Specialization}" HorizontalOptions="EndAndExpand"
+                                    SelectedIndex="{Binding Specialization}">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>Mobile</x:String>
+                                            <x:String>Embedded</x:String>
+                                            <x:String>Security</x:String>                                            
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>                    
+                     <TextCell Text="{xct:Translate Allergens}"
+                               Command="{Binding NavigateCommand}"
+                               CommandParameter="{x:Type local:AllergensPage}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                
+                     <TextCell Text="{xct:Translate Additives}"
+                               Command="{Binding NavigateCommand}"
+                               CommandParameter="{x:Type local:AdditivesPage}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                
+                </TableSection>
+                <TableSection Title="Acknowledgements">
+                    <TextCell Text="DevExpress.XamarinForms.Scheduler"                              
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>devexpress_xamarinforms_scheduler.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Italbytz.Adapters.Exam.Networks"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>italbytz_adapters_exam_networks.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Italbytz.Adapters.Exam.OperatingSystems"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>italbytz_adapters_exam_operatingsystems.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Italbytz.Adapters.Meal.STWPB"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>italbytz_adapters_meal_stwpb.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Italbytz.Ports.Common"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>italbytz_ports_common.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Italbytz.Ports.Meal"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>italbytz_ports_meal.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>                                                           
+                    <TextCell Text="Italbytz.Ports.Trivia"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>italbytz_ports_trivia.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>                                        
+                    <TextCell Text="Macross.Json.Extensions"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>macross_json_extensions.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>                     
+                    <TextCell Text="System.Net.Http"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>system_net_http.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="System.Net.Http.Json"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>system_net_http_json.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="System.Text.Json"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>system_text_json.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>                    
+                    <TextCell Text="Xam.Plugins.Logging"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>xam_plugins_logging.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Xamarin.CommunityToolkit"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>xamarin_communitytoolkit.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Xamarin.Forms"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>xamarin_forms.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Xamarin.Essentials"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>xamarin_essentials.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

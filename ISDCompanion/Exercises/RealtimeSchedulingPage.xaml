@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="ISDCompanion.RealtimeSchedulingPage"
+    Title="{xct:Translate RealtimeScheduling}">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Picker x:Name="StrategyPicker" Title="{xct:Translate ShowSolution}" TitleColor="Red"
+                    SelectedIndex="{Binding SelectedStrategy}" Margin="5">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Optimal</x:String>
+                        <x:String>FIFO</x:String>
+                        <x:String>Least Recently Used</x:String>
+                        <x:String>Second Chance / Clock</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>-->
+            <ScrollView Padding="50" Orientation="Horizontal">
+                <ContentView Content="{Binding Table}">
+
+                </ContentView>
+            </ScrollView>
+        </StackLayout>
+        
+        
+        <!--<StackLayout>
+            <Label Text="{Binding Requests}" VerticalOptions="Center">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="CourierNewPSMT" />
+                            <On Platform="Android" Value="monospace" />
+                            <On Platform="UWP" Value="Courier New" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+             <StackLayout Orientation="Horizontal">
+                <Label Text="{xct:Translate ShowSolution}" VerticalOptions="Center"/>
+                <Switch x:Name="Switch" IsToggled="false" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <Label Text="RMS" VerticalOptions="Center"
+                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}"/>
+            <Label Text="{Binding RMSSolution}" VerticalOptions="Center"
+                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="CourierNewPSMT" />
+                            <On Platform="Android" Value="monospace" />
+                            <On Platform="UWP" Value="Courier New" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            <Label Text="EDF" VerticalOptions="Center"
+                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}"/>
+            <Label Text="{Binding EDFSolution}" VerticalOptions="Center"
+                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="CourierNewPSMT" />
+                            <On Platform="Android" Value="monospace" />
+                            <On Platform="UWP" Value="Courier New" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
+        </StackLayout>-->
+    </ContentPage.Content>
+</ContentPage>
