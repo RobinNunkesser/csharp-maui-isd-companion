@@ -24,9 +24,13 @@
     <PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.6.0" />
     <PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.8.1" />
     <PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.3.0" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DevExpress.XamarinForms.Scheduler" />
+    <None Remove="Resources\Fonts\FA-Regular-400.otf" />
+    <None Remove="Resources\Fonts\FA-Solid-900.otf" />
+    <None Remove="Resources\Fonts\TitilliumWeb-Regular.ttf" />
     <None Remove="Schedule\" />
     <None Remove="Exercises\" />
     <None Remove="Settings\" />
@@ -67,10 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Schedule\" />
-    <Folder Include="Exercises\" />
     <Folder Include="Settings\" />
     <Folder Include="Licenses\" />
-    <Folder Include="Resources\" />
     <Folder Include="Resx\" />
     <Folder Include="Mensa\" />
     <Folder Include="Profs\" />
@@ -93,14 +95,22 @@
     <EmbeddedResource Include="Licenses\xam_plugins_logging.html" />
     <EmbeddedResource Include="Licenses\italbytz_ports_meal.html" />
     <EmbeddedResource Include="Licenses\italbytz_adapters_meal_stwpb.html" />
+    <EmbeddedResource Include="Resources\Fonts\FA-Regular-400.otf" />
+    <EmbeddedResource Include="Resources\Fonts\FA-Solid-900.otf" />
+    <EmbeddedResource Include="Resources\Fonts\TitilliumWeb-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Exercises\ExerciseBasicLayoutPage.xaml.cs">
+      <DependentUpon>ExerciseBasicLayoutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
       <DependentUpon>LicensesPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Resx\AppResources.Designer.cs">
       <DependentUpon>AppResources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Update="Resx\AppResources.de.Designer.cs">
       <DependentUpon>AppResources.de.resx</DependentUpon>
