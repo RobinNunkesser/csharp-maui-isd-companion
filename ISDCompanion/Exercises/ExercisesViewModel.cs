@@ -124,7 +124,12 @@ namespace ISDCompanion
                 CommandParameter = "ISDCompanion.RealtimeSchedulingPage, ISDCompanion"
             });
 
-
+            opsys.Add(new Exercise
+            {
+                Exercise_Title = "Temp_ExerciseBasicLayout",
+                Command = "{Binding NavigateCommand}",
+                CommandParameter = "ISDCompanion.ExerciseBasicLayoutPage, ISDCompanion"
+            });
 
             ObservableCollection<Topic> temp_Topics = new ObservableCollection<Topic>();
 
