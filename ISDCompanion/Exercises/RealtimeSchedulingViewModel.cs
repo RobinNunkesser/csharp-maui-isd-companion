@@ -67,8 +67,13 @@ namespace ISDCompanion
 
         private Grid _Table { get; set; }
 
+        private RealtimeScheduling_TableGenService _TableGenService { get; set; }
+
+        public ICommand toggleNextStep { set; get; }
+
         protected override void Initialize()
         {
+            toggleNextStep = new Command(nextStep, () => true);
             var parameters = new RealtimeSchedulingParameters();
 
             var requests = "";
@@ -83,8 +88,15 @@ namespace ISDCompanion
             //EDFSolution = string.Join("", new EDFSolver().Solve(parameters).Processes);
             //RMSSolution = string.Join("", new RMSSolver().Solve(parameters).Processes);
 
-            Table = TableGenService.GenerateTable_RealtimeScheduling(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
+            _TableGenService = new RealtimeScheduling_TableGenService();
+            Table = _TableGenService.GenerateTable_RealtimeScheduling_EmptyTable(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
+            //Table = TableGenService.GenerateTable_RealtimeScheduling(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
 
+        }
+
+        private void nextStep()
+        {
+            Table = _TableGenService.NextStep_RealtimeScheduling();
         }
 
     }
