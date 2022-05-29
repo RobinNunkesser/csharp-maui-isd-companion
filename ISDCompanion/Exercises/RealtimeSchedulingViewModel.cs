@@ -93,6 +93,9 @@ namespace ISDCompanion
         public ICommand ButtonInfo { set; get; }
         public ICommand ButtonNewExercise { set; get; }
 
+        private bool lastActionWasNextStep { get; set; } = false;
+        private bool lastActionWasLastStep { get; set; } = false;
+
         protected override void Initialize()
         {
             ButtonNewExercise = new Command(newExercise, () => true);
@@ -102,23 +105,6 @@ namespace ISDCompanion
             ButtonInfo = new Command(showInfo, () => true);
 
             newExercise();
-
-            //    var parameters = new RealtimeSchedulingParameters();
-
-            //    //var requests = "";
-            //    //var index = 0;
-            //    //foreach (var request in parameters.Requests)
-            //    //{
-            //    //    requests += $"Process {index}: (Time: {request.Item1}, Freq: {request.Item2})\n";
-            //    //    index++;
-            //    //}
-
-            //    //Requests = requests;
-
-            //    _TableGenService = new RealtimeScheduling_TableGenService();
-            //    Table_Header = _TableGenService.GenerateTable_RealtimeScheduling_TableHeader(parameters);
-            //    Table = _TableGenService.GenerateTable_RealtimeScheduling_EmptyTable(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
-            //
         }
 
         private void newExercise()
@@ -132,11 +118,29 @@ namespace ISDCompanion
 
         private void nextStep()
         {
+            lastActionWasNextStep = true;
+            if (lastActionWasLastStep )
+            {
+                lastActionWasLastStep = false;
+                if(_TableGenService.currentColumnOfInterest != 0)
+                {
+                    this.nextStep();
+                }
+            }
             Table = _TableGenService.NextStep_RealtimeScheduling();
         }
 
         private void lastStep()
         {
+            lastActionWasLastStep = true;
+            if (lastActionWasNextStep)
+            {
+                lastActionWasNextStep = false;
+                if (_TableGenService.currentColumnOfInterest != 31)
+                {
+                    this.lastStep();
+                }
+            }
             Table = _TableGenService.LastStep_RealtimeScheduling();
         }
 

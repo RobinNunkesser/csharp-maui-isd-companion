@@ -15,6 +15,7 @@ namespace ISDCompanion.Services
         private int[] _rms;
         private int rmsIndex;
 
+
         public int currentColumnOfInterest { get; private set; }
 
         Color Color_A = Color.FromRgb(200, 0, 0);
@@ -22,7 +23,7 @@ namespace ISDCompanion.Services
         Color Color_C = Color.FromRgb(0, 200, 0);
 
 
-        Color Color_D = Color.Transparent;
+        Color Color_Transparent = Color.Transparent;
 
         public RealtimeScheduling_TableGenService()
         {
@@ -52,60 +53,15 @@ namespace ISDCompanion.Services
             tableGen_TableHeader.SetRowHeight(3, 10);
             tableGen_TableHeader.SetRowHeight(7, 10);
 
-            tableGen_TableHeader.RemoveBorder(0, 0, TableGen.Border.BorderPosition.Top);
-            tableGen_TableHeader.RemoveBorder(0, 0, TableGen.Border.BorderPosition.Left);
-            tableGen_TableHeader.RemoveBorder(0, 0, TableGen.Border.BorderPosition.Bot);
-            tableGen_TableHeader.RemoveBorder(0, 0, TableGen.Border.BorderPosition.Right);
+            for(int i = 0; i <= 10; i++)
+            {
+                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Top);
+                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Left);
+                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Bot);
+                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Right);
 
-            tableGen_TableHeader.RemoveBorder(1, 0, TableGen.Border.BorderPosition.Top);
-            tableGen_TableHeader.RemoveBorder(1, 0, TableGen.Border.BorderPosition.Left);
-            tableGen_TableHeader.RemoveBorder(1, 0, TableGen.Border.BorderPosition.Bot);
-            tableGen_TableHeader.RemoveBorder(1, 0, TableGen.Border.BorderPosition.Right);
-
-            tableGen_TableHeader.RemoveBorder(2, 0, TableGen.Border.BorderPosition.Top);
-            tableGen_TableHeader.RemoveBorder(2, 0, TableGen.Border.BorderPosition.Left);
-            tableGen_TableHeader.RemoveBorder(2, 0, TableGen.Border.BorderPosition.Bot);
-            tableGen_TableHeader.RemoveBorder(2, 0, TableGen.Border.BorderPosition.Right);
-
-            tableGen_TableHeader.RemoveBorder(3, 0, TableGen.Border.BorderPosition.Top);
-            tableGen_TableHeader.RemoveBorder(3, 0, TableGen.Border.BorderPosition.Left);
-            tableGen_TableHeader.RemoveBorder(3, 0, TableGen.Border.BorderPosition.Bot);
-            tableGen_TableHeader.RemoveBorder(3, 0, TableGen.Border.BorderPosition.Right);
-
-            tableGen_TableHeader.RemoveBorder(4, 0, TableGen.Border.BorderPosition.Top);
-            tableGen_TableHeader.RemoveBorder(4, 0, TableGen.Border.BorderPosition.Left);
-            tableGen_TableHeader.RemoveBorder(4, 0, TableGen.Border.BorderPosition.Bot);
-            tableGen_TableHeader.RemoveBorder(4, 0, TableGen.Border.BorderPosition.Right);
-
-            tableGen_TableHeader.RemoveBorder(5, 0, TableGen.Border.BorderPosition.Top);
-            tableGen_TableHeader.RemoveBorder(5, 0, TableGen.Border.BorderPosition.Left);
-            tableGen_TableHeader.RemoveBorder(5, 0, TableGen.Border.BorderPosition.Bot);
-            tableGen_TableHeader.RemoveBorder(5, 0, TableGen.Border.BorderPosition.Right);
-
-            tableGen_TableHeader.RemoveBorder(6, 0, TableGen.Border.BorderPosition.Top);
-            tableGen_TableHeader.RemoveBorder(6, 0, TableGen.Border.BorderPosition.Left);
-            tableGen_TableHeader.RemoveBorder(6, 0, TableGen.Border.BorderPosition.Bot);
-            tableGen_TableHeader.RemoveBorder(6, 0, TableGen.Border.BorderPosition.Right);
-
-            tableGen_TableHeader.RemoveBorder(7, 0, TableGen.Border.BorderPosition.Top);
-            tableGen_TableHeader.RemoveBorder(7, 0, TableGen.Border.BorderPosition.Left);
-            tableGen_TableHeader.RemoveBorder(7, 0, TableGen.Border.BorderPosition.Bot);
-            tableGen_TableHeader.RemoveBorder(7, 0, TableGen.Border.BorderPosition.Right);
-
-            tableGen_TableHeader.RemoveBorder(8, 0, TableGen.Border.BorderPosition.Top);
-            tableGen_TableHeader.RemoveBorder(8, 0, TableGen.Border.BorderPosition.Left);
-            tableGen_TableHeader.RemoveBorder(8, 0, TableGen.Border.BorderPosition.Bot);
-            tableGen_TableHeader.RemoveBorder(8, 0, TableGen.Border.BorderPosition.Right);
-
-            tableGen_TableHeader.RemoveBorder(9, 0, TableGen.Border.BorderPosition.Top);
-            tableGen_TableHeader.RemoveBorder(9, 0, TableGen.Border.BorderPosition.Left);
-            tableGen_TableHeader.RemoveBorder(9, 0, TableGen.Border.BorderPosition.Bot);
-            tableGen_TableHeader.RemoveBorder(9, 0, TableGen.Border.BorderPosition.Right);
-
-            tableGen_TableHeader.RemoveBorder(10, 0, TableGen.Border.BorderPosition.Top);
-            tableGen_TableHeader.RemoveBorder(10, 0, TableGen.Border.BorderPosition.Left);
-            tableGen_TableHeader.RemoveBorder(10, 0, TableGen.Border.BorderPosition.Bot);
-            tableGen_TableHeader.RemoveBorder(10, 0, TableGen.Border.BorderPosition.Right);
+                tableGen_TableHeader.SetBackGroundColor(i, 0, Color_Transparent);
+            }
 
             tableGen_TableHeader.SetColumnWidth(0, 80);
 
@@ -272,6 +228,20 @@ namespace ISDCompanion.Services
 
         public Grid LastStep_RealtimeScheduling()
         {
+
+            if (rmsIndex == 0)
+            {
+                tableGen.SetBackGroundColor(4, 0, Color_Transparent);
+                tableGen.SetBackGroundColor(5, 0, Color_Transparent);
+                tableGen.SetBackGroundColor(6, 0, Color_Transparent);
+            }
+            if (edfIndex == 0)
+            {
+                tableGen.SetBackGroundColor(8, 0, Color_Transparent);
+                tableGen.SetBackGroundColor(9, 0, Color_Transparent);
+                tableGen.SetBackGroundColor(10, 0, Color_Transparent);
+            }
+
             if (edfIndex > 0 && edfIndex <= _edf.Length - 1)
             {
                 int currentValue = _edf[edfIndex];
@@ -280,15 +250,15 @@ namespace ISDCompanion.Services
                 {
                     if (_edf[i] == 0)
                     {
-                        tableGen.SetBackGroundColor(8, i, Color_D);
+                        tableGen.SetBackGroundColor(8, i, Color_Transparent);
                     }
                     if (_edf[i] == 1)
                     {
-                        tableGen.SetBackGroundColor(9, i, Color_D);
+                        tableGen.SetBackGroundColor(9, i, Color_Transparent);
                     }
                     if (_edf[i] == 2)
                     {
-                        tableGen.SetBackGroundColor(10, i, Color_D);
+                        tableGen.SetBackGroundColor(10, i, Color_Transparent);
                     }
                     i--;
                     if (i < 0)
@@ -310,15 +280,15 @@ namespace ISDCompanion.Services
                     {
                         if (_rms[i] == 0)
                         {
-                            tableGen.SetBackGroundColor(4, i, Color_D);
+                            tableGen.SetBackGroundColor(4, i, Color_Transparent);
                         }
                         if (_rms[i] == 1)
                         {
-                            tableGen.SetBackGroundColor(5, i, Color_D);
+                            tableGen.SetBackGroundColor(5, i, Color_Transparent);
                         }
                         if (_rms[i] == 2)
                         {
-                            tableGen.SetBackGroundColor(6, i, Color_D);
+                            tableGen.SetBackGroundColor(6, i, Color_Transparent);
                         }
                         i--;
                         if (i < 0)
@@ -331,6 +301,8 @@ namespace ISDCompanion.Services
                     currentColumnOfInterest = rmsIndex;
                 }
             }
+
+
 
             return tableGen.Grid;
         }
