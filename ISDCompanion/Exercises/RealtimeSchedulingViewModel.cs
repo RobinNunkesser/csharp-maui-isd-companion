@@ -87,32 +87,47 @@ namespace ISDCompanion
 
         private RealtimeScheduling_TableGenService _TableGenService { get; set; }
 
-        public ICommand toggleNextStep { set; get; }
-        public ICommand toggleComplete { set; get; }
+        public ICommand ButtonNextStep { set; get; }
+        public ICommand ButtonLastStep { set; get; }
+        public ICommand ButtonCompleteSolution { set; get; }
+        public ICommand ButtonInfo { set; get; }
+        public ICommand ButtonNewExercise { set; get; }
 
         protected override void Initialize()
         {
-            toggleNextStep = new Command(nextStep, () => true);
-            toggleComplete = new Command(complete, () => true);
+            ButtonNewExercise = new Command(newExercise, () => true);
+            ButtonNextStep = new Command(nextStep, () => true);
+            ButtonLastStep = new Command(lastStep, () => true);
+            ButtonCompleteSolution = new Command(showCompleteSolution, () => true);
+            ButtonInfo = new Command(showInfo, () => true);
+
+            newExercise();
+
+            //    var parameters = new RealtimeSchedulingParameters();
+
+            //    //var requests = "";
+            //    //var index = 0;
+            //    //foreach (var request in parameters.Requests)
+            //    //{
+            //    //    requests += $"Process {index}: (Time: {request.Item1}, Freq: {request.Item2})\n";
+            //    //    index++;
+            //    //}
+
+            //    //Requests = requests;
+
+            //    _TableGenService = new RealtimeScheduling_TableGenService();
+            //    Table_Header = _TableGenService.GenerateTable_RealtimeScheduling_TableHeader(parameters);
+            //    Table = _TableGenService.GenerateTable_RealtimeScheduling_EmptyTable(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
+            //
+        }
+
+        private void newExercise()
+        {
             var parameters = new RealtimeSchedulingParameters();
-
-            var requests = "";
-            var index = 0;
-            foreach (var request in parameters.Requests)
-            {
-                requests += $"Process {index}: (Time: {request.Item1}, Freq: {request.Item2})\n";
-                index++;
-            }
-
-            Requests = requests;
-            //EDFSolution = string.Join("", new EDFSolver().Solve(parameters).Processes);
-            //RMSSolution = string.Join("", new RMSSolver().Solve(parameters).Processes);
 
             _TableGenService = new RealtimeScheduling_TableGenService();
             Table_Header = _TableGenService.GenerateTable_RealtimeScheduling_TableHeader(parameters);
             Table = _TableGenService.GenerateTable_RealtimeScheduling_EmptyTable(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
-            //Table = TableGenService.GenerateTable_RealtimeScheduling(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
-
         }
 
         private void nextStep()
@@ -120,10 +135,19 @@ namespace ISDCompanion
             Table = _TableGenService.NextStep_RealtimeScheduling();
         }
 
-        private void complete()
+        private void lastStep()
+        {
+            Table = _TableGenService.LastStep_RealtimeScheduling();
+        }
+
+        private void showCompleteSolution()
         {
             Table = _TableGenService.ShowSolution_RealtimeScheduling();
         }
 
+        private void showInfo()
+        {
+
+        }
     }
 }

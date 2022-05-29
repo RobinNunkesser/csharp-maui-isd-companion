@@ -21,6 +21,9 @@ namespace ISDCompanion.Services
         Color Color_B = Color.FromRgb(0, 0, 200);
         Color Color_C = Color.FromRgb(0, 200, 0);
 
+
+        Color Color_D = Color.Transparent;
+
         public RealtimeScheduling_TableGenService()
         {
             tableGen = new TableGen.TableGen(32, 11, 25, 25);
@@ -194,7 +197,7 @@ namespace ISDCompanion.Services
 
         public Grid NextStep_RealtimeScheduling()
         {
-            if (rmsIndex <= _rms.Length - 1)
+            if (rmsIndex < _rms.Length - 1)
             {
                 int currentValue = _rms[rmsIndex];
                 int i = rmsIndex;
@@ -215,6 +218,7 @@ namespace ISDCompanion.Services
                     i++;
                     if (i > _rms.Length - 1)
                     {
+                        i = 31;
                         break;
                     }
                 }
@@ -223,7 +227,7 @@ namespace ISDCompanion.Services
             }
             else
             {
-                if (edfIndex <= _edf.Length - 1)
+                if (edfIndex < _edf.Length - 1)
                 {
                     int currentValue = _edf[edfIndex];
                     int i = edfIndex;
@@ -244,6 +248,7 @@ namespace ISDCompanion.Services
                         i++;
                         if (i > _edf.Length - 1)
                         {
+                            i = 31;
                             break;
                         }
                     }
@@ -251,12 +256,13 @@ namespace ISDCompanion.Services
                     currentColumnOfInterest = edfIndex;
                 }
             }
+
             return tableGen.Grid;
         }
 
         public Grid ShowSolution_RealtimeScheduling()
         {
-            while (edfIndex < _edf.Length || rmsIndex < _rms.Length)
+            while (edfIndex < _edf.Length - 1 || rmsIndex < _rms.Length - 1)
             {
                 NextStep_RealtimeScheduling();
             }
@@ -264,5 +270,69 @@ namespace ISDCompanion.Services
             return tableGen.Grid;
         }
 
+        public Grid LastStep_RealtimeScheduling()
+        {
+            if (edfIndex > 0 && edfIndex <= _edf.Length - 1)
+            {
+                int currentValue = _edf[edfIndex];
+                int i = edfIndex;
+                while (_edf[i] == currentValue)
+                {
+                    if (_edf[i] == 0)
+                    {
+                        tableGen.SetBackGroundColor(8, i, Color_D);
+                    }
+                    if (_edf[i] == 1)
+                    {
+                        tableGen.SetBackGroundColor(9, i, Color_D);
+                    }
+                    if (_edf[i] == 2)
+                    {
+                        tableGen.SetBackGroundColor(10, i, Color_D);
+                    }
+                    i--;
+                    if (i < 0)
+                    {
+                        i = 0;
+                        break;
+                    }
+                }
+                edfIndex = i;
+                currentColumnOfInterest = edfIndex;
+            }
+            else
+            {
+                if (rmsIndex > 0 && rmsIndex <= _rms.Length - 1)
+                {
+                    int currentValue = _rms[rmsIndex];
+                    int i = rmsIndex;
+                    while (_rms[i] == currentValue)
+                    {
+                        if (_rms[i] == 0)
+                        {
+                            tableGen.SetBackGroundColor(4, i, Color_D);
+                        }
+                        if (_rms[i] == 1)
+                        {
+                            tableGen.SetBackGroundColor(5, i, Color_D);
+                        }
+                        if (_rms[i] == 2)
+                        {
+                            tableGen.SetBackGroundColor(6, i, Color_D);
+                        }
+                        i--;
+                        if (i < 0)
+                        {
+                            i = 0;
+                            break;
+                        }
+                    }
+                    rmsIndex = i;
+                    currentColumnOfInterest = rmsIndex;
+                }
+            }
+
+            return tableGen.Grid;
+        }
     }
 }

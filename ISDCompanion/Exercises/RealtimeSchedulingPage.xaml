@@ -18,10 +18,11 @@
                 </ScrollView>
 
             </StackLayout>
-            <Button Text="Next" Command="{Binding toggleNextStep}">
-            </Button>
-            <Button Text="Full" Command="{Binding toggleComplete}">
-            </Button>
+            <Button Text="Next" Command="{Binding ButtonNextStep}"/>
+            <Button Text="Back" Command="{Binding ButtonLastStep}"/>
+            <Button Text="Show Solution" Command="{Binding ButtonCompleteSolution}"/>
+            <Button Text="Info" Command="{Binding ButtonInfo}"/>
+            <Button Text="New Exercise" Command="{Binding ButtonNewExercise}"/>
         </StackLayout>
         
 
