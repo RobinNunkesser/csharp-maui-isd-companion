@@ -67,13 +67,33 @@ namespace ISDCompanion
 
         private Grid _Table { get; set; }
 
+        public Grid Table_Header
+        {
+            get
+            {
+                return _Table_Header;
+            }
+            private set
+            {
+                _Table_Header = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Grid _Table_Header { get; set; }
+
+
+
+
         private RealtimeScheduling_TableGenService _TableGenService { get; set; }
 
         public ICommand toggleNextStep { set; get; }
+        public ICommand toggleComplete { set; get; }
 
         protected override void Initialize()
         {
             toggleNextStep = new Command(nextStep, () => true);
+            toggleComplete = new Command(complete, () => true);
             var parameters = new RealtimeSchedulingParameters();
 
             var requests = "";
@@ -89,6 +109,7 @@ namespace ISDCompanion
             //RMSSolution = string.Join("", new RMSSolver().Solve(parameters).Processes);
 
             _TableGenService = new RealtimeScheduling_TableGenService();
+            Table_Header = _TableGenService.GenerateTable_RealtimeScheduling_TableHeader(parameters);
             Table = _TableGenService.GenerateTable_RealtimeScheduling_EmptyTable(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
             //Table = TableGenService.GenerateTable_RealtimeScheduling(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
 
@@ -97,6 +118,11 @@ namespace ISDCompanion
         private void nextStep()
         {
             Table = _TableGenService.NextStep_RealtimeScheduling();
+        }
+
+        private void complete()
+        {
+            Table = _TableGenService.ShowSolution_RealtimeScheduling();
         }
 
     }

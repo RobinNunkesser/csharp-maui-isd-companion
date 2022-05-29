@@ -6,29 +6,26 @@
     x:Class="ISDCompanion.RealtimeSchedulingPage"
     Title="{xct:Translate RealtimeScheduling}">
     <ContentPage.Content>
-        <StackLayout>
-            <!--<Picker x:Name="StrategyPicker" Title="{xct:Translate ShowSolution}" TitleColor="Red"
-                    SelectedIndex="{Binding SelectedStrategy}" Margin="5">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Optimal</x:String>
-                        <x:String>FIFO</x:String>
-                        <x:String>Least Recently Used</x:String>
-                        <x:String>Second Chance / Clock</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>-->
-            <ScrollView Padding="50" Orientation="Horizontal">
-                <ContentView Content="{Binding Table}">
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal" Padding="25, 25, 0, 25">
+                <ContentView Content="{Binding Table_Header}">
 
                 </ContentView>
-            </ScrollView>
+                <ScrollView  Orientation="Horizontal" >
+                    <ContentView Content="{Binding Table}">
+
+                    </ContentView>
+                </ScrollView>
+
+            </StackLayout>
             <Button Text="Next" Command="{Binding toggleNextStep}">
-                
+            </Button>
+            <Button Text="Full" Command="{Binding toggleComplete}">
             </Button>
         </StackLayout>
         
-        
+
+
         <!--<StackLayout>
             <Label Text="{Binding Requests}" VerticalOptions="Center">
                     <Label.FontFamily>
