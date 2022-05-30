@@ -4,11 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ISDCompanion.RealtimeSchedulingPage"
-    xmlns:yummi="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+    xmlns:yummi="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Shell.NavBarHasShadow="False">
 
+    
 
     <Shell.TitleView>
-        <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal">
             <Label
                 TextColor="Gray"
                 FontAttributes="Bold"
@@ -29,14 +31,13 @@
                    FontFamily="ACC"
                    Text="&#xf70e;">
             </Label>
-
-        </StackLayout>
-
+            </StackLayout>
     </Shell.TitleView>
-
+    
 
 
     <ContentPage.Content>
+        
         <!--<StackLayout>
             -->
         <!--<Picker x:Name="StrategyPicker" Title="{xct:Translate ShowSolution}" TitleColor="Red"
