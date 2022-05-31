@@ -7,7 +7,9 @@
     xmlns:yummi="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     Shell.NavBarHasShadow="False">
 
-    
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IconOverride="back.png" />
+    </Shell.BackButtonBehavior>
 
     <Shell.TitleView>
             <StackLayout Orientation="Horizontal">
