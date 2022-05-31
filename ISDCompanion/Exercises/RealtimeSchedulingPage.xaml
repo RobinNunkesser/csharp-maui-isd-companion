@@ -5,10 +5,11 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ISDCompanion.RealtimeSchedulingPage"
     xmlns:yummi="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:local="clr-namespace:ISDCompanion.Helpers"
     Shell.NavBarHasShadow="False">
 
     <Shell.BackButtonBehavior>
-        <BackButtonBehavior IconOverride="back.png" />
+        <BackButtonBehavior IconOverride="{local:ImageResource ISDCompanion.Resources.Images.reply48.png}" />
     </Shell.BackButtonBehavior>
 
     <Shell.TitleView>
