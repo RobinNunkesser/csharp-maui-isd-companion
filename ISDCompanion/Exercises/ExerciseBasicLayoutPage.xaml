@@ -15,17 +15,16 @@
 
 
     <Shell.TitleView>
-            <Label
+            <StackLayout Margin="0, 0, 80, 0">
+                <Label
                 TextColor="Gray"
-                HorizontalOptions="End"
-                BackgroundColor="White"
-                Text="{xct:Translate ExerciseBasicLayout}"
-                FontSize="24"
-                FontFamily="TW">
-            </Label>
-
-
-
+                HorizontalOptions="Center"
+                BackgroundColor="Red"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                Text="Test"
+                FontSize="24">
+                </Label>
+            </StackLayout>
     </Shell.TitleView>
 
     <ContentPage.Content>
