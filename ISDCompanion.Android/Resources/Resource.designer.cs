@@ -25527,22 +25527,25 @@ namespace ISDCompanion.Droid
 			public const int repeat = 2131230895;
 			
 			// aapt resource value: 0x7F0800B0
-			public const int test_custom_background = 2131230896;
+			public const int reply48 = 2131230896;
 			
 			// aapt resource value: 0x7F0800B1
-			public const int time = 2131230897;
+			public const int test_custom_background = 2131230897;
 			
 			// aapt resource value: 0x7F0800B2
-			public const int timezone = 2131230898;
+			public const int time = 2131230898;
 			
 			// aapt resource value: 0x7F0800B3
-			public const int tooltip_frame_dark = 2131230899;
+			public const int timezone = 2131230899;
 			
 			// aapt resource value: 0x7F0800B4
-			public const int tooltip_frame_light = 2131230900;
+			public const int tooltip_frame_dark = 2131230900;
 			
 			// aapt resource value: 0x7F0800B5
-			public const int watermark = 2131230901;
+			public const int tooltip_frame_light = 2131230901;
+			
+			// aapt resource value: 0x7F0800B6
+			public const int watermark = 2131230902;
 			
 			static Drawable()
 			{

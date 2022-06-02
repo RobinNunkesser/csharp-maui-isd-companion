@@ -71,6 +71,7 @@
     <None Remove="Italbytz.Adapters.Meal.STWPB" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CustomRenderers\" />
     <Folder Include="Schedule\" />
     <Folder Include="Settings\" />
     <Folder Include="Licenses\" />

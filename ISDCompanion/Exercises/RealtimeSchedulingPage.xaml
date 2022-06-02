@@ -13,7 +13,7 @@
     </Shell.BackButtonBehavior>
 
     <Shell.TitleView>
-            <StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal">
             <Label
                 TextColor="Gray"
                 FontAttributes="Bold"
@@ -34,13 +34,13 @@
                    FontFamily="ACC"
                    Text="&#xf70e;">
             </Label>
-            </StackLayout>
+        </StackLayout>
     </Shell.TitleView>
-    
+
 
 
     <ContentPage.Content>
-        
+
         <!--<StackLayout>
             -->
         <!--<Picker x:Name="StrategyPicker" Title="{xct:Translate ShowSolution}" TitleColor="Red"
