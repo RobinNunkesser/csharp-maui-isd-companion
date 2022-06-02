@@ -9,27 +9,18 @@
     Shell.NavBarHasShadow="False">
 
     <Shell.BackButtonBehavior>
-        <BackButtonBehavior IconOverride="{local:ImageResource ISDCompanion.Resources.Images.reply48.png}" />
+        <BackButtonBehavior IconOverride="reply48.png" />
     </Shell.BackButtonBehavior>
 
+
     <Shell.TitleView>
-        <StackLayout Orientation="Horizontal">
-            <Label
-                TextColor="Gray"
-                FontAttributes="Bold"
-                VerticalOptions="CenterAndExpand"
-                HorizontalTextAlignment="Center"
-                BackgroundColor="White"
-                Text="{xct:Translate RealtimeScheduling}"
-                FontSize="23"
-                FontFamily="TW">
-            </Label>
+        <StackLayout Orientation="Horizontal" Margin="0, 15, 0, 0">
+            <Label TextColor="Black" Text="{xct:Translate RealtimeScheduling}" FontSize="18" FontFamily="TW"></Label>
             <Label TextColor="Gray"
-                   Margin="0, 0, 20, 0"
-                   VerticalOptions="Center"
+                   Margin="0, 5, 20, 0"
                    HorizontalOptions="EndAndExpand"
                    HorizontalTextAlignment="End"
-                   FontSize="Large"
+                   FontSize="Medium"
                    FontAttributes="Bold"
                    FontFamily="ACC"
                    Text="&#xf70e;">
@@ -40,96 +31,21 @@
 
 
     <ContentPage.Content>
-
-        <!--<StackLayout>
-            -->
-        <!--<Picker x:Name="StrategyPicker" Title="{xct:Translate ShowSolution}" TitleColor="Red"
-                    SelectedIndex="{Binding SelectedStrategy}" Margin="5">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Optimal</x:String>
-                        <x:String>FIFO</x:String>
-                        <x:String>Least Recently Used</x:String>
-                        <x:String>Second Chance / Clock</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>-->
-        <!--
-            <ScrollView Padding="50" Orientation="Horizontal">
-                
-            </ScrollView>-->
-
-
-
-        <StackLayout Padding="10, 20, 10, 15" >
+        <StackLayout Padding="10, 0, 10, 15" >
             <StackLayout Padding="0, 0, 0, 10">
-                <yummi:PancakeView CornerRadius="20, 20, 20, 20" HeightRequest="600">
-                    <yummi:PancakeView.Shadow>
-                        <yummi:DropShadow></yummi:DropShadow>
-                    </yummi:PancakeView.Shadow>
-                    <RelativeLayout >
-                        <StackLayout BackgroundColor="GreenYellow"
-                                     RelativeLayout.XConstraint="0"
+                <RelativeLayout>
+                    <StackLayout     RelativeLayout.XConstraint="0"
                                      RelativeLayout.YConstraint="0"
                                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
-                                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                            <ScrollView Orientation="Both">
-                                <ContentView Padding="15" Content="{Binding Table}" >
-
-                                </ContentView>
-
-                            </ScrollView>
-                        </StackLayout>
-                    </RelativeLayout>
-                </yummi:PancakeView>
+                                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                    >
+                        <ScrollView Orientation="Both">
+                            <ContentView Padding="15" Content="{Binding Table}" >
+                            </ContentView>
+                        </ScrollView>
+                    </StackLayout>
+                </RelativeLayout>
             </StackLayout>
-
         </StackLayout>
-
-
-
-        <!--</StackLayout>-->
-
-
-        <!--<StackLayout>
-            <Label Text="{Binding Requests}" VerticalOptions="Center">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="CourierNewPSMT" />
-                            <On Platform="Android" Value="monospace" />
-                            <On Platform="UWP" Value="Courier New" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-             <StackLayout Orientation="Horizontal">
-                <Label Text="{xct:Translate ShowSolution}" VerticalOptions="Center"/>
-                <Switch x:Name="Switch" IsToggled="false" HorizontalOptions="EndAndExpand"/>
-            </StackLayout>
-            <Label Text="RMS" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}"/>
-            <Label Text="{Binding RMSSolution}" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="CourierNewPSMT" />
-                            <On Platform="Android" Value="monospace" />
-                            <On Platform="UWP" Value="Courier New" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-            <Label Text="EDF" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}"/>
-            <Label Text="{Binding EDFSolution}" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="CourierNewPSMT" />
-                            <On Platform="Android" Value="monospace" />
-                            <On Platform="UWP" Value="Courier New" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-            <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
-        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

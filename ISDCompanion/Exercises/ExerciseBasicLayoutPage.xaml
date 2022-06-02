@@ -27,7 +27,6 @@
                    Text="&#xf70e;">
             </Label>
         </StackLayout>
-        
     </Shell.TitleView>
 
     <ContentPage.Content>
