@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace ISDCompanion.Services
 {
-    internal class RealtimeScheduling_TableGenService
+    internal class RealtimeScheduling_TableGenService : ITableGenService
     {
         private TableGen.TableGen tableGen;
 
@@ -14,6 +14,7 @@ namespace ISDCompanion.Services
         private int edfIndex;
         private int[] _rms;
         private int rmsIndex;
+        IRealtimeSchedulingParameters _parameters;
 
 
         public int currentColumnOfInterest { get; private set; }
@@ -25,16 +26,19 @@ namespace ISDCompanion.Services
 
         Color Color_Transparent = Color.Transparent;
 
-        public RealtimeScheduling_TableGenService()
+        public RealtimeScheduling_TableGenService(IRealtimeSchedulingParameters parameters, int[] edf, int[] rms)
         {
             tableGen = new TableGen.TableGen(32, 11, 25, 25);
             edfIndex = 0;
             rmsIndex = 0;
             currentColumnOfInterest = 0;
+            _parameters = parameters;
+            _edf = edf;
+            _rms = rms;
         }
 
 
-        public Grid GenerateTable_RealtimeScheduling_TableHeader(IRealtimeSchedulingParameters parameters)
+        public Grid GenerateTable_TableHeader()
         {
             TableGen.TableGen tableGen_TableHeader = new TableGen.TableGen(1, 11, 25, 80);
 
@@ -95,7 +99,7 @@ namespace ISDCompanion.Services
             return tableGen_TableHeader.Grid;
         }
 
-        public Grid GenerateTable_RealtimeScheduling_EmptyTable(IRealtimeSchedulingParameters parameters, int[] edf, int[] rms)
+        public Grid GenerateTable_EmptyTable()
         {
             tableGen.SetBorderForRow(0);
             tableGen.SetBorderForRow(1);
@@ -115,7 +119,7 @@ namespace ISDCompanion.Services
 
 
             int process = 0;
-            foreach (System.ValueTuple<int, int> request in parameters.Requests)
+            foreach (System.ValueTuple<int, int> request in _parameters.Requests)
             {
                 int index = 0;
                 while (index < 32)
@@ -145,13 +149,10 @@ namespace ISDCompanion.Services
                 process++;
             }
 
-            _edf = edf;
-            _rms = rms;
-
             return tableGen.Grid;
         }
 
-        public Grid NextStep_RealtimeScheduling()
+        public Grid GenerateTable_NextStep()
         {
             if (rmsIndex < _rms.Length - 1)
             {
@@ -216,17 +217,7 @@ namespace ISDCompanion.Services
             return tableGen.Grid;
         }
 
-        public Grid ShowSolution_RealtimeScheduling()
-        {
-            while (edfIndex < _edf.Length - 1 || rmsIndex < _rms.Length - 1)
-            {
-                NextStep_RealtimeScheduling();
-            }
-
-            return tableGen.Grid;
-        }
-
-        public Grid LastStep_RealtimeScheduling()
+        public Grid GenerateTable_PreviousStep()
         {
 
             if (rmsIndex == 0)
@@ -303,6 +294,16 @@ namespace ISDCompanion.Services
             }
 
 
+
+            return tableGen.Grid;
+        }
+
+        public Grid GenerateTable_ShowSolution()
+        {
+            while (edfIndex < _edf.Length - 1 || rmsIndex < _rms.Length - 1)
+            {
+                GenerateTable_NextStep();
+            }
 
             return tableGen.Grid;
         }

@@ -111,9 +111,9 @@ namespace ISDCompanion
         {
             var parameters = new RealtimeSchedulingParameters();
 
-            _TableGenService = new RealtimeScheduling_TableGenService();
-            Table_Header = _TableGenService.GenerateTable_RealtimeScheduling_TableHeader(parameters);
-            Table = _TableGenService.GenerateTable_RealtimeScheduling_EmptyTable(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
+            _TableGenService = new RealtimeScheduling_TableGenService(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
+            Table_Header = _TableGenService.GenerateTable_TableHeader();
+            Table = _TableGenService.GenerateTable_EmptyTable();
         }
 
         private void nextStep()
@@ -127,7 +127,7 @@ namespace ISDCompanion
                     this.nextStep();
                 }
             }
-            Table = _TableGenService.NextStep_RealtimeScheduling();
+            Table = _TableGenService.GenerateTable_NextStep();
         }
 
         private void lastStep()
@@ -141,12 +141,12 @@ namespace ISDCompanion
                     this.lastStep();
                 }
             }
-            Table = _TableGenService.LastStep_RealtimeScheduling();
+            Table = _TableGenService.GenerateTable_PreviousStep();
         }
 
         private void showCompleteSolution()
         {
-            Table = _TableGenService.ShowSolution_RealtimeScheduling();
+            Table = _TableGenService.GenerateTable_ShowSolution();
         }
 
         private void showInfo()

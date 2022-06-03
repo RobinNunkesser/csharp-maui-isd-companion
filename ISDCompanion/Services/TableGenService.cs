@@ -736,13 +736,13 @@ namespace ISDCompanion.Services
             tableGen.AddElement(7, 0, labels[7]);
             tableGen.AddElement(8, 0, labels[8]);
             tableGen.AddElement(9, 0, labels[9]);
-                       
 
-            for(int i = 0; i < solution.History.Count; i++)
+
+            for (int i = 0; i < solution.History.Count; i++)
             {
-                for(int j = 0; j < solution.History[i].Length; j++)
+                for (int j = 0; j < solution.History[i].Length; j++)
                 {
-                    string letter= solution.History[i][j] == -1 ? "" : parameters.Processes[solution.History[i][j]];
+                    string letter = solution.History[i][j] == -1 ? "" : parameters.Processes[solution.History[i][j]];
                     tableGen.AddCenteredElement(i, j + 1, new Label() { Text = letter });
                 }
             }
