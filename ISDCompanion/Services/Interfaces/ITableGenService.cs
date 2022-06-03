@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace ISDCompanion.Services
 {
-    internal interface ITableGenService
+    public interface ITableGenService
     {
         Grid GenerateTable_TableHeader();
 
