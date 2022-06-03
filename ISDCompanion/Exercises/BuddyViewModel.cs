@@ -10,48 +10,6 @@ namespace ISDCompanion
 {
     public class BuddyViewModel : ExerciseViewModel
     {
-        private string requests;
-        public string Requests
-        {
-            get => requests;
-            set
-            {
-                if (value != requests)
-                {
-                    requests = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string freeOrder;
-        public string FreeOrder
-        {
-            get => freeOrder;
-            set
-            {
-                if (value != freeOrder)
-                {
-                    freeOrder = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string solution;
-        public string Solution
-        {
-            get => solution;
-            set
-            {
-                if (value != solution)
-                {
-                    solution = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         public Grid Table
         {
             get
@@ -115,29 +73,11 @@ namespace ISDCompanion
 
         private void nextStep()
         {
-            //lastActionWasNextStep = true;
-            //if (lastActionWasLastStep)
-            //{
-            //    lastActionWasLastStep = false;
-            //    if (_TableGenService.currentColumnOfInterest != 0)
-            //    {
-            //this.nextStep();
-            //}
-            //}
             Table = _TableGenService.GenerateTable_NextStep();
         }
 
         private void lastStep()
         {
-            //lastActionWasLastStep = true;
-            //if (lastActionWasNextStep)
-            //{
-            //    lastActionWasNextStep = false;
-            //    if (_TableGenService.currentColumnOfInterest != 31)
-            //    {
-            //        this.lastStep();
-            //    }
-            //}
             Table = _TableGenService.GenerateTable_PreviousStep();
         }
 

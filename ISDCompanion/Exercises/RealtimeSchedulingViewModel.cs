@@ -10,48 +10,6 @@ namespace ISDCompanion
 {
     public class RealtimeSchedulingViewModel : ExerciseViewModel
     {
-        private string requests;
-        public string Requests
-        {
-            get => requests;
-            set
-            {
-                if (value != requests)
-                {
-                    requests = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string edfSolution;
-        public string EDFSolution
-        {
-            get => edfSolution;
-            set
-            {
-                if (value != edfSolution)
-                {
-                    edfSolution = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string rmsSolution;
-        public string RMSSolution
-        {
-            get => rmsSolution;
-            set
-            {
-                if (value != rmsSolution)
-                {
-                    rmsSolution = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         public Grid Table
         {
             get
@@ -81,9 +39,6 @@ namespace ISDCompanion
         }
 
         private Grid _Table_Header { get; set; }
-
-
-
 
         private RealtimeScheduling_TableGenService _TableGenService { get; set; }
 
@@ -118,29 +73,29 @@ namespace ISDCompanion
 
         private void nextStep()
         {
-            lastActionWasNextStep = true;
-            if (lastActionWasLastStep )
-            {
-                lastActionWasLastStep = false;
-                if(_TableGenService.currentColumnOfInterest != 0)
-                {
-                    this.nextStep();
-                }
-            }
+            //lastActionWasNextStep = true;
+            //if (lastActionWasLastStep )
+            //{
+            //    lastActionWasLastStep = false;
+            //    if(_TableGenService.currentColumnOfInterest != 0)
+            //    {
+            //        this.nextStep();
+            //    }
+            //}
             Table = _TableGenService.GenerateTable_NextStep();
         }
 
         private void lastStep()
         {
-            lastActionWasLastStep = true;
-            if (lastActionWasNextStep)
-            {
-                lastActionWasNextStep = false;
-                if (_TableGenService.currentColumnOfInterest != 31)
-                {
-                    this.lastStep();
-                }
-            }
+            //lastActionWasLastStep = true;
+            //if (lastActionWasNextStep)
+            //{
+            //    lastActionWasNextStep = false;
+            //    if (_TableGenService.currentColumnOfInterest != 31)
+            //    {
+            //        this.lastStep();
+            //    }
+            //}
             Table = _TableGenService.GenerateTable_PreviousStep();
         }
 

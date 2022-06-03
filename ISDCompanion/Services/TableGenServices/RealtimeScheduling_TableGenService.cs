@@ -16,6 +16,9 @@ namespace ISDCompanion.Services
         private int _rmsIndex;
         IRealtimeSchedulingParameters _parameters;
 
+        private bool _lastActionWasNextStep = false;
+        private bool _lastActionWasPreviousStep = false;
+
 
         public int currentColumnOfInterest { get; private set; }
 
@@ -42,28 +45,11 @@ namespace ISDCompanion.Services
         {
             TableGen.TableGen tableGen_TableHeader = new TableGen.TableGen(1, 11, 25, 80);
 
-            //tableGen_TableHeader.SetBorderForRow(0);
-            //tableGen_TableHeader.SetBorderForRow(1);
-            //tableGen_TableHeader.SetBorderForRow(2);
-
-            //tableGen_TableHeader.SetBorderForRow(4);
-            //tableGen_TableHeader.SetBorderForRow(5);
-            //tableGen_TableHeader.SetBorderForRow(6);
-
-            //tableGen_TableHeader.SetBorderForRow(8);
-            //tableGen_TableHeader.SetBorderForRow(9);
-            //tableGen_TableHeader.SetBorderForRow(10);
-
             tableGen_TableHeader.SetRowHeight(3, 10);
             tableGen_TableHeader.SetRowHeight(7, 10);
 
             for(int i = 0; i <= 10; i++)
             {
-                //tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Top);
-                //tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Left);
-                //tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Bot);
-                //tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Right);
-
                 tableGen_TableHeader.SetBackGroundColor(i, 0, Color_Transparent);
             }
 
@@ -154,6 +140,20 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_NextStep()
         {
+           _lastActionWasNextStep = true;
+            if (_lastActionWasPreviousStep)
+            {
+                _lastActionWasPreviousStep = false;
+                if(_rmsIndex != 0 && _rmsIndex < _rms.Length -1)
+                {
+                    _rmsIndex++;
+                }
+                if(_edfIndex != 0 && _edfIndex < _edf.Length -1 && _rmsIndex == _rms.Length - 1)
+                {
+                    _edfIndex++;
+                }
+            }
+
             if (_rmsIndex < _rms.Length - 1)
             {
                 int currentValue = _rms[_rmsIndex];
@@ -219,6 +219,19 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_PreviousStep()
         {
+            _lastActionWasPreviousStep = true;
+            if (_lastActionWasNextStep)
+            {
+                _lastActionWasNextStep = false;
+                if(_rmsIndex != _rms.Length -1 && _rmsIndex != 0)
+                {
+                    _rmsIndex--;
+                }
+                if (_edfIndex != _edf.Length - 1 && _edfIndex != 0 && _rmsIndex == _rms.Length - 1)
+                {
+                    _edfIndex--;
+                }
+            }
 
             if (_rmsIndex == 0)
             {
