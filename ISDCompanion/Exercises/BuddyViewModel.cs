@@ -67,30 +67,88 @@ namespace ISDCompanion
 
         private Grid _Table { get; set; }
 
+        public Grid Table_Header
+        {
+            get
+            {
+                return _Table_Header;
+            }
+            private set
+            {
+                _Table_Header = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Grid _Table_Header { get; set; }
+
+        private Buddy_TableGenService _TableGenService { get; set; }
+
+        public ICommand ButtonNextStep { set; get; }
+        public ICommand ButtonLastStep { set; get; }
+        public ICommand ButtonCompleteSolution { set; get; }
+        public ICommand ButtonInfo { set; get; }
+        public ICommand ButtonNewExercise { set; get; }
+
 
         protected override void Initialize()
+        {
+            ButtonNewExercise = new Command(newExercise, () => true);
+            ButtonNextStep = new Command(nextStep, () => true);
+            ButtonLastStep = new Command(lastStep, () => true);
+            ButtonCompleteSolution = new Command(showCompleteSolution, () => true);
+            ButtonInfo = new Command(showInfo, () => true);
+
+            newExercise();
+        }
+
+        private void newExercise()
         {
             var parameters = new BuddyParameters();
             var solver = new BuddySolver();
             var solution = solver.Solve(parameters);
 
-            var solutionString = "";
-
-            Table = TableGenService.GenerateTable_Buddy(parameters, solution);
-
-            foreach (var entry in solution.History)
-            {
-                foreach (var cell in entry)
-                {
-                    solutionString += cell == -1 ? "-" : parameters.Processes[cell];
-                }
-                solutionString += "\n";
-            }
-
-            Requests = $"A ({parameters.Requests[0]}), B ({parameters.Requests[1]}), C ({parameters.Requests[2]}), D ({parameters.Requests[3]}), E ({parameters.Requests[4]})";
-            FreeOrder = $"Free {parameters.FreeOrder[0]}, {parameters.FreeOrder[1]}, {parameters.FreeOrder[2]}, {parameters.FreeOrder[3]}, {parameters.FreeOrder[4]}";
-            Solution = solutionString;
+            _TableGenService = new Buddy_TableGenService(parameters, solution);
+            Table_Header = _TableGenService.GenerateTable_TableHeader();
+            Table = _TableGenService.GenerateTable_EmptyTable();
         }
 
+        private void nextStep()
+        {
+            //lastActionWasNextStep = true;
+            //if (lastActionWasLastStep)
+            //{
+            //    lastActionWasLastStep = false;
+            //    if (_TableGenService.currentColumnOfInterest != 0)
+            //    {
+            //this.nextStep();
+            //}
+            //}
+            Table = _TableGenService.GenerateTable_NextStep();
+        }
+
+        private void lastStep()
+        {
+            //lastActionWasLastStep = true;
+            //if (lastActionWasNextStep)
+            //{
+            //    lastActionWasNextStep = false;
+            //    if (_TableGenService.currentColumnOfInterest != 31)
+            //    {
+            //        this.lastStep();
+            //    }
+            //}
+            Table = _TableGenService.GenerateTable_PreviousStep();
+        }
+
+        private void showCompleteSolution()
+        {
+            Table = _TableGenService.GenerateTable_ShowSolution();
+        }
+
+        private void showInfo()
+        {
+
+        }
     }
 }

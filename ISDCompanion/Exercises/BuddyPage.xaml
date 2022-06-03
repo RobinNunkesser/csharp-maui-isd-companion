@@ -6,12 +6,23 @@
     x:Class="ISDCompanion.BuddyPage"
     Title="{xct:Translate Buddy}">
     <ContentPage.Content>
-        <StackLayout>
-            <ScrollView Padding="50" Orientation="Horizontal">
-                <ContentView Content="{Binding Table}">
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal" Padding="25, 25, 0, 25">
+                <ContentView Content="{Binding Table_Header}">
 
                 </ContentView>
-            </ScrollView>
+                <ScrollView  Orientation="Horizontal" >
+                    <ContentView Content="{Binding Table}">
+
+                    </ContentView>
+                </ScrollView>
+
+            </StackLayout>
+            <Button Text="Next" Command="{Binding ButtonNextStep}"/>
+            <Button Text="Back" Command="{Binding ButtonLastStep}"/>
+            <Button Text="Show Solution" Command="{Binding ButtonCompleteSolution}"/>
+            <Button Text="Info" Command="{Binding ButtonInfo}"/>
+            <Button Text="New Exercise" Command="{Binding ButtonNewExercise}"/>
         </StackLayout>
 
         <!--<StackLayout VerticalOptions="FillAndExpand">

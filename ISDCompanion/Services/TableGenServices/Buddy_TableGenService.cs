@@ -1,4 +1,5 @@
-﻿using Italbytz.Ports.Exam.OperatingSystems;
+﻿using Italbytz.Adapters.Exam.OperatingSystems;
+using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,143 +11,77 @@ namespace ISDCompanion.Services
     {
         private TableGen.TableGen tableGen;
 
-        private int[] _edf;
-        private int edfIndex;
-        private int[] _rms;
-        private int rmsIndex;
-        IRealtimeSchedulingParameters _parameters;
+        private int _index;
+        BuddyParameters _parameters;
+        IBuddySolution _solution;
 
 
         public int currentColumnOfInterest { get; private set; }
 
-        Color Color_A = Color.FromRgb(200, 0, 0);
-        Color Color_B = Color.FromRgb(0, 0, 200);
-        Color Color_C = Color.FromRgb(0, 200, 0);
-
 
         Color Color_Transparent = Color.Transparent;
 
-        public Buddy_TableGenService(IRealtimeSchedulingParameters parameters, int[] edf, int[] rms)
+        public Buddy_TableGenService(BuddyParameters parameters, IBuddySolution solution)
         {
             tableGen = new TableGen.TableGen(32, 11, 25, 25);
-            edfIndex = 0;
-            rmsIndex = 0;
+            _index = 0;
             currentColumnOfInterest = 0;
             _parameters = parameters;
-            _edf = edf;
-            _rms = rms;
+            _solution = solution;
         }
-
 
         public Grid GenerateTable_TableHeader()
         {
             TableGen.TableGen tableGen_TableHeader = new TableGen.TableGen(1, 11, 25, 80);
 
-            tableGen_TableHeader.SetBorderForRow(0);
-            tableGen_TableHeader.SetBorderForRow(1);
-            tableGen_TableHeader.SetBorderForRow(2);
-
-            tableGen_TableHeader.SetBorderForRow(4);
-            tableGen_TableHeader.SetBorderForRow(5);
-            tableGen_TableHeader.SetBorderForRow(6);
-
-            tableGen_TableHeader.SetBorderForRow(8);
-            tableGen_TableHeader.SetBorderForRow(9);
-            tableGen_TableHeader.SetBorderForRow(10);
-
-            tableGen_TableHeader.SetRowHeight(3, 10);
-            tableGen_TableHeader.SetRowHeight(7, 10);
-
-            for(int i = 0; i <= 10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Top);
-                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Left);
-                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Bot);
-                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Right);
-
                 tableGen_TableHeader.SetBackGroundColor(i, 0, Color_Transparent);
             }
 
-            tableGen_TableHeader.SetColumnWidth(0, 80);
-
-            tableGen_TableHeader.SetRowHeight(3, 10);
-            tableGen_TableHeader.SetRowHeight(7, 10);
-
             List<Label> labels = new List<Label>();
 
-            labels.Add(new Label() { Text = "A" });
-            labels.Add(new Label() { Text = "B" });
-            labels.Add(new Label() { Text = "C" });
-            labels.Add(new Label() { Text = "RMS A" });
-            labels.Add(new Label() { Text = "RMS B" });
-            labels.Add(new Label() { Text = "RMS C" });
-            labels.Add(new Label() { Text = "EDF A" });
-            labels.Add(new Label() { Text = "EDF B" });
-            labels.Add(new Label() { Text = "EDF C" });
+            labels.Add(new Label() { Text = _parameters.Processes[0] + " (" + _parameters.Requests[0] + ")" });
+            labels.Add(new Label() { Text = _parameters.Processes[1] + " (" + _parameters.Requests[1] + ")" });
+            labels.Add(new Label() { Text = _parameters.Processes[2] + " (" + _parameters.Requests[2] + ")" });
+            labels.Add(new Label() { Text = _parameters.Processes[3] + " (" + _parameters.Requests[3] + ")" });
+            labels.Add(new Label() { Text = _parameters.Processes[4] + " (" + _parameters.Requests[4] + ")" });
+            labels.Add(new Label() { Text = "Free " + _parameters.FreeOrder[0] });
+            labels.Add(new Label() { Text = "Free " + _parameters.FreeOrder[1] });
+            labels.Add(new Label() { Text = "Free " + _parameters.FreeOrder[2] });
+            labels.Add(new Label() { Text = "Free " + _parameters.FreeOrder[3] });
+            labels.Add(new Label() { Text = "Free " + _parameters.FreeOrder[4] });
 
-            tableGen_TableHeader.AddElement(0, 0, labels[0]);
-            tableGen_TableHeader.AddElement(1, 0, labels[1]);
-            tableGen_TableHeader.AddElement(2, 0, labels[2]);
-
+            tableGen_TableHeader.AddElement(1, 0, labels[0]);
+            tableGen_TableHeader.AddElement(2, 0, labels[1]);
+            tableGen_TableHeader.AddElement(3, 0, labels[2]);
             tableGen_TableHeader.AddElement(4, 0, labels[3]);
             tableGen_TableHeader.AddElement(5, 0, labels[4]);
             tableGen_TableHeader.AddElement(6, 0, labels[5]);
-
-            tableGen_TableHeader.AddElement(8, 0, labels[6]);
-            tableGen_TableHeader.AddElement(9, 0, labels[7]);
-            tableGen_TableHeader.AddElement(10, 0, labels[8]);
+            tableGen_TableHeader.AddElement(7, 0, labels[6]);
+            tableGen_TableHeader.AddElement(8, 0, labels[7]);
+            tableGen_TableHeader.AddElement(9, 0, labels[8]);
+            tableGen_TableHeader.AddElement(10, 0, labels[9]);
 
             return tableGen_TableHeader.Grid;
         }
 
         public Grid GenerateTable_EmptyTable()
         {
-            tableGen.SetBorderForRow(0);
             tableGen.SetBorderForRow(1);
             tableGen.SetBorderForRow(2);
-
+            tableGen.SetBorderForRow(3);
             tableGen.SetBorderForRow(4);
             tableGen.SetBorderForRow(5);
             tableGen.SetBorderForRow(6);
-
+            tableGen.SetBorderForRow(7);
             tableGen.SetBorderForRow(8);
             tableGen.SetBorderForRow(9);
             tableGen.SetBorderForRow(10);
 
-
-            tableGen.SetRowHeight(3, 10);
-            tableGen.SetRowHeight(7, 10);
-
-
-            int process = 0;
-            foreach (System.ValueTuple<int, int> request in _parameters.Requests)
+            for (int i = 0; i < 32; i++)
             {
-                int index = 0;
-                while (index < 32)
-                {
-                    for (int i = 0; i < request.Item1; i++)
-                    {
-                        int j = index + i;
-                        if (j <= 31)
-                        {
-                            if (process == 0)
-                            {
-                                tableGen.SetBackGroundColor(0, j, Color_A);
-                            }
-                            if (process == 1)
-                            {
-                                tableGen.SetBackGroundColor(1, j, Color_B);
-                            }
-                            if (process == 2)
-                            {
-                                tableGen.SetBackGroundColor(2, j, Color_C);
-                            }
-                        }
-
-                    }
-                    index = index + request.Item2;
-                }
-                process++;
+                tableGen.AddCenteredElement(0, i, new Label() { Text = (i + 1).ToString() });
             }
 
             return tableGen.Grid;
@@ -154,64 +89,14 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_NextStep()
         {
-            if (rmsIndex < _rms.Length - 1)
+            if (_index < _solution.History.Count)
             {
-                int currentValue = _rms[rmsIndex];
-                int i = rmsIndex;
-                while (_rms[i] == currentValue)
+                for (int j = 0; j < _solution.History[_index].Length; j++)
                 {
-                    if (_rms[i] == 0)
-                    {
-                        tableGen.SetBackGroundColor(4, i, Color_A);
-                    }
-                    if (_rms[i] == 1)
-                    {
-                        tableGen.SetBackGroundColor(5, i, Color_B);
-                    }
-                    if (_rms[i] == 2)
-                    {
-                        tableGen.SetBackGroundColor(6, i, Color_C);
-                    }
-                    i++;
-                    if (i > _rms.Length - 1)
-                    {
-                        i = 31;
-                        break;
-                    }
+                    string letter = _solution.History[_index][j] == -1 ? "" : _parameters.Processes[_solution.History[_index][j]];
+                    tableGen.AddCenteredElement(_index + 1, j, new Label() { Text = letter });
                 }
-                rmsIndex = i;
-                currentColumnOfInterest = rmsIndex;
-            }
-            else
-            {
-                if (edfIndex < _edf.Length - 1)
-                {
-                    int currentValue = _edf[edfIndex];
-                    int i = edfIndex;
-                    while (_edf[i] == currentValue)
-                    {
-                        if (_edf[i] == 0)
-                        {
-                            tableGen.SetBackGroundColor(8, i, Color_A);
-                        }
-                        if (_edf[i] == 1)
-                        {
-                            tableGen.SetBackGroundColor(9, i, Color_B);
-                        }
-                        if (_edf[i] == 2)
-                        {
-                            tableGen.SetBackGroundColor(10, i, Color_C);
-                        }
-                        i++;
-                        if (i > _edf.Length - 1)
-                        {
-                            i = 31;
-                            break;
-                        }
-                    }
-                    edfIndex = i;
-                    currentColumnOfInterest = edfIndex;
-                }
+                _index++;
             }
 
             return tableGen.Grid;
@@ -219,88 +104,14 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_PreviousStep()
         {
-
-            if (rmsIndex == 0)
-            {
-                tableGen.SetBackGroundColor(4, 0, Color_Transparent);
-                tableGen.SetBackGroundColor(5, 0, Color_Transparent);
-                tableGen.SetBackGroundColor(6, 0, Color_Transparent);
-            }
-            if (edfIndex == 0)
-            {
-                tableGen.SetBackGroundColor(8, 0, Color_Transparent);
-                tableGen.SetBackGroundColor(9, 0, Color_Transparent);
-                tableGen.SetBackGroundColor(10, 0, Color_Transparent);
-            }
-
-            if (edfIndex > 0 && edfIndex <= _edf.Length - 1)
-            {
-                int currentValue = _edf[edfIndex];
-                int i = edfIndex;
-                while (_edf[i] == currentValue)
-                {
-                    if (_edf[i] == 0)
-                    {
-                        tableGen.SetBackGroundColor(8, i, Color_Transparent);
-                    }
-                    if (_edf[i] == 1)
-                    {
-                        tableGen.SetBackGroundColor(9, i, Color_Transparent);
-                    }
-                    if (_edf[i] == 2)
-                    {
-                        tableGen.SetBackGroundColor(10, i, Color_Transparent);
-                    }
-                    i--;
-                    if (i < 0)
-                    {
-                        i = 0;
-                        break;
-                    }
-                }
-                edfIndex = i;
-                currentColumnOfInterest = edfIndex;
-            }
-            else
-            {
-                if (rmsIndex > 0 && rmsIndex <= _rms.Length - 1)
-                {
-                    int currentValue = _rms[rmsIndex];
-                    int i = rmsIndex;
-                    while (_rms[i] == currentValue)
-                    {
-                        if (_rms[i] == 0)
-                        {
-                            tableGen.SetBackGroundColor(4, i, Color_Transparent);
-                        }
-                        if (_rms[i] == 1)
-                        {
-                            tableGen.SetBackGroundColor(5, i, Color_Transparent);
-                        }
-                        if (_rms[i] == 2)
-                        {
-                            tableGen.SetBackGroundColor(6, i, Color_Transparent);
-                        }
-                        i--;
-                        if (i < 0)
-                        {
-                            i = 0;
-                            break;
-                        }
-                    }
-                    rmsIndex = i;
-                    currentColumnOfInterest = rmsIndex;
-                }
-            }
-
-
+            //To Do
 
             return tableGen.Grid;
         }
 
         public Grid GenerateTable_ShowSolution()
         {
-            while (edfIndex < _edf.Length - 1 || rmsIndex < _rms.Length - 1)
+            while (_index < _solution.History.Count - 1)
             {
                 GenerateTable_NextStep();
             }

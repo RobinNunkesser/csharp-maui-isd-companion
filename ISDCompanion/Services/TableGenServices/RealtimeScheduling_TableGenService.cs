@@ -11,9 +11,9 @@ namespace ISDCompanion.Services
         private TableGen.TableGen tableGen;
 
         private int[] _edf;
-        private int edfIndex;
+        private int _edfIndex;
         private int[] _rms;
-        private int rmsIndex;
+        private int _rmsIndex;
         IRealtimeSchedulingParameters _parameters;
 
 
@@ -29,8 +29,8 @@ namespace ISDCompanion.Services
         public RealtimeScheduling_TableGenService(IRealtimeSchedulingParameters parameters, int[] edf, int[] rms)
         {
             tableGen = new TableGen.TableGen(32, 11, 25, 25);
-            edfIndex = 0;
-            rmsIndex = 0;
+            _edfIndex = 0;
+            _rmsIndex = 0;
             currentColumnOfInterest = 0;
             _parameters = parameters;
             _edf = edf;
@@ -42,27 +42,27 @@ namespace ISDCompanion.Services
         {
             TableGen.TableGen tableGen_TableHeader = new TableGen.TableGen(1, 11, 25, 80);
 
-            tableGen_TableHeader.SetBorderForRow(0);
-            tableGen_TableHeader.SetBorderForRow(1);
-            tableGen_TableHeader.SetBorderForRow(2);
+            //tableGen_TableHeader.SetBorderForRow(0);
+            //tableGen_TableHeader.SetBorderForRow(1);
+            //tableGen_TableHeader.SetBorderForRow(2);
 
-            tableGen_TableHeader.SetBorderForRow(4);
-            tableGen_TableHeader.SetBorderForRow(5);
-            tableGen_TableHeader.SetBorderForRow(6);
+            //tableGen_TableHeader.SetBorderForRow(4);
+            //tableGen_TableHeader.SetBorderForRow(5);
+            //tableGen_TableHeader.SetBorderForRow(6);
 
-            tableGen_TableHeader.SetBorderForRow(8);
-            tableGen_TableHeader.SetBorderForRow(9);
-            tableGen_TableHeader.SetBorderForRow(10);
+            //tableGen_TableHeader.SetBorderForRow(8);
+            //tableGen_TableHeader.SetBorderForRow(9);
+            //tableGen_TableHeader.SetBorderForRow(10);
 
             tableGen_TableHeader.SetRowHeight(3, 10);
             tableGen_TableHeader.SetRowHeight(7, 10);
 
             for(int i = 0; i <= 10; i++)
             {
-                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Top);
-                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Left);
-                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Bot);
-                tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Right);
+                //tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Top);
+                //tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Left);
+                //tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Bot);
+                //tableGen_TableHeader.RemoveBorder(i, 0, TableGen.Border.BorderPosition.Right);
 
                 tableGen_TableHeader.SetBackGroundColor(i, 0, Color_Transparent);
             }
@@ -154,10 +154,10 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_NextStep()
         {
-            if (rmsIndex < _rms.Length - 1)
+            if (_rmsIndex < _rms.Length - 1)
             {
-                int currentValue = _rms[rmsIndex];
-                int i = rmsIndex;
+                int currentValue = _rms[_rmsIndex];
+                int i = _rmsIndex;
                 while (_rms[i] == currentValue)
                 {
                     if (_rms[i] == 0)
@@ -179,15 +179,15 @@ namespace ISDCompanion.Services
                         break;
                     }
                 }
-                rmsIndex = i;
-                currentColumnOfInterest = rmsIndex;
+                _rmsIndex = i;
+                currentColumnOfInterest = _rmsIndex;
             }
             else
             {
-                if (edfIndex < _edf.Length - 1)
+                if (_edfIndex < _edf.Length - 1)
                 {
-                    int currentValue = _edf[edfIndex];
-                    int i = edfIndex;
+                    int currentValue = _edf[_edfIndex];
+                    int i = _edfIndex;
                     while (_edf[i] == currentValue)
                     {
                         if (_edf[i] == 0)
@@ -209,8 +209,8 @@ namespace ISDCompanion.Services
                             break;
                         }
                     }
-                    edfIndex = i;
-                    currentColumnOfInterest = edfIndex;
+                    _edfIndex = i;
+                    currentColumnOfInterest = _edfIndex;
                 }
             }
 
@@ -220,23 +220,23 @@ namespace ISDCompanion.Services
         public Grid GenerateTable_PreviousStep()
         {
 
-            if (rmsIndex == 0)
+            if (_rmsIndex == 0)
             {
                 tableGen.SetBackGroundColor(4, 0, Color_Transparent);
                 tableGen.SetBackGroundColor(5, 0, Color_Transparent);
                 tableGen.SetBackGroundColor(6, 0, Color_Transparent);
             }
-            if (edfIndex == 0)
+            if (_edfIndex == 0)
             {
                 tableGen.SetBackGroundColor(8, 0, Color_Transparent);
                 tableGen.SetBackGroundColor(9, 0, Color_Transparent);
                 tableGen.SetBackGroundColor(10, 0, Color_Transparent);
             }
 
-            if (edfIndex > 0 && edfIndex <= _edf.Length - 1)
+            if (_edfIndex > 0 && _edfIndex <= _edf.Length - 1)
             {
-                int currentValue = _edf[edfIndex];
-                int i = edfIndex;
+                int currentValue = _edf[_edfIndex];
+                int i = _edfIndex;
                 while (_edf[i] == currentValue)
                 {
                     if (_edf[i] == 0)
@@ -258,15 +258,15 @@ namespace ISDCompanion.Services
                         break;
                     }
                 }
-                edfIndex = i;
-                currentColumnOfInterest = edfIndex;
+                _edfIndex = i;
+                currentColumnOfInterest = _edfIndex;
             }
             else
             {
-                if (rmsIndex > 0 && rmsIndex <= _rms.Length - 1)
+                if (_rmsIndex > 0 && _rmsIndex <= _rms.Length - 1)
                 {
-                    int currentValue = _rms[rmsIndex];
-                    int i = rmsIndex;
+                    int currentValue = _rms[_rmsIndex];
+                    int i = _rmsIndex;
                     while (_rms[i] == currentValue)
                     {
                         if (_rms[i] == 0)
@@ -288,8 +288,8 @@ namespace ISDCompanion.Services
                             break;
                         }
                     }
-                    rmsIndex = i;
-                    currentColumnOfInterest = rmsIndex;
+                    _rmsIndex = i;
+                    currentColumnOfInterest = _rmsIndex;
                 }
             }
 
@@ -300,7 +300,7 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_ShowSolution()
         {
-            while (edfIndex < _edf.Length - 1 || rmsIndex < _rms.Length - 1)
+            while (_edfIndex < _edf.Length - 1 || _rmsIndex < _rms.Length - 1)
             {
                 GenerateTable_NextStep();
             }
