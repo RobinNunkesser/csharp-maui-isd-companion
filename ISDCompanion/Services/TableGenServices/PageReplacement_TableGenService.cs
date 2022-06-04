@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace ISDCompanion.Services
 {
-    internal class PageReplacement_FIFO_TableGenService : ITableGenService
+    internal class PageReplacement_TableGenService : ITableGenService
     {
         private TableGen.TableGen _tableGen;
 
@@ -16,7 +16,7 @@ namespace ISDCompanion.Services
         public int currentColumnOfInterest { get; private set; }
 
 
-        public PageReplacement_FIFO_TableGenService(List<IPageReplacementStep> steps)
+        public PageReplacement_TableGenService(List<IPageReplacementStep> steps)
         {
             _tableGen = new TableGen.TableGen(steps.Count, 11, 25, 50);
             _index = 0;
@@ -69,29 +69,6 @@ namespace ISDCompanion.Services
             _tableGen.SetBorderForRow(8);
             _tableGen.SetBorderForRow(9);
             _tableGen.SetBorderForRow(10);
-
-            List<Label> labels = new List<Label>();
-
-            labels.Add(new Label() { Text = "Ref." });
-            labels.Add(new Label() { Text = "Kachel 1" });
-            labels.Add(new Label() { Text = "Kachel 2" });
-            labels.Add(new Label() { Text = "Kachel 3" });
-            labels.Add(new Label() { Text = "Kachel 4" });
-            labels.Add(new Label() { Text = "Abstand 1" });
-            labels.Add(new Label() { Text = "Abstand 2" });
-            labels.Add(new Label() { Text = "Abstand 3" });
-            labels.Add(new Label() { Text = "Abstand 4" });
-
-            _tableGen.AddElement(0, 0, labels[0]);
-            _tableGen.AddElement(2, 0, labels[1]);
-            _tableGen.AddElement(3, 0, labels[2]);
-            _tableGen.AddElement(4, 0, labels[3]);
-            _tableGen.AddElement(5, 0, labels[4]);
-
-            _tableGen.AddElement(7, 0, labels[5]);
-            _tableGen.AddElement(8, 0, labels[6]);
-            _tableGen.AddElement(9, 0, labels[7]);
-            _tableGen.AddElement(10, 0, labels[8]);
 
             for (int i = 0; i < _steps.Count; i++)
             {
