@@ -14,23 +14,23 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class PageReplacementViewModel : ExerciseViewModel
+    public class PageReplacementViewModel : Baseclass_Table_ViewModel
     {
 
-        public List<string[]> Items { get; set; }
-        private string referenceRequests;
-        public string ReferenceRequests
-        {
-            get => referenceRequests;
-            set
-            {
-                if (value != referenceRequests)
-                {
-                    referenceRequests = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        //public List<string[]> Items { get; set; }
+        //private string referenceRequests;
+        //public string ReferenceRequests
+        //{
+        //    get => referenceRequests;
+        //    set
+        //    {
+        //        if (value != referenceRequests)
+        //        {
+        //            referenceRequests = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
 
         private int selectedStrategy = 0;
         public int SelectedStrategy
@@ -52,81 +52,12 @@ namespace ISDCompanion
         private List<IPageReplacementStep> lruSolution;
         private List<IPageReplacementStep> fifoSolution;
 
-        private void ComputeItems()
+        protected override void newExercise()
         {
-            Items = new List<string[]>();
-
-            List<IPageReplacementStep> solution = null;
-
-            if(selectedStrategy == -1)
-            {
-                selectedStrategy = 0;
-            }
-
-            switch (selectedStrategy)
-            {
-                case 0: solution = optimalSolution; 
-                    if (solution != null)
-                    {
-                        Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.Optimal);
-                    }
-                    break;
-                case 1: solution = fifoSolution;
-                    if (solution != null)
-                    {
-                        Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.FIFO);
-                    }
-                    break;
-                case 2: solution = lruSolution;
-                    if (solution != null)
-                    {
-                        Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.LRU);
-                    }
-                    break;
-                case 3: solution = clockSolution;
-                    if (solution != null)
-                    {
-                        Table = TableGenService.GenerateTable_PageReplacement(solution, TableGenService.PageReplacementAlgorithm.SecondChance);
-                    }
-                    break;
-            }
-
-            if (solution != null)
-            {
-                Items = solution.Select(Present).ToList();
-            }
-            OnPropertyChanged("Items");
-        }
-
-        private string[] Present(IPageReplacementStep sim)
-        {
-            var element = sim.Element;
-            var frames = sim.Frames.Select(Present).ToList();
-            var frameInformation = sim.FrameInformation.Select(Present).ToList();
-            return new string[] {
-        $"{element}",
-        $"{frames[0]} ({frameInformation[0]})",
-        $"{frames[1]} ({frameInformation[1]})",
-        $"{frames[2]} ({frameInformation[2]})",
-        $"{frames[3]} ({frameInformation[3]})"};
-        }
-
-        private string Present(int arg)
-        {
-            if (arg == int.MaxValue) return "-";//"∞";
-            return $"{arg}";
-        }
-
-        protected override void Initialize()
-        {
-
-            SelectedStrategy = -1;
-
             var parameters = new PageReplacementParameters()
             {
                 MemorySize = 4
             };
-            ReferenceRequests = string.Join("", parameters.ReferenceRequests);
 
             optimalSolution = new OptimalSolver().Solve(parameters).Steps;
             optimalSolution.RemoveAt(0);
@@ -143,26 +74,58 @@ namespace ISDCompanion
             ComputeItems();
         }
 
-        public Grid Table
+        private void ComputeItems()
         {
-            get 
-            { 
-                return _Table; 
-            }
-            private set 
+            //Items = new List<string[]>();
+
+            List<IPageReplacementStep> solution = null;
+
+            if (selectedStrategy == -1)
             {
-                _Table = value;
-                OnPropertyChanged();
+                selectedStrategy = 0;
             }
-        }
 
-        private Grid _Table { get; set; }
+            switch (selectedStrategy)
+            {
+                case 0:
+                    solution = optimalSolution;
+                    if (solution != null)
+                    {
+                        _TableGenService = new PageReplacement_TableGenService(solution);
+                        Table_Header = _TableGenService.GenerateTable_TableHeader();
+                        Table = _TableGenService.GenerateTable_EmptyTable();
+                    }
+                    break;
+                case 1:
+                    solution = fifoSolution;
+                    if (solution != null)
+                    {
+                        _TableGenService = new PageReplacement_TableGenService(solution);
+                        Table_Header = _TableGenService.GenerateTable_TableHeader();
+                        Table = _TableGenService.GenerateTable_EmptyTable();
+                    }
+                    break;
+                case 2:
+                    solution = lruSolution;
+                    if (solution != null)
+                    {
+                        _TableGenService = new PageReplacement_TableGenService(solution);
+                        Table_Header = _TableGenService.GenerateTable_TableHeader();
+                        Table = _TableGenService.GenerateTable_EmptyTable();
+                    }
+                    break;
+                case 3:
+                    solution = clockSolution;
+                    if (solution != null)
+                    {
+                        _TableGenService = new PageReplacement_SecondChanceClock_TableGenService(solution);
+                        Table_Header = _TableGenService.GenerateTable_TableHeader();
+                        Table = _TableGenService.GenerateTable_EmptyTable();
+                    }
+                    break;
+            }
 
-
-        private void InitTableTest()
-        {
-
-
+            //OnPropertyChanged("Items");
         }
     }
 }
