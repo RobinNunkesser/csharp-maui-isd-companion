@@ -84,7 +84,7 @@ namespace ISDCompanion.Services
                 //Reference
                 element = _steps[i].Element.ToString();
                 label = new Label() { Text = element };
-                _tableGen.AddCenteredElement(0, i + 1, label);
+                _tableGen.AddCenteredElement(0, i, label);
             }
 
             return _tableGen.Grid;
@@ -92,53 +92,60 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_NextStep()
         {
-            _index++;
-
             Label label;
             String element;
 
-            //Kachel
-            for (int j = 0; j <= 3; j++)
+            if (_index < _steps.Count)
             {
-                element = _steps[_index].Frames[j].ToString();
-                if (element == "2147483647")
+                //Kachel
+                for (int j = 0; j <= 3; j++)
                 {
-                    element = "";
+                    element = _steps[_index].Frames[j].ToString();
+                    if (element == "2147483647")
+                    {
+                        element = "∞";
+                    }
+                    label = new Label() { Text = element };
+                    _tableGen.AddCenteredElement(2 + j, _index, label);
                 }
-                label = new Label() { Text = element };
-                _tableGen.AddCenteredElement(2 + j, _index, label);
-            }
 
-            //Abstand
-            for (int j = 0; j <= 3; j++)
-            {
-                element = _steps[_index].FrameInformation[j].ToString();
-                if (element == "2147483647")
+                //Abstand
+                for (int j = 0; j <= 3; j++)
                 {
-                    element = "";
+                    element = _steps[_index].FrameInformation[j].ToString();
+                    if (element == "2147483647")
+                    {
+                        element = "∞";
+                    }
+                    label = new Label() { Text = element };
+                    _tableGen.AddCenteredElement(7 + j, _index, label);
                 }
-                label = new Label() { Text = element };
-                _tableGen.AddCenteredElement(7 + j, _index, label);
-            }
 
-            //Zeiger
-            element = _steps[_index].AdditionalInfo.ToString();
-            label = new Label() { Text = element };
-            _tableGen.AddCenteredElement(12, _index + 1, label);
+                //Zeiger
+                element = _steps[_index].AdditionalInfo.ToString();
+                label = new Label() { Text = element };
+                _tableGen.AddCenteredElement(12, _index, label);
+
+                _index++;
+            }
 
             return _tableGen.Grid;
         }
 
         public Grid GenerateTable_PreviousStep()
         {
-            //ToDo
+            if (_index > 0)
+            {
+                //ToDo
 
+                _index--;
+            }
             return _tableGen.Grid;
         }
 
         public Grid GenerateTable_ShowSolution()
         {
-            while (_index < _steps.Count - 1)
+            while (_index < _steps.Count)
             {
                 GenerateTable_NextStep();
             }
