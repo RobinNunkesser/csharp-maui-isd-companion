@@ -389,9 +389,9 @@ namespace ISDCompanion.Services
             tableGen.AddElement(9, 0, labels[7]);
             tableGen.AddElement(10, 0, labels[8]);
 
-            Color Color_A = Color.FromRgb(200, 0, 0);
-            Color Color_B = Color.FromRgb(0, 0, 200);
-            Color Color_C = Color.FromRgb(0, 200, 0);
+            Color Color_A = Color.FromRgb(235, 137, 52);
+            Color Color_B = Color.FromRgb(52, 195, 235);
+            Color Color_C = Color.FromRgb(52, 235, 174);
 
             int process = 0;
             foreach (System.ValueTuple<int, int> request in parameters.Requests)

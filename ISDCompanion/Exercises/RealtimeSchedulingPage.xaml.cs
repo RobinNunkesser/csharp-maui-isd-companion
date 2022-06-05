@@ -11,6 +11,19 @@ namespace ISDCompanion
         {
             InitializeComponent();
             BindingContext = new RealtimeSchedulingViewModel();
+            SizeChanged += OnSizeChanged;
+        }
+
+        private void OnSizeChanged(object sender, EventArgs e)
+        {
+            if (Width > Height)
+            {
+                Shell.SetTabBarIsVisible(this, false);
+            }
+            else
+            {
+                Shell.SetTabBarIsVisible(this, true);
+            }
         }
 
         //private void Button_Clicked(object sender, EventArgs e)
@@ -18,5 +31,4 @@ namespace ISDCompanion
         //    Switch.IsToggled = false;
         //}
     }
-    
 }

@@ -5,8 +5,8 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ISDCompanion.RealtimeSchedulingPage"
     xmlns:yummi="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    xmlns:local="clr-namespace:ISDCompanion.Helpers"
-    Shell.NavBarHasShadow="False">
+    xmlns:local="clr-namespace:ISDCompanion.Helpers">
+
 
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IconOverride="reply48.png" />
@@ -31,20 +31,17 @@
 
 
     <ContentPage.Content>
-        <StackLayout Padding="10, 0, 10, 15" >
+        <StackLayout Padding="10, 20, 10, 15" >
             <StackLayout Padding="0, 0, 0, 10">
-                <RelativeLayout>
-                    <StackLayout     RelativeLayout.XConstraint="0"
-                                     RelativeLayout.YConstraint="0"
-                                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
-                                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                    >
-                        <ScrollView Orientation="Both">
-                            <ContentView Padding="15" Content="{Binding Table}" >
-                            </ContentView>
-                        </ScrollView>
-                    </StackLayout>
-                </RelativeLayout>
+                        <StackLayout BackgroundColor="White">
+                            <ScrollView Orientation="Both">
+                                <ContentView Padding="15" Content="{Binding Table}" >
+                                </ContentView>
+                            </ScrollView>
+                            
+                            
+                            
+                        </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
