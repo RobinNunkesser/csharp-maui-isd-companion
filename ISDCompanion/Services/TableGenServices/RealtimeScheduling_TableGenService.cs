@@ -14,13 +14,19 @@ namespace ISDCompanion.Services
         private int _edfIndex;
         private int[] _rms;
         private int _rmsIndex;
+        private int _cellWidth = 25;
         IRealtimeSchedulingParameters _parameters;
 
         private bool _lastActionWasNextStep = false;
         private bool _lastActionWasPreviousStep = false;
 
 
-        public int currentColumnOfInterest { get; private set; }
+        private int currentColumnOfInterest { get;  set; }
+
+        public int X_CoordoninatesOfInterest()
+        {
+            return currentColumnOfInterest * _cellWidth;
+        }
 
         Color Color_A = Color.FromRgb(200, 0, 0);
         Color Color_B = Color.FromRgb(0, 0, 200);

@@ -12,12 +12,17 @@ namespace ISDCompanion.Services
         private TableGen.TableGen tableGen;
 
         private int _index;
+        private int _cellWidth = 25;
         BuddyParameters _parameters;
         IBuddySolution _solution;
 
 
-        public int currentColumnOfInterest { get; private set; }
+        private int currentColumnOfInterest { get; set; }
 
+        public int X_CoordoninatesOfInterest()
+        {
+            return (currentColumnOfInterest - 1) * _cellWidth;
+        }
 
         Color Color_Transparent = Color.Transparent;
 

@@ -10,7 +10,15 @@ namespace ISDCompanion
         public PageReplacementPage()
         {
             InitializeComponent();
-            BindingContext = new PageReplacementViewModel();
+            var vm = new PageReplacementViewModel();
+            BindingContext = vm;
+
+            vm.ScrollToPosition += (int columnOfInterest) => { ScrollToPosition(columnOfInterest); };
+        }
+
+        private void ScrollToPosition(int columnOfInterest)
+        {
+            scrollView.ScrollToAsync(columnOfInterest, 0, false);
         }
     }
 }

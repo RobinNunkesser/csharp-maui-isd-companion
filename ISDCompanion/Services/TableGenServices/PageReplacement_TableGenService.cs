@@ -11,14 +11,20 @@ namespace ISDCompanion.Services
         private TableGen.TableGen _tableGen;
 
         private int _index;
+        private int _cellWidth = 50;
         List<IPageReplacementStep> _steps;
 
-        public int currentColumnOfInterest { get; private set; }
+        private int currentColumnOfInterest { get; set; }
+
+        public int X_CoordoninatesOfInterest()
+        {
+            return (currentColumnOfInterest - 3) * _cellWidth;
+        }
 
 
         public PageReplacement_TableGenService(List<IPageReplacementStep> steps)
         {
-            _tableGen = new TableGen.TableGen(steps.Count, 11, 25, 50);
+            _tableGen = new TableGen.TableGen(steps.Count, 11, 25, _cellWidth);
             _index = 0;
             currentColumnOfInterest = 0;
             _steps = steps;
@@ -115,6 +121,7 @@ namespace ISDCompanion.Services
                     _tableGen.AddCenteredElement(7 + j, _index, label);
                 }
                 _index++;
+                currentColumnOfInterest = _index;
             }
 
             return _tableGen.Grid;
@@ -127,6 +134,7 @@ namespace ISDCompanion.Services
                 //ToDo
 
                 _index--;
+                currentColumnOfInterest = _index;
             }
 
             return _tableGen.Grid;

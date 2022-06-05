@@ -11,10 +11,15 @@ namespace ISDCompanion.Services
         private TableGen.TableGen _tableGen;
 
         private int _index;
+        private int _cellWidth = 50;
         List<IPageReplacementStep> _steps;
 
-        public int currentColumnOfInterest { get; private set; }
+        private int currentColumnOfInterest { get;  set; }
 
+        public int X_CoordoninatesOfInterest()
+        {
+            return (currentColumnOfInterest -1) * _cellWidth;
+        }
 
         public PageReplacement_SecondChanceClock_TableGenService(List<IPageReplacementStep> steps)
         {
