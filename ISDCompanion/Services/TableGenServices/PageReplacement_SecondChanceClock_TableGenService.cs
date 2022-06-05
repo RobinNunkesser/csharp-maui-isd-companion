@@ -14,11 +14,11 @@ namespace ISDCompanion.Services
         private int _cellWidth = 50;
         List<IPageReplacementStep> _steps;
 
-        private int currentColumnOfInterest { get;  set; }
+        private int currentColumnOfInterest { get; set; }
 
         public int X_CoordoninatesOfInterest()
         {
-            return (currentColumnOfInterest -1) * _cellWidth;
+            return (currentColumnOfInterest - 3) * _cellWidth;
         }
 
         public int Y_CoordoninatesOfInterest()

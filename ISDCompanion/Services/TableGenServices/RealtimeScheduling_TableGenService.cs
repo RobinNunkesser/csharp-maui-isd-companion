@@ -25,7 +25,7 @@ namespace ISDCompanion.Services
 
         public int X_CoordoninatesOfInterest()
         {
-            return currentColumnOfInterest * _cellWidth;
+            return (currentColumnOfInterest - 5) * _cellWidth;
         }
 
         public int Y_CoordoninatesOfInterest()
@@ -283,7 +283,7 @@ namespace ISDCompanion.Services
                     }
                 }
                 _edfIndex = i;
-                currentColumnOfInterest = _edfIndex;
+                currentColumnOfInterest = _edfIndex + 1;
             }
             else
             {
@@ -313,7 +313,7 @@ namespace ISDCompanion.Services
                         }
                     }
                     _rmsIndex = i;
-                    currentColumnOfInterest = _rmsIndex;
+                    currentColumnOfInterest = _rmsIndex + 1;
                 }
             }
 

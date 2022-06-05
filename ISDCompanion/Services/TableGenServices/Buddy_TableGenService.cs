@@ -27,7 +27,7 @@ namespace ISDCompanion.Services
 
         public int Y_CoordoninatesOfInterest()
         {
-            return (currentRowOfInterest - 1) * _cellHeight;
+            return (currentRowOfInterest - 3) * _cellHeight;
         }
 
         Color Color_Transparent = Color.Transparent;
