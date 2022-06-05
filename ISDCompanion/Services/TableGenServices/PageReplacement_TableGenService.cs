@@ -130,9 +130,19 @@ namespace ISDCompanion.Services
         {
             if(_index > 0)
             {
-                //ToDo
-
                 _index--;
+
+                //Kachel
+                for (int j = 0; j <= 3; j++)
+                {
+                    _tableGen.RemoveElements(2 + j, _index);
+                }
+
+                //Abstand
+                for (int j = 0; j <= 3; j++)
+                {
+                    _tableGen.RemoveElements(7 + j, _index);
+                }
             }
 
             return _tableGen.Grid;

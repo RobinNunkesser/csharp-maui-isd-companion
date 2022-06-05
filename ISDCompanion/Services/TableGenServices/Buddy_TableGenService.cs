@@ -89,7 +89,7 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_NextStep()
         {
-            if (_index < _solution.History.Count)
+            if (_index < _solution.History.Count - 1)
             {
                 for (int j = 0; j < _solution.History[_index].Length; j++)
                 {
@@ -106,8 +106,10 @@ namespace ISDCompanion.Services
         {
             if (_index > 0)
             {
-                //ToDo
-
+                for (int j = 0; j < _solution.History[_index].Length; j++)
+                {
+                    tableGen.RemoveElements(_index, j);
+                }
                 _index--;
             }
 
