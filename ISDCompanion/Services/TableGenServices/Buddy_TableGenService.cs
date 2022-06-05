@@ -104,7 +104,12 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_PreviousStep()
         {
-            //To Do
+            if (_index > 0)
+            {
+                //ToDo
+
+                _index--;
+            }
 
             return tableGen.Grid;
         }
@@ -117,6 +122,23 @@ namespace ISDCompanion.Services
             }
 
             return tableGen.Grid;
+        }
+
+        public String GetInfoText()
+        {
+            return "";
+        }
+
+        public bool InfoAvailable()
+        {
+            if (_index == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

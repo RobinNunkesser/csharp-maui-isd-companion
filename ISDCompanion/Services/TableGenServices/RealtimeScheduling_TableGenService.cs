@@ -320,5 +320,22 @@ namespace ISDCompanion.Services
 
             return tableGen.Grid;
         }
+
+        public String GetInfoText()
+        {
+            return "";
+        }
+
+        public bool InfoAvailable()
+        {
+            if (_edfIndex == 0 && _rmsIndex == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Italbytz.Ports.Exam.OperatingSystems;
+﻿using ISDCompanion.Services.InfoTextServices;
+using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,11 +10,14 @@ namespace ISDCompanion.Services
     internal class PageReplacement_TableGenService : ITableGenService
     {
         private TableGen.TableGen _tableGen;
+        private PageReplacement_Optiomal_InfoTextService _infoTextService;
 
         private int _index;
         List<IPageReplacementStep> _steps;
 
         public int currentColumnOfInterest { get; private set; }
+
+        private string[] InfoTexts { get; set; }
 
 
         public PageReplacement_TableGenService(List<IPageReplacementStep> steps)
@@ -22,6 +26,8 @@ namespace ISDCompanion.Services
             _index = 0;
             currentColumnOfInterest = 0;
             _steps = steps;
+            _infoTextService = new PageReplacement_Optiomal_InfoTextService();
+            InfoTexts = _infoTextService.GetInfoTexts(steps);
         }
 
 
@@ -140,6 +146,23 @@ namespace ISDCompanion.Services
             }
 
             return _tableGen.Grid;
+        }
+
+        public String GetInfoText()
+        {
+            return InfoTexts[_index - 1];
+        }
+
+        public bool InfoAvailable()
+        {
+            if(_index == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true; 
+            }
         }
     }
 }

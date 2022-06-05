@@ -17,6 +17,8 @@ namespace ISDCompanion
             _TableGenService = new RealtimeScheduling_TableGenService(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
             Table_Header = _TableGenService.GenerateTable_TableHeader();
             Table = _TableGenService.GenerateTable_EmptyTable();
+
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
         }
     }
 }

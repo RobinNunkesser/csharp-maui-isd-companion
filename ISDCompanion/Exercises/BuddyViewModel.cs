@@ -19,6 +19,8 @@ namespace ISDCompanion
             _TableGenService = new Buddy_TableGenService(parameters, solution);
             Table_Header = _TableGenService.GenerateTable_TableHeader();
             Table = _TableGenService.GenerateTable_EmptyTable();
+
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
         }
     }
 }

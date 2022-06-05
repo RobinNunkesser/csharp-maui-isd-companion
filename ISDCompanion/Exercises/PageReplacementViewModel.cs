@@ -72,6 +72,7 @@ namespace ISDCompanion
             clockSolution.RemoveAt(0);
 
             ComputeItems();
+
         }
 
         private void ComputeItems()
@@ -124,6 +125,7 @@ namespace ISDCompanion
                     }
                     break;
             }
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
 
             //OnPropertyChanged("Items");
         }
