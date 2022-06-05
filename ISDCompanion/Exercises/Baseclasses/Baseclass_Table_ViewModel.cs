@@ -102,6 +102,7 @@ namespace ISDCompanion
         private void lastStep()
         {
             Table = _TableGenService.GenerateTable_PreviousStep();
+            Info_Text = _TableGenService.GetInfoText();
             Info_Button_Clickable = _TableGenService.InfoAvailable();
         }
 

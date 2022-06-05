@@ -1,4 +1,6 @@
-﻿using Italbytz.Adapters.Exam.OperatingSystems;
+﻿using ISDCompanion.Services.InfoTextServices;
+using ISDCompanion.Services.Interfaces;
+using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
@@ -10,11 +12,13 @@ namespace ISDCompanion.Services
     internal class Buddy_TableGenService : ITableGenService
     {
         private TableGen.TableGen tableGen;
+        private IInfoTextService _infoTextService;
 
         private int _index;
         BuddyParameters _parameters;
         IBuddySolution _solution;
 
+        private string[] InfoTexts { get; set; }
 
         public int currentColumnOfInterest { get; private set; }
 
@@ -28,6 +32,9 @@ namespace ISDCompanion.Services
             currentColumnOfInterest = 0;
             _parameters = parameters;
             _solution = solution;
+
+            _infoTextService = new Buddy_InfoTextService(parameters, solution);
+            InfoTexts = _infoTextService.GetInfoTexts();
         }
 
         public Grid GenerateTable_TableHeader()
@@ -89,7 +96,7 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_NextStep()
         {
-            if (_index < _solution.History.Count - 1)
+            if (_index < _solution.History.Count)
             {
                 for (int j = 0; j < _solution.History[_index].Length; j++)
                 {
@@ -106,11 +113,11 @@ namespace ISDCompanion.Services
         {
             if (_index > 0)
             {
+                _index--;
                 for (int j = 0; j < _solution.History[_index].Length; j++)
                 {
-                    tableGen.RemoveElements(_index, j);
+                    tableGen.RemoveElements(_index + 1, j);
                 }
-                _index--;
             }
 
             return tableGen.Grid;
@@ -128,7 +135,14 @@ namespace ISDCompanion.Services
 
         public String GetInfoText()
         {
-            return "";
+            if (_index == 0)
+            {
+                return InfoTexts[_index];
+            }
+            else
+            {
+                return InfoTexts[_index - 1];
+            }
         }
 
         public bool InfoAvailable()

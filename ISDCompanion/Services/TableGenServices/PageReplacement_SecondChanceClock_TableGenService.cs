@@ -177,7 +177,14 @@ namespace ISDCompanion.Services
 
         public String GetInfoText()
         {
-            return InfoTexts[_index - 1];
+            if (_index == 0)
+            {
+                return InfoTexts[_index];
+            }
+            else
+            {
+                return InfoTexts[_index - 1];
+            }
         }
 
         public bool InfoAvailable()
