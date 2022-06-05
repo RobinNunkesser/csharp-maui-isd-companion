@@ -18,7 +18,16 @@ namespace ISDCompanion
 
         private void ScrollToPosition(int x, int y, bool isAnimated)
         {
-            scrollView.ScrollToAsync(x, y, isAnimated);
+            var animation = new Animation(
+                callback: x => scrollView.ScrollToAsync(x, y, animated: false),
+                start: scrollView.ScrollX,
+                end: x);
+
+            animation.Commit(
+                owner: this,
+                name: "Scroll",
+                length: 300,
+                easing: Easing.SinInOut);
         }
     }
 }
