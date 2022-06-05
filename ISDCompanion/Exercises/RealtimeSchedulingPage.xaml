@@ -31,18 +31,45 @@
 
 
     <ContentPage.Content>
-        <StackLayout Padding="10, 20, 10, 15" >
-            <StackLayout Padding="0, 0, 0, 10">
+        <RelativeLayout Padding="10, 20, 10, 15" >
+            <StackLayout RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}" Padding="0, 0, 0, 10">
                         <StackLayout BackgroundColor="White">
                             <ScrollView Orientation="Both">
                                 <ContentView Padding="15" Content="{Binding Table}" >
                                 </ContentView>
                             </ScrollView>
-                            
-                            
-                            
-                        </StackLayout>
+                    
+
+
+                </StackLayout>
+                
             </StackLayout>
-        </StackLayout>
+            <StackLayout RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.75}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.22}"   Orientation="Horizontal" BackgroundColor="AliceBlue" >
+                <StackLayout HorizontalOptions="StartAndExpand" BackgroundColor="AliceBlue">
+                    <Button Text="&#xf70e;"
+                                            FontFamily="ACC"
+                                            FontSize="Large"
+                                            BorderColor="DeepSkyBlue"
+                                            CornerRadius="1000"
+                                            BorderWidth="2"
+                                            WidthRequest="50"
+                                            HeightRequest="50"
+                                            BackgroundColor="White"
+                                            >
+                    </Button>
+                    <ImageButton>
+                    </ImageButton>
+                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" FontFamily="ACC" Text="&#x2039;"></Label>
+                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">Previous</Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="EndAndExpand" BackgroundColor="AliceBlue">
+                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" FontFamily="ACC" Text="&#x203a;"></Label>
+                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">Next</Label>
+                </StackLayout>
+            </StackLayout>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

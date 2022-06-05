@@ -77,6 +77,19 @@
                         <StackLayout Orientation="Vertical" Padding="40, 10, 40, 0" BackgroundColor="AliceBlue">
                             <StackLayout Orientation="Horizontal" BackgroundColor="AliceBlue">
                                 <StackLayout HorizontalOptions="StartAndExpand" BackgroundColor="AliceBlue">
+                                    <Button Text="&#xf70e;"
+                                            FontFamily="ACC"
+                                            FontSize="Large"
+                                            BorderColor="DeepSkyBlue"
+                                            CornerRadius="1000"
+                                            BorderWidth="2"
+                                            WidthRequest="50"
+                                            HeightRequest="50"
+                                            BackgroundColor="White"
+                                            >
+                                    </Button>
+                                    <ImageButton>
+                                    </ImageButton>
                                     <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" FontFamily="ACC" Text="&#x2039;"></Label>
                                     <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">Previous</Label>
                                 </StackLayout>
