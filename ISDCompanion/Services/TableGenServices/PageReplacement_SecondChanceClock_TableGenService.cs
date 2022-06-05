@@ -1,4 +1,6 @@
-﻿using Italbytz.Ports.Exam.OperatingSystems;
+﻿using ISDCompanion.Services.InfoTextServices;
+using ISDCompanion.Services.Interfaces;
+using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,9 +11,12 @@ namespace ISDCompanion.Services
     internal class PageReplacement_SecondChanceClock_TableGenService : ITableGenService
     {
         private TableGen.TableGen _tableGen;
+        private IInfoTextService _infoTextService;
 
         private int _index;
         List<IPageReplacementStep> _steps;
+
+        private string[] InfoTexts { get; set; }
 
         public int currentColumnOfInterest { get; private set; }
 
@@ -22,6 +27,9 @@ namespace ISDCompanion.Services
             _index = 0;
             currentColumnOfInterest = 0;
             _steps = steps;
+
+            _infoTextService = new PageReplacement_SecondChanceClock_InfoTextService(_steps);
+            InfoTexts = _infoTextService.GetInfoTexts();
         }
 
 
@@ -36,10 +44,10 @@ namespace ISDCompanion.Services
             labels.Add(new Label() { Text = "Kachel 2" });
             labels.Add(new Label() { Text = "Kachel 3" });
             labels.Add(new Label() { Text = "Kachel 4" });
-            labels.Add(new Label() { Text = "Abstand 1" });
-            labels.Add(new Label() { Text = "Abstand 2" });
-            labels.Add(new Label() { Text = "Abstand 3" });
-            labels.Add(new Label() { Text = "Abstand 4" });
+            labels.Add(new Label() { Text = "Referenz 1" });
+            labels.Add(new Label() { Text = "Referenz 2" });
+            labels.Add(new Label() { Text = "Referenz 3" });
+            labels.Add(new Label() { Text = "Referenz 4" });
             labels.Add(new Label() { Text = "Zeiger" });
 
             tableGen.AddElement(0, 0, labels[0]);
@@ -169,7 +177,7 @@ namespace ISDCompanion.Services
 
         public String GetInfoText()
         {
-            return "";
+            return InfoTexts[_index - 1];
         }
 
         public bool InfoAvailable()
