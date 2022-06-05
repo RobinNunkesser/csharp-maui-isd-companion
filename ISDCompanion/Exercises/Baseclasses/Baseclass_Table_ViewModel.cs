@@ -46,7 +46,7 @@ namespace ISDCompanion
         public ICommand ButtonInfo { set; get; }
         public ICommand ButtonNewExercise { set; get; }
 
-        public delegate void ScrollToPositionAction(int x, int y);
+        public delegate void ScrollToPositionAction(int x, int y, bool isAnimated);
         public event ScrollToPositionAction ScrollToPosition;
 
 
@@ -63,21 +63,28 @@ namespace ISDCompanion
 
         protected abstract void newExercise();
 
+        public void scroll()
+        {
+            ScrollToPosition?.Invoke(_TableGenService.X_CoordoninatesOfInterest(), _TableGenService.Y_CoordoninatesOfInterest(), true);
+        }
+
+
         private void nextStep()
         {
             Table = _TableGenService.GenerateTable_NextStep();
-            ScrollToPosition?.Invoke(_TableGenService.X_CoordoninatesOfInterest(), _TableGenService.Y_CoordoninatesOfInterest());
+            scroll();
         }
 
         private void lastStep()
         {
             Table = _TableGenService.GenerateTable_PreviousStep();
-            ScrollToPosition?.Invoke(_TableGenService.X_CoordoninatesOfInterest(), _TableGenService.Y_CoordoninatesOfInterest());
+            scroll();
         }
 
         private void showCompleteSolution()
         {
             Table = _TableGenService.GenerateTable_ShowSolution();
+            scroll();
         }
 
         private void showInfo()

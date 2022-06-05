@@ -13,12 +13,12 @@ namespace ISDCompanion
             var vm = new PageReplacementViewModel();
             BindingContext = vm;
 
-            vm.ScrollToPosition += (int x, int y) => { ScrollToPosition(x, y); };
+            vm.ScrollToPosition += (int x, int y, bool isAnimated) => { ScrollToPosition(x, y, isAnimated); };
         }
 
-        private void ScrollToPosition(int x, int y)
+        private void ScrollToPosition(int x, int y, bool isAnimated)
         {
-            scrollView.ScrollToAsync(x, y, true);
+            scrollView.ScrollToAsync(x, y, isAnimated);
         }
     }
 }

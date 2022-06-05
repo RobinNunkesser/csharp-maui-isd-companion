@@ -72,6 +72,7 @@ namespace ISDCompanion
             clockSolution.RemoveAt(0);
 
             ComputeItems();
+            base.scroll();
         }
 
         private void ComputeItems()
