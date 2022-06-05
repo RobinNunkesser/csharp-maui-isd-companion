@@ -21,6 +21,11 @@ namespace ISDCompanion.Services
             return (currentColumnOfInterest - 3) * _cellWidth;
         }
 
+        public int Y_CoordoninatesOfInterest()
+        {
+            return 0;
+        }
+
 
         public PageReplacement_TableGenService(List<IPageReplacementStep> steps)
         {

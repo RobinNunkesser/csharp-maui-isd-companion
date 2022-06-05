@@ -11,7 +11,7 @@
                 <ContentView Content="{Binding Table_Header}">
 
                 </ContentView>
-                <ScrollView  Orientation="Horizontal" >
+                <ScrollView  Orientation="Horizontal" x:Name="scrollView">
                     <ContentView Content="{Binding Table}">
 
                     </ContentView>

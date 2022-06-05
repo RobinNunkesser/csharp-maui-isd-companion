@@ -10,12 +10,15 @@ namespace ISDCompanion
         public BuddyPage()
         {
             InitializeComponent();
-            BindingContext = new BuddyViewModel();
+            var vm = new BuddyViewModel();
+            BindingContext = vm;
+
+            vm.ScrollToPosition += (int x, int y) => { ScrollToPosition(x, y); };
         }
 
-        //private void Button_Clicked(object sender, EventArgs e)
-        //{
-        //    Switch.IsToggled = false;
-        //}
+        private void ScrollToPosition(int x, int y)
+        {
+            scrollView.ScrollToAsync(x, y, true);
+        }
     }
 }

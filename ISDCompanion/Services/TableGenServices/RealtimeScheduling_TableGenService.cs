@@ -28,6 +28,11 @@ namespace ISDCompanion.Services
             return currentColumnOfInterest * _cellWidth;
         }
 
+        public int Y_CoordoninatesOfInterest()
+        {
+            return 0;
+        }
+
         Color Color_A = Color.FromRgb(200, 0, 0);
         Color Color_B = Color.FromRgb(0, 0, 200);
         Color Color_C = Color.FromRgb(0, 200, 0);

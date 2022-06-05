@@ -13,15 +13,21 @@ namespace ISDCompanion.Services
 
         private int _index;
         private int _cellWidth = 25;
+        private int _cellHeight = 25;
         BuddyParameters _parameters;
         IBuddySolution _solution;
 
 
-        private int currentColumnOfInterest { get; set; }
+        private int currentRowOfInterest { get; set; }
 
         public int X_CoordoninatesOfInterest()
         {
-            return (currentColumnOfInterest - 1) * _cellWidth;
+            return 0;
+        }
+
+        public int Y_CoordoninatesOfInterest()
+        {
+            return (currentRowOfInterest - 1) * _cellHeight;
         }
 
         Color Color_Transparent = Color.Transparent;
@@ -30,7 +36,7 @@ namespace ISDCompanion.Services
         {
             tableGen = new TableGen.TableGen(32, 11, 25, 25);
             _index = 0;
-            currentColumnOfInterest = 0;
+            currentRowOfInterest = 0;
             _parameters = parameters;
             _solution = solution;
         }
@@ -102,6 +108,7 @@ namespace ISDCompanion.Services
                     tableGen.AddCenteredElement(_index + 1, j, new Label() { Text = letter });
                 }
                 _index++;
+                currentRowOfInterest = _index;
             }
 
             return tableGen.Grid;

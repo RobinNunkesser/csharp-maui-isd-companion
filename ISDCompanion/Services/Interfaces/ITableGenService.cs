@@ -19,5 +19,6 @@ namespace ISDCompanion.Services
         Grid GenerateTable_ShowSolution();
 
         int X_CoordoninatesOfInterest();
+        int Y_CoordoninatesOfInterest();
     }
 }

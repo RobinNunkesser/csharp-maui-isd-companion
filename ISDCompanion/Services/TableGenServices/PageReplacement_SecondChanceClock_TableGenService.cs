@@ -21,6 +21,11 @@ namespace ISDCompanion.Services
             return (currentColumnOfInterest -1) * _cellWidth;
         }
 
+        public int Y_CoordoninatesOfInterest()
+        {
+            return 0;
+        }
+
         public PageReplacement_SecondChanceClock_TableGenService(List<IPageReplacementStep> steps)
         {
             _tableGen = new TableGen.TableGen(steps.Count, 13, 25, 50);

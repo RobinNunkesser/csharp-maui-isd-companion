@@ -10,13 +10,15 @@ namespace ISDCompanion
         public RealtimeSchedulingPage()
         {
             InitializeComponent();
-            BindingContext = new RealtimeSchedulingViewModel();
+            var vm = new RealtimeSchedulingViewModel();
+            BindingContext = vm;
+
+            vm.ScrollToPosition += (int x, int y) => { ScrollToPosition(x, y); };
         }
 
-        //private void Button_Clicked(object sender, EventArgs e)
-        //{
-        //    Switch.IsToggled = false;
-        //}
+        private void ScrollToPosition(int x, int y)
+        {
+            scrollView.ScrollToAsync(x, y, true);
+        }
     }
-    
 }
