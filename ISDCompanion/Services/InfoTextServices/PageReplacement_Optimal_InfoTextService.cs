@@ -1,18 +1,26 @@
-﻿using Italbytz.Ports.Exam.OperatingSystems;
+﻿using ISDCompanion.Services.Interfaces;
+using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ISDCompanion.Services.InfoTextServices
 {
-    internal class PageReplacement_Optiomal_InfoTextService
+    internal class PageReplacement_Optimal_InfoTextService : IInfoTextService
     {
-        public string[] GetInfoTexts(List<IPageReplacementStep> steps)
+        List<IPageReplacementStep> _steps;
+
+        public PageReplacement_Optimal_InfoTextService(List<IPageReplacementStep> steps)
         {
-            string[] infoTexts = new string[steps.Count];
+            _steps = steps;
+        }
+
+        public string[] GetInfoTexts()
+        {
+            string[] infoTexts = new string[_steps.Count];
             int index = 0;
 
-            foreach(IPageReplacementStep step in steps)
+            foreach(IPageReplacementStep step in _steps)
             {
                 string infoText = "";
 
@@ -41,14 +49,14 @@ namespace ISDCompanion.Services.InfoTextServices
                 {
                     if (index > 0)
                     {
-                        if (steps[index - 1].Frames[frame_Index] > 1000)
+                        if (_steps[index - 1].Frames[frame_Index] > 1000)
                         {
                             inserted_Frame_Was_Empty_Before = true;
                         }
                         else
                         {
                             //Bestimmung, ob das Element bereits vorhanden ist
-                            foreach(var i in steps[index-1].Frames)
+                            foreach(var i in _steps[index-1].Frames)
                             {
                                 if (i == element)
                                 {
@@ -57,7 +65,7 @@ namespace ISDCompanion.Services.InfoTextServices
                                 }
                             }
                             
-                            distance = steps[index - 1].FrameInformation[frame_Index];
+                            distance = _steps[index - 1].FrameInformation[frame_Index];
                         }
                     }
                 }

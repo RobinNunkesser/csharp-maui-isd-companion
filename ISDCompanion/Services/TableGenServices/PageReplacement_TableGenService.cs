@@ -1,4 +1,5 @@
 ﻿using ISDCompanion.Services.InfoTextServices;
+using ISDCompanion.Services.Interfaces;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,10 @@ namespace ISDCompanion.Services
 {
     internal class PageReplacement_TableGenService : ITableGenService
     {
+        public enum Algorithm { Optimal, FIFO, LRU }
+
         private TableGen.TableGen _tableGen;
-        private PageReplacement_Optiomal_InfoTextService _infoTextService;
+        private IInfoTextService _infoTextService;
 
         private int _index;
         List<IPageReplacementStep> _steps;
@@ -20,14 +23,30 @@ namespace ISDCompanion.Services
         private string[] InfoTexts { get; set; }
 
 
-        public PageReplacement_TableGenService(List<IPageReplacementStep> steps)
+        public PageReplacement_TableGenService(List<IPageReplacementStep> steps, Algorithm algorithm)
         {
             _tableGen = new TableGen.TableGen(steps.Count, 11, 25, 50);
             _index = 0;
             currentColumnOfInterest = 0;
             _steps = steps;
-            _infoTextService = new PageReplacement_Optiomal_InfoTextService();
-            InfoTexts = _infoTextService.GetInfoTexts(steps);
+
+            switch (algorithm)
+            {
+                case Algorithm.Optimal:
+
+                    _infoTextService = new PageReplacement_Optimal_InfoTextService(_steps);
+                    break;
+
+                case Algorithm.FIFO:
+                    _infoTextService = new PageReplacement_FIFO_InfoTextService(_steps);
+                    break;
+
+                case Algorithm.LRU:
+                    _infoTextService = new PageReplacement_LRU_InfoTextService(_steps);
+                    break;
+            }
+
+            InfoTexts = _infoTextService.GetInfoTexts();
         }
 
 
@@ -84,7 +103,7 @@ namespace ISDCompanion.Services
                 //Reference
                 element = _steps[i].Element.ToString();
                 label = new Label() { Text = element };
-                _tableGen.AddCenteredElement(0, i, label);                
+                _tableGen.AddCenteredElement(0, i, label);
             }
 
             return _tableGen.Grid;
@@ -95,7 +114,7 @@ namespace ISDCompanion.Services
             Label label;
             String element;
 
-            if(_index < _steps.Count)
+            if (_index < _steps.Count)
             {
                 //Kachel
                 for (int j = 0; j <= 3; j++)
@@ -128,7 +147,7 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_PreviousStep()
         {
-            if(_index > 0)
+            if (_index > 0)
             {
                 _index--;
 
@@ -165,13 +184,13 @@ namespace ISDCompanion.Services
 
         public bool InfoAvailable()
         {
-            if(_index == 0)
+            if (_index == 0)
             {
                 return false;
             }
             else
             {
-                return true; 
+                return true;
             }
         }
     }
