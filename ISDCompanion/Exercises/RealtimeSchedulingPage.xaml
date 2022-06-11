@@ -47,26 +47,48 @@
             </StackLayout>
 
 
-            <RelativeLayout RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+            <Grid Padding="10"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
                          RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}" 
                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" 
                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.10}"   
                          BackgroundColor="Red"
                          >
-                <Button  RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1}"
-                         Text="&#xf70e;"
-                         FontFamily="ACC"
-                         FontSize="Large"
-                         BorderColor="DeepSkyBlue"
-                         CornerRadius="1000"
-                         BorderWidth="2"
-                         WidthRequest="50"
-                         HeightRequest="50"
-                         BackgroundColor="White"
-                         >
-                </Button>
 
-                <Button RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3}"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" HorizontalOptions="Center">
+
+                    <RelativeLayout>
+                        <Button 
+                        Text="&#xf70e;"
+                            FontFamily="ACC"
+                            FontSize="Large"
+                            BorderColor="DeepSkyBlue"
+                            CornerRadius="1000"
+                            BorderWidth="2"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            BackgroundColor="White"
+                         VerticalOptions="CenterAndExpand"
+                            >
+                        </Button>
+                    </RelativeLayout>
+                </Grid>
+
+                <Grid Grid.Column="1"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                    <RelativeLayout>
+                <Button 
                         Text="&#xf70e;"
                             FontFamily="ACC"
                             FontSize="Large"
@@ -76,11 +98,35 @@
                             WidthRequest="70"
                             HeightRequest="70"
                             BackgroundColor="White"
+                         VerticalOptions="CenterAndExpand"
                             >
                 </Button>
+                    </RelativeLayout>
+                </Grid>
 
-                <Button RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5}"
-                    Text="&#xf70e;"
+                <Grid Grid.Column="2" HorizontalOptions="Center">
+                    <RelativeLayout>
+                        <Button 
+                        Text="&#xf70e;"
+                            FontFamily="ACC"
+                            FontSize="Large"
+                            BorderColor="DeepSkyBlue"
+                            CornerRadius="1000"
+                            BorderWidth="2"
+                            WidthRequest="60"
+                            HeightRequest="60"
+                            BackgroundColor="White"
+                         VerticalOptions="CenterAndExpand"
+                            >
+                        </Button>
+                    </RelativeLayout>
+                </Grid>
+
+                <Grid Grid.Column="3" HorizontalOptions="Center">
+
+                    <RelativeLayout>
+                        <Button 
+                        Text="&#xf70e;"
                             FontFamily="ACC"
                             FontSize="Large"
                             BorderColor="DeepSkyBlue"
@@ -89,11 +135,17 @@
                             WidthRequest="50"
                             HeightRequest="50"
                             BackgroundColor="White"
+                         VerticalOptions="CenterAndExpand"
                             >
-                </Button>
+                        </Button>
+                    </RelativeLayout>
+                </Grid>
 
-                <Button RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.7}"
-                    Text="&#xf70e;"
+                <Grid Grid.Column="4" HorizontalOptions="CenterAndExpand">
+
+                    <RelativeLayout>
+                        <Button 
+                        Text="&#xf70e;"
                             FontFamily="ACC"
                             FontSize="Large"
                             BorderColor="DeepSkyBlue"
@@ -102,23 +154,12 @@
                             WidthRequest="50"
                             HeightRequest="50"
                             BackgroundColor="White"
+                         VerticalOptions="CenterAndExpand"
                             >
-                </Button>
-
-                <Button RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.9}"
-                    Text="&#xf70e;"
-                            FontFamily="ACC"
-                            FontSize="Large"
-                            BorderColor="DeepSkyBlue"
-                            CornerRadius="1000"
-                            BorderWidth="2"
-                            WidthRequest="50"
-                            HeightRequest="50"
-                            BackgroundColor="White"
-                            >
-                </Button>
-
-            </RelativeLayout>
+                        </Button>
+                    </RelativeLayout>
+                </Grid>
+            </Grid>
         </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
