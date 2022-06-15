@@ -106,6 +106,9 @@
     <Compile Update="Exercises\ExerciseBasicLayoutPage.xaml.cs">
       <DependentUpon>ExerciseBasicLayoutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Exercises\FirstOnInstallPage.xaml.cs">
+      <DependentUpon>FirstOnInstallPage.xaml</DependentUpon>
+    </Compile>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
       <DependentUpon>LicensesPage.xaml</DependentUpon>
       <SubType>Code</SubType>

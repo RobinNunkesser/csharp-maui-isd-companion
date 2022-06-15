@@ -49,9 +49,9 @@ namespace ISDCompanion
                 return;
             }
 
-            Page page = (Page)Activator.CreateInstance(Type.GetType(obj.CommandParameter));
-            await _navigation.PushAsync(page);
-        }
+                Page page = (Page)Activator.CreateInstance(Type.GetType(obj.CommandParameter));
+                await _navigation.PushAsync(page);
+            }
 
         private void PopulateData()
         {
@@ -129,6 +129,13 @@ namespace ISDCompanion
                 Exercise_Title = "Temp_ExerciseBasicLayout",
                 Command = "{Binding NavigateCommand}",
                 CommandParameter = "ISDCompanion.ExerciseBasicLayoutPage, ISDCompanion"
+            });
+
+            opsys.Add(new Exercise
+            {
+                Exercise_Title = "FirstOnInstall",
+                Command = "{Binding NavigateCommand}",
+                CommandParameter = "ISDCompanion.FirstOnInstallPage, ISDCompanion"
             });
 
             ObservableCollection<Topic> temp_Topics = new ObservableCollection<Topic>();

@@ -18,8 +18,8 @@
                                     Light={StaticResource HeaderBarTextColorLight}}" />
                 <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Dark={StaticResource HeaderBarTextColorDark}, 
                                     Light={StaticResource HeaderBarTextColorLight}}"/>
-                
-                
+
+
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor"
@@ -98,7 +98,6 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    
     <TabBar>
         <Tab Title="{xct:Translate Schedule}">
             <Tab.Icon>
