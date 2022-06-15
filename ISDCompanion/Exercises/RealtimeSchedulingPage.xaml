@@ -16,7 +16,7 @@
     <Shell.TitleView>
         <StackLayout Orientation="Horizontal" Margin="0, 15, 0, 0">
             <Label TextColor="Black" Text="{xct:Translate RealtimeScheduling}" FontSize="18" FontFamily="TW"></Label>
-            <Label TextColor="Gray"
+            <!--<Label TextColor="#959595"
                    Margin="0, 5, 20, 0"
                    HorizontalOptions="EndAndExpand"
                    HorizontalTextAlignment="End"
@@ -24,7 +24,7 @@
                    FontAttributes="Bold"
                    FontFamily="ACC"
                    Text="&#xf70e;">
-            </Label>
+            </Label>-->
         </StackLayout>
     </Shell.TitleView>
 
@@ -52,7 +52,7 @@
                          RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}" 
                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" 
                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.10}"   
-                         BackgroundColor="Red"
+                         BackgroundColor="Transparent"
                          >
 
                 <Grid.RowDefinitions>
@@ -72,13 +72,14 @@
                     <RelativeLayout>
                         <Button 
                         Text="&#xf70e;"
+                            TextColor="#1d8fcc"
                             FontFamily="ACC"
-                            FontSize="Large"
-                            BorderColor="DeepSkyBlue"
+                            FontSize="Medium"
+                            BorderColor="#959595"
                             CornerRadius="1000"
-                            BorderWidth="2"
-                            WidthRequest="50"
-                            HeightRequest="50"
+                            BorderWidth="0.5"
+                            WidthRequest="45"
+                            HeightRequest="45"
                             BackgroundColor="White"
                          VerticalOptions="CenterAndExpand"
                             >
@@ -89,14 +90,15 @@
                 <Grid Grid.Column="1"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                     <RelativeLayout>
                 <Button 
-                        Text="&#xf70e;"
+                        Text="&#x2039;"
+                            TextColor="#4cc2ba"
                             FontFamily="ACC"
                             FontSize="Large"
-                            BorderColor="DeepSkyBlue"
+                            BorderColor="#959595"
                             CornerRadius="1000"
-                            BorderWidth="2"
-                            WidthRequest="70"
-                            HeightRequest="70"
+                            BorderWidth="0.5"
+                            WidthRequest="60"
+                            HeightRequest="60"
                             BackgroundColor="White"
                          VerticalOptions="CenterAndExpand"
                             >
@@ -107,14 +109,15 @@
                 <Grid Grid.Column="2" HorizontalOptions="Center">
                     <RelativeLayout>
                         <Button 
-                        Text="&#xf70e;"
+                        Text="&#xf05a;"
+                            TextColor="#5875d6"
                             FontFamily="ACC"
-                            FontSize="Large"
-                            BorderColor="DeepSkyBlue"
+                            FontSize="Medium"
+                            BorderColor="#959595"
                             CornerRadius="1000"
-                            BorderWidth="2"
-                            WidthRequest="60"
-                            HeightRequest="60"
+                            BorderWidth="0.5"
+                            WidthRequest="45"
+                            HeightRequest="45"
                             BackgroundColor="White"
                          VerticalOptions="CenterAndExpand"
                             >
@@ -126,14 +129,15 @@
 
                     <RelativeLayout>
                         <Button 
-                        Text="&#xf70e;"
+                        Text="&#x203a;"
+                            TextColor="#4cc2ba"
                             FontFamily="ACC"
                             FontSize="Large"
-                            BorderColor="DeepSkyBlue"
+                            BorderColor="#959595"
                             CornerRadius="1000"
-                            BorderWidth="2"
-                            WidthRequest="50"
-                            HeightRequest="50"
+                            BorderWidth="0.5"
+                            WidthRequest="60"
+                            HeightRequest="60"
                             BackgroundColor="White"
                          VerticalOptions="CenterAndExpand"
                             >
@@ -145,14 +149,15 @@
 
                     <RelativeLayout>
                         <Button 
-                        Text="&#xf70e;"
+                        Text="&#x00bb;"
+                            TextColor="#119191"
                             FontFamily="ACC"
-                            FontSize="Large"
-                            BorderColor="DeepSkyBlue"
+                            FontSize="Medium"
+                            BorderColor="#959595"
                             CornerRadius="1000"
-                            BorderWidth="2"
-                            WidthRequest="50"
-                            HeightRequest="50"
+                            BorderWidth="0.5"
+                            WidthRequest="45"
+                            HeightRequest="45"
                             BackgroundColor="White"
                          VerticalOptions="CenterAndExpand"
                             >
