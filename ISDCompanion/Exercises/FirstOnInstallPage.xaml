@@ -7,26 +7,15 @@
     xmlns:yummi="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:local="clr-namespace:ISDCompanion.Helpers"
     >
-    
-    <Shell.TitleView>
-        <StackLayout Orientation="Horizontal" Margin="0, 15, 0, 0">
-            <Label TextColor="Black" Text="Welcome to the ISD-App" FontSize="18" FontFamily="TW"></Label>
-            <!--<Label TextColor="#959595"
-                   Margin="0, 5, 20, 0"
-                   HorizontalOptions="EndAndExpand"
-                   HorizontalTextAlignment="End"
-                   FontSize="Medium"
-                   FontAttributes="Bold"
-                   FontFamily="ACC"
-                   Text="&#xf70e;">
-            </Label>-->
-        </StackLayout>
-    </Shell.TitleView>
+
     
 
 
     <ContentPage.Content>
-        <Label>Test</Label>
-        
+        <Label Text="Create a new account!" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CreateNewAccountCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
     </ContentPage.Content>
 </ContentPage>

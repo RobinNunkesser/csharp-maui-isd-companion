@@ -19,7 +19,9 @@ namespace ISDCompanion
 
             InitializeComponent();
             
-            MainPage = new AppShell();
+            MainPage = new FirstOnInstallPage();
+
+            
         }
 
         protected override void OnStart()
