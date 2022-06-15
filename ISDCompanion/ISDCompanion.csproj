@@ -79,7 +79,6 @@
     <Folder Include="Mensa\" />
     <Folder Include="Profs\" />
     <Folder Include="Quiz\" />
-    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Licenses\xamarin_essentials.html" />
@@ -106,8 +105,8 @@
     <Compile Update="Exercises\ExerciseBasicLayoutPage.xaml.cs">
       <DependentUpon>ExerciseBasicLayoutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Exercises\FirstOnInstallPage.xaml.cs">
-      <DependentUpon>FirstOnInstallPage.xaml</DependentUpon>
+    <Compile Update="Welcome\StatusPage.xaml.cs">
+      <DependentUpon>StatusPage.xaml</DependentUpon>
     </Compile>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
       <DependentUpon>LicensesPage.xaml</DependentUpon>

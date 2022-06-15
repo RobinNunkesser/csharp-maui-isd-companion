@@ -9,9 +9,12 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class FirstOnInstallViewModel
+    public class StatusViewModel
     {
-        public Command CreateNewAccountCommand { get; }
+        public Command OnSelectedGuestCommand { get; }
+        public Command OnSelectedStudentCommand { get; }
+        public Command OnSelectedServant { get; }
+
 
 
         private string requests;
@@ -27,13 +30,13 @@ namespace ISDCompanion
             }
         }
 
-        public FirstOnInstallViewModel()
+        public StatusViewModel()
         {
-            CreateNewAccountCommand = new Command(OnCreateNewAccount);
+            OnSelectedStudentCommand = new Command(OnSelectedStudent);
         }
 
 
-        private void OnCreateNewAccount(object obj)
+        private void OnSelectedStudent(object obj)
         {
             Application.Current.MainPage = new AppShell();
             TheTheme.SetTheme();
@@ -41,5 +44,14 @@ namespace ISDCompanion
             var nav = App.Current.MainPage as Xamarin.Forms.Shell;
             nav.BackgroundColor = Color.Black;
         }
+
+        //private void OnSelectedStudent(object obj)
+        //{
+        //    Application.Current.MainPage = new AppShell();
+        //    TheTheme.SetTheme();
+
+        //    var nav = App.Current.MainPage as Xamarin.Forms.Shell;
+        //    nav.BackgroundColor = Color.Black;
+        //}
     }
 }

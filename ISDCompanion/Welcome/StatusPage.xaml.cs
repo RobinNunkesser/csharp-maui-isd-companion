@@ -7,12 +7,12 @@ using Xamarin.Forms.Xaml;
 namespace ISDCompanion
 
 {
-    public partial class FirstOnInstallPage : ContentPage
+    public partial class StatusPage : ContentPage
     {
-        public FirstOnInstallPage()
+        public StatusPage()
         {
             InitializeComponent();
-            BindingContext = new FirstOnInstallViewModel();
+            BindingContext = new StatusPage();
         }
     }
 }
