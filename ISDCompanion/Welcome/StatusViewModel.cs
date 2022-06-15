@@ -11,9 +11,9 @@ namespace ISDCompanion
 {
     public class StatusViewModel
     {
-        public Command OnSelectedGuestCommand { get; }
-        public Command OnSelectedStudentCommand { get; }
-        public Command OnSelectedServant { get; }
+        public Command SelectedGuestCommand { get; }
+        public Command SelectedStudentCommand { get; }
+        public Command SelectedServant { get; }
 
 
 
@@ -32,7 +32,7 @@ namespace ISDCompanion
 
         public StatusViewModel()
         {
-            OnSelectedStudentCommand = new Command(OnSelectedStudent);
+            SelectedStudentCommand = new Command(OnSelectedStudent);
         }
 
 

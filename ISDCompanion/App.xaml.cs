@@ -19,7 +19,7 @@ namespace ISDCompanion
 
             InitializeComponent();
             
-            MainPage = new FirstOnInstallPage();
+            MainPage = new StatusPage();
 
             
         }

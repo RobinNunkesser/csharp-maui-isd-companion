@@ -12,7 +12,7 @@ namespace ISDCompanion
         public StatusPage()
         {
             InitializeComponent();
-            BindingContext = new StatusPage();
+            BindingContext = new StatusViewModel();
         }
     }
 }

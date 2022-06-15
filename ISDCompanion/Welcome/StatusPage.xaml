@@ -14,7 +14,7 @@
     <ContentPage.Content>
         <Label Text="Create a new account!" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CreateNewAccountCommand}" />
+                <TapGestureRecognizer Command="{Binding SelectedStudentCommand}" />
             </Label.GestureRecognizers>
         </Label>
     </ContentPage.Content>
