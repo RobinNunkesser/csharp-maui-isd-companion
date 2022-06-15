@@ -71,7 +71,7 @@
 
                     <RelativeLayout>
                         <Button 
-                        Text="&#xf70e;"
+                        Text="&#x002b;"
                             TextColor="#1d8fcc"
                             FontFamily="ACC"
                             FontSize="Medium"
@@ -109,7 +109,7 @@
                 <Grid Grid.Column="2" HorizontalOptions="Center">
                     <RelativeLayout>
                         <Button 
-                        Text="&#xf05a;"
+                        Text="&#x003f;"
                             TextColor="#5875d6"
                             FontFamily="ACC"
                             FontSize="Medium"
