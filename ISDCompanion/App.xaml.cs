@@ -20,8 +20,6 @@ namespace ISDCompanion
             InitializeComponent();
             
             MainPage = new StatusPage();
-
-            
         }
 
         protected override void OnStart()
