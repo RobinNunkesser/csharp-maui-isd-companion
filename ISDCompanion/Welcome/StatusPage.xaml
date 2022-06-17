@@ -24,13 +24,13 @@
                 
             </Frame>
             <ContentView Margin="40, 40, 40, 0" HorizontalOptions="Center"  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.15}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                <Image HorizontalOptions="Center" Opacity="0.8"  Aspect="AspectFit" Source="hshl_logo.png"></Image>
+                <Image HorizontalOptions="Center" Opacity="0.9"  Aspect="AspectFit" Source="hshl_logo.png"></Image>
             </ContentView>
 
-            <Label Opacity="0.9" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.15}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  TextColor="White" FontSize="Title" HorizontalTextAlignment="Center">
+            <!--<Label Opacity="0.9" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.15}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  TextColor="White" FontSize="Title" HorizontalTextAlignment="Center">
                 Willkommen!
-            </Label>
-            <Frame CornerRadius="20" BackgroundColor="#26000000" Margin="20" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.2}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+            </Label>-->
+            <Frame CornerRadius="20" BackgroundColor="#33000000" Margin="20" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.2}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
                 <StackLayout HorizontalOptions="Center" BackgroundColor="Transparent">
                     
                     <Label Opacity="0.8" Margin="20" TextColor="White" FontSize="Medium" HorizontalTextAlignment="Center">
