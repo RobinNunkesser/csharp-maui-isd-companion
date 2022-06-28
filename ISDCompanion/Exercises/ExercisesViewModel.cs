@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class ExercisesViewModel
+    public class ExercisesViewModel : ViewModel
     {
         public ICommand NavigateCommand { get; set; }
         public ICommand NetworksQuizCommand { get; set; }
@@ -22,7 +22,7 @@ namespace ISDCompanion
         public ExercisesViewModel(INavigation navigation)
         {
             _navigation = navigation;
-            _semesters = new ObservableCollection<Semester>();
+            _semesters = new TrulyObservableCollection<Semester>();
 
             PopulateData();
 
@@ -41,6 +41,7 @@ namespace ISDCompanion
             {
                 await navigation.PushAsync(new QuizPage(Italbytz.Adapters.Exam.OperatingSystems.YesNoQuestions.Questions));
             });
+
         }
 
         private async void OnExerciseSelected(Exercise obj)
@@ -72,7 +73,7 @@ namespace ISDCompanion
 
         private void PopulateData()
         {
-            ObservableCollection<Exercise> networks = new ObservableCollection<Exercise>();
+            TrulyObservableCollection<Exercise> networks = new TrulyObservableCollection<Exercise>();
 
             networks.Add(new Exercise
             {
@@ -111,7 +112,7 @@ namespace ISDCompanion
 
 
 
-            ObservableCollection<Exercise> opsys = new ObservableCollection<Exercise>();
+            TrulyObservableCollection<Exercise> opsys = new TrulyObservableCollection<Exercise>();
 
             opsys.Add(new Exercise
             {
@@ -148,7 +149,7 @@ namespace ISDCompanion
                 CommandParameter = "ISDCompanion.ExerciseBasicLayoutPage, ISDCompanion"
             });
 
-            ObservableCollection<Topic> temp_Topics = new ObservableCollection<Topic>();
+            TrulyObservableCollection<Topic> temp_Topics = new TrulyObservableCollection<Topic>();
 
             temp_Topics.Add(new Topic
             {
@@ -162,13 +163,14 @@ namespace ISDCompanion
                 Exercises = networks
             });
 
-            ObservableCollection<Module> temp_Modules = new ObservableCollection<Module>();
+            TrulyObservableCollection<Module> temp_Modules = new TrulyObservableCollection<Module>();
 
             temp_Modules.Add(new Module
             {
                 Module_Title = "Betriebssysteme & Netzwerke",
                 Topics = temp_Topics
             });
+
 
             _semesters.Add(new Semester
             {
@@ -177,9 +179,10 @@ namespace ISDCompanion
             });
 
 
+
         }
 
-        private ObservableCollection<Semester> _semesters { get; set; }
+        private TrulyObservableCollection<Semester> _semesters { get; set; }
 
         //public ObservableCollection<Exercise> Exercises
         //{
@@ -193,7 +196,7 @@ namespace ISDCompanion
         //    }
         //}
 
-        public ObservableCollection<Semester> Semesters
+        public TrulyObservableCollection<Semester> Semesters
         {
             get
             {
