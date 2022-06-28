@@ -10,7 +10,7 @@ namespace ISDCompanion
 {
     public abstract class Baseclass_Table_ViewModel : ExerciseViewModel
     {
-        public Grid Table
+        public View Table
         {
             get
             {
@@ -22,9 +22,9 @@ namespace ISDCompanion
                 OnPropertyChanged();
             }
         }
-        private Grid _Table { get; set; }
+        private View _Table { get; set; }
 
-        public Grid Table_Header
+        public View Table_Header
         {
             get
             {
@@ -36,7 +36,7 @@ namespace ISDCompanion
                 OnPropertyChanged();
             }
         }
-        private Grid _Table_Header { get; set; }
+        private View _Table_Header { get; set; }
 
         public ITableGenService _TableGenService { get; set; }
 
@@ -58,7 +58,6 @@ namespace ISDCompanion
             ButtonCompleteSolution = new Command(showCompleteSolution, () => true);
             ButtonInfo = new Command(showInfo, () => true);
 
-            newExercise();
         }
 
         protected abstract void newExercise();

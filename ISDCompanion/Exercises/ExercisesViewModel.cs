@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using ISDCompanion.Interfaces;
 using ISDCompanion.Models;
 using Italbytz.Ports.Trivia;
 using Xamarin.Forms;
@@ -33,7 +34,7 @@ namespace ISDCompanion
                 await navigation.PushAsync(page);
             });
             NetworksQuizCommand = new Command(async () =>
-            {                
+            {
                 await navigation.PushAsync(new QuizPage(Italbytz.Adapters.Exam.Networks.YesNoQuestions.Questions));
             });
             OpSysQuizCommand = new Command(async () =>
@@ -48,10 +49,26 @@ namespace ISDCompanion
             {
                 return;
             }
+            Page page = null;
 
-            Page page = (Page)Activator.CreateInstance(Type.GetType(obj.CommandParameter));
-            await _navigation.PushAsync(page);
+
+            page = (Page)Activator.CreateInstance(Type.GetType(obj.CommandParameter));
+
+
+            IAfterRender afterRender = null;
+            if (page is IAfterRender)
+            {
+                afterRender = (IAfterRender)page;
+            }
+            await _navigation.PushAsync(page).ContinueWith(result =>
+            {
+                if (afterRender != null)
+                {
+                    afterRender.AfterRender();
+                }
+            });
         }
+
 
         private void PopulateData()
         {
@@ -137,8 +154,8 @@ namespace ISDCompanion
             {
                 Topic_Title = "Betriebssysteme",
                 Exercises = opsys
-            }); 
-            
+            });
+
             temp_Topics.Add(new Topic
             {
                 Topic_Title = "Netzwerke",
@@ -151,15 +168,15 @@ namespace ISDCompanion
             {
                 Module_Title = "Betriebssysteme & Netzwerke",
                 Topics = temp_Topics
-            }); 
+            });
 
             _semesters.Add(new Semester
             {
                 Semester_Title = "Fachsemester 4",
                 Modules = temp_Modules
-            }); 
-            
-            
+            });
+
+
         }
 
         private ObservableCollection<Semester> _semesters { get; set; }
