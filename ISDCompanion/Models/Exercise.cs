@@ -7,13 +7,15 @@ using System.Text;
 
 namespace ISDCompanion.Models
 {
-    public class Exercise : INotifyPropertyChanged, IExpandable
+    public class Exercise : BaseModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-
-        public int getHeight()
+        public override int getHeight()
         {
+            if (!InitExpanded)
+            {
+                return base.getHeight();
+            }
+
             return 20;
         }
 

@@ -8,12 +8,15 @@ using System.Text;
 
 namespace ISDCompanion.Models
 {
-    public class Topic : INotifyPropertyChanged, IExpandable
+    public class Topic : BaseModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        public int getHeight()
+        public override int getHeight()
         {
+            if (!InitExpanded)
+            {
+                return base.getHeight();
+            }
+
             int tmp = 0;
             foreach (var item in Exercises)
             {
@@ -23,20 +26,7 @@ namespace ISDCompanion.Models
         }
 
         public string Topic_Title { get; set; }
-        private bool _IsExpanded = false;
 
-        public bool IsExpanded
-        {
-            get
-            {
-                return _IsExpanded;
-            }
-            set
-            {
-                _IsExpanded = value;
-                OnPropertyChanged(nameof(IsExpanded));
-            }
-        }
         public TrulyObservableCollection<Exercise> Exercises { get; set; }
 
     }

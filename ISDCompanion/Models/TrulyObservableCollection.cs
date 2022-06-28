@@ -22,6 +22,10 @@ namespace ISDCompanion.Models
                 {
                     _height += item.getHeight();
                 }
+                if(_height < 0)
+                {
+                    _height = -1;
+                }
             }
         }
         public int Height
