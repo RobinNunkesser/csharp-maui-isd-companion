@@ -32,12 +32,14 @@ namespace ISDCompanion
 
         public StatusViewModel()
         {
+            SelectedGuestCommand = new Command(OnSelectedGuest);
             SelectedStudentCommand = new Command(OnSelectedStudent);
+            SelectedServant = new Command(OnSelectedServant);
         }
-
-
-        private void OnSelectedStudent(object obj)
+        private void OnSelectedGuest(object obj)
         {
+            //Eintrag in DB speichern
+
             Application.Current.MainPage = new AppShell();
             TheTheme.SetTheme();
 
@@ -45,13 +47,18 @@ namespace ISDCompanion
             nav.BackgroundColor = Color.Black;
         }
 
-        //private void OnSelectedStudent(object obj)
-        //{
-        //    Application.Current.MainPage = new AppShell();
-        //    TheTheme.SetTheme();
+        private void OnSelectedServant(object obj)
+        {
+            //Eintrag in DB speichern
+            Application.Current.MainPage = new AppShell();
 
-        //    var nav = App.Current.MainPage as Xamarin.Forms.Shell;
-        //    nav.BackgroundColor = Color.Black;
-        //}
+        }
+
+        private void OnSelectedStudent(object obj)
+        {
+            //Eintrag in DB speichern
+            Application.Current.MainPage = new AppShell();
+        }
+
     }
 }
