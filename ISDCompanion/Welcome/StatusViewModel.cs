@@ -13,7 +13,7 @@ namespace ISDCompanion
     {
         public Command SelectedGuestCommand { get; }
         public Command SelectedStudentCommand { get; }
-        public Command SelectedServant { get; }
+        public Command SelectedServantCommand { get; }
 
 
 
@@ -34,11 +34,11 @@ namespace ISDCompanion
         {
             SelectedGuestCommand = new Command(OnSelectedGuest);
             SelectedStudentCommand = new Command(OnSelectedStudent);
-            SelectedServant = new Command(OnSelectedServant);
+            SelectedServantCommand = new Command(OnSelectedServant);
         }
         private void OnSelectedGuest(object obj)
         {
-            //Eintrag in DB speichern
+            //Eintrag in DB speichern => ID 1
 
             Application.Current.MainPage = new AppShell();
             TheTheme.SetTheme();
@@ -47,18 +47,21 @@ namespace ISDCompanion
             nav.BackgroundColor = Color.Black;
         }
 
-        private void OnSelectedServant(object obj)
-        {
-            //Eintrag in DB speichern
-            Application.Current.MainPage = new AppShell();
-
-        }
-
         private void OnSelectedStudent(object obj)
         {
             //Eintrag in DB speichern
-            Application.Current.MainPage = new AppShell();
+            Application.Current.MainPage = new SemesterPage();
         }
 
+        private void OnSelectedServant(object obj)
+        {
+            //Eintrag in DB speichern  => ID 99
+
+            Application.Current.MainPage = new AppShell();
+            TheTheme.SetTheme();
+
+            var nav = App.Current.MainPage as Xamarin.Forms.Shell;
+            nav.BackgroundColor = Color.Black;
+        }
     }
 }

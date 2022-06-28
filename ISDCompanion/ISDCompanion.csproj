@@ -105,6 +105,12 @@
     <Compile Update="Exercises\ExerciseBasicLayoutPage.xaml.cs">
       <DependentUpon>ExerciseBasicLayoutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Welcome\ModulePage.xaml.cs">
+      <DependentUpon>ModulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Welcome\SemesterPage.xaml.cs">
+      <DependentUpon>SemesterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Welcome\StatusPage.xaml.cs">
       <DependentUpon>StatusPage.xaml</DependentUpon>
     </Compile>
