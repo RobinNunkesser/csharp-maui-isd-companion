@@ -9,6 +9,10 @@ namespace ISDCompanion
 {
     public class ExerciseBasicLayoutViewModel : ExerciseViewModel
     {
+        protected override void newExercise()
+        {
+            //todo  
+        }
         private string requests;
         public string Requests
         {

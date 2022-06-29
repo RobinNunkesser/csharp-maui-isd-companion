@@ -10,6 +10,10 @@ namespace ISDCompanion
 {
     public class MSTViewModel : ExerciseViewModel
     {
+        protected override void newExercise()
+        {
+            //todo  
+        }
         private string graph = "";
         public string Graph
         {

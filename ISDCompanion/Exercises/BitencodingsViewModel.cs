@@ -8,6 +8,10 @@ namespace ISDCompanion
 {
     public class BitencodingsViewModel : ExerciseViewModel
     {
+        protected override void newExercise()
+        {
+            //todo  
+        }
         private string bits;
         public string Bits
         {

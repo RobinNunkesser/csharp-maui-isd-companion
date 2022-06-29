@@ -2,65 +2,137 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using System.Windows.Input;
 using Italbytz.Adapters.Exam.Networks;
+using Italbytz.Ports.Exam.Networks;
 using Xamarin.Forms;
 
 namespace ISDCompanion
 {
     public class ShortestPathsViewModel : ExerciseViewModel
     {
-        private string graph = "";
-        public string Graph
+        private View _GraphContent = null;
+        public View GraphContent
         {
-            get => graph;
+            get
+            {
+                return _GraphContent;
+            }
             set
             {
-                if (value != graph)
-                {
-                    graph = value;
-                    OnPropertyChanged();
-                }
+                _GraphContent = value;
+                OnPropertyChanged();
             }
         }
+        public int ContentHeight { get { return 300; } }
+        public int ContentWidth { get { return 900; } }
 
-        private string solution = "";
-        public string Solution
+
+        protected GraphGen.Classes.GraphGen _GraphGen = null;
+        public GraphGen.Classes.GraphGen GraphGen
         {
-            get => solution;
-            set
-            {
-                if (value != solution)
-                {
-                    solution = value;
-                    OnPropertyChanged();
-                }
-            }
+            get { return _GraphGen; }
+            set { _GraphGen = value; }
         }
+        protected ShortestPathsParameters ShortestPathsParameters { get; set; }
+        protected ShortestPathsSolver ShortestPathsSolver { get; set; }
+
+        protected int CurrentSolutionStep { get; set; }
+        protected IShortestPathsSolution ShortestPathsSolution { get; set; }
+
 
         protected override void Initialize()
         {
-            var parameters = new ShortestPathsParameters();
-            var solver = new ShortestPathsSolver();
-            var solution = solver.Solve(parameters);
-
-            var graphString = "";
-
-            foreach (var edge in parameters.Graph.Edges)
+            ButtonNewExercise = new Command(newExercise, () => true);
+            ButtonNextStep = new Command(nextStep, () => true);
+            ButtonLastStep = new Command(lastStep, () => true);
+            ButtonCompleteSolution = new Command(showCompleteSolution, () => true);
+            ButtonInfo = new Command(showInfo, () => true);
+            newExercise();
+        }
+        private void nextStep()
+        {
+            if (CurrentSolutionStep <= ShortestPathsSolution.Paths.Count - 1)
             {
-                graphString += edge.ToString();
+                var step = ShortestPathsSolution.Paths[CurrentSolutionStep];
+
+                Regex rx = new Regex(@"([a-zA-Z])(.*?)([a-zA-Z])", RegexOptions.Compiled | RegexOptions.Multiline);
+                MatchCollection matches = rx.Matches(step);
+
+                foreach(Match match in matches)
+                {
+                    GroupCollection groups = match.Groups;
+                    GraphGen.GetNode(groups[1].Value).GetEdgeTo(GraphGen.GetNode(groups[3].Value)).Mark();
+                }
+
+                CurrentSolutionStep++;
+            }
+        }
+
+        private void lastStep()
+        {
+            CurrentSolutionStep--;
+            if(CurrentSolutionStep >= 0)
+            {
+                var step = ShortestPathsSolution.Paths[CurrentSolutionStep];
+
+                Regex rx = new Regex(@"([a-zA-Z])(.*?)([a-zA-Z])", RegexOptions.Compiled | RegexOptions.Multiline);
+                MatchCollection matches = rx.Matches(step);
+
+                foreach (Match match in matches)
+                {
+                    GroupCollection groups = match.Groups;
+                    GraphGen.GetNode(groups[1].Value).GetEdgeTo(GraphGen.GetNode(groups[3].Value)).UnMark();
+                }
+            }
+            else
+            {
+                CurrentSolutionStep = 0;
+            }
+        }
+
+        private void showCompleteSolution()
+        {
+            for (int i = 0; i < ShortestPathsSolution.Paths.Count; i++)
+            {
+                nextStep();
+            }
+        }
+
+        private void showInfo()
+        {
+
+        }
+        protected override void newExercise()
+        {
+            List<string> nodes = new List<string>();
+            GraphGen = new GraphGen.Classes.GraphGen(ContentWidth, ContentHeight);
+
+            CurrentSolutionStep = 0;
+            ShortestPathsParameters = new ShortestPathsParameters();
+            ShortestPathsSolver = new ShortestPathsSolver();
+            ShortestPathsSolution = ShortestPathsSolver.Solve(ShortestPathsParameters);
+
+            foreach (var edge in ShortestPathsParameters.Graph.Edges)
+            {
+                if (!nodes.Contains(edge.Source))
+                {
+                    GraphGen.AddNewNode(edge.Source);
+                    nodes.Add(edge.Source);
+                }
+
+
+                if (!nodes.Contains(edge.Target))
+                {
+                    GraphGen.AddNewNode(edge.Target);
+                    nodes.Add(edge.Target);
+                }
+
+                GraphGen.GetNode(edge.Source).AddEdgeTo(GraphGen.GetNode(edge.Target), edge.Tag.ToString());
             }
 
-            Graph = graphString;
-
-            var solutionString = "";
-
-            foreach (var path in solution.Paths)
-            {
-                solutionString += path + "\n";
-            }
-
-            Solution = solutionString;
+            GraphContent = GraphGen.RenderLayout();
         }
 
     }
