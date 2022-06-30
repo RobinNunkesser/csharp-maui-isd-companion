@@ -131,5 +131,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\TableGen\TableGen.csproj" />
     <ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
+    <ProjectReference Include="..\NewGraphGen\NewGraphGen.csproj" />
   </ItemGroup>
 </Project>

@@ -40,11 +40,6 @@ namespace ISDCompanion
 
         public ITableGenService _TableGenService { get; set; }
 
-        public ICommand ButtonNextStep { set; get; }
-        public ICommand ButtonLastStep { set; get; }
-        public ICommand ButtonCompleteSolution { set; get; }
-        public ICommand ButtonInfo { set; get; }
-        public ICommand ButtonNewExercise { set; get; }
 
         public delegate void ScrollToPositionAction(int x, int y, bool isAnimated);
         public event ScrollToPositionAction ScrollToPosition;
@@ -60,7 +55,6 @@ namespace ISDCompanion
 
         }
 
-        protected abstract void newExercise();
 
         public void scroll()
         {

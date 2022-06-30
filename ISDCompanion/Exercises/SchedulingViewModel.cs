@@ -9,6 +9,10 @@ namespace ISDCompanion
 {
     public class SchedulingViewModel : ExerciseViewModel
     {
+        protected override void newExercise()
+        {
+            //todo  
+        }
         private string processes;
         public string Processes
         {

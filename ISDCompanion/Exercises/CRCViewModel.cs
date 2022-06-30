@@ -10,6 +10,10 @@ namespace ISDCompanion
 {
     public class CRCViewModel : ExerciseViewModel
     {
+        protected override void newExercise()
+        {
+            //todo  
+        }
         private string bits = "";
         public string Bits
         {
