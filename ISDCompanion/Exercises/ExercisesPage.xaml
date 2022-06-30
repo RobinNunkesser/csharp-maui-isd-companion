@@ -10,10 +10,11 @@
     Title="{xct:Translate Exercises}">
     <ContentPage.Content>
 
+        <ScrollView>
         <StackLayout BindableLayout.ItemsSource="{Binding Semesters}">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
-                    <xct:Expander x:DataType="model:Semester">
+                    <xct:Expander x:DataType="model:Semester" IsExpanded="{Binding IsExpanded}">
                         <xct:Expander.Header>
                             <Grid>
                                 <Label Text="{Binding Semester_Title}"
@@ -34,10 +35,10 @@
                                 </Image>
                             </Grid>
                         </xct:Expander.Header>
-                        <StackLayout BindableLayout.ItemsSource="{Binding Modules}">
+                        <StackLayout BindableLayout.ItemsSource="{Binding Modules}" HeightRequest="{Binding Modules.Height}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
-                                    <xct:Expander x:DataType="model:Module">
+                                    <xct:Expander x:DataType="model:Module" IsExpanded="{Binding IsExpanded}">
                                         <xct:Expander.Header>
                                             <Grid>
                                                 <Label Text="{Binding Module_Title}"
@@ -58,10 +59,10 @@
                                                 </Image>
                                             </Grid>
                                         </xct:Expander.Header>
-                                        <StackLayout BindableLayout.ItemsSource="{Binding Topics}">
+                                            <StackLayout BindableLayout.ItemsSource="{Binding Topics}" HeightRequest="{Binding Topics.Height}">
                                             <BindableLayout.ItemTemplate>
                                                 <DataTemplate>
-                                                    <xct:Expander x:DataType="model:Topic">
+                                                    <xct:Expander x:DataType="model:Topic" IsExpanded="{Binding IsExpanded}">
                                                         <xct:Expander.Header>
                                                             <Grid>
                                                                 <Label Text="{Binding Topic_Title}"
@@ -111,7 +112,7 @@
                 </DataTemplate>
             </BindableLayout.ItemTemplate>
         </StackLayout>
-
+        </ScrollView>
 
 
 

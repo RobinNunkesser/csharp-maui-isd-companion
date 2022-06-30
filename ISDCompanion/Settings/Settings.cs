@@ -24,6 +24,11 @@ namespace ISDCompanion
             get => Preferences.Get(nameof(Semester), SemesterDefault);
             set => Preferences.Set(nameof(Semester), value);
         }
+        public static int RealSemester
+        {
+            get => Semester + 1;
+        }
+
         public static int Specialization
         {
             get => Preferences.Get(nameof(Specialization), SpecializationDefault);
@@ -49,7 +54,9 @@ namespace ISDCompanion
                     case 0: return AppointmentHelper.appointmentsSem1;
                     case 1: return AppointmentHelper.appointmentsSem2;
                     case 2: return AppointmentHelper.appointmentsSem3;
-                    case 3: switch (Specialization) {
+                    case 3:
+                        switch (Specialization)
+                        {
                             case 0: return AppointmentHelper.appointmentsSem4MoCo;
                             case 1: return AppointmentHelper.appointmentsSem4EmSy;
                             case 2: return AppointmentHelper.appointmentsSem4CySe;
@@ -74,7 +81,7 @@ namespace ISDCompanion
                     default: return null;
                 }
             }
-        }        
+        }
 
     }
 }
