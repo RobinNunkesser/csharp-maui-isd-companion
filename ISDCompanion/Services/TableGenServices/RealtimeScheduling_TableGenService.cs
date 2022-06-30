@@ -31,7 +31,8 @@ namespace ISDCompanion.Services
 
         public RealtimeScheduling_TableGenService(IRealtimeSchedulingParameters parameters, int[] edf, int[] rms)
         {
-            tableGen = new TableGen.TableGen(32, 11, 25, 25);
+            int length = edf.Length;
+            tableGen = new TableGen.TableGen(length, 11, 25, 25);
             _edfIndex = 0;
             _rmsIndex = 0;
             currentColumnOfInterest = 0;

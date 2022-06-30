@@ -25,7 +25,8 @@ namespace ISDCompanion.Services
 
         public PageReplacement_TableGenService(List<IPageReplacementStep> steps, Algorithm algorithm)
         {
-            _tableGen = new TableGen.TableGen(steps.Count, 11, 25, 50);
+            int length = steps.Count;
+            _tableGen = new TableGen.TableGen(length, 11, 25, 50);
             _index = 0;
             currentColumnOfInterest = 0;
             _steps = steps;

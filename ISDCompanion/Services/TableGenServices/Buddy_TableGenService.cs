@@ -24,7 +24,8 @@ namespace ISDCompanion.Services
 
         public Buddy_TableGenService(BuddyParameters parameters, IBuddySolution solution)
         {
-            tableGen = new TableGen.TableGen(32, 11, 25, 25);
+            int length = solution.History[0].Length;
+            tableGen = new TableGen.TableGen(length, 11, 25, 25);
             _index = 0;
             currentColumnOfInterest = 0;
             _parameters = parameters;
