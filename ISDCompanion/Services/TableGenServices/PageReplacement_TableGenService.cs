@@ -52,7 +52,12 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_TableHeader()
         {
-            var tableGen = new TableGen.TableGen(1, 11, 25, 80);
+            TableGen.TableGen tableGen_TableHeader = new TableGen.TableGen(1, 11, 25, 80);
+
+            for (int i = 0; i < 10; i++)
+            {
+                tableGen_TableHeader.SetBackGroundColor(i, 0, Color.Transparent);
+            }
 
             List<Label> labels = new List<Label>();
 
@@ -66,19 +71,19 @@ namespace ISDCompanion.Services
             labels.Add(new Label() { Text = "Abstand 3" });
             labels.Add(new Label() { Text = "Abstand 4" });
 
-            tableGen.AddElement(0, 0, labels[0]);
+            tableGen_TableHeader.AddElement(0, 0, labels[0]);
 
-            tableGen.AddElement(2, 0, labels[1]);
-            tableGen.AddElement(3, 0, labels[2]);
-            tableGen.AddElement(4, 0, labels[3]);
-            tableGen.AddElement(5, 0, labels[4]);
+            tableGen_TableHeader.AddElement(2, 0, labels[1]);
+            tableGen_TableHeader.AddElement(3, 0, labels[2]);
+            tableGen_TableHeader.AddElement(4, 0, labels[3]);
+            tableGen_TableHeader.AddElement(5, 0, labels[4]);
 
-            tableGen.AddElement(7, 0, labels[5]);
-            tableGen.AddElement(8, 0, labels[6]);
-            tableGen.AddElement(9, 0, labels[7]);
-            tableGen.AddElement(10, 0, labels[8]);
+            tableGen_TableHeader.AddElement(7, 0, labels[5]);
+            tableGen_TableHeader.AddElement(8, 0, labels[6]);
+            tableGen_TableHeader.AddElement(9, 0, labels[7]);
+            tableGen_TableHeader.AddElement(10, 0, labels[8]);
 
-            return tableGen.Grid;
+            return tableGen_TableHeader.Grid;
         }
 
         public Grid GenerateTable_EmptyTable()

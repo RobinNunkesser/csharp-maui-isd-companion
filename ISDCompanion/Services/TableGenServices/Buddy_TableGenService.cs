@@ -22,9 +22,6 @@ namespace ISDCompanion.Services
 
         public int currentColumnOfInterest { get; private set; }
 
-
-        Color Color_Transparent = Color.Transparent;
-
         public Buddy_TableGenService(BuddyParameters parameters, IBuddySolution solution)
         {
             tableGen = new TableGen.TableGen(32, 11, 25, 25);
@@ -43,7 +40,7 @@ namespace ISDCompanion.Services
 
             for (int i = 0; i < 10; i++)
             {
-                tableGen_TableHeader.SetBackGroundColor(i, 0, Color_Transparent);
+                tableGen_TableHeader.SetBackGroundColor(i, 0, Color.Transparent);
             }
 
             List<Label> labels = new List<Label>();
