@@ -26,7 +26,7 @@ namespace ISDCompanion
         private View _Table { get; set; }
 
 
-        public Grid Table_Header
+        public View Table_Header
         {
             get
             {
@@ -87,7 +87,7 @@ namespace ISDCompanion
 
         }
 
-
+        
         public void scroll()
         {
             ScrollToPosition?.Invoke(_TableGenService.X_CoordoninatesOfInterest(), _TableGenService.Y_CoordoninatesOfInterest(), true);

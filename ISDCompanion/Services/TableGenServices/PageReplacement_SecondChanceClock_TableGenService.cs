@@ -25,8 +25,6 @@ namespace ISDCompanion.Services
         }
         private string[] InfoTexts { get; set; }
 
-        public int currentColumnOfInterest { get; private set; }
-
         public int Y_CoordoninatesOfInterest()
         {
             return 0;
