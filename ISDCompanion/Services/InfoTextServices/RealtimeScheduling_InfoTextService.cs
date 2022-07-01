@@ -31,6 +31,9 @@ namespace ISDCompanion.Services.InfoTextServices
             processRequest medium = new processRequest();
             processRequest low = new processRequest();
 
+            string rmsInfo = "\n\n\n\nRMS = Raten Monotones Scheduling \n\nDie Priorität wird von der Häufigkeit des Prozesses abgeleitet. Je häufiger ein Prozess vorkommt, desto höher wird er priorisiert.";
+            string edfInfo = "\n\n\n\nEDF = Earliest Deadline First \n\nDie Priorität wird von der Deadline des Prozesses abgeleitet. Je früher die Deadline, desto höher die Priorität.";
+
 
             if (_parameters.Requests[0].Item2 <= _parameters.Requests[1].Item2 && _parameters.Requests[0].Item2 <= _parameters.Requests[2].Item2)
             {
@@ -90,7 +93,7 @@ namespace ISDCompanion.Services.InfoTextServices
 
                 if(step == high.stepID)
                 {
-                    infoText = "Da der Prozess " + high.process + " gemäß RMS die höchste Priorität hat, wird er sofort ausgeführt. \n\nDer Prozess kann Prozesse mit niedriger und mit mittlerer Priorität unterbrechen.";
+                    infoText = "Da der Prozess " + high.process + " gemäß RMS die höchste Priorität hat, wird er sofort ausgeführt. \n\nDer Prozess kann Prozesse mit niedriger und mittlerer Priorität unterbrechen.";
                 }
 
                 if (step == medium.stepID)
@@ -103,30 +106,34 @@ namespace ISDCompanion.Services.InfoTextServices
                     infoText = "Der Prozess " + low.process + " hat gemäß RMS die niedrigste Priorität. \n\nEr wird gestartet, da kein Prozess mit höherer Priorität ansteht. \n\nDer Prozess kann von einem Prozess mit mittlerer oder hoher Priorität unterbrochen werden.";
                 }
 
-                infoTexts[index] = infoText;
+                infoTexts[index] = infoText + rmsInfo;
                 index++;
             }
 
             foreach (int step in _edf)
             {
                 string infoText = "";
+                string process = "";
 
-                if (step == high.stepID)
+                if (step == 0)
                 {
-                    infoText = "Da der Prozess " + high.process + " gemäß RMS die höchste Priorität hat, wird er sofort ausgeführt. \n\nDer Prozess kann Prozesse mit niedriger und mit mittlerer Priorität unterbrechen.";
+                    process = "A";
                 }
 
-                if (step == medium.stepID)
+                if (step == 1)
                 {
-                    infoText = "Der Prozess " + medium.process + " hat gemäß RMS mittlere Priorität. \n\nEr wird gestartet, da kein Prozess mit höherer Priorität ansteht. \n\nDer Prozess kann einem Prozess mit niedriger Priorität unterbrechen und von einem Prozess mit hoher Priorität unterbrochen werden.";
+                    process = "B";
                 }
 
-                if (step == low.stepID)
+                if (step == 2)
                 {
-                    infoText = "Der Prozess " + low.process + " hat gemäß RMS die niedrigste Priorität. \n\nEr wird gestartet, da kein Prozess mit höherer Priorität ansteht. \n\nDer Prozess kann von einem Prozess mit mittlerer oder hoher Priorität unterbrochen werden.";
+                    process = "C";
                 }
 
-                infoTexts[index] = infoText;
+                infoText = "Der Prozess " + process + " hat gemäß EDF aktuell Priorität, da er die früheste Deadline hat. \n\nEr wird gestartet, da kein anderer Prozess mit früherer Deadline rechenbereit ist.";
+
+
+                infoTexts[index] = infoText + edfInfo;
                 index++;
             }
 
