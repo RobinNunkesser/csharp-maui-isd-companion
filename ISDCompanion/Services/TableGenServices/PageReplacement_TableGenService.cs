@@ -1,4 +1,6 @@
-﻿using Italbytz.Ports.Exam.OperatingSystems;
+﻿using ISDCompanion.Services.InfoTextServices;
+using ISDCompanion.Services.Interfaces;
+using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +10,10 @@ namespace ISDCompanion.Services
 {
     internal class PageReplacement_TableGenService : ITableGenService
     {
+        public enum Algorithm { Optimal, FIFO, LRU }
+
         private TableGen.TableGen _tableGen;
+        private IInfoTextService _infoTextService;
 
         private int _index;
         private int _cellWidth = 50;
@@ -26,19 +31,45 @@ namespace ISDCompanion.Services
             return 0;
         }
 
+        private string[] InfoTexts { get; set; }
 
-        public PageReplacement_TableGenService(List<IPageReplacementStep> steps)
+
+        public PageReplacement_TableGenService(List<IPageReplacementStep> steps, Algorithm algorithm)
         {
-            _tableGen = new TableGen.TableGen(steps.Count, 11, 25, _cellWidth);
+            int length = steps.Count;
+            _tableGen = new TableGen.TableGen(length, 11, 25, 50);
             _index = 0;
             currentColumnOfInterest = 0;
             _steps = steps;
+
+            switch (algorithm)
+            {
+                case Algorithm.Optimal:
+
+                    _infoTextService = new PageReplacement_Optimal_InfoTextService(_steps);
+                    break;
+
+                case Algorithm.FIFO:
+                    _infoTextService = new PageReplacement_FIFO_InfoTextService(_steps);
+                    break;
+
+                case Algorithm.LRU:
+                    _infoTextService = new PageReplacement_LRU_InfoTextService(_steps);
+                    break;
+            }
+
+            InfoTexts = _infoTextService.GetInfoTexts();
         }
 
 
         public Grid GenerateTable_TableHeader()
         {
-            var tableGen = new TableGen.TableGen(1, 11, 25, 80);
+            TableGen.TableGen tableGen_TableHeader = new TableGen.TableGen(1, 11, 25, 80);
+
+            for (int i = 0; i < 10; i++)
+            {
+                tableGen_TableHeader.SetBackGroundColor(i, 0, Color.Transparent);
+            }
 
             List<Label> labels = new List<Label>();
 
@@ -52,19 +83,19 @@ namespace ISDCompanion.Services
             labels.Add(new Label() { Text = "Abstand 3" });
             labels.Add(new Label() { Text = "Abstand 4" });
 
-            tableGen.AddElement(0, 0, labels[0]);
+            tableGen_TableHeader.AddElement(0, 0, labels[0]);
 
-            tableGen.AddElement(2, 0, labels[1]);
-            tableGen.AddElement(3, 0, labels[2]);
-            tableGen.AddElement(4, 0, labels[3]);
-            tableGen.AddElement(5, 0, labels[4]);
+            tableGen_TableHeader.AddElement(2, 0, labels[1]);
+            tableGen_TableHeader.AddElement(3, 0, labels[2]);
+            tableGen_TableHeader.AddElement(4, 0, labels[3]);
+            tableGen_TableHeader.AddElement(5, 0, labels[4]);
 
-            tableGen.AddElement(7, 0, labels[5]);
-            tableGen.AddElement(8, 0, labels[6]);
-            tableGen.AddElement(9, 0, labels[7]);
-            tableGen.AddElement(10, 0, labels[8]);
+            tableGen_TableHeader.AddElement(7, 0, labels[5]);
+            tableGen_TableHeader.AddElement(8, 0, labels[6]);
+            tableGen_TableHeader.AddElement(9, 0, labels[7]);
+            tableGen_TableHeader.AddElement(10, 0, labels[8]);
 
-            return tableGen.Grid;
+            return tableGen_TableHeader.Grid;
         }
 
         public Grid GenerateTable_EmptyTable()
@@ -89,7 +120,7 @@ namespace ISDCompanion.Services
                 //Reference
                 element = _steps[i].Element.ToString();
                 label = new Label() { Text = element };
-                _tableGen.AddCenteredElement(0, i, label);                
+                _tableGen.AddCenteredElement(0, i, label);
             }
 
             return _tableGen.Grid;
@@ -100,7 +131,7 @@ namespace ISDCompanion.Services
             Label label;
             String element;
 
-            if(_index < _steps.Count)
+            if (_index < _steps.Count)
             {
                 //Kachel
                 for (int j = 0; j <= 3; j++)
@@ -134,10 +165,21 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_PreviousStep()
         {
-            if(_index > 0)
+            if (_index > 0)
             {
-                //ToDo
+                _index--;
 
+                //Kachel
+                for (int j = 0; j <= 3; j++)
+                {
+                    _tableGen.RemoveElements(2 + j, _index);
+                }
+
+                //Abstand
+                for (int j = 0; j <= 3; j++)
+                {
+                    _tableGen.RemoveElements(7 + j, _index);
+                }
                 _index--;
                 currentColumnOfInterest = _index;
             }
@@ -153,6 +195,30 @@ namespace ISDCompanion.Services
             }
 
             return _tableGen.Grid;
+        }
+
+        public String GetInfoText()
+        {
+            if(_index == 0)
+            {
+                return InfoTexts[_index];
+            }
+            else
+            {
+                return InfoTexts[_index - 1];
+            }
+        }
+
+        public bool InfoAvailable()
+        {
+            if (_index == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

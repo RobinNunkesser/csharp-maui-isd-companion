@@ -92,7 +92,7 @@ namespace ISDCompanion
                     solution = optimalSolution;
                     if (solution != null)
                     {
-                        _TableGenService = new PageReplacement_TableGenService(solution);
+                        _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.Optimal);
                         Table_Header = _TableGenService.GenerateTable_TableHeader();
                         Table = _TableGenService.GenerateTable_EmptyTable();
                     }
@@ -101,7 +101,7 @@ namespace ISDCompanion
                     solution = fifoSolution;
                     if (solution != null)
                     {
-                        _TableGenService = new PageReplacement_TableGenService(solution);
+                        _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.FIFO);
                         Table_Header = _TableGenService.GenerateTable_TableHeader();
                         Table = _TableGenService.GenerateTable_EmptyTable();
                     }
@@ -110,7 +110,7 @@ namespace ISDCompanion
                     solution = lruSolution;
                     if (solution != null)
                     {
-                        _TableGenService = new PageReplacement_TableGenService(solution);
+                        _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.LRU);
                         Table_Header = _TableGenService.GenerateTable_TableHeader();
                         Table = _TableGenService.GenerateTable_EmptyTable();
                     }
@@ -125,6 +125,7 @@ namespace ISDCompanion
                     }
                     break;
             }
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
 
             //OnPropertyChanged("Items");
         }

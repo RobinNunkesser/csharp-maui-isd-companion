@@ -1,4 +1,6 @@
-﻿using Italbytz.Ports.Exam.OperatingSystems;
+﻿using ISDCompanion.Services.InfoTextServices;
+using ISDCompanion.Services.Interfaces;
+using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +11,7 @@ namespace ISDCompanion.Services
     internal class PageReplacement_SecondChanceClock_TableGenService : ITableGenService
     {
         private TableGen.TableGen _tableGen;
+        private IInfoTextService _infoTextService;
 
         private int _index;
         private int _cellWidth = 50;
@@ -20,6 +23,9 @@ namespace ISDCompanion.Services
         {
             return (currentColumnOfInterest - 3) * _cellWidth;
         }
+        private string[] InfoTexts { get; set; }
+
+        public int currentColumnOfInterest { get; private set; }
 
         public int Y_CoordoninatesOfInterest()
         {
@@ -28,16 +34,25 @@ namespace ISDCompanion.Services
 
         public PageReplacement_SecondChanceClock_TableGenService(List<IPageReplacementStep> steps)
         {
-            _tableGen = new TableGen.TableGen(steps.Count, 13, 25, 50);
+            int length = steps.Count;
+            _tableGen = new TableGen.TableGen(length, 13, 25, 50);
             _index = 0;
             currentColumnOfInterest = 0;
             _steps = steps;
+
+            _infoTextService = new PageReplacement_SecondChanceClock_InfoTextService(_steps);
+            InfoTexts = _infoTextService.GetInfoTexts();
         }
 
 
         public Grid GenerateTable_TableHeader()
         {
-            var tableGen = new TableGen.TableGen(1, 13, 25, 80);
+            TableGen.TableGen tableGen_TableHeader = new TableGen.TableGen(1, 13, 25, 80);
+
+            for (int i = 0; i < 12; i++)
+            {
+                tableGen_TableHeader.SetBackGroundColor(i, 0, Color.Transparent);
+            }
 
             List<Label> labels = new List<Label>();
 
@@ -46,27 +61,27 @@ namespace ISDCompanion.Services
             labels.Add(new Label() { Text = "Kachel 2" });
             labels.Add(new Label() { Text = "Kachel 3" });
             labels.Add(new Label() { Text = "Kachel 4" });
-            labels.Add(new Label() { Text = "Abstand 1" });
-            labels.Add(new Label() { Text = "Abstand 2" });
-            labels.Add(new Label() { Text = "Abstand 3" });
-            labels.Add(new Label() { Text = "Abstand 4" });
+            labels.Add(new Label() { Text = "Referenz 1" });
+            labels.Add(new Label() { Text = "Referenz 2" });
+            labels.Add(new Label() { Text = "Referenz 3" });
+            labels.Add(new Label() { Text = "Referenz 4" });
             labels.Add(new Label() { Text = "Zeiger" });
 
-            tableGen.AddElement(0, 0, labels[0]);
+            tableGen_TableHeader.AddElement(0, 0, labels[0]);
 
-            tableGen.AddElement(2, 0, labels[1]);
-            tableGen.AddElement(3, 0, labels[2]);
-            tableGen.AddElement(4, 0, labels[3]);
-            tableGen.AddElement(5, 0, labels[4]);
+            tableGen_TableHeader.AddElement(2, 0, labels[1]);
+            tableGen_TableHeader.AddElement(3, 0, labels[2]);
+            tableGen_TableHeader.AddElement(4, 0, labels[3]);
+            tableGen_TableHeader.AddElement(5, 0, labels[4]);
 
-            tableGen.AddElement(7, 0, labels[5]);
-            tableGen.AddElement(8, 0, labels[6]);
-            tableGen.AddElement(9, 0, labels[7]);
-            tableGen.AddElement(10, 0, labels[8]);
+            tableGen_TableHeader.AddElement(7, 0, labels[5]);
+            tableGen_TableHeader.AddElement(8, 0, labels[6]);
+            tableGen_TableHeader.AddElement(9, 0, labels[7]);
+            tableGen_TableHeader.AddElement(10, 0, labels[8]);
 
-            tableGen.AddElement(12, 0, labels[9]);
+            tableGen_TableHeader.AddElement(12, 0, labels[9]);
 
-            return tableGen.Grid;
+            return tableGen_TableHeader.Grid;
         }
 
         public Grid GenerateTable_EmptyTable()
@@ -146,9 +161,23 @@ namespace ISDCompanion.Services
         {
             if (_index > 0)
             {
-                //ToDo
-
                 _index--;
+
+                //Kachel
+                for (int j = 0; j <= 3; j++)
+                {
+                    _tableGen.RemoveElements(2 + j, _index);
+                }
+
+                //Abstand
+                for (int j = 0; j <= 3; j++)
+                {
+                    _tableGen.RemoveElements(7 + j, _index);
+                }
+
+                //Zeiger
+                _tableGen.RemoveElements(12, _index);
+
             }
             return _tableGen.Grid;
         }
@@ -161,6 +190,30 @@ namespace ISDCompanion.Services
             }
 
             return _tableGen.Grid;
+        }
+
+        public String GetInfoText()
+        {
+            if (_index == 0)
+            {
+                return InfoTexts[_index];
+            }
+            else
+            {
+                return InfoTexts[_index - 1];
+            }
+        }
+
+        public bool InfoAvailable()
+        {
+            if (_index == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

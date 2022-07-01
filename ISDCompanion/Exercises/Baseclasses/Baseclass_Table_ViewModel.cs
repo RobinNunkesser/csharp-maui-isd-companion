@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
@@ -24,7 +25,8 @@ namespace ISDCompanion
         }
         private View _Table { get; set; }
 
-        public View Table_Header
+
+        public Grid Table_Header
         {
             get
             {
@@ -37,6 +39,36 @@ namespace ISDCompanion
             }
         }
         private View _Table_Header { get; set; }
+
+
+        public String Info_Text
+        {
+            get
+            {
+                return _Info_Text;
+            }
+            set
+            {
+                _Info_Text = value;
+                OnPropertyChanged();
+            }
+        }
+        private String _Info_Text { get; set; }
+
+        public bool Info_Button_Clickable
+        {
+            get
+            {
+                return _Info_Button_Clickable;
+            }
+            set
+            {
+                _Info_Button_Clickable = value;
+                OnPropertyChanged();
+            }
+        }
+        private bool _Info_Button_Clickable { get; set; }
+
 
         public ITableGenService _TableGenService { get; set; }
 
@@ -51,7 +83,7 @@ namespace ISDCompanion
             ButtonNextStep = new Command(nextStep, () => true);
             ButtonLastStep = new Command(lastStep, () => true);
             ButtonCompleteSolution = new Command(showCompleteSolution, () => true);
-            ButtonInfo = new Command(showInfo, () => true);
+            ButtonInfo = new Command(showInfoAsync, () => true);
 
         }
 
@@ -65,12 +97,16 @@ namespace ISDCompanion
         private void nextStep()
         {
             Table = _TableGenService.GenerateTable_NextStep();
+            Info_Text = _TableGenService.GetInfoText();
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
             scroll();
         }
 
         private void lastStep()
         {
             Table = _TableGenService.GenerateTable_PreviousStep();
+            Info_Text = _TableGenService.GetInfoText();
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
             scroll();
         }
 
@@ -80,9 +116,9 @@ namespace ISDCompanion
             scroll();
         }
 
-        private void showInfo()
+        private async void showInfoAsync()
         {
-
+            await App.Current.MainPage.DisplayAlert("Info", Info_Text, "Ok");
         }
     }
 }

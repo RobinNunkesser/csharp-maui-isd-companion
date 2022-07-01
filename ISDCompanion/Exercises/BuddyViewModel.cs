@@ -34,6 +34,8 @@ namespace ISDCompanion
         protected override void newExercise()
         {
             AfterRender();
+
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
         }
     }
 }

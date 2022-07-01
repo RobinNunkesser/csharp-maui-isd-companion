@@ -1,4 +1,6 @@
-﻿using Italbytz.Adapters.Exam.OperatingSystems;
+﻿using ISDCompanion.Services.InfoTextServices;
+using ISDCompanion.Services.Interfaces;
+using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ namespace ISDCompanion.Services
     internal class Buddy_TableGenService : ITableGenService
     {
         private TableGen.TableGen tableGen;
+        private IInfoTextService _infoTextService;
 
         private int _index;
         private int _cellWidth = 25;
@@ -17,6 +20,7 @@ namespace ISDCompanion.Services
         BuddyParameters _parameters;
         IBuddySolution _solution;
 
+        private string[] InfoTexts { get; set; }
 
         private int currentRowOfInterest { get; set; }
 
@@ -34,11 +38,15 @@ namespace ISDCompanion.Services
 
         public Buddy_TableGenService(BuddyParameters parameters, IBuddySolution solution)
         {
-            tableGen = new TableGen.TableGen(32, 11, 25, 25);
+            int length = solution.History[0].Length;
+            tableGen = new TableGen.TableGen(length, 11, 25, 25);
             _index = 0;
             currentRowOfInterest = 0;
             _parameters = parameters;
             _solution = solution;
+
+            _infoTextService = new Buddy_InfoTextService(parameters, solution);
+            InfoTexts = _infoTextService.GetInfoTexts();
         }
 
         public Grid GenerateTable_TableHeader()
@@ -47,7 +55,7 @@ namespace ISDCompanion.Services
 
             for (int i = 0; i < 10; i++)
             {
-                tableGen_TableHeader.SetBackGroundColor(i, 0, Color_Transparent);
+                tableGen_TableHeader.SetBackGroundColor(i, 0, Color.Transparent);
             }
 
             List<Label> labels = new List<Label>();
@@ -116,7 +124,14 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_PreviousStep()
         {
-            //To Do
+            if (_index > 0)
+            {
+                _index--;
+                for (int j = 0; j < _solution.History[_index].Length; j++)
+                {
+                    tableGen.RemoveElements(_index + 1, j);
+                }
+            }
 
             return tableGen.Grid;
         }
@@ -129,6 +144,30 @@ namespace ISDCompanion.Services
             }
 
             return tableGen.Grid;
+        }
+
+        public String GetInfoText()
+        {
+            if (_index == 0)
+            {
+                return InfoTexts[_index];
+            }
+            else
+            {
+                return InfoTexts[_index - 1];
+            }
+        }
+
+        public bool InfoAvailable()
+        {
+            if (_index == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
