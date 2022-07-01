@@ -1,4 +1,6 @@
-﻿using Italbytz.Ports.Exam.OperatingSystems;
+﻿using ISDCompanion.Services.InfoTextServices;
+using ISDCompanion.Services.Interfaces;
+using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +11,7 @@ namespace ISDCompanion.Services
     internal class RealtimeScheduling_TableGenService : ITableGenService
     {
         private TableGen.TableGen tableGen;
+        private IInfoTextService _infoTextService;
 
         private int[] _edf;
         private int _edfIndex;
@@ -26,8 +29,7 @@ namespace ISDCompanion.Services
         Color Color_B = Color.FromRgb(0, 0, 200);
         Color Color_C = Color.FromRgb(0, 200, 0);
 
-
-        Color Color_Transparent = Color.Transparent;
+        private string[] InfoTexts { get; set; }
 
         public RealtimeScheduling_TableGenService(IRealtimeSchedulingParameters parameters, int[] edf, int[] rms)
         {
@@ -39,6 +41,9 @@ namespace ISDCompanion.Services
             _parameters = parameters;
             _edf = edf;
             _rms = rms;
+
+            _infoTextService = new RealtimeScheduling_InfoTextService(parameters, edf, rms);
+            InfoTexts = _infoTextService.GetInfoTexts();
         }
 
 
@@ -51,7 +56,7 @@ namespace ISDCompanion.Services
 
             for(int i = 0; i <= 10; i++)
             {
-                tableGen_TableHeader.SetBackGroundColor(i, 0, Color_Transparent);
+                tableGen_TableHeader.SetBackGroundColor(i, 0, Color.Transparent);
             }
 
             tableGen_TableHeader.SetColumnWidth(0, 80);
@@ -236,15 +241,15 @@ namespace ISDCompanion.Services
 
             if (_rmsIndex == 0)
             {
-                tableGen.SetBackGroundColor(4, 0, Color_Transparent);
-                tableGen.SetBackGroundColor(5, 0, Color_Transparent);
-                tableGen.SetBackGroundColor(6, 0, Color_Transparent);
+                tableGen.SetBackGroundColor(4, 0, Color.Transparent);
+                tableGen.SetBackGroundColor(5, 0, Color.Transparent);
+                tableGen.SetBackGroundColor(6, 0, Color.Transparent);
             }
             if (_edfIndex == 0)
             {
-                tableGen.SetBackGroundColor(8, 0, Color_Transparent);
-                tableGen.SetBackGroundColor(9, 0, Color_Transparent);
-                tableGen.SetBackGroundColor(10, 0, Color_Transparent);
+                tableGen.SetBackGroundColor(8, 0, Color.Transparent);
+                tableGen.SetBackGroundColor(9, 0, Color.Transparent);
+                tableGen.SetBackGroundColor(10, 0, Color.Transparent);
             }
 
             if (_edfIndex > 0 && _edfIndex <= _edf.Length - 1)
@@ -255,15 +260,15 @@ namespace ISDCompanion.Services
                 {
                     if (_edf[i] == 0)
                     {
-                        tableGen.SetBackGroundColor(8, i, Color_Transparent);
+                        tableGen.SetBackGroundColor(8, i, Color.Transparent);
                     }
                     if (_edf[i] == 1)
                     {
-                        tableGen.SetBackGroundColor(9, i, Color_Transparent);
+                        tableGen.SetBackGroundColor(9, i, Color.Transparent);
                     }
                     if (_edf[i] == 2)
                     {
-                        tableGen.SetBackGroundColor(10, i, Color_Transparent);
+                        tableGen.SetBackGroundColor(10, i, Color.Transparent);
                     }
                     i--;
                     if (i < 0)
@@ -285,15 +290,15 @@ namespace ISDCompanion.Services
                     {
                         if (_rms[i] == 0)
                         {
-                            tableGen.SetBackGroundColor(4, i, Color_Transparent);
+                            tableGen.SetBackGroundColor(4, i, Color.Transparent);
                         }
                         if (_rms[i] == 1)
                         {
-                            tableGen.SetBackGroundColor(5, i, Color_Transparent);
+                            tableGen.SetBackGroundColor(5, i, Color.Transparent);
                         }
                         if (_rms[i] == 2)
                         {
-                            tableGen.SetBackGroundColor(6, i, Color_Transparent);
+                            tableGen.SetBackGroundColor(6, i, Color.Transparent);
                         }
                         i--;
                         if (i < 0)
@@ -324,7 +329,17 @@ namespace ISDCompanion.Services
 
         public String GetInfoText()
         {
-            return "";
+            int index =  _rmsIndex + _edfIndex;
+
+            if (index == 0)
+            {
+                return InfoTexts[index];
+            }
+            else
+            {
+                return InfoTexts[index - 1];
+            }
+
         }
 
         public bool InfoAvailable()
