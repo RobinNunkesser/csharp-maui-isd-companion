@@ -394,7 +394,13 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The first Slot that is considered according to the pointer is Slot {0}. \n\nBecause the reference bit of this Slot was 1, the bit is first set to 0, after that the next slot is considered. \n\nSlot {1} was the first Slot with a reference bit = 0, where the element could be added. \n\nNow the pointer point at Slot {2}.
+        ///   Looks up a localized string similar to The first Slot that is considered according to the pointer is Slot {0}. 
+        ///
+        ///Because the reference bit of this Slot was 1, the bit is first set to 0, after that the next slot is considered. 
+        ///
+        ///Slot {1} was the first Slot with a reference bit = 0, where the element could be added. 
+        ///
+        ///Now the pointer point at Slot {2}.
         /// </summary>
         internal static string InfoText_PageReplacement_SecondChanceClock_Element_Added_NotPointer {
             get {
@@ -403,7 +409,9 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The first Slot that is considered according to the pointer is Slot {0}. \n\nBecause the reference bit of this Slot was 0, the element could be added. \n\nNow the pointer point at Slot {1}..
+        ///   Looks up a localized string similar to The first Slot that is considered according to the pointer is Slot {0}. \n\nBecause the reference bit of this Slot was 0, the element could be added. 
+        ///
+        ///Now the pointer point at Slot {1}..
         /// </summary>
         internal static string InfoText_PageReplacement_SecondChanceClock_Element_Added_Pointer {
             get {
@@ -421,7 +429,13 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \n\n\n\nEDF = Earliest Deadline First \n\nThe priority of a process is derived depending on the deadline of the process. The earlier the deadline, the higher of a priority is given..
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///
+        ///EDF = Earliest Deadline First 
+        ///
+        ///The priority of a process is derived depending on the deadline of the process. The earlier the deadline, the higher of a priority is given..
         /// </summary>
         internal static string InfoText_RealTimeScheduling_EDF_Info {
             get {
@@ -430,7 +444,9 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Because the process {0} has the highest priority according to RMS, it is executed immedeately. \n\n The process can interrupt other processes with low or medium priority..
+        ///   Looks up a localized string similar to Because the process {0} has the highest priority according to RMS, it is executed immedeately. 
+        ///
+        ///The process can interrupt other processes with low or medium priority..
         /// </summary>
         internal static string InfoText_RealTimeScheduling_RMS_High {
             get {
@@ -439,7 +455,13 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \n\n\n\nRMS = Rate Monotonous Scheduling \n\nThe priority of a process is derived depending on how often a process appears. The more often a process appears, the higher of a priority is given..
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///
+        ///RMS = Rate Monotonous Scheduling 
+        ///
+        ///The priority of a process is derived depending on how often a process appears. The more often a process appears, the higher of a priority is given..
         /// </summary>
         internal static string InfoText_RealTimeScheduling_RMS_Info {
             get {
@@ -448,7 +470,11 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The process {0} has low priority according to RMS. \n\n It is executed, since no other process with a higher priority is ready. \n\nThe process can be interrupted by other processes with medium or high priority..
+        ///   Looks up a localized string similar to The process {0} has low priority according to RMS. 
+        ///
+        ///It is executed, since no other process with a higher priority is ready. 
+        ///
+        ///The process can be interrupted by other processes with medium or high priority..
         /// </summary>
         internal static string InfoText_RealTimeScheduling_RMS_Low {
             get {
@@ -457,7 +483,11 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The process {0} has medium priority according to RMS. \n\nIt is executed, since no other process with a higher priority is ready. \n\nThe process can interrupt other processes with low priority and be interrupted by processes with high priority..
+        ///   Looks up a localized string similar to The process {0} has medium priority according to RMS. 
+        ///
+        ///It is executed, since no other process with a higher priority is ready. 
+        ///
+        ///The process can interrupt other processes with low priority and be interrupted by processes with high priority..
         /// </summary>
         internal static string InfoText_RealTimeScheduling_RMS_Medium {
             get {

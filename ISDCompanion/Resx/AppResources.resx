@@ -370,27 +370,57 @@
     <value>because the use of the element contained in the Slot is the furthest ({0}) in the future.</value>
   </data>
   <data name="InfoText_PageReplacement_SecondChanceClock_Element_Added_NotPointer" xml:space="preserve">
-    <value>The first Slot that is considered according to the pointer is Slot {0}. \n\nBecause the reference bit of this Slot was 1, the bit is first set to 0, after that the next slot is considered. \n\nSlot {1} was the first Slot with a reference bit = 0, where the element could be added. \n\nNow the pointer point at Slot {2}</value>
+    <value>The first Slot that is considered according to the pointer is Slot {0}. 
+
+Because the reference bit of this Slot was 1, the bit is first set to 0, after that the next slot is considered. 
+
+Slot {1} was the first Slot with a reference bit = 0, where the element could be added. 
+
+Now the pointer point at Slot {2}</value>
   </data>
   <data name="InfoText_PageReplacement_SecondChanceClock_Element_Added_Pointer" xml:space="preserve">
-    <value>The first Slot that is considered according to the pointer is Slot {0}. \n\nBecause the reference bit of this Slot was 0, the element could be added. \n\nNow the pointer point at Slot {1}.</value>
+    <value>The first Slot that is considered according to the pointer is Slot {0}. \n\nBecause the reference bit of this Slot was 0, the element could be added. 
+
+Now the pointer point at Slot {1}.</value>
   </data>
   <data name="InfoText_RealTimeScheduling_EDF" xml:space="preserve">
     <value>The process {0} currently has priority according EDF, because he has the earliest deadline. \n\nIt is started, since no other process with an earlier deadline is ready.</value>
   </data>
   <data name="InfoText_RealTimeScheduling_EDF_Info" xml:space="preserve">
-    <value>\n\n\n\nEDF = Earliest Deadline First \n\nThe priority of a process is derived depending on the deadline of the process. The earlier the deadline, the higher of a priority is given.</value>
+    <value>
+
+
+
+EDF = Earliest Deadline First 
+
+The priority of a process is derived depending on the deadline of the process. The earlier the deadline, the higher of a priority is given.</value>
   </data>
   <data name="InfoText_RealTimeScheduling_RMS_High" xml:space="preserve">
-    <value>Because the process {0} has the highest priority according to RMS, it is executed immedeately. \n\n The process can interrupt other processes with low or medium priority.</value>
+    <value>Because the process {0} has the highest priority according to RMS, it is executed immedeately. 
+
+The process can interrupt other processes with low or medium priority.</value>
   </data>
   <data name="InfoText_RealTimeScheduling_RMS_Info" xml:space="preserve">
-    <value>\n\n\n\nRMS = Rate Monotonous Scheduling \n\nThe priority of a process is derived depending on how often a process appears. The more often a process appears, the higher of a priority is given.</value>
+    <value>
+
+
+
+RMS = Rate Monotonous Scheduling 
+
+The priority of a process is derived depending on how often a process appears. The more often a process appears, the higher of a priority is given.</value>
   </data>
   <data name="InfoText_RealTimeScheduling_RMS_Low" xml:space="preserve">
-    <value>The process {0} has low priority according to RMS. \n\n It is executed, since no other process with a higher priority is ready. \n\nThe process can be interrupted by other processes with medium or high priority.</value>
+    <value>The process {0} has low priority according to RMS. 
+
+It is executed, since no other process with a higher priority is ready. 
+
+The process can be interrupted by other processes with medium or high priority.</value>
   </data>
   <data name="InfoText_RealTimeScheduling_RMS_Medium" xml:space="preserve">
-    <value>The process {0} has medium priority according to RMS. \n\nIt is executed, since no other process with a higher priority is ready. \n\nThe process can interrupt other processes with low priority and be interrupted by processes with high priority.</value>
+    <value>The process {0} has medium priority according to RMS. 
+
+It is executed, since no other process with a higher priority is ready. 
+
+The process can interrupt other processes with low priority and be interrupted by processes with high priority.</value>
   </data>
 </root>

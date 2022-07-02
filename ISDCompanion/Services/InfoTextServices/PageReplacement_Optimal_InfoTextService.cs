@@ -94,10 +94,6 @@ namespace ISDCompanion.Services.InfoTextServices
                         }
                         else
                         {
-                            //InfoText_PageReplacement_Optimal_Element_Added_NotInUse
-                            //da die nächste Nutzung des Elementes dieser Kachel am weitesten ({0}) in der Zukunft lag.
-                            //because the use of the element contained in the Slot is the furthest ({0}) in the future.
-
                             infoText = String.Format(AppResources.InfoText_PageReplacement_Optimal_Element_Added_NotInUse, distance);
                         }
 
