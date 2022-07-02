@@ -41,7 +41,7 @@ namespace ISDCompanion.Services.InfoTextServices
                     process_Size_Allocated *= 32;
 
                     infoText = String.Format(AppResources.InfoText_Buddy_Request, _parameters.Processes[index], _parameters.Requests[index], process_Size_Allocated);
- }
+                }
                 else
                 {
                     infoText = String.Format(AppResources.InfoText_Buddy_Final, _parameters.FreeOrder[index - 5]);

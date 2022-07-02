@@ -348,4 +348,19 @@
   <data name="InfoText_Buddy_Final" xml:space="preserve">
     <value>Der Prozess {0} wird wieder freigegeben.</value>
   </data>
+  <data name="InfoText_PageReplacement_Fifo_Element_Added" xml:space="preserve">
+    <value>Das Element {0} wurde in Kachel {1} eingefügt,</value>
+  </data>
+  <data name="InfoText_PageReplacement_Fifo_Element_Added_Distance" xml:space="preserve">
+    <value>da die letzte Nutzung des Elementes dieser Kachel am weitesten ({0}) in der Vergangenheit lag.</value>
+  </data>
+  <data name="InfoText_PageReplacement_Fifo_Element_Added_Empty" xml:space="preserve">
+    <value>da die Kachel leer stand.</value>
+  </data>
+  <data name="InfoText_PageReplacement_Fifo_Element_Added_NotInUse" xml:space="preserve">
+    <value>da das Element dieser Kachel nicht mehr genutzt wird.</value>
+  </data>
+  <data name="InfoText_PageReplacement_Fifo_Element_Exists" xml:space="preserve">
+    <value>Das Element ist bereits in Kachel {0} vorhanden.</value>
+  </data>
 </root>
