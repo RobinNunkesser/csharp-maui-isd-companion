@@ -313,6 +313,24 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The process {0} is finished, memory is freed..
+        /// </summary>
+        internal static string InfoText_Buddy_Final {
+            get {
+                return ResourceManager.GetString("InfoText_Buddy_Final", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The process {0} requests {1} KB of memory. {2} KB are allocated for the process..
+        /// </summary>
+        internal static string InfoText_Buddy_Request {
+            get {
+                return ResourceManager.GetString("InfoText_Buddy_Request", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dishes.
         /// </summary>
         internal static string Maindishes {

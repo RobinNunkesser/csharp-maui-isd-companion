@@ -1,4 +1,5 @@
-﻿using ISDCompanion.Services.Interfaces;
+﻿using ISDCompanion.Resx;
+using ISDCompanion.Services.Interfaces;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
@@ -38,12 +39,13 @@ namespace ISDCompanion.Services.InfoTextServices
                                               where num == index
                                               select num).Count();
                     process_Size_Allocated *= 32;
-                    infoText = "Der Prozess " + _parameters.Processes[index] + " fordert " + _parameters.Requests[index] + " KB an Speicher an. Dem Prozess werden " + process_Size_Allocated + " zugewiesen.";
-                }
+
+                    infoText = String.Format(AppResources.InfoText_Buddy_Request, _parameters.Processes[index], _parameters.Requests[index], process_Size_Allocated);
+ }
                 else
                 {
-                    infoText = "Der Prozess " + _parameters.FreeOrder[index - 5] + " wird wieder freigegeben.";
-                }
+                    infoText = String.Format(AppResources.InfoText_Buddy_Final, _parameters.FreeOrder[index - 5]);
+                 }
 
                 infoTexts[index] = infoText;
                 index++;

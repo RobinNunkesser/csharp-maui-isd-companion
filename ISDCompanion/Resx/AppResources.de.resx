@@ -342,4 +342,10 @@
   <data name="ExerciseBasicLayout" xml:space="preserve">
     <value>Exercise Basic Layout</value>
   </data>
+  <data name="InfoText_Buddy_Request" xml:space="preserve">
+    <value>Der Prozess {0} fordert {1} KB an Speicher an. Dem Prozess werden {2} KB zugewiesen.</value>
+  </data>
+  <data name="InfoText_Buddy_Final" xml:space="preserve">
+    <value>Der Prozess {0} wird wieder freigegeben.</value>
+  </data>
 </root>
