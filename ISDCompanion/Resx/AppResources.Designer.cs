@@ -333,9 +333,36 @@ namespace ISDCompanion.Resx {
         /// <summary>
         ///   Looks up a localized string similar to The element {0} was added in Slot {1},.
         /// </summary>
-        internal static string InfoText_PageReplacement_Fifo_Element_Added {
+        internal static string InfoText_PageReplacement_Element_Added {
             get {
-                return ResourceManager.GetString("InfoText_PageReplacement_Fifo_Element_Added", resourceCulture);
+                return ResourceManager.GetString("InfoText_PageReplacement_Element_Added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to because the Slot was empty..
+        /// </summary>
+        internal static string InfoText_PageReplacement_Element_Added_Empty {
+            get {
+                return ResourceManager.GetString("InfoText_PageReplacement_Element_Added_Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to because the element contained in the Slot is not used anymore..
+        /// </summary>
+        internal static string InfoText_PageReplacement_Element_Added_NotInUse {
+            get {
+                return ResourceManager.GetString("InfoText_PageReplacement_Element_Added_NotInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The element is already present in Slot {0}..
+        /// </summary>
+        internal static string InfoText_PageReplacement_Element_Exists {
+            get {
+                return ResourceManager.GetString("InfoText_PageReplacement_Element_Exists", resourceCulture);
             }
         }
         
@@ -349,29 +376,11 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to because the Slot was empty..
+        ///   Looks up a localized string similar to because the last use of the element contained in the Slot is the furthest ({0}) in the past..
         /// </summary>
-        internal static string InfoText_PageReplacement_Fifo_Element_Added_Empty {
+        internal static string InfoText_PageReplacement_LRU_Element_Added_Distance {
             get {
-                return ResourceManager.GetString("InfoText_PageReplacement_Fifo_Element_Added_Empty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to because the element contained in the Slot is not used anymore..
-        /// </summary>
-        internal static string InfoText_PageReplacement_Fifo_Element_Added_NotInUse {
-            get {
-                return ResourceManager.GetString("InfoText_PageReplacement_Fifo_Element_Added_NotInUse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The element is already present in Slot {0}..
-        /// </summary>
-        internal static string InfoText_PageReplacement_Fifo_Element_Exists {
-            get {
-                return ResourceManager.GetString("InfoText_PageReplacement_Fifo_Element_Exists", resourceCulture);
+                return ResourceManager.GetString("InfoText_PageReplacement_LRU_Element_Added_Distance", resourceCulture);
             }
         }
         

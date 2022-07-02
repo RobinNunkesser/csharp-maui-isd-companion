@@ -348,19 +348,22 @@
   <data name="InfoText_Buddy_Final" xml:space="preserve">
     <value>The process {0} is finished, memory is freed.</value>
   </data>
-  <data name="InfoText_PageReplacement_Fifo_Element_Added" xml:space="preserve">
+  <data name="InfoText_PageReplacement_Element_Added" xml:space="preserve">
     <value>The element {0} was added in Slot {1},</value>
+  </data>
+  <data name="InfoText_PageReplacement_Element_Added_Empty" xml:space="preserve">
+    <value>because the Slot was empty.</value>
+  </data>
+  <data name="InfoText_PageReplacement_Element_Added_NotInUse" xml:space="preserve">
+    <value>because the element contained in the Slot is not used anymore.</value>
+  </data>
+  <data name="InfoText_PageReplacement_Element_Exists" xml:space="preserve">
+    <value>The element is already present in Slot {0}.</value>
   </data>
   <data name="InfoText_PageReplacement_Fifo_Element_Added_Distance" xml:space="preserve">
     <value>because the last use of the element contained in the Slot is the furthest ({0}) in the past.</value>
   </data>
-  <data name="InfoText_PageReplacement_Fifo_Element_Added_Empty" xml:space="preserve">
-    <value>because the Slot was empty.</value>
-  </data>
-  <data name="InfoText_PageReplacement_Fifo_Element_Added_NotInUse" xml:space="preserve">
-    <value>because the element contained in the Slot is not used anymore.</value>
-  </data>
-  <data name="InfoText_PageReplacement_Fifo_Element_Exists" xml:space="preserve">
-    <value>The element is already present in Slot {0}.</value>
+  <data name="InfoText_PageReplacement_LRU_Element_Added_Distance" xml:space="preserve">
+    <value>because the last use of the element contained in the Slot is the furthest ({0}) in the past.</value>
   </data>
 </root>

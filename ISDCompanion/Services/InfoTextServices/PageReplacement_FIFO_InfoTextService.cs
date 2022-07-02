@@ -73,16 +73,16 @@ namespace ISDCompanion.Services.InfoTextServices
 
                 if (element_Already_Existed)
                 {
-                    infoText = String.Format(AppResources.InfoText_PageReplacement_Fifo_Element_Exists, frame_Index + 1);
+                    infoText = String.Format(AppResources.InfoText_PageReplacement_Element_Exists, frame_Index + 1);
                 }
                 else
                 {
-                    infoText = String.Format(AppResources.InfoText_PageReplacement_Fifo_Element_Added, element, frame_Index + 1);
+                    infoText = String.Format(AppResources.InfoText_PageReplacement_Element_Added, element, frame_Index + 1);
 
                     //Kachel war leer, Element wurde eingefügt
                     if (inserted_Frame_Was_Empty_Before)
                     {
-                        infoText = String.Format(AppResources.InfoText_PageReplacement_Fifo_Element_Added_Empty);
+                        infoText = String.Format(AppResources.InfoText_PageReplacement_Element_Added_Empty);
                     }
                     //Kacheln waren voll, nach FIFO Algorithmus wird die Kachel ersetzt,
                     //wessen nächste Nutzung am weitesten in der Vergangenheit liegt
@@ -90,7 +90,7 @@ namespace ISDCompanion.Services.InfoTextServices
                     {
                         if (distance > 1000)
                         {
-                            infoText = String.Format(AppResources.InfoText_PageReplacement_Fifo_Element_Added_NotInUse);
+                            infoText = String.Format(AppResources.InfoText_PageReplacement_Element_Added_NotInUse);
                         }
                         else
                         {

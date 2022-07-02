@@ -1,4 +1,5 @@
-﻿using ISDCompanion.Services.Interfaces;
+﻿using ISDCompanion.Resx;
+using ISDCompanion.Services.Interfaces;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
@@ -72,16 +73,16 @@ namespace ISDCompanion.Services.InfoTextServices
 
                 if (element_Already_Existed)
                 {
-                    infoText += "Das Element ist bereits in Kachel " + (frame_Index + 1) + " vorhanden.";
+                    infoText = String.Format(AppResources.InfoText_PageReplacement_Element_Exists, frame_Index + 1);
                 }
                 else
                 {
-                    infoText += "Das Element " + element + " wurde in Kachel " + (frame_Index + 1) + " eingefügt, ";
+                    infoText = String.Format(AppResources.InfoText_PageReplacement_Element_Added, element, frame_Index + 1);
 
                     //Kachel war leer, Element wurde eingefügt
                     if (inserted_Frame_Was_Empty_Before)
                     {
-                        infoText += "da die Kachel leer stand.";
+                        infoText = String.Format(AppResources.InfoText_PageReplacement_Element_Added_Empty);
                     }
                     //Kacheln waren voll, nach LRU Algorithmus wird die Kachel ersetzt,
                     //wessen nächste Nutzung am nähesten in der Vergangenheit liegt
@@ -89,11 +90,11 @@ namespace ISDCompanion.Services.InfoTextServices
                     {
                         if (distance > 1000)
                         {
-                            infoText += "da das Element dieser Kachel nicht mehr genutzt wird.";
+                            infoText = String.Format(AppResources.InfoText_PageReplacement_Element_Added_NotInUse);
                         }
                         else
                         {
-                            infoText += "da die letzte Nutzung des Elementes dieser Kachel am weitesten (" + distance + ") in der Vergangenheit lag.";
+                            infoText = String.Format(AppResources.InfoText_PageReplacement_LRU_Element_Added_Distance, distance);
                         }
                     }
                 }
