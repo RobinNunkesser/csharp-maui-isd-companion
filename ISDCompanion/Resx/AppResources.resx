@@ -369,4 +369,10 @@
   <data name="InfoText_PageReplacement_Optimal_Element_Added_NotInUse" xml:space="preserve">
     <value>because the use of the element contained in the Slot is the furthest ({0}) in the future.</value>
   </data>
+  <data name="InfoText_PageReplacement_SecondChanceClock_Element_Added_NotPointer" xml:space="preserve">
+    <value>The first Slot that is considered according to the pointer is Slot {0}. \n\nBecause the reference bit of this Slot was 1, the bit is first set to 0, after that the next slot is considered. \n\nSlot {1} was the first Slot with a reference bit = 0, where the element could be added. \n\nNow the pointer point at Slot {2}</value>
+  </data>
+  <data name="InfoText_PageReplacement_SecondChanceClock_Element_Added_Pointer" xml:space="preserve">
+    <value>The first Slot that is considered according to the pointer is Slot {0}. \n\nBecause the reference bit of this Slot was 0, the element could be added. \n\nNow the pointer point at Slot {1}.</value>
+  </data>
 </root>

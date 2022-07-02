@@ -394,6 +394,24 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The first Slot that is considered according to the pointer is Slot {0}. \n\nBecause the reference bit of this Slot was 1, the bit is first set to 0, after that the next slot is considered. \n\nSlot {1} was the first Slot with a reference bit = 0, where the element could be added. \n\nNow the pointer point at Slot {2}.
+        /// </summary>
+        internal static string InfoText_PageReplacement_SecondChanceClock_Element_Added_NotPointer {
+            get {
+                return ResourceManager.GetString("InfoText_PageReplacement_SecondChanceClock_Element_Added_NotPointer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The first Slot that is considered according to the pointer is Slot {0}. \n\nBecause the reference bit of this Slot was 0, the element could be added. \n\nNow the pointer point at Slot {1}..
+        /// </summary>
+        internal static string InfoText_PageReplacement_SecondChanceClock_Element_Added_Pointer {
+            get {
+                return ResourceManager.GetString("InfoText_PageReplacement_SecondChanceClock_Element_Added_Pointer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dishes.
         /// </summary>
         internal static string Maindishes {

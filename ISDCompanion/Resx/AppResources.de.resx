@@ -369,4 +369,10 @@
   <data name="InfoText_PageReplacement_Optimal_Element_Added_NotInUse" xml:space="preserve">
     <value>da die nächste Nutzung des Elementes dieser Kachel am weitesten ({0}) in der Zukunft lag.</value>
   </data>
+  <data name="InfoText_PageReplacement_SecondChanceClock_Element_Added_NotPointer" xml:space="preserve">
+    <value>Der Zeiger bestimmt, welche Kachel zu erst betrachtet wird: Kachel {0}. \n\nDa das Referenzbit dieser Kachel = 1 war, wird dieses zunächst auf 0 gesetzt und anschließend die nächste Kachel betrachtet. \n\nKachel {1} war die erste Kachel mit Referenzbit = 0, in welches das Element eingesetzt werden konnte. \n\nNun zeigt der Zeiger auf: Kachel {1}</value>
+  </data>
+  <data name="InfoText_PageReplacement_SecondChanceClock_Element_Added_Pointer" xml:space="preserve">
+    <value>Der Zeiger bestimmt, welche Kachel zu erst betrachtet wird: Kachel {0}. \n\nDa das Referenzbit dieser Kachel = 0 war, konnte das Element eingesetzt werden. \n\nNun zeigt der Zeiger auf Kachel {1}.</value>
+  </data>
 </root>
