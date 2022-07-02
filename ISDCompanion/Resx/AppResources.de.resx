@@ -375,4 +375,22 @@
   <data name="InfoText_PageReplacement_SecondChanceClock_Element_Added_Pointer" xml:space="preserve">
     <value>Der Zeiger bestimmt, welche Kachel zu erst betrachtet wird: Kachel {0}. \n\nDa das Referenzbit dieser Kachel = 0 war, konnte das Element eingesetzt werden. \n\nNun zeigt der Zeiger auf Kachel {1}.</value>
   </data>
+  <data name="InfoText_RealTimeScheduling_EDF" xml:space="preserve">
+    <value>Der Prozess {0} hat gemäß EDF aktuell Priorität, da er die früheste Deadline hat. \n\nEr wird gestartet, da kein anderer Prozess mit früherer Deadline rechenbereit ist.</value>
+  </data>
+  <data name="InfoText_RealTimeScheduling_EDF_Info" xml:space="preserve">
+    <value>\n\n\n\nEDF = Earliest Deadline First \n\nDie Priorität wird von der Deadline des Prozesses abgeleitet. Je früher die Deadline, desto höher die Priorität.</value>
+  </data>
+  <data name="InfoText_RealTimeScheduling_RMS_High" xml:space="preserve">
+    <value>Da der Prozess {0} gemäß RMS die höchste Priorität hat, wird er sofort ausgeführt. \n\nDer Prozess kann Prozesse mit niedriger und mittlerer Priorität unterbrechen.</value>
+  </data>
+  <data name="InfoText_RealTimeScheduling_RMS_Info" xml:space="preserve">
+    <value>\n\n\n\nRMS = Raten Monotones Scheduling \n\nDie Priorität wird von der Häufigkeit des Prozesses abgeleitet. Je häufiger ein Prozess vorkommt, desto höher wird er priorisiert.</value>
+  </data>
+  <data name="InfoText_RealTimeScheduling_RMS_Low" xml:space="preserve">
+    <value>Der Prozess {0} hat gemäß RMS die niedrigste Priorität. \n\nEr wird gestartet, da kein Prozess mit höherer Priorität ansteht. \n\nDer Prozess kann von einem Prozess mit mittlerer oder hoher Priorität unterbrochen werden.</value>
+  </data>
+  <data name="InfoText_RealTimeScheduling_RMS_Medium" xml:space="preserve">
+    <value>Der Prozess {0} hat gemäß RMS mittlere Priorität. \n\nEr wird gestartet, da kein Prozess mit höherer Priorität ansteht. \n\nDer Prozess kann einen Prozess mit niedriger Priorität unterbrechen und von einem Prozess mit hoher Priorität unterbrochen werden.</value>
+  </data>
 </root>

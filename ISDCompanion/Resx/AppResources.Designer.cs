@@ -412,6 +412,60 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The process {0} currently has priority according EDF, because he has the earliest deadline. \n\nIt is started, since no other process with an earlier deadline is ready..
+        /// </summary>
+        internal static string InfoText_RealTimeScheduling_EDF {
+            get {
+                return ResourceManager.GetString("InfoText_RealTimeScheduling_EDF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \n\n\n\nEDF = Earliest Deadline First \n\nThe priority of a process is derived depending on the deadline of the process. The earlier the deadline, the higher of a priority is given..
+        /// </summary>
+        internal static string InfoText_RealTimeScheduling_EDF_Info {
+            get {
+                return ResourceManager.GetString("InfoText_RealTimeScheduling_EDF_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Because the process {0} has the highest priority according to RMS, it is executed immedeately. \n\n The process can interrupt other processes with low or medium priority..
+        /// </summary>
+        internal static string InfoText_RealTimeScheduling_RMS_High {
+            get {
+                return ResourceManager.GetString("InfoText_RealTimeScheduling_RMS_High", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \n\n\n\nRMS = Rate Monotonous Scheduling \n\nThe priority of a process is derived depending on how often a process appears. The more often a process appears, the higher of a priority is given..
+        /// </summary>
+        internal static string InfoText_RealTimeScheduling_RMS_Info {
+            get {
+                return ResourceManager.GetString("InfoText_RealTimeScheduling_RMS_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The process {0} has low priority according to RMS. \n\n It is executed, since no other process with a higher priority is ready. \n\nThe process can be interrupted by other processes with medium or high priority..
+        /// </summary>
+        internal static string InfoText_RealTimeScheduling_RMS_Low {
+            get {
+                return ResourceManager.GetString("InfoText_RealTimeScheduling_RMS_Low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The process {0} has medium priority according to RMS. \n\nIt is executed, since no other process with a higher priority is ready. \n\nThe process can interrupt other processes with low priority and be interrupted by processes with high priority..
+        /// </summary>
+        internal static string InfoText_RealTimeScheduling_RMS_Medium {
+            get {
+                return ResourceManager.GetString("InfoText_RealTimeScheduling_RMS_Medium", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dishes.
         /// </summary>
         internal static string Maindishes {

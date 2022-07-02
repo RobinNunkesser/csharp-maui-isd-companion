@@ -1,4 +1,5 @@
-﻿using ISDCompanion.Services.Interfaces;
+﻿using ISDCompanion.Resx;
+using ISDCompanion.Services.Interfaces;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
@@ -31,8 +32,8 @@ namespace ISDCompanion.Services.InfoTextServices
             processRequest medium = new processRequest();
             processRequest low = new processRequest();
 
-            string rmsInfo = "\n\n\n\nRMS = Raten Monotones Scheduling \n\nDie Priorität wird von der Häufigkeit des Prozesses abgeleitet. Je häufiger ein Prozess vorkommt, desto höher wird er priorisiert.";
-            string edfInfo = "\n\n\n\nEDF = Earliest Deadline First \n\nDie Priorität wird von der Deadline des Prozesses abgeleitet. Je früher die Deadline, desto höher die Priorität.";
+            string rmsInfo = String.Format(AppResources.InfoText_RealTimeScheduling_RMS_Info);
+            string edfInfo = String.Format(AppResources.InfoText_RealTimeScheduling_EDF_Info);
 
 
             if (_parameters.Requests[0].Item2 <= _parameters.Requests[1].Item2 && _parameters.Requests[0].Item2 <= _parameters.Requests[2].Item2)
@@ -93,17 +94,17 @@ namespace ISDCompanion.Services.InfoTextServices
 
                 if(step == high.stepID)
                 {
-                    infoText = "Da der Prozess " + high.process + " gemäß RMS die höchste Priorität hat, wird er sofort ausgeführt. \n\nDer Prozess kann Prozesse mit niedriger und mittlerer Priorität unterbrechen.";
+                    infoText = String.Format(AppResources.InfoText_RealTimeScheduling_RMS_High, high.process);
                 }
 
                 if (step == medium.stepID)
                 {
-                    infoText = "Der Prozess " + medium.process + " hat gemäß RMS mittlere Priorität. \n\nEr wird gestartet, da kein Prozess mit höherer Priorität ansteht. \n\nDer Prozess kann einen Prozess mit niedriger Priorität unterbrechen und von einem Prozess mit hoher Priorität unterbrochen werden.";
+                    infoText = String.Format(AppResources.InfoText_RealTimeScheduling_RMS_Medium, medium.process);
                 }
 
                 if (step == low.stepID)
                 {
-                    infoText = "Der Prozess " + low.process + " hat gemäß RMS die niedrigste Priorität. \n\nEr wird gestartet, da kein Prozess mit höherer Priorität ansteht. \n\nDer Prozess kann von einem Prozess mit mittlerer oder hoher Priorität unterbrochen werden.";
+                    infoText = String.Format(AppResources.InfoText_RealTimeScheduling_RMS_Low, low.process);
                 }
 
                 infoTexts[index] = infoText + rmsInfo;
@@ -130,8 +131,7 @@ namespace ISDCompanion.Services.InfoTextServices
                     process = "C";
                 }
 
-                infoText = "Der Prozess " + process + " hat gemäß EDF aktuell Priorität, da er die früheste Deadline hat. \n\nEr wird gestartet, da kein anderer Prozess mit früherer Deadline rechenbereit ist.";
-
+                infoText = String.Format(AppResources.InfoText_RealTimeScheduling_RMS_Low, process);
 
                 infoTexts[index] = infoText + edfInfo;
                 index++;
