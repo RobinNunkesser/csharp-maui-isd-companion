@@ -73,27 +73,15 @@ namespace ISDCompanion.Services.InfoTextServices
 
                 if (element_Already_Existed)
                 {
-                    //InfoText_PageReplacement_Fifo_Element_Exists
-                    //Das Element ist bereits in Kachel {0} vorhanden.
-                    //The element is already present in Slot {0}.
-
                     infoText = String.Format(AppResources.InfoText_PageReplacement_Fifo_Element_Exists, frame_Index + 1);
                 }
                 else
                 {
-                    //InfoText_PageReplacement_Fifo_Element_Added
-                    //Das Element {0} wurde in Kachel {1} eingefügt, 
-                    //The element {0} was added in Slot {1}, 
-
                     infoText = String.Format(AppResources.InfoText_PageReplacement_Fifo_Element_Added, element, frame_Index + 1);
 
                     //Kachel war leer, Element wurde eingefügt
                     if (inserted_Frame_Was_Empty_Before)
                     {
-                        //InfoText_PageReplacement_Fifo_Element_Added_Empty
-                        //da die Kachel leer stand.
-                        //because the Slot was empty.
-
                         infoText = String.Format(AppResources.InfoText_PageReplacement_Fifo_Element_Added_Empty);
                     }
                     //Kacheln waren voll, nach FIFO Algorithmus wird die Kachel ersetzt,
@@ -102,18 +90,10 @@ namespace ISDCompanion.Services.InfoTextServices
                     {
                         if (distance > 1000)
                         {
-                            //InfoText_PageReplacement_Fifo_Element_Added_NotInUse
-                            //da das Element dieser Kachel nicht mehr genutzt wird.
-                            //because the element contained in the Slot is not used anymore.
-
                             infoText = String.Format(AppResources.InfoText_PageReplacement_Fifo_Element_Added_NotInUse);
                         }
                         else
                         {
-                            //InfoText_PageReplacement_Fifo_Element_Added_Distance
-                            //da die letzte Nutzung des Elementes dieser Kachel am weitesten ({0}) in der Vergangenheit lag.
-                            //because the last use of the element contained in the Slot is the furthest ({0}) in the past.
-
                             infoText = String.Format(AppResources.InfoText_PageReplacement_Fifo_Element_Added_Distance, distance);
                         }
                     }
