@@ -366,4 +366,7 @@
   <data name="InfoText_PageReplacement_LRU_Element_Added_Distance" xml:space="preserve">
     <value>because the last use of the element contained in the Slot is the furthest ({0}) in the past.</value>
   </data>
+  <data name="InfoText_PageReplacement_Optimal_Element_Added_NotInUse" xml:space="preserve">
+    <value>because the use of the element contained in the Slot is the furthest ({0}) in the future.</value>
+  </data>
 </root>

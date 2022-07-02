@@ -366,4 +366,7 @@
   <data name="InfoText_PageReplacement_LRU_Element_Added_Distance" xml:space="preserve">
     <value>da die letzte Nutzung des Elementes dieser Kachel am weitesten {0} in der Vergangenheit lag.</value>
   </data>
+  <data name="InfoText_PageReplacement_Optimal_Element_Added_NotInUse" xml:space="preserve">
+    <value>da die nächste Nutzung des Elementes dieser Kachel am weitesten ({0}) in der Zukunft lag.</value>
+  </data>
 </root>

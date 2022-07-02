@@ -385,6 +385,15 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to because the use of the element contained in the Slot is the furthest ({0}) in the future..
+        /// </summary>
+        internal static string InfoText_PageReplacement_Optimal_Element_Added_NotInUse {
+            get {
+                return ResourceManager.GetString("InfoText_PageReplacement_Optimal_Element_Added_NotInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dishes.
         /// </summary>
         internal static string Maindishes {
