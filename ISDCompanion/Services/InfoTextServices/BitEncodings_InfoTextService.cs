@@ -25,7 +25,13 @@ namespace ISDCompanion.Services.InfoTextServices
         public string[] GetInfoTexts()
         {
             string[] infoTexts = new string[_parameters.Bits.Length];
-            
+
+            for(int i = 0; i < _parameters.Bits.Length; i++)
+            {
+                string infoText = "NRZ: 0 = -  |  1 = + \n\nNRZI: 1 = Spannungsveränderung (+/-) \n\nMLT-3: 1 = abwechselnd +, 0 und -";
+
+                infoTexts[i] = infoText;
+            }           
 
             return infoTexts;
         }
