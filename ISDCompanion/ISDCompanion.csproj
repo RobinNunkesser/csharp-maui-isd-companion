@@ -129,9 +129,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NewGraphGen\NewGraphGen.csproj" />
+    <ProjectReference Include="..\..\GraphGen\GraphGen.csproj" />
+    <ProjectReference Include="..\..\GraphGen\NewGraphGen.csproj" />
     <ProjectReference Include="..\..\TableGen\TableGen.csproj" />
     <ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
-    <ProjectReference Include="..\NewGraphGen\NewGraphGen.csproj" />
   </ItemGroup>
 </Project>

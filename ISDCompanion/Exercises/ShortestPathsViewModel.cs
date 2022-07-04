@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
+using GraphGen.Classes;
 using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Ports.Exam.Networks;
 using Xamarin.Forms;
