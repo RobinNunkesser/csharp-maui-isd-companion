@@ -180,7 +180,7 @@ namespace ISDCompanion.Services
                 {
                     _tableGen.RemoveElements(7 + j, _index);
                 }
-                _index--;
+
                 currentColumnOfInterest = _index;
             }
 

@@ -20,11 +20,11 @@ namespace ISDCompanion
             _TableGenService = new Buddy_TableGenService(parameters, solution);
             //loading animation
             //gets automaticly removed when contend finished loading
-            Table_Header = new ActivityIndicator { IsRunning = true };
-            Table = new ActivityIndicator { IsRunning = true };
+            Exercise_Header = new ActivityIndicator { IsRunning = true };
+            Exercise_Content = new ActivityIndicator { IsRunning = true };
 
-            Table_Header = _TableGenService.GenerateTable_TableHeader();
-            Table = _TableGenService.GenerateTable_EmptyTable();
+            Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+            Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
 
             base.scroll();
 

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using ISDCompanion.Interfaces;
 using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Infrastructure.Exam.OperatingSystems.PageReplacement;
@@ -14,7 +15,7 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class PageReplacementViewModel : Baseclass_Table_ViewModel
+    public class PageReplacementViewModel : Baseclass_Table_ViewModel, IAfterRender
     {
 
         //public List<string[]> Items { get; set; }
@@ -31,6 +32,38 @@ namespace ISDCompanion
         //        }
         //    }
         //}
+
+        public void AfterRender()
+        {
+            var parameters = new PageReplacementParameters()
+            {
+                MemorySize = 4
+            };
+
+            optimalSolution = new OptimalSolver().Solve(parameters).Steps;
+            optimalSolution.RemoveAt(0);
+
+            fifoSolution = new FIFOSolver().Solve(parameters).Steps;
+            fifoSolution.RemoveAt(0);
+
+            lruSolution = new LRUSolver().Solve(parameters).Steps;
+            lruSolution.RemoveAt(0);
+
+            clockSolution = new ClockSolver().Solve(parameters).Steps;
+            clockSolution.RemoveAt(0);
+
+            //loading animation
+            //gets automaticly removed when contend finished loading
+            Exercise_Header = new ActivityIndicator { IsRunning = true };
+            Exercise_Content = new ActivityIndicator { IsRunning = true };
+
+
+            ComputeItems();
+
+
+            base.scroll();
+        }
+
 
         private int selectedStrategy = 0;
         public int SelectedStrategy
@@ -54,25 +87,11 @@ namespace ISDCompanion
 
         protected override void newExercise()
         {
-            var parameters = new PageReplacementParameters()
-            {
-                MemorySize = 4
-            };
+            AfterRender();
 
-            optimalSolution = new OptimalSolver().Solve(parameters).Steps;
-            optimalSolution.RemoveAt(0);
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
 
-            fifoSolution = new FIFOSolver().Solve(parameters).Steps;
-            fifoSolution.RemoveAt(0);
-
-            lruSolution = new LRUSolver().Solve(parameters).Steps;
-            lruSolution.RemoveAt(0);
-
-            clockSolution = new ClockSolver().Solve(parameters).Steps;
-            clockSolution.RemoveAt(0);
-
-            ComputeItems();
-            base.scroll();
+            //ComputeItems();
         }
 
         private void ComputeItems()
@@ -93,8 +112,8 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.Optimal);
-                        Table_Header = _TableGenService.GenerateTable_TableHeader();
-                        Table = _TableGenService.GenerateTable_EmptyTable();
+                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;
                 case 1:
@@ -102,8 +121,8 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.FIFO);
-                        Table_Header = _TableGenService.GenerateTable_TableHeader();
-                        Table = _TableGenService.GenerateTable_EmptyTable();
+                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;
                 case 2:
@@ -111,8 +130,8 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.LRU);
-                        Table_Header = _TableGenService.GenerateTable_TableHeader();
-                        Table = _TableGenService.GenerateTable_EmptyTable();
+                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;
                 case 3:
@@ -120,8 +139,8 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_SecondChanceClock_TableGenService(solution);
-                        Table_Header = _TableGenService.GenerateTable_TableHeader();
-                        Table = _TableGenService.GenerateTable_EmptyTable();
+                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;
             }
