@@ -93,8 +93,8 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.Optimal);
-                        Table_Header = _TableGenService.GenerateTable_TableHeader();
-                        Table = _TableGenService.GenerateTable_EmptyTable();
+                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;
                 case 1:
@@ -102,8 +102,8 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.FIFO);
-                        Table_Header = _TableGenService.GenerateTable_TableHeader();
-                        Table = _TableGenService.GenerateTable_EmptyTable();
+                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;
                 case 2:
@@ -111,8 +111,8 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.LRU);
-                        Table_Header = _TableGenService.GenerateTable_TableHeader();
-                        Table = _TableGenService.GenerateTable_EmptyTable();
+                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;
                 case 3:
@@ -120,8 +120,8 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_SecondChanceClock_TableGenService(solution);
-                        Table_Header = _TableGenService.GenerateTable_TableHeader();
-                        Table = _TableGenService.GenerateTable_EmptyTable();
+                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;
             }

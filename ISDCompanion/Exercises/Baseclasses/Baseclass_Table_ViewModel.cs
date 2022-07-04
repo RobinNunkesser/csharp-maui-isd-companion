@@ -11,34 +11,34 @@ namespace ISDCompanion
 {
     public abstract class Baseclass_Table_ViewModel : ExerciseViewModel
     {
-        public View Table
+        public View Exercise_Content
         {
             get
             {
-                return _Table;
+                return _Exercise_Content;
             }
             set
             {
-                _Table = value;
+                _Exercise_Content = value;
                 OnPropertyChanged();
             }
         }
-        private View _Table { get; set; }
+        private View _Exercise_Content { get; set; }
 
 
-        public View Table_Header
+        public View Exercise_Header
         {
             get
             {
-                return _Table_Header;
+                return _Exercise_Header;
             }
             set
             {
-                _Table_Header = value;
+                _Exercise_Header = value;
                 OnPropertyChanged();
             }
         }
-        private View _Table_Header { get; set; }
+        private View _Exercise_Header { get; set; }
 
 
         public String Info_Text
@@ -96,7 +96,7 @@ namespace ISDCompanion
 
         private void nextStep()
         {
-            Table = _TableGenService.GenerateTable_NextStep();
+            Exercise_Content = _TableGenService.GenerateTable_NextStep();
             Info_Text = _TableGenService.GetInfoText();
             Info_Button_Clickable = _TableGenService.InfoAvailable();
             scroll();
@@ -104,7 +104,7 @@ namespace ISDCompanion
 
         private void lastStep()
         {
-            Table = _TableGenService.GenerateTable_PreviousStep();
+            Exercise_Content = _TableGenService.GenerateTable_PreviousStep();
             Info_Text = _TableGenService.GetInfoText();
             Info_Button_Clickable = _TableGenService.InfoAvailable();
             scroll();
@@ -112,7 +112,7 @@ namespace ISDCompanion
 
         private void showCompleteSolution()
         {
-            Table = _TableGenService.GenerateTable_ShowSolution();
+            Exercise_Content = _TableGenService.GenerateTable_ShowSolution();
             scroll();
         }
 

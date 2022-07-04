@@ -8,11 +8,11 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal" Padding="25, 25, 0, 25">
-                <ContentView Content="{Binding Table_Header}">
+                <ContentView Content="{Binding Exercise_Header}">
 
                 </ContentView>
                 <ScrollView  Orientation="Horizontal" x:Name="scrollView">
-                    <ContentView Content="{Binding Table}">
+                    <ContentView Content="{Binding Exercise_Content}">
 
                     </ContentView>
                 </ScrollView>
