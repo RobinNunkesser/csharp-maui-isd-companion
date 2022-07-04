@@ -9,11 +9,11 @@
                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}" 
                          Padding="0, 0, 0, 10">
             <StackLayout Orientation="Horizontal" BackgroundColor="White">
-                <ContentView Padding="15, 15, 0, 15" Content="{Binding Table_Header}">
+                <ContentView Padding="15, 15, 0, 15" Content="{Binding Exercise_Header}">
 
                 </ContentView>
                 <ScrollView x:Name="scrollView" Orientation="Both">
-                    <ContentView Padding="0, 15, 15, 15" Content="{Binding Table}" >
+                    <ContentView Padding="0, 15, 15, 15" Content="{Binding Exervise_Content}" >
                     </ContentView>
                 </ScrollView>
             </StackLayout>
