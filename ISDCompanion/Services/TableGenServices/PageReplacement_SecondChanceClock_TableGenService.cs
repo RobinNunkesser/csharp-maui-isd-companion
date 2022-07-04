@@ -150,6 +150,7 @@ namespace ISDCompanion.Services
                 _tableGen.AddCenteredElement(12, _index, label);
 
                 _index++;
+                currentColumnOfInterest = _index;
             }
 
             return _tableGen.Grid;
@@ -175,6 +176,9 @@ namespace ISDCompanion.Services
 
                 //Zeiger
                 _tableGen.RemoveElements(12, _index);
+
+
+                currentColumnOfInterest = _index;
 
             }
             return _tableGen.Grid;
