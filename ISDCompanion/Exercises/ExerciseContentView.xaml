@@ -13,7 +13,7 @@
 
                 </ContentView>
                 <ScrollView x:Name="scrollView" Orientation="Both">
-                    <ContentView Padding="0, 15, 15, 15" Content="{Binding Exervise_Content}" >
+                    <ContentView Padding="0, 15, 15, 15" Content="{Binding Exercise_Content}" >
                     </ContentView>
                 </ScrollView>
             </StackLayout>
