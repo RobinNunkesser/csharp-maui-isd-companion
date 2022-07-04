@@ -52,7 +52,7 @@ namespace ISDCompanion
             }
         }
 
-        public Grid Table
+        public Grid ExerciseContent
         {
             get
             {
@@ -83,7 +83,7 @@ namespace ISDCompanion
             //EDFSolution = string.Join("", new EDFSolver().Solve(parameters).Processes);
             //RMSSolution = string.Join("", new RMSSolver().Solve(parameters).Processes);
 
-            Table = TableGenService.GenerateTable_RealtimeScheduling(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
+            ExerciseContent = TableGenService.GenerateTable_RealtimeScheduling(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
 
         }
 

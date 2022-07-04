@@ -19,7 +19,8 @@ namespace ISDCompanion
 
             InitializeComponent();
             
-            MainPage = new StatusPage();
+            //MainPage = new StatusPage();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

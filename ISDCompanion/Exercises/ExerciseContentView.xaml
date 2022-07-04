@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ISDCompanion.Exercises.ExerciseContentView">
+    <RelativeLayout Padding="10, 20, 10, 15" >
+        <StackLayout RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}" 
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}" 
+                         Padding="0, 0, 0, 10">
+            <StackLayout BackgroundColor="White">
+
+                <ScrollView Orientation="Both">
+                    <ContentView Padding="15" Content="{Binding ExerciseContent}" >
+                    </ContentView>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>
+
+
+        <Grid Padding="10"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}" 
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" 
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.10}"   
+                         BackgroundColor="Transparent"
+                         >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"></ColumnDefinition>
+                <ColumnDefinition Width="20*"></ColumnDefinition>
+                <ColumnDefinition Width="20*"></ColumnDefinition>
+                <ColumnDefinition Width="20*"></ColumnDefinition>
+                <ColumnDefinition Width="20*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" HorizontalOptions="Center">
+
+                <RelativeLayout>
+                    <Button 
+                        Text="&#x002b;"
+                            TextColor="#1d8fcc"
+                            FontFamily="ACC"
+                            FontSize="Medium"
+                            BorderColor="#959595"
+                            CornerRadius="1000"
+                            BorderWidth="0.5"
+                            WidthRequest="45"
+                            HeightRequest="45"
+                            BackgroundColor="White"
+                         VerticalOptions="CenterAndExpand"
+                            >
+                    </Button>
+                </RelativeLayout>
+            </Grid>
+
+            <Grid Grid.Column="1"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                <RelativeLayout>
+                    <Button 
+                        Text="&#x2039;"
+                            TextColor="#4cc2ba"
+                            FontFamily="ACC"
+                            FontSize="Large"
+                            BorderColor="#959595"
+                            CornerRadius="1000"
+                            BorderWidth="0.5"
+                            WidthRequest="60"
+                            HeightRequest="60"
+                            BackgroundColor="White"
+                         VerticalOptions="CenterAndExpand"
+                            >
+                    </Button>
+                </RelativeLayout>
+            </Grid>
+
+            <Grid Grid.Column="2" HorizontalOptions="Center">
+                <RelativeLayout>
+                    <Button 
+                        Text="&#x003f;"
+                            TextColor="#5875d6"
+                            FontFamily="ACC"
+                            FontSize="Medium"
+                            BorderColor="#959595"
+                            CornerRadius="1000"
+                            BorderWidth="0.5"
+                            WidthRequest="45"
+                            HeightRequest="45"
+                            BackgroundColor="White"
+                         VerticalOptions="CenterAndExpand"
+                            >
+                    </Button>
+                </RelativeLayout>
+            </Grid>
+
+            <Grid Grid.Column="3" HorizontalOptions="Center">
+
+                <RelativeLayout>
+                    <Button 
+                        Text="&#x203a;"
+                            TextColor="#4cc2ba"
+                            FontFamily="ACC"
+                            FontSize="Large"
+                            BorderColor="#959595"
+                            CornerRadius="1000"
+                            BorderWidth="0.5"
+                            WidthRequest="60"
+                            HeightRequest="60"
+                            BackgroundColor="White"
+                         VerticalOptions="CenterAndExpand"
+                            >
+                    </Button>
+                </RelativeLayout>
+            </Grid>
+
+            <Grid Grid.Column="4" HorizontalOptions="CenterAndExpand">
+
+                <RelativeLayout>
+                    <Button 
+                        Text="&#x00bb;"
+                            TextColor="#119191"
+                            FontFamily="ACC"
+                            FontSize="Medium"
+                            BorderColor="#959595"
+                            CornerRadius="1000"
+                            BorderWidth="0.5"
+                            WidthRequest="45"
+                            HeightRequest="45"
+                            BackgroundColor="White"
+                         VerticalOptions="CenterAndExpand"
+                            >
+                    </Button>
+                </RelativeLayout>
+            </Grid>
+        </Grid>
+    </RelativeLayout>
+</ContentView>
