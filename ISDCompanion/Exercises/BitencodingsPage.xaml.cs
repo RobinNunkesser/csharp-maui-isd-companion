@@ -13,11 +13,15 @@ namespace ISDCompanion
             BindingContext = new BitencodingsViewModel();
         }
 
+       
+
         private void Button_Clicked(object sender, EventArgs e)
         {
             SwitchNRZ.IsToggled = false;
             SwitchNRZI.IsToggled = false;
             SwitchMLT3.IsToggled = false;
         }
+
+
     }
 }

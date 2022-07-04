@@ -31,6 +31,7 @@
     <None Remove="Resources\Fonts\FA-Regular-400.otf" />
     <None Remove="Resources\Fonts\FA-Solid-900.otf" />
     <None Remove="Resources\Fonts\TitilliumWeb-Regular.ttf" />
+    <None Remove="Resources\Images\reply48.png" />
     <None Remove="Schedule\" />
     <None Remove="Exercises\" />
     <None Remove="Settings\" />
@@ -79,7 +80,6 @@
     <Folder Include="Mensa\" />
     <Folder Include="Profs\" />
     <Folder Include="Quiz\" />
-    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Licenses\xamarin_essentials.html" />
@@ -100,10 +100,20 @@
     <EmbeddedResource Include="Resources\Fonts\FA-Regular-400.otf" />
     <EmbeddedResource Include="Resources\Fonts\FA-Solid-900.otf" />
     <EmbeddedResource Include="Resources\Fonts\TitilliumWeb-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Images\reply48.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Exercises\ExerciseBasicLayoutPage.xaml.cs">
       <DependentUpon>ExerciseBasicLayoutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Welcome\ModulePage.xaml.cs">
+      <DependentUpon>ModulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Welcome\SemesterPage.xaml.cs">
+      <DependentUpon>SemesterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Welcome\StatusPage.xaml.cs">
+      <DependentUpon>StatusPage.xaml</DependentUpon>
     </Compile>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
       <DependentUpon>LicensesPage.xaml</DependentUpon>
@@ -119,6 +129,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Exercises\ExerciseContentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>

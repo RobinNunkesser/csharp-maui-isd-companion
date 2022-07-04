@@ -11,6 +11,19 @@ namespace ISDCompanion
         {
             InitializeComponent();
             BindingContext = new ExerciseBasicLayoutViewModel();
+            SizeChanged += OnSizeChanged;
+        }
+
+        private void OnSizeChanged(object sender, EventArgs e)
+        {
+            if (Width > Height)
+            {
+                Shell.SetTabBarIsVisible(this, false);
+            }
+            else
+            {
+                Shell.SetTabBarIsVisible(this, true);
+            }
         }
     }
 }

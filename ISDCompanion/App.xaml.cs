@@ -19,11 +19,8 @@ namespace ISDCompanion
 
             InitializeComponent();
             
+            //MainPage = new StatusPage();
             MainPage = new AppShell();
-
-
-            var nav = App.Current.MainPage as Xamarin.Forms.Shell;
-            nav.BackgroundColor = Color.Black;
         }
 
         protected override void OnStart()
