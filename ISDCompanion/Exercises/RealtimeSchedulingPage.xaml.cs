@@ -24,16 +24,19 @@ namespace ISDCompanion
 
         private void ScrollToPosition(int x, int y, bool isAnimated)
         {
-            var animation = new Animation(
-                callback: x => scrollView.ScrollToAsync(x, y, animated: false),
-                start: scrollView.ScrollX,
-                end: x);
+            //object scrollView = FindByName("scrollView");
+            //ScrollView scrollView2 = (ScrollView)scrollView;
 
-            animation.Commit(
-                owner: this,
-                name: "Scroll",
-                length: 300,
-                easing: Easing.SinInOut);
+            //var animation = new Animation(
+            //    callback: x => scrollView2.ScrollToAsync(x, y, animated: false),
+            //    start: scrollView2.ScrollX,
+            //    end: x);
+
+            //animation.Commit(
+            //    owner: this,
+            //    name: "Scroll",
+            //    length: 300,
+            //    easing: Easing.SinInOut);
         }
     }
 }

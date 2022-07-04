@@ -4,9 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:isdcompanion="clr-namespace:ISDCompanion" x:DataType="isdcompanion:RealtimeSchedulingViewModel"
     x:Class="ISDCompanion.RealtimeSchedulingPage"
-    Title="{xct:Translate RealtimeScheduling}">
+    Title="{xct:Translate RealtimeScheduling}"
+    xmlns:Exercise="clr-namespace:ISDCompanion.Exercises">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
+        <!--<StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal" Padding="25, 25, 0, 25">
                 <ContentView Content="{Binding Table_Header}">
 
@@ -23,49 +24,7 @@
             <Button Text="Show Solution" Command="{Binding ButtonCompleteSolution}"/>
             <Button Text="Info" Command="{Binding ButtonInfo}" IsEnabled="{Binding Info_Button_Clickable}"/>
             <Button Text="New Exercise" Command="{Binding ButtonNewExercise}"/>
-        </StackLayout>
-        
-
-
-        <!--<StackLayout>
-            <Label Text="{Binding Requests}" VerticalOptions="Center">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="CourierNewPSMT" />
-                            <On Platform="Android" Value="monospace" />
-                            <On Platform="UWP" Value="Courier New" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-             <StackLayout Orientation="Horizontal">
-                <Label Text="{xct:Translate ShowSolution}" VerticalOptions="Center"/>
-                <Switch x:Name="Switch" IsToggled="false" HorizontalOptions="EndAndExpand"/>
-            </StackLayout>
-            <Label Text="RMS" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}"/>
-            <Label Text="{Binding RMSSolution}" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="CourierNewPSMT" />
-                            <On Platform="Android" Value="monospace" />
-                            <On Platform="UWP" Value="Courier New" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-            <Label Text="EDF" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}"/>
-            <Label Text="{Binding EDFSolution}" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="CourierNewPSMT" />
-                            <On Platform="Android" Value="monospace" />
-                            <On Platform="UWP" Value="Courier New" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-            <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
         </StackLayout>-->
+        <Exercise:ExerciseContentView></Exercise:ExerciseContentView>
     </ContentPage.Content>
 </ContentPage>

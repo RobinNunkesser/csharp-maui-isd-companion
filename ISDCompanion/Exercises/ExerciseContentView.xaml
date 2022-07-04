@@ -3,15 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ISDCompanion.Exercises.ExerciseContentView">
     <RelativeLayout Padding="10, 20, 10, 15" >
-        <StackLayout RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+        <StackLayout Orientation="Vertical" RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
                          RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}" 
                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}" 
                          Padding="0, 0, 0, 10">
-            <StackLayout BackgroundColor="White">
+            <StackLayout Orientation="Horizontal" BackgroundColor="White">
+                <ContentView Padding="15, 15, 0, 15" Content="{Binding Table_Header}">
 
-                <ScrollView Orientation="Both">
-                    <ContentView Padding="15" Content="{Binding ExerciseContent}" >
+                </ContentView>
+                <ScrollView x:Name="scrollView" Orientation="Both">
+                    <ContentView Padding="0, 15, 15, 15" Content="{Binding Table}" >
                     </ContentView>
                 </ScrollView>
             </StackLayout>
@@ -41,7 +43,7 @@
             <Grid Grid.Column="0" HorizontalOptions="Center">
 
                 <RelativeLayout>
-                    <Button 
+                    <Button Command="{Binding ButtonNewExercise}"
                         Text="&#x002b;"
                             TextColor="#1d8fcc"
                             FontFamily="ACC"
@@ -60,7 +62,7 @@
 
             <Grid Grid.Column="1"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                 <RelativeLayout>
-                    <Button 
+                    <Button Command="{Binding ButtonLastStep}"
                         Text="&#x2039;"
                             TextColor="#4cc2ba"
                             FontFamily="ACC"
@@ -79,7 +81,7 @@
 
             <Grid Grid.Column="2" HorizontalOptions="Center">
                 <RelativeLayout>
-                    <Button 
+                    <Button Command="{Binding ButtonInfo}" IsEnabled="{Binding Info_Button_Clickable}"
                         Text="&#x003f;"
                             TextColor="#5875d6"
                             FontFamily="ACC"
@@ -99,7 +101,7 @@
             <Grid Grid.Column="3" HorizontalOptions="Center">
 
                 <RelativeLayout>
-                    <Button 
+                    <Button Command="{Binding ButtonNextStep}"
                         Text="&#x203a;"
                             TextColor="#4cc2ba"
                             FontFamily="ACC"
@@ -119,7 +121,7 @@
             <Grid Grid.Column="4" HorizontalOptions="CenterAndExpand">
 
                 <RelativeLayout>
-                    <Button 
+                    <Button Command="{Binding ButtonCompleteSolution}"
                         Text="&#x00bb;"
                             TextColor="#119191"
                             FontFamily="ACC"
