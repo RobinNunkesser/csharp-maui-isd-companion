@@ -50,9 +50,10 @@ namespace ISDCompanion.Services
             calculation = _solution.Calculation.Split(new string[] {"\n\n"}, StringSplitOptions.None);
             calculation_check = _solution.Check.Split(new string[] { "\n\n" }, StringSplitOptions.None);
 
+
             request = Convert.ToString(_parameters.Term, 2).ToCharArray();
 
-            _infoTextService = new CRC_InfoTextService(parameters, solution);
+            _infoTextService = new CRC_InfoTextService(calculation, calculation_check);
             InfoTexts = _infoTextService.GetInfoTexts();
             _tableColumnCount = calculation[0].Length + calculation_check[0].Length + 3;
 
@@ -216,11 +217,11 @@ namespace ISDCompanion.Services
         {
             if (_index == 0)
             {
-                return InfoTexts[0];
+                return InfoTexts[_index];
             }
             else
             {
-                return InfoTexts[0];
+                return InfoTexts[_index - 1];
             }
         }
 
