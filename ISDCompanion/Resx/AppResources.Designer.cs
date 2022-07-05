@@ -775,6 +775,60 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Calculation.
+        /// </summary>
+        internal static string TableLabel_CRC_Calculation {
+            get {
+                return ResourceManager.GetString("TableLabel_CRC_Calculation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check.
+        /// </summary>
+        internal static string TableLabel_CRC_Check {
+            get {
+                return ResourceManager.GetString("TableLabel_CRC_Check", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distance.
+        /// </summary>
+        internal static string TableLabel_PageReplacement_Distance {
+            get {
+                return ResourceManager.GetString("TableLabel_PageReplacement_Distance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pointer.
+        /// </summary>
+        internal static string TableLabel_PageReplacement_Pointer {
+            get {
+                return ResourceManager.GetString("TableLabel_PageReplacement_Pointer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reference.
+        /// </summary>
+        internal static string TableLabel_PageReplacement_Reference {
+            get {
+                return ResourceManager.GetString("TableLabel_PageReplacement_Reference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slot.
+        /// </summary>
+        internal static string TableLabel_PageReplacement_Slot {
+            get {
+                return ResourceManager.GetString("TableLabel_PageReplacement_Slot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wrong.
         /// </summary>
         internal static string Wrong {

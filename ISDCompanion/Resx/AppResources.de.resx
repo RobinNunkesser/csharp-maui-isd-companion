@@ -425,4 +425,22 @@ Der Prozess kann von einem Prozess mit mittlerer oder hoher Priorität unterbroc
 
 Er wird gestartet, da kein Prozess mit höherer Priorität ansteht. \n\nDer Prozess kann einen Prozess mit niedriger Priorität unterbrechen und von einem Prozess mit hoher Priorität unterbrochen werden.</value>
   </data>
+  <data name="TableLabel_CRC_Calculation" xml:space="preserve">
+    <value>Berechnung</value>
+  </data>
+  <data name="TableLabel_CRC_Check" xml:space="preserve">
+    <value>Prüfung</value>
+  </data>
+  <data name="TableLabel_PageReplacement_Distance" xml:space="preserve">
+    <value>Abstand</value>
+  </data>
+  <data name="TableLabel_PageReplacement_Pointer" xml:space="preserve">
+    <value>Zeiger</value>
+  </data>
+  <data name="TableLabel_PageReplacement_Reference" xml:space="preserve">
+    <value>Referenz</value>
+  </data>
+  <data name="TableLabel_PageReplacement_Slot" xml:space="preserve">
+    <value>Kachel</value>
+  </data>
 </root>

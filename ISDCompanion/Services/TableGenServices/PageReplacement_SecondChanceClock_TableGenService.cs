@@ -1,4 +1,5 @@
-﻿using ISDCompanion.Services.InfoTextServices;
+﻿using ISDCompanion.Resx;
+using ISDCompanion.Services.InfoTextServices;
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
@@ -54,16 +55,16 @@ namespace ISDCompanion.Services
 
             List<Label> labels = new List<Label>();
 
-            labels.Add(new Label() { Text = "Ref." });
-            labels.Add(new Label() { Text = "Kachel 1" });
-            labels.Add(new Label() { Text = "Kachel 2" });
-            labels.Add(new Label() { Text = "Kachel 3" });
-            labels.Add(new Label() { Text = "Kachel 4" });
-            labels.Add(new Label() { Text = "Referenz 1" });
-            labels.Add(new Label() { Text = "Referenz 2" });
-            labels.Add(new Label() { Text = "Referenz 3" });
-            labels.Add(new Label() { Text = "Referenz 4" });
-            labels.Add(new Label() { Text = "Zeiger" });
+            labels.Add(new Label() { Text = AppResources.TableLabel_PageReplacement_Reference });
+            labels.Add(new Label() { Text = AppResources.TableLabel_PageReplacement_Slot + " 1" });
+            labels.Add(new Label() { Text = AppResources.TableLabel_PageReplacement_Slot + " 2" });
+            labels.Add(new Label() { Text = AppResources.TableLabel_PageReplacement_Slot + " 3" });
+            labels.Add(new Label() { Text = AppResources.TableLabel_PageReplacement_Slot + " 4" });
+            labels.Add(new Label() { Text = AppResources.TableLabel_PageReplacement_Reference + " 1" });
+            labels.Add(new Label() { Text = AppResources.TableLabel_PageReplacement_Reference + " 2" });
+            labels.Add(new Label() { Text = AppResources.TableLabel_PageReplacement_Reference + " 3" });
+            labels.Add(new Label() { Text = AppResources.TableLabel_PageReplacement_Reference + " 4" });
+            labels.Add(new Label() { Text = AppResources.TableLabel_PageReplacement_Pointer });
 
             tableGen_TableHeader.AddElement(0, 0, labels[0]);
 

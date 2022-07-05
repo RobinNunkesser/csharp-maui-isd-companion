@@ -1,4 +1,5 @@
-﻿using ISDCompanion.Services.InfoTextServices;
+﻿using ISDCompanion.Resx;
+using ISDCompanion.Services.InfoTextServices;
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Adapters.Exam.OperatingSystems;
@@ -67,12 +68,12 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_EmptyTable()
         {
-            Label label = new Label() { Text = " Berechnung", LineBreakMode = LineBreakMode.NoWrap };
+            Label label = new Label() { Text = AppResources.TableLabel_CRC_Calculation, LineBreakMode = LineBreakMode.NoWrap };
             tableGen.AddElement(0, 0, label, 10, 1);
 
             int checkStartColumn = _tableColumnCount / 2 + 2;
 
-            label = new Label() { Text = " Prüfung", LineBreakMode = LineBreakMode.NoWrap };
+            label = new Label() { Text = AppResources.TableLabel_CRC_Check, LineBreakMode = LineBreakMode.NoWrap };
             tableGen.AddElement(0, checkStartColumn, label, 10, 1);
 
             char[] request = calculation[0].ToCharArray();

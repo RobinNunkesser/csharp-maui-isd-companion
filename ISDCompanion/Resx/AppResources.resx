@@ -423,4 +423,22 @@ It is executed, since no other process with a higher priority is ready.
 
 The process can interrupt other processes with low priority and be interrupted by processes with high priority.</value>
   </data>
+  <data name="TableLabel_CRC_Calculation" xml:space="preserve">
+    <value>Calculation</value>
+  </data>
+  <data name="TableLabel_CRC_Check" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="TableLabel_PageReplacement_Distance" xml:space="preserve">
+    <value>Distance</value>
+  </data>
+  <data name="TableLabel_PageReplacement_Pointer" xml:space="preserve">
+    <value>Pointer</value>
+  </data>
+  <data name="TableLabel_PageReplacement_Reference" xml:space="preserve">
+    <value>Reference</value>
+  </data>
+  <data name="TableLabel_PageReplacement_Slot" xml:space="preserve">
+    <value>Slot</value>
+  </data>
 </root>
