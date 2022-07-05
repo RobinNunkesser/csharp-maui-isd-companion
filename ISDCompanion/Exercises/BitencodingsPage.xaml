@@ -2,12 +2,15 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:Exercise="clr-namespace:ISDCompanion.Exercises"
     x:Class="ISDCompanion.BitencodingsPage"    
     Title="{xct:Translate Bitencodings}">
     <ContentPage.Content>
 
-        <StackLayout Orientation="Vertical">
+
+        <Exercise:ExerciseContentView x:Name="Content"></Exercise:ExerciseContentView>
+
+        <!--<StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal" Padding="25, 25, 0, 25">
                 <ContentView Content="{Binding Exercise_Header}">
 
@@ -24,7 +27,7 @@
             <Button Text="Show Solution" Command="{Binding ButtonCompleteSolution}"/>
             <Button Text="Info" Command="{Binding ButtonInfo}" IsEnabled="{Binding Info_Button_Clickable}"/>
             <Button Text="New Exercise" Command="{Binding ButtonNewExercise}"/>
-        </StackLayout>
+        </StackLayout>-->
         <!--<StackLayout VerticalOptions="FillAndExpand">
             <Grid>
                 <Grid.RowDefinitions>

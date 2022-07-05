@@ -20,20 +20,7 @@ namespace ISDCompanion
             var vm = new BitencodingsViewModel();
             BindingContext = vm;
             ViewModelAfterRender = vm;
-        }
-
-        private void ScrollToPosition(int x, int y, bool isAnimated)
-        {
-            var animation = new Animation(
-                callback: y => scrollView.ScrollToAsync(x, y, animated: false),
-                start: scrollView.ScrollY,
-                end: y);
-
-            animation.Commit(
-                owner: this,
-                name: "Scroll",
-                length: 300,
-                easing: Easing.SinInOut);
+            vm.ScrollToPosition += (int x, int y, bool isAnimated) => { Content.ScrollToPosition(x, y, isAnimated); };
         }
     }
 }
