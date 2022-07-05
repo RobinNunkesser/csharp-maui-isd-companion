@@ -126,6 +126,14 @@ namespace ISDCompanion.Services
                 for (int j = 0; j < calculation[0].Length; j++)
                 {
                     tableGen.AddCenteredElement(_index+2, j, new Label() { Text = solutions[j].ToString() });
+                    if(_index % 2 == 0)
+                    {
+                        if(solutions[j] != ' ')
+                        {
+                            tableGen.SetBorderForCell(_index+2, j, TableGen.Border.BorderPosition.Bot);
+                        }
+                    }
+
                 }
                 _index++;
 
@@ -144,6 +152,13 @@ namespace ISDCompanion.Services
                 for (int j = 0; j < calculation[0].Length; j++)
                 {
                     tableGen.AddCenteredElement(_index - calculation.Length + 2, j + calculation[0].Length + 3, new Label() { Text = solutions[j].ToString() });
+                    if ((_index + 1) % 2 == 0)
+                    {
+                        if (solutions[j] != ' ')
+                        {
+                            tableGen.SetBorderForCell(_index - calculation.Length + 2, j + calculation[0].Length + 3, TableGen.Border.BorderPosition.Bot);
+                        }
+                    }
                 }
                 _index++;
 
@@ -158,9 +173,11 @@ namespace ISDCompanion.Services
         {            
             if (_index >= calculation.Length && _index <= calculation.Length + calculation_check.Length)
             {
+
                 for (int j = 0; j < calculation[0].Length; j++)
                 {
                     tableGen.RemoveElements(_index - calculation.Length + 1, j + calculation[0].Length + 3);
+                    tableGen.RemoveBorder(_index - calculation.Length + 1, j + calculation[0].Length + 3, TableGen.Border.BorderPosition.Bot);
                 }
                 _index--;
 
@@ -172,6 +189,7 @@ namespace ISDCompanion.Services
                 for (int j = 0; j < calculation[0].Length; j++)
                 {
                     tableGen.RemoveElements(_index + 1, j);
+                    tableGen.RemoveBorder(_index + 1, j, TableGen.Border.BorderPosition.Bot);
                 }
                 _index--;
 
