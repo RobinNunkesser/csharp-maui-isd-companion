@@ -74,7 +74,6 @@
     <Folder Include="Exercises\s\" />
     <Folder Include="Schedule\" />
     <Folder Include="Services\MindMapServices\" />
-    <Folder Include="Settings\" />
     <Folder Include="Licenses\" />
     <Folder Include="Resx\" />
     <Folder Include="Mensa\" />

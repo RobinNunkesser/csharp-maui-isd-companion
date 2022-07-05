@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DevExpress.XamarinForms.Scheduler;
+using ISDCompanion.Enums;
 using Italbytz.Ports.Meal;
 using Xamarin.Essentials;
 
@@ -11,9 +12,15 @@ namespace ISDCompanion
         private static readonly int StatusDefault = 0;
         private static readonly int SemesterDefault = 0;
         private static readonly int SpecializationDefault = 0;
+        private static readonly int WelcomeStatusDefault = 0;
         private static readonly int AllergensDefault = 0b11111111111111;
         private static readonly int AdditivesDefault = 0b111111111111111;
 
+        public static int WelcomeStatus
+        {
+            get => Preferences.Get(nameof(WelcomeStatus), WelcomeStatusDefault);
+            set => Preferences.Set(nameof(WelcomeStatus), value);
+        }
         public static int Status
         {
             get => Preferences.Get(nameof(Status), StatusDefault);

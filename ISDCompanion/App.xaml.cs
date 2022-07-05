@@ -18,9 +18,19 @@ namespace ISDCompanion
             LocalizationResourceManager.Current.Init(AppResources.ResourceManager);
 
             InitializeComponent();
-            
-            //MainPage = new StatusPage();
-            MainPage = new AppShell();
+            InitializeMainPage();
+        }
+
+        private void InitializeMainPage()
+        {
+            if (Settings.WelcomeStatus == (int)Enums.WelcomeStatusType.Finished)
+            {
+                MainPage = new AppShell();
+            }
+            else
+            {
+                MainPage = new StatusPage();
+            }
         }
 
         protected override void OnStart()

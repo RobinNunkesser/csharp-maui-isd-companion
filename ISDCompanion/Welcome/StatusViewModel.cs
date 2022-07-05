@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using ISDCompanion.Enums;
 using ISDCompanion.Helpers;
 using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
@@ -39,6 +40,8 @@ namespace ISDCompanion
         private void OnSelectedGuest(object obj)
         {
             //Eintrag in DB speichern => ID 1
+            Settings.Status = (int)StatusType.Guest;
+            Settings.WelcomeStatus = (int)WelcomeStatusType.Finished;
 
             Application.Current.MainPage = new AppShell();
             TheTheme.SetTheme();
