@@ -108,8 +108,12 @@ namespace ISDCompanion.Services
             if (_index < calculation.Length - 1)
             {
                 char[] solutions = calculation[_index + 1].ToCharArray();
-                solutions = cleanUpCharArray(solutions);
-                
+
+                if(_index != calculation.Length - 2)
+                {
+                    solutions = cleanUpCharArray(solutions);
+                }
+
 
                 for (int j = 0; j < calculation[0].Length; j++)
                 {
@@ -124,7 +128,7 @@ namespace ISDCompanion.Services
             {
                 char[] solutions = calculation_check[_index - calculation.Length + 1].ToCharArray();
                 
-                if(_index != calculation.Length - 1)
+                if((_index != (calculation.Length - 1)) && (_index != (calculation.Length + calculation_check.Length) - 2))
                 {
                     solutions = cleanUpCharArray(solutions);
                 }
