@@ -6,7 +6,26 @@
     x:Class="ISDCompanion.BitencodingsPage"    
     Title="{xct:Translate Bitencodings}">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand">
+
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal" Padding="25, 25, 0, 25">
+                <ContentView Content="{Binding Exercise_Header}">
+
+                </ContentView>
+                <ScrollView  Orientation="Horizontal" x:Name="scrollView">
+                    <ContentView Content="{Binding Exercise_Content}">
+
+                    </ContentView>
+                </ScrollView>
+
+            </StackLayout>
+            <Button Text="Next" Command="{Binding ButtonNextStep}"/>
+            <Button Text="Back" Command="{Binding ButtonLastStep}"/>
+            <Button Text="Show Solution" Command="{Binding ButtonCompleteSolution}"/>
+            <Button Text="Info" Command="{Binding ButtonInfo}" IsEnabled="{Binding Info_Button_Clickable}"/>
+            <Button Text="New Exercise" Command="{Binding ButtonNewExercise}"/>
+        </StackLayout>
+        <!--<StackLayout VerticalOptions="FillAndExpand">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*"/>
@@ -66,6 +85,6 @@
                 </Label>
             </Grid>
             <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>
