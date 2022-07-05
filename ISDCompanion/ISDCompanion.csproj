@@ -108,6 +108,9 @@
     <Compile Update="Welcome\ModulePage.xaml.cs">
       <DependentUpon>ModulePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Welcome\MainEmphasisPage.xaml.cs">
+      <DependentUpon>MainEmphasisPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Welcome\SemesterPage.xaml.cs">
       <DependentUpon>SemesterPage.xaml</DependentUpon>
     </Compile>

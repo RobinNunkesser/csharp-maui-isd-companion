@@ -58,10 +58,10 @@ namespace ISDCompanion
             {
                 switch (Semester)
                 {
-                    case 0: return AppointmentHelper.appointmentsSem1;
-                    case 1: return AppointmentHelper.appointmentsSem2;
-                    case 2: return AppointmentHelper.appointmentsSem3;
-                    case 3:
+                    case 1: return AppointmentHelper.appointmentsSem1;
+                    case 2: return AppointmentHelper.appointmentsSem2;
+                    case 3: return AppointmentHelper.appointmentsSem3;
+                    case 4:
                         switch (Specialization)
                         {
                             case 0: return AppointmentHelper.appointmentsSem4MoCo;
@@ -69,7 +69,7 @@ namespace ISDCompanion
                             case 2: return AppointmentHelper.appointmentsSem4CySe;
                             default: return null;
                         }
-                    case 5:
+                    case 6:
                         switch (Specialization)
                         {
                             case 0: return AppointmentHelper.appointmentsSem6MoCo;
@@ -77,7 +77,7 @@ namespace ISDCompanion
                             case 2: return AppointmentHelper.appointmentsSem6CySe;
                             default: return null;
                         }
-                    case 6:
+                    case 7:
                         switch (Specialization)
                         {
                             case 0: return AppointmentHelper.appointmentsSem7MoCo;

@@ -3,7 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    x:Class="ISDCompanion.SemesterPage"
+    x:Class="ISDCompanion.MainEmphasisPage"
     xmlns:yummi="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:local="clr-namespace:ISDCompanion.Helpers"
     BackgroundColor="White"
@@ -28,11 +28,9 @@
                 <StackLayout HorizontalOptions="Center" BackgroundColor="Transparent">
                     
                     <Label Opacity="0.8" Margin="20" TextColor="White" FontSize="Medium" HorizontalTextAlignment="Center">
-                        Was ist dein aktuelles Semester an der HSHL?
+                        Hast du bereits einen Schwerpunkt gewählt?
                     </Label>
-                    <Slider Maximum="24" Minimum="1"  Opacity="0.8" BackgroundColor="Transparent" xxxxxxxxxxxxxxxxxxxxxxxxValue="{Binding Value, Mode=TwoWay}" Margin="80, 0, 80 ,0"></Slider>
-                    <Label Opacity="0.8" Margin="0, -8, 0, 0" TextColor="White" FontSize="Micro" HorizontalTextAlignment="Center">1</Label>
-                    <Button Opacity="0.8" TextColor="White" BorderWidth="2" BorderColor="White" BackgroundColor="Transparent" Command="{Binding SelectedSemesterCommand}" Margin="80, 25, 80 ,0" Text="Bestätigen" CornerRadius="50"></Button>
+                    <Button Opacity="0.8" TextColor="White" BorderWidth="2" BorderColor="White" BackgroundColor="Transparent" Command="{Binding SelectedMainEmphasisCommand}" Margin="80, 0, 80 ,0" Text="Bediensteter" CornerRadius="50"></Button>
                     <Label Opacity="0.8" Margin="0, 10, 0, 0" TextColor="White" FontSize="Micro" HorizontalTextAlignment="Center">
                         Du kannst die Einstellung auch nachher ändern!
                     </Label>

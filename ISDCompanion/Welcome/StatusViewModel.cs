@@ -41,6 +41,7 @@ namespace ISDCompanion
         {
             //Eintrag in DB speichern => ID 1
             Settings.Status = (int)StatusType.Guest;
+            Settings.Semester = 1;
             Settings.WelcomeStatus = (int)WelcomeStatusType.Finished;
 
             Application.Current.MainPage = new AppShell();
@@ -53,12 +54,17 @@ namespace ISDCompanion
         private void OnSelectedStudent(object obj)
         {
             //Eintrag in DB speichern
+            Settings.Status = (int)StatusType.Student;
+
             Application.Current.MainPage = new SemesterPage();
         }
 
         private void OnSelectedServant(object obj)
         {
             //Eintrag in DB speichern  => ID 99
+            Settings.Status = (int)StatusType.Emmployee;
+            Settings.Semester = 5;
+            Settings.WelcomeStatus = (int)WelcomeStatusType.Finished;
 
             Application.Current.MainPage = new AppShell();
             TheTheme.SetTheme();

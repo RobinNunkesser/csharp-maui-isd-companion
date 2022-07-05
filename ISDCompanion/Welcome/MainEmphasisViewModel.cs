@@ -9,9 +9,9 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class SemesterViewModel
+    public class MainEmphasisViewModel
     {
-        public Command SelectedSemesterCommand { get; }
+        public Command SelectedMainEmphasisCommand { get; }
 
 
         private string requests;
@@ -27,15 +27,15 @@ namespace ISDCompanion
             }
         }
 
-        public SemesterViewModel()
+        public MainEmphasisViewModel()
         {
-            SelectedSemesterCommand = new Command(OnSelectedSemester);
+            SelectedMainEmphasisCommand = new Command(OnSelectedMainEmphasis);
         }
 
-        private void OnSelectedSemester(object obj)
+        private void OnSelectedMainEmphasis(object obj)
         {
             //Eintrag in DB speichern
-            Application.Current.MainPage = new MainEmphasisPage();
+            Application.Current.MainPage = new ModulePage();
         }
 
     }
