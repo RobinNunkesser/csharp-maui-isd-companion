@@ -55,33 +55,30 @@ namespace ISDCompanion.Services
             InfoTexts = _infoTextService.GetInfoTexts();
             _tableColumnCount = calculation[0].Length + calculation_check[0].Length + 3;
 
-            tableGen = new TableGen.TableGen(_tableColumnCount, calculation.Length, 25, 25);
+            tableGen = new TableGen.TableGen(_tableColumnCount, calculation.Length + 1, 25, 25);
             _index = 0;
             currentRowOfInterest = 0;
         }
 
         public Grid GenerateTable_TableHeader()
         {
-            int tableWidth = _tableColumnCount * _cellWidth / 2;
-            TableGen.TableGen tableGen_TableHeader = new TableGen.TableGen(2, 1, tableWidth, 80);
-
-            List<Label> labels = new List<Label>();
-
-            labels.Add(new Label() { Text = "Berechnung" });
-            labels.Add(new Label() { Text = "Prüfung" });
-
-            tableGen_TableHeader.AddElement(0, 0, labels[0]);
-            tableGen_TableHeader.AddElement(1, 0, labels[1]);
-
-            return tableGen_TableHeader.Grid;
+            return null;
         }
 
         public Grid GenerateTable_EmptyTable()
         {
+            Label label = new Label() { Text = " Berechnung", LineBreakMode = LineBreakMode.NoWrap };
+            tableGen.AddElement(0, 0, label, 10, 1);
+
+            int checkStartColumn = _tableColumnCount / 2 + 2;
+
+            label = new Label() { Text = " Prüfung", LineBreakMode = LineBreakMode.NoWrap };
+            tableGen.AddElement(0, checkStartColumn, label, 10, 1);
+
             char[] request = calculation[0].ToCharArray();
             for (int i = 0; i < calculation[0].Length; i++)
             {
-                tableGen.AddCenteredElement(0, i, new Label() { Text = request[i].ToString() });
+                tableGen.AddCenteredElement(1, i, new Label() { Text = request[i].ToString() });
             }
 
             return tableGen.Grid;
@@ -128,7 +125,7 @@ namespace ISDCompanion.Services
 
                 for (int j = 0; j < calculation[0].Length; j++)
                 {
-                    tableGen.AddCenteredElement(_index+1, j, new Label() { Text = solutions[j].ToString() });
+                    tableGen.AddCenteredElement(_index+2, j, new Label() { Text = solutions[j].ToString() });
                 }
                 _index++;
 
@@ -146,7 +143,7 @@ namespace ISDCompanion.Services
 
                 for (int j = 0; j < calculation[0].Length; j++)
                 {
-                    tableGen.AddCenteredElement(_index - calculation.Length + 1, j + calculation[0].Length + 3, new Label() { Text = solutions[j].ToString() });
+                    tableGen.AddCenteredElement(_index - calculation.Length + 2, j + calculation[0].Length + 3, new Label() { Text = solutions[j].ToString() });
                 }
                 _index++;
 
@@ -163,7 +160,7 @@ namespace ISDCompanion.Services
             {
                 for (int j = 0; j < calculation[0].Length; j++)
                 {
-                    tableGen.RemoveElements(_index - calculation.Length, j + calculation[0].Length + 3);
+                    tableGen.RemoveElements(_index - calculation.Length + 1, j + calculation[0].Length + 3);
                 }
                 _index--;
 
@@ -174,7 +171,7 @@ namespace ISDCompanion.Services
             {
                 for (int j = 0; j < calculation[0].Length; j++)
                 {
-                    tableGen.RemoveElements(_index, j);
+                    tableGen.RemoveElements(_index + 1, j);
                 }
                 _index--;
 
