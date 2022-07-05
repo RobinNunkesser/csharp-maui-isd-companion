@@ -6,35 +6,37 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using ISDCompanion.Interfaces;
+using ISDCompanion.Resx;
 using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Infrastructure.Exam.OperatingSystems.PageReplacement;
 using Italbytz.Ports.Exam.OperatingSystems;
 using TableGen;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace ISDCompanion
 {
     public class PageReplacementViewModel : Baseclass_Table_ViewModel, IAfterRender
     {
-
-        //public List<string[]> Items { get; set; }
-        //private string referenceRequests;
-        //public string ReferenceRequests
-        //{
-        //    get => referenceRequests;
-        //    set
-        //    {
-        //        if (value != referenceRequests)
-        //        {
-        //            referenceRequests = value;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
-
         public void AfterRender()
         {
+            //Add Picker control to view. This must be done here, defining it in XAML will break the ContentView template because of the height.
+            Picker picker = new Picker();
+            picker.Title = AppResources.ShowSolution;
+            picker.TitleColor = Color.Red;
+            picker.Margin = 5;
+            picker.SetBinding(Picker.SelectedIndexProperty, new Binding("SelectedStrategy"));
+
+            picker.ItemsSource = new[] {
+                "Optimal",
+                "FIFO",
+                "Least Reacently Used",
+                "Second Chance/Clock"
+            };
+
+            Exercise_Header = picker;
+
             var parameters = new PageReplacementParameters()
             {
                 MemorySize = 4
@@ -57,9 +59,7 @@ namespace ISDCompanion
             Exercise_Content_Header = new ActivityIndicator { IsRunning = true };
             Exercise_Content = new ActivityIndicator { IsRunning = true };
 
-
             ComputeItems();
-
 
             base.scroll();
         }
@@ -90,14 +90,10 @@ namespace ISDCompanion
             AfterRender();
 
             Info_Button_Clickable = _TableGenService.InfoAvailable();
-
-            //ComputeItems();
         }
 
         private void ComputeItems()
         {
-            //Items = new List<string[]>();
-
             List<IPageReplacementStep> solution = null;
 
             if (selectedStrategy == -1)
@@ -145,8 +141,6 @@ namespace ISDCompanion
                     break;
             }
             Info_Button_Clickable = _TableGenService.InfoAvailable();
-
-            //OnPropertyChanged("Items");
         }
     }
 }

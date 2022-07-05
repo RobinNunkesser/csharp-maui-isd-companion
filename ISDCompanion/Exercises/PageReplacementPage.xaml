@@ -18,46 +18,9 @@
             <Label TextColor="Black" Text="{xct:Translate PageReplacement}" FontSize="18" FontFamily="TW"></Label>
         </StackLayout>
     </Shell.TitleView>
-    
+
     <ContentPage.Content>
-
-        <!--<Picker x:Name="StrategyPicker" Title="{xct:Translate ShowSolution}" TitleColor="Red"
-                    SelectedIndex="{Binding SelectedStrategy}" Margin="5">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Optimal</x:String>
-                        <x:String>FIFO</x:String>
-                        <x:String>Least Recently Used</x:String>
-                        <x:String>Second Chance / Clock</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>-->
-
         <Exercise:ExerciseContentView x:Name="Content"></Exercise:ExerciseContentView>
-
-        <!--<StackLayout Orientation="Vertical">
-
-
-            -->
-        <!--<StackLayout Orientation="Horizontal" Padding="25, 25, 0, 25">
-                <ContentView Content="{Binding Exercise_Header}">
-            </Picker>
-            <StackLayout Orientation="Horizontal" Padding="25, 25, 0, 25">
-                <ContentView Content="{Binding Exercise_Content_Header}">
-                </ContentView>
-                <ScrollView  Orientation="Horizontal" x:Name="scrollView">
-                    <ContentView Content="{Binding Exercise_Content}">
-                    </ContentView>
-                </ScrollView>
-            </StackLayout>
-            <Button Text="Next" Command="{Binding ButtonNextStep}"/>
-            <Button Text="Back" Command="{Binding ButtonLastStep}"/>
-            <Button Text="Show Solution" Command="{Binding ButtonCompleteSolution}"/>
-            <Button Text="Info" Command="{Binding ButtonInfo}" IsEnabled="{Binding Info_Button_Clickable}"/>
-            <Button Text="New Exercise" Command="{Binding ButtonNewExercise}"/>-->
-        <!--
-        </StackLayout>-->
-
 
         <!--<StackLayout VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Horizontal">

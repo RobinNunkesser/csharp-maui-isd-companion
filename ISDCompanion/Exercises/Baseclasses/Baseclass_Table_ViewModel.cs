@@ -11,6 +11,20 @@ namespace ISDCompanion
 {
     public abstract class Baseclass_Table_ViewModel : ExerciseViewModel
     {
+        public View Exercise_Header
+        {
+            get
+            {
+                return _Exercise_Header;
+            }
+            set
+            {
+                _Exercise_Header = value;
+                OnPropertyChanged();
+            }
+        }
+        private View _Exercise_Header { get; set; }
+
         public View Exercise_Content
         {
             get
