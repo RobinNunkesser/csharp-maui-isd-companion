@@ -18,6 +18,7 @@ namespace ISDCompanion.Services
 
         private int _index;
         private int _cellWidth = 25;
+        private int _tableColumnCount = 0;
         CRCParameters _parameters;
         ICRCSolution _solution;
 
@@ -40,8 +41,6 @@ namespace ISDCompanion.Services
             return (currentRowOfInterest - 3) * _cellWidth;
         }
 
-        Color Color_Transparent = Color.Transparent;
-
         public CRC_TableGenService(CRCParameters parameters, ICRCSolution solution)
         {
             _parameters = parameters;
@@ -54,15 +53,27 @@ namespace ISDCompanion.Services
 
             _infoTextService = new CRC_InfoTextService(parameters, solution);
             InfoTexts = _infoTextService.GetInfoTexts();
+            _tableColumnCount = calculation[0].Length + calculation_check[0].Length + 3;
 
-            tableGen = new TableGen.TableGen(calculation[0].Length + calculation_check[0].Length + 3, calculation.Length, 25, 25);
+            tableGen = new TableGen.TableGen(_tableColumnCount, calculation.Length, 25, 25);
             _index = 0;
             currentRowOfInterest = 0;
         }
 
         public Grid GenerateTable_TableHeader()
         {
-            return null;
+            int tableWidth = _tableColumnCount * _cellWidth / 2;
+            TableGen.TableGen tableGen_TableHeader = new TableGen.TableGen(2, 1, tableWidth, 80);
+
+            List<Label> labels = new List<Label>();
+
+            labels.Add(new Label() { Text = "Berechnung" });
+            labels.Add(new Label() { Text = "Prüfung" });
+
+            tableGen_TableHeader.AddElement(0, 0, labels[0]);
+            tableGen_TableHeader.AddElement(1, 0, labels[1]);
+
+            return tableGen_TableHeader.Grid;
         }
 
         public Grid GenerateTable_EmptyTable()
