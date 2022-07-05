@@ -17,6 +17,7 @@
             <Label TextColor="Black" Text="{xct:Translate RealtimeScheduling}" FontSize="18" FontFamily="TW"></Label>
         </StackLayout>
     </Shell.TitleView>
+    
     <ContentPage.Content>
         <Exercise:ExerciseContentView x:Name="Content"></Exercise:ExerciseContentView>
     </ContentPage.Content>
