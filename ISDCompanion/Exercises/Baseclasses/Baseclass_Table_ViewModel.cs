@@ -26,19 +26,19 @@ namespace ISDCompanion
         private View _Exercise_Content { get; set; }
 
 
-        public View Exercise_Header
+        public View Exercise_Content_Header
         {
             get
             {
-                return _Exercise_Header;
+                return _Exercise_Content_Header;
             }
             set
             {
-                _Exercise_Header = value;
+                _Exercise_Content_Header = value;
                 OnPropertyChanged();
             }
         }
-        private View _Exercise_Header { get; set; }
+        private View _Exercise_Content_Header { get; set; }
 
 
         public String Info_Text

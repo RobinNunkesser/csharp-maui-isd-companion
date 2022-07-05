@@ -21,7 +21,7 @@
                 </Picker.ItemsSource>
             </Picker>
             <StackLayout Orientation="Horizontal" Padding="25, 25, 0, 25">
-                <ContentView Content="{Binding Exercise_Header}">
+                <ContentView Content="{Binding Exercise_Content_Header}">
                 </ContentView>
                 <ScrollView  Orientation="Horizontal" x:Name="scrollView">
                     <ContentView Content="{Binding Exercise_Content}">

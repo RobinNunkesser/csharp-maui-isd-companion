@@ -54,7 +54,7 @@ namespace ISDCompanion
 
             //loading animation
             //gets automaticly removed when contend finished loading
-            Exercise_Header = new ActivityIndicator { IsRunning = true };
+            Exercise_Content_Header = new ActivityIndicator { IsRunning = true };
             Exercise_Content = new ActivityIndicator { IsRunning = true };
 
 
@@ -112,7 +112,7 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.Optimal);
-                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
                         Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;
@@ -121,7 +121,7 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.FIFO);
-                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
                         Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;
@@ -130,7 +130,7 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.LRU);
-                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
                         Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;
@@ -139,7 +139,7 @@ namespace ISDCompanion
                     if (solution != null)
                     {
                         _TableGenService = new PageReplacement_SecondChanceClock_TableGenService(solution);
-                        Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
                         Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
                     break;

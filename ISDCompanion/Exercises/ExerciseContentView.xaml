@@ -8,9 +8,12 @@
                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}" 
                          Padding="0, 0, 0, 10">
-            <StackLayout Orientation="Horizontal" BackgroundColor="White">
+            <StackLayout Orientation="Vertical">
                 <ContentView Padding="15, 15, 0, 15" Content="{Binding Exercise_Header}">
-
+                </ContentView>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" BackgroundColor="White">
+                <ContentView Padding="15, 15, 0, 15" Content="{Binding Exercise_Content_Header}">
                 </ContentView>
                 <ScrollView x:Name="scrollView" Orientation="Both">
                     <ContentView Padding="0, 15, 15, 15" Content="{Binding Exercise_Content}" >

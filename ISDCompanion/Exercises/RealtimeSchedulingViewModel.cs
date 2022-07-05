@@ -18,10 +18,10 @@ namespace ISDCompanion
 
             //loading animation
             //gets automaticly removed when contend finished loading
-            Exercise_Header = new ActivityIndicator { IsRunning = true };
+            Exercise_Content_Header = new ActivityIndicator { IsRunning = true };
             Exercise_Content = new ActivityIndicator { IsRunning = true };
 
-            Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+            Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
             Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
             base.scroll();
         }
