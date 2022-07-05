@@ -113,6 +113,7 @@ namespace ISDCompanion
         private void showCompleteSolution()
         {
             Exercise_Content = _TableGenService.GenerateTable_ShowSolution();
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
             scroll();
         }
 
