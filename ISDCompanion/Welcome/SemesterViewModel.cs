@@ -13,20 +13,6 @@ namespace ISDCompanion
     {
         public Command SelectedSemesterCommand { get; }
 
-        private string semesterValueText;
-        public string SemesterValueText
-        {
-            get
-            {
-                return semesterValueText;
-            }
-            set
-            {
-                semesterValueText = value;
-                OnPropertyChanged(nameof(SemesterValueText));
-            }
-        }
-
         private int semesterValue;
         public int SemesterValue
         {
@@ -41,7 +27,6 @@ namespace ISDCompanion
             set
             {
                 semesterValue = value;
-                SemesterValueText = semesterValue.ToString();
                 OnPropertyChanged(nameof(SemesterValue));
             }
         }
