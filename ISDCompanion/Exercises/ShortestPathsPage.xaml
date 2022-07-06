@@ -2,10 +2,10 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:Exercise="clr-namespace:ISDCompanion.Exercises"
     x:Class="ISDCompanion.ShortestPathsPage"
     Title="{xct:Translate ShortestPaths}">
-    
+
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IconOverride="reply48.png" />
     </Shell.BackButtonBehavior>
@@ -18,17 +18,8 @@
     </Shell.TitleView>
 
     <ContentPage.Content>
-        <StackLayout>
-            <ScrollView Orientation="Both">
-                <ContentView Content="{Binding GraphContent}" HeightRequest="{Binding ContentHeight}" WidthRequest="{Binding ContentWidth}">
-
-                </ContentView>
-            </ScrollView>
-            <Button Text="Next" Command="{Binding ButtonNextStep}"/>
-            <Button Text="Back" Command="{Binding ButtonLastStep}"/>
-            <Button Text="Show Solution" Command="{Binding ButtonCompleteSolution}"/>
-            <Button Text="Info" Command="{Binding ButtonInfo}"/>
-            <Button Text="New Exercise" Command="{Binding ButtonNewExercise}"/>
-        </StackLayout>          
+        <Exercise:ExerciseContentView x:Name="Content"></Exercise:ExerciseContentView>
     </ContentPage.Content>
+
+
 </ContentPage>

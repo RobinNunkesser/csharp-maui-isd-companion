@@ -10,6 +10,7 @@ using Italbytz.Ports.Exam.Networks;
 using Xamarin.Forms;
 using System.Linq;
 using System.Text.RegularExpressions;
+using GraphGen.Classes;
 
 namespace ISDCompanion
 {
@@ -22,7 +23,7 @@ namespace ISDCompanion
 
         protected int CurrentSolutionStep { get; set; }
         private View _GraphContent = null;
-        public View GraphContent
+        public View Exercise_Content
         {
             get
             {
@@ -34,12 +35,30 @@ namespace ISDCompanion
                 OnPropertyChanged();
             }
         }
-        public int ContentHeight { get { return 300; } }
-        public int ContentWidth { get { return 900; } }
+        private int _ContentHeight = 0;
+        public int ContentHeight
+        {
+            get { return _ContentHeight; }
+            set
+            {
+                _ContentHeight = value;
+                OnPropertyChanged();
+            }
+        }
+        private int _ContentWidth = 0;
+        public int ContentWidth
+        {
+            get { return _ContentWidth; }
+            set
+            {
+                _ContentWidth = value;
+                OnPropertyChanged();
+            }
+        }
 
 
-        protected GraphGen.Classes.GraphGen _GraphGen = null;
-        public GraphGen.Classes.GraphGen GraphGen
+        protected GraphGen.Classes.SimpleGraphGen _GraphGen = null;
+        public GraphGen.Classes.SimpleGraphGen GraphGen
         {
             get { return _GraphGen; }
             set { _GraphGen = value; }
@@ -57,8 +76,12 @@ namespace ISDCompanion
         }
         protected override void newExercise()
         {
+
+
+
             List<string> nodes = new List<string>();
-            GraphGen = new GraphGen.Classes.GraphGen(ContentWidth, ContentHeight);
+            List<string[]> edges = new List<string[]>();
+
 
             CurrentSolutionStep = 0;
 
@@ -66,25 +89,47 @@ namespace ISDCompanion
             MinimumSpanningTreeSolver = new MinimumSpanningTreeSolver();
             MSTVSolution = MinimumSpanningTreeSolver.Solve(MinimumSpanningTreeParameters);
 
+
+
+
             foreach (var edge in MinimumSpanningTreeParameters.Graph.Edges)
             {
                 if (!nodes.Contains(edge.Source))
                 {
-                    GraphGen.AddNewNode(edge.Source);
+
                     nodes.Add(edge.Source);
                 }
 
 
                 if (!nodes.Contains(edge.Target))
                 {
-                    GraphGen.AddNewNode(edge.Target);
+
                     nodes.Add(edge.Target);
                 }
-
-                GraphGen.GetNode(edge.Source).AddEdgeTo(GraphGen.GetNode(edge.Target), edge.Tag.ToString());
+                var tmp = new string[3]
+                {
+                    edge.Source,edge.Tag.ToString(),edge.Target
+                };
+                edges.Add(tmp);
             }
 
-            GraphContent = GraphGen.RenderLayout();
+            GraphGen = new SimpleGraphGen(nodes.Count);
+            ContentHeight = SimpleGraphGen.CalcMaxHeight();
+            ContentWidth = SimpleGraphGen.CalcMaxWidth(nodes.Count);
+            foreach (var node in nodes)
+            {
+                GraphGen.AddNewNode(node);
+            }
+            foreach (var edge in edges)
+            {
+                var s = GraphGen.GetNode(edge[0]);
+                var t = GraphGen.GetNode(edge[2]);
+
+                s.AddEdgeTo(t, edge[1]);
+            }
+
+            Exercise_Content = GraphGen.RenderLayout();
+
         }
         private void nextStep()
         {
