@@ -9,6 +9,7 @@ using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Ports.Exam.Networks;
 using Xamarin.Forms;
 using ISDCompanion.Exercises.Baseclasses;
+using GraphGen.Classes;
 
 namespace ISDCompanion
 {
@@ -17,7 +18,7 @@ namespace ISDCompanion
 
 
         private View _GraphContent = null;
-        public View GraphContent
+        public View Exercise_Content
         {
             get
             {
@@ -29,12 +30,30 @@ namespace ISDCompanion
                 OnPropertyChanged();
             }
         }
-        public int ContentHeight { get { return 300; } }
-        public int ContentWidth { get { return 900; } }
+        private int _ContentHeight = 0;
+        public int ContentHeight
+        {
+            get { return _ContentHeight; }
+            set
+            {
+                _ContentHeight = value;
+                OnPropertyChanged();
+            }
+        }
+        private int _ContentWidth = 0;
+        public int ContentWidth
+        {
+            get { return _ContentWidth; }
+            set
+            {
+                _ContentWidth = value;
+                OnPropertyChanged();
+            }
+        }
 
 
-        protected GraphGen.Classes.GraphGen _GraphGen = null;
-        public GraphGen.Classes.GraphGen GraphGen
+        protected SimpleGraphGen _GraphGen = null;
+        public SimpleGraphGen GraphGen
         {
             get { return _GraphGen; }
             set { _GraphGen = value; }
@@ -44,6 +63,63 @@ namespace ISDCompanion
 
         protected int CurrentSolutionStep { get; set; }
         protected IShortestPathsSolution ShortestPathsSolution { get; set; }
+
+        protected override void newExercise()
+        {
+            try
+            {
+                List<string> nodes = new List<string>();
+                List<string[]> edges = new List<string[]>();
+
+
+                CurrentSolutionStep = 0;
+                ShortestPathsParameters = new ShortestPathsParameters();
+                ShortestPathsSolver = new ShortestPathsSolver();
+                ShortestPathsSolution = ShortestPathsSolver.Solve(ShortestPathsParameters);
+
+                foreach (var edge in ShortestPathsParameters.Graph.Edges)
+                {
+                    if (!nodes.Contains(edge.Source))
+                    {
+                        nodes.Add(edge.Source);
+                    }
+
+                    if (!nodes.Contains(edge.Target))
+                    {
+                        nodes.Add(edge.Target);
+                    }
+                    var tmpEdge = new string[3]
+                    {
+                    edge.Source,
+                    edge.Tag.ToString(),
+                    edge.Target,
+                    };
+                    edges.Add(tmpEdge);
+
+                }
+
+
+
+                GraphGen = new SimpleGraphGen(nodes.Count);
+                ContentHeight = SimpleGraphGen.CalcMaxHeight();
+                ContentWidth = SimpleGraphGen.CalcMaxWidth(nodes.Count);
+                foreach (var node in nodes)
+                {
+                    GraphGen.AddNewNode(node);
+                }
+                foreach (var edge in edges)
+                {
+                    GraphGen.GetNode(edge[0]).AddEdgeTo(GraphGen.GetNode(edge[2]), edge[1]);
+                }
+
+                Exercise_Content = GraphGen.RenderLayout();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
 
 
         protected override void Initialize()
@@ -144,36 +220,6 @@ namespace ISDCompanion
 
                 App.Current.MainPage.DisplayAlert("Hinweis", InfoText, "Ok");
             }
-        }
-        protected override void newExercise()
-        {
-            List<string> nodes = new List<string>();
-            GraphGen = new GraphGen.Classes.GraphGen(ContentWidth, ContentHeight);
-
-            CurrentSolutionStep = 0;
-            ShortestPathsParameters = new ShortestPathsParameters();
-            ShortestPathsSolver = new ShortestPathsSolver();
-            ShortestPathsSolution = ShortestPathsSolver.Solve(ShortestPathsParameters);
-
-            foreach (var edge in ShortestPathsParameters.Graph.Edges)
-            {
-                if (!nodes.Contains(edge.Source))
-                {
-                    GraphGen.AddNewNode(edge.Source);
-                    nodes.Add(edge.Source);
-                }
-
-
-                if (!nodes.Contains(edge.Target))
-                {
-                    GraphGen.AddNewNode(edge.Target);
-                    nodes.Add(edge.Target);
-                }
-
-                GraphGen.GetNode(edge.Source).AddEdgeTo(GraphGen.GetNode(edge.Target), edge.Tag.ToString());
-            }
-
-            GraphContent = GraphGen.RenderLayout();
         }
 
     }
