@@ -532,6 +532,42 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The shortest path to connect .
+        /// </summary>
+        internal static string MSTV_Info_1 {
+            get {
+                return ResourceManager.GetString("MSTV_Info_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  with .
+        /// </summary>
+        internal static string MSTV_Info_2 {
+            get {
+                return ResourceManager.GetString("MSTV_Info_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  is over the edge .
+        /// </summary>
+        internal static string MSTV_Info_3 {
+            get {
+                return ResourceManager.GetString("MSTV_Info_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with the tag .
+        /// </summary>
+        internal static string MSTV_Info_4 {
+            get {
+                return ResourceManager.GetString("MSTV_Info_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Netmasks.
         /// </summary>
         internal static string Netmasks {
@@ -681,6 +717,33 @@ namespace ISDCompanion.Resx {
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Shortest Path to .
+        /// </summary>
+        internal static string ShortestPath_Info_1 {
+            get {
+                return ResourceManager.GetString("ShortestPath_Info_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  starting from .
+        /// </summary>
+        internal static string ShortestPath_Info_2 {
+            get {
+                return ResourceManager.GetString("ShortestPath_Info_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  is available over: .
+        /// </summary>
+        internal static string ShortestPath_Info_3 {
+            get {
+                return ResourceManager.GetString("ShortestPath_Info_3", resourceCulture);
             }
         }
         
