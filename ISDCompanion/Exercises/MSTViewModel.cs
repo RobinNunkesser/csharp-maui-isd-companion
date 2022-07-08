@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Text.RegularExpressions;
 using GraphGen.Classes;
+using ISDCompanion.Services.InfoTextServices;
 
 namespace ISDCompanion
 {
@@ -181,20 +182,9 @@ namespace ISDCompanion
         {
             if (CurrentSolutionStep > 0)
             {
-                string InfoText = "";
-
-                var values = GetCurrentStepInfos(CurrentSolutionStep - 1);
-                InfoText += "Der kürzeste Weg um '" + values.Source + "' mit \n";
-                InfoText += " '" + values.Target + "' zu Verbinden ist über die \n";
-                InfoText += "Kante mit der Gewichtung '" + values.Tag + "'.\n";
-
-                App.Current.MainPage.DisplayAlert("Hinweis", InfoText, "Ok");
+                string InfoText = MSTV_InfoTextService.GetInfoText(GetCurrentStepInfos(CurrentSolutionStep - 1));
+                App.Current.MainPage.DisplayAlert("Info", InfoText, "Ok");
             }
         }
-
-
-
     }
-
-
 }

@@ -443,4 +443,25 @@ Er wird gestartet, da kein Prozess mit höherer Priorität ansteht. \n\nDer Proz
   <data name="TableLabel_PageReplacement_Slot" xml:space="preserve">
     <value>Kachel</value>
   </data>
+  <data name="MSTV_Info_1" xml:space="preserve">
+    <value>Der kürzeste Weg um </value>
+  </data>
+  <data name="MSTV_Info_2" xml:space="preserve">
+    <value>mit </value>
+  </data>
+  <data name="MSTV_Info_3" xml:space="preserve">
+    <value> zu Verbinden ist über die </value>
+  </data>
+  <data name="MSTV_Info_4" xml:space="preserve">
+    <value>Kante mit der Gewichtung </value>
+  </data>
+  <data name="ShortestPath_Info_1" xml:space="preserve">
+    <value>Der kürzeste Weg zu </value>
+  </data>
+  <data name="ShortestPath_Info_2" xml:space="preserve">
+    <value> ausgehend von </value>
+  </data>
+  <data name="ShortestPath_Info_3" xml:space="preserve">
+    <value> ist zu erreichen über: </value>
+  </data>
 </root>

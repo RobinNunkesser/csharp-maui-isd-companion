@@ -441,4 +441,25 @@ The process can interrupt other processes with low priority and be interrupted b
   <data name="TableLabel_PageReplacement_Slot" xml:space="preserve">
     <value>Slot</value>
   </data>
+  <data name="MSTV_Info_1" xml:space="preserve">
+    <value>The shortest path to connect </value>
+  </data>
+  <data name="MSTV_Info_2" xml:space="preserve">
+    <value> with </value>
+  </data>
+  <data name="MSTV_Info_3" xml:space="preserve">
+    <value> is over the edge </value>
+  </data>
+  <data name="MSTV_Info_4" xml:space="preserve">
+    <value>with the tag </value>
+  </data>
+  <data name="ShortestPath_Info_1" xml:space="preserve">
+    <value>The Shortest Path to </value>
+  </data>
+  <data name="ShortestPath_Info_2" xml:space="preserve">
+    <value> starting from </value>
+  </data>
+  <data name="ShortestPath_Info_3" xml:space="preserve">
+    <value> is available over: </value>
+  </data>
 </root>

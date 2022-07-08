@@ -10,6 +10,7 @@ using Italbytz.Ports.Exam.Networks;
 using Xamarin.Forms;
 using ISDCompanion.Exercises.Baseclasses;
 using GraphGen.Classes;
+using ISDCompanion.Services.InfoTextServices;
 
 namespace ISDCompanion
 {
@@ -206,19 +207,8 @@ namespace ISDCompanion
         {
             if (CurrentSolutionStep > 0)
             {
-                string InfoText = "";
-                //last step infos
-                var values = GetCurrentStepInfos(CurrentSolutionStep - 1);
-                InfoText += "Der kürzeste Weg zu '" + values.First + "' ausgehend von ";
-                InfoText += "'" + values.Last + "' ist zu erreichen über: \n";
-
-                foreach (var value in values.Values)
-                {
-                    var pathValues = value.Value;
-                    InfoText += pathValues[0] + " ->(" + pathValues[1] + ") " + pathValues[2] + "\n";
-                }
-
-                App.Current.MainPage.DisplayAlert("Hinweis", InfoText, "Ok");
+                var InfoText = ShortestPath_InfoTextService.GetInfoText(GetCurrentStepInfos(CurrentSolutionStep - 1));
+                App.Current.MainPage.DisplayAlert("Info", InfoText, "Ok");
             }
         }
 
