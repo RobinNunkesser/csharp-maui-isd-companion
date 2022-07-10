@@ -3,9 +3,10 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:local="clr-namespace:ISDCompanion"   
+    xmlns:model="clr-namespace:ISDCompanion.Models"
     x:Class="ISDCompanion.ModulePage"
-    xmlns:yummi="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    xmlns:local="clr-namespace:ISDCompanion.Helpers"
+    x:DataType="local:ModuleViewModel"
     BackgroundColor="White"
     >
 
@@ -15,7 +16,7 @@
                 <Image Aspect="AspectFill" Source="hshl_building3.jpg"></Image>
             </ContentView>
             <Frame BackgroundColor="Black" Opacity="0.3" Margin="0" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                
+
             </Frame>
             <ContentView Margin="40, 40, 40, 0" HorizontalOptions="Center"  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.15}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
                 <Image HorizontalOptions="Center" Opacity="0.9"  Aspect="AspectFit" Source="hshl_logo.png"></Image>
@@ -24,24 +25,132 @@
             <!--<Label Opacity="0.9" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.15}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  TextColor="White" FontSize="Title" HorizontalTextAlignment="Center">
                 Willkommen!
             </Label>-->
-            <Frame CornerRadius="20" BackgroundColor="#33000000" Margin="20" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.2}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                <StackLayout HorizontalOptions="Center" BackgroundColor="Transparent">
-                    
-                    <Label Opacity="0.8" Margin="20" TextColor="White" FontSize="Medium" HorizontalTextAlignment="Center">
+            <Frame CornerRadius="20" BackgroundColor="#33000000" Margin="20" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.2}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}">
+                <RelativeLayout>
+
+                    <Label Opacity="0.8" TextColor="White" FontSize="Medium" HorizontalTextAlignment="Center" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.03}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}">
                         Für welche Module bist du aktuell angemeldet?
                     </Label>
-                    <Button Opacity="0.8" TextColor="White" BorderWidth="2" BorderColor="White" BackgroundColor="Transparent" Command="{Binding SubmitCommand}" Margin="80, 0, 80 ,0" Text="Bediensteter" CornerRadius="50"></Button>
-                    <Label Opacity="0.8" Margin="0, 10, 0, 0" TextColor="White" FontSize="Micro" HorizontalTextAlignment="Center">
+                    <ContentView RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.18}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.6}">
+                        <StackLayout>
+                            <ScrollView BackgroundColor="Transparent">
+                                <StackLayout BackgroundColor="Transparent" BindableLayout.ItemsSource="{Binding Semesters}">
+                                    <BindableLayout.ItemTemplate BackgroundColor="Transparent">
+                                        <DataTemplate>
+                                            <xct:Expander BackgroundColor="Transparent" x:DataType="model:Semester" IsExpanded="{Binding IsExpanded}">
+                                                <xct:Expander.Header>
+                                                    <Grid BackgroundColor="Transparent">
+                                                        <Label Text="{Binding Semester_Title}" 
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   Padding="10, 10, 0, 0"/>
+                                                        <Image Source="expand_48.png"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Start">
+                                                            <Image.Triggers>
+                                                                <DataTrigger TargetType="Image"
+                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                                     Value="True">
+                                                                    <Setter Property="Source"
+                                                    Value="collapse_48.png" />
+                                                                </DataTrigger>
+                                                            </Image.Triggers>
+                                                        </Image>
+                                                    </Grid>
+                                                </xct:Expander.Header>
+                                                <StackLayout BackgroundColor="Transparent" BindableLayout.ItemsSource="{Binding Modules}" HeightRequest="{Binding Modules.Height}">
+                                                    <BindableLayout.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <xct:Expander x:DataType="model:Module" IsExpanded="{Binding IsExpanded}" BackgroundColor="#33000000">
+                                                                <xct:Expander.Header>
+                                                                    <Grid BackgroundColor="Transparent">
+                                                                        <Label BackgroundColor="Transparent" Text="{Binding Module_Title}"
+                                                   FontSize="18"
+                                                   Padding="35, 5, 0, 0"/>
+                                                                        <Image Source="expand_40.png"
+                                                       HorizontalOptions="End"
+                                                       VerticalOptions="Start"
+                                                       Margin="0, 0, 4, 0">
+                                                                            <Image.Triggers>
+                                                                                <DataTrigger TargetType="Image"
+                                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                                                     Value="True">
+                                                                                    <Setter Property="Source"
+                                                                    Value="collapse_40.png" />
+                                                                                </DataTrigger>
+                                                                            </Image.Triggers>
+                                                                        </Image>
+                                                                    </Grid>
+                                                                </xct:Expander.Header>
+                                                                <StackLayout BackgroundColor="Transparent" BindableLayout.ItemsSource="{Binding Topics}" HeightRequest="{Binding Topics.Height}">
+                                                                    <BindableLayout.ItemTemplate>
+                                                                        <DataTemplate>
+                                                                            <xct:Expander x:DataType="model:Topic" IsExpanded="{Binding IsExpanded}">
+                                                                                <xct:Expander.Header BackgroundColor="Transparent">
+                                                                                    <Grid>
+                                                                                        <Label Text="{Binding Topic_Title}"
+                                                                   FontSize="16"
+                                                                   Padding="60, 5, 0, 5"/>
+                                                                                        <Image Source="expand_24.png"
+                                                                       HorizontalOptions="End"
+                                                                       VerticalOptions="Start"
+                                                                       Margin="0, 0, 12, 0">
+                                                                                            <Image.Triggers>
+                                                                                                <DataTrigger TargetType="Image"
+                                                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                                                                     Value="True">
+                                                                                                    <Setter Property="Source"
+                                                                                    Value="collapse_24.png" />
+                                                                                                </DataTrigger>
+                                                                                            </Image.Triggers>
+                                                                                        </Image>
+                                                                                    </Grid>
+                                                                                </xct:Expander.Header>
+                                                                                <StackLayout BackgroundColor="Transparent" BindableLayout.ItemsSource="{Binding Exercises}">
+                                                                                    <BindableLayout.ItemTemplate>
+                                                                                        <DataTemplate>
+                                                                                            <StackLayout x:DataType="model:Exercise">
+                                                                                                <Label Text="{Binding Exercise_Title}"
+                                                                               FontSize="14"
+                                                                               Padding="85, 0, 0, 0"/>
+                                                                                                <StackLayout.GestureRecognizers>
+                                                                                                    <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:ModuleViewModel}}, Path=ExerciseTapped}"
+                                                                                                  CommandParameter="{Binding .}">
+                                                                                                    </TapGestureRecognizer>
+                                                                                                </StackLayout.GestureRecognizers>
+                                                                                            </StackLayout>
+                                                                                        </DataTemplate>
+                                                                                    </BindableLayout.ItemTemplate>
+                                                                                </StackLayout>
+                                                                            </xct:Expander>
+                                                                        </DataTemplate>
+                                                                    </BindableLayout.ItemTemplate>
+                                                                </StackLayout>
+                                                            </xct:Expander>
+                                                        </DataTemplate>
+                                                    </BindableLayout.ItemTemplate>
+                                                </StackLayout>
+                                            </xct:Expander>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+                    </ContentView>
+
+                    <Button Opacity="0.8" TextColor="White" BorderWidth="2" BorderColor="White" BackgroundColor="Transparent" Command="{Binding SubmitCommand}" Margin="80, 0, 80 ,0" Text="Bestätigen" CornerRadius="50" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.8}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"></Button>
+                    <Label Opacity="0.8" Margin="0, 10, 0, 0" TextColor="White" FontSize="Micro" HorizontalTextAlignment="Center" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.95}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}">
                         Du kannst die Einstellung auch nachher ändern!
                     </Label>
-                </StackLayout>
+                </RelativeLayout>
             </Frame>
 
             <StackLayout BackgroundColor="Transparent"
                  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.92}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                    <Label Opacity="0.8" TextColor="White" FontSize="Micro" HorizontalTextAlignment="Center">
-                        Wir benötigen zunächst grundlegende Informationen, damit die App optimal auf dich zugeschnitten ist.
-                    </Label>
+                <Label Opacity="0.8" TextColor="White" FontSize="Micro" HorizontalTextAlignment="Center">
+                    Wir benötigen zunächst grundlegende Informationen, damit die App optimal auf dich zugeschnitten ist.
+                </Label>
             </StackLayout>
         </RelativeLayout>
     </ContentPage.Content>
