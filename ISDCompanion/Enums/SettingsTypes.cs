@@ -18,5 +18,13 @@ namespace ISDCompanion.Enums
         Finished = 1
     }
 
+    public enum MainEmphasisType
+    {
+        None = 0,
+        MobileComputing = 1,
+        CyberSecurity = 2,
+        EmbeddedSystems = 3
+    }
+
 
 }

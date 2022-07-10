@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using ISDCompanion.Enums;
 using ISDCompanion.Helpers;
 using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
@@ -11,29 +12,45 @@ namespace ISDCompanion
 {
     public class MainEmphasisViewModel
     {
-        public Command SelectedMainEmphasisCommand { get; }
+        public Command SelectedMobileComputingCommand { get; }
+        public Command SelectedCyberSecurityCommand { get; }
+        public Command SelectedEmbeddedSystemsCommand { get; }
+        public Command SelectedNoneCommand { get; }
 
-
-        private string requests;
-        public string Requests
-        {
-            get => requests;
-            set
-            {
-                if (value != requests)
-                {
-                    requests = value;
-                }
-            }
-        }
 
         public MainEmphasisViewModel()
         {
-            SelectedMainEmphasisCommand = new Command(OnSelectedMainEmphasis);
+            SelectedMobileComputingCommand = new Command(OnSelectedMobileComputing);
+            SelectedCyberSecurityCommand = new Command(OnSelectedCyberSecurity);
+            SelectedEmbeddedSystemsCommand = new Command(OnSelectedEmbeddedSystems);
+            SelectedNoneCommand = new Command(OnSelectedNone);
         }
 
-        private void OnSelectedMainEmphasis(object obj)
+        private void OnSelectedMobileComputing(object obj)
         {
+            Settings.Status = (int)MainEmphasisType.MobileComputing;
+
+            //Eintrag in DB speichern
+            Application.Current.MainPage = new ModulePage();
+        }
+        private void OnSelectedCyberSecurity(object obj)
+        {
+            Settings.Status = (int)MainEmphasisType.CyberSecurity;
+
+            //Eintrag in DB speichern
+            Application.Current.MainPage = new ModulePage();
+        }
+        private void OnSelectedEmbeddedSystems(object obj)
+        {
+            Settings.Status = (int)MainEmphasisType.EmbeddedSystems;
+
+            //Eintrag in DB speichern
+            Application.Current.MainPage = new ModulePage();
+        }
+        private void OnSelectedNone(object obj)
+        {
+            Settings.Status = (int)MainEmphasisType.None;
+
             //Eintrag in DB speichern
             Application.Current.MainPage = new ModulePage();
         }

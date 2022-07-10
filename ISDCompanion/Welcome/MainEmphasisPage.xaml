@@ -30,7 +30,10 @@
                     <Label Opacity="0.8" Margin="20" TextColor="White" FontSize="Medium" HorizontalTextAlignment="Center">
                         Hast du bereits einen Schwerpunkt gewählt?
                     </Label>
-                    <Button Opacity="0.8" TextColor="White" BorderWidth="2" BorderColor="White" BackgroundColor="Transparent" Command="{Binding SelectedMainEmphasisCommand}" Margin="80, 0, 80 ,0" Text="Bediensteter" CornerRadius="50"></Button>
+                    <Button Opacity="0.8" TextColor="White" BorderWidth="2" BorderColor="White" BackgroundColor="Transparent" Command="{Binding SelectedMobileComputingCommand}" Margin="80, 0, 80 ,0" Text="Mobile Computing" CornerRadius="50"></Button>
+                    <Button Opacity="0.8" TextColor="White" BorderWidth="2" BorderColor="White" BackgroundColor="Transparent" Command="{Binding SelectedCyberSecurityCommand}" Margin="80, 0, 80 ,0" Text="Cyber Security" CornerRadius="50"></Button>
+                    <Button Opacity="0.8" TextColor="White" BorderWidth="2" BorderColor="White" BackgroundColor="Transparent" Command="{Binding SelectedEmbeddedSystemsCommand}" Margin="80, 0, 80 ,0" Text="Embedded Systems" CornerRadius="50"></Button>
+                    <Button Opacity="0.8" TextColor="White" BorderWidth="2" BorderColor="White" BackgroundColor="Transparent" Command="{Binding SelectedNoneCommand}" Margin="80, 20, 80 ,0" Text="Ich habe noch keinen Schwerpunkt" CornerRadius="50"></Button>
                     <Label Opacity="0.8" Margin="0, 10, 0, 0" TextColor="White" FontSize="Micro" HorizontalTextAlignment="Center">
                         Du kannst die Einstellung auch nachher ändern!
                     </Label>
