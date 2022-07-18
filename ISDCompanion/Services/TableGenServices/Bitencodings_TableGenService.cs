@@ -14,14 +14,11 @@ namespace ISDCompanion.Services
     internal class Bitencodings_TableGenService : ITableGenService
     {
         private TableGen.TableGen tableGen;
-        private IInfoTextService _infoTextService;
 
         private int _index;
         private int _cellWidth = 25;
         BitencodingParameters _parameters;
         IBitencodingSolution _solution;
-
-        private string[] InfoTexts { get; set; }
 
         private int currentColumnOfInterest { get; set; }
 
@@ -45,9 +42,6 @@ namespace ISDCompanion.Services
             currentColumnOfInterest = 0;
             _parameters = parameters;
             _solution = solution;
-
-            _infoTextService = new BitEncodings_InfoTextService(parameters, solution);
-            InfoTexts = _infoTextService.GetInfoTexts();
         }
 
         public Grid GenerateTable_TableHeader()
@@ -61,7 +55,7 @@ namespace ISDCompanion.Services
 
             List<Label> labels = new List<Label>();
 
-            labels.Add(new Label() { Text =  "Bits" });
+            labels.Add(new Label() { Text = "Bits" });
             labels.Add(new Label() { Text = "NRZ" });
             labels.Add(new Label() { Text = "NRZ-I" });
             labels.Add(new Label() { Text = "MLT-3" });
@@ -132,26 +126,12 @@ namespace ISDCompanion.Services
 
         public String GetInfoText()
         {
-            if (_index == 0)
-            {
-                return InfoTexts[_index];
-            }
-            else
-            {
-                return InfoTexts[_index - 1];
-            }
+            return "NRZ: 0 = -  |  1 = + \n\nNRZI: 1 = Spannungsveränderung (+/-) \n\nMLT-3: 1 = abwechselnd +, 0 und -";
         }
 
         public bool InfoAvailable()
         {
-            if (_index == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return true;
         }
     }
 }

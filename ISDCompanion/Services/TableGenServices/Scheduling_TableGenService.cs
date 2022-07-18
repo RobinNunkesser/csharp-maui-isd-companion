@@ -17,7 +17,6 @@ namespace ISDCompanion.Services
         public enum Algorithm { ShortestJobFirst, Priority, FirstComeFirstServed }
 
         private TableGen.TableGen tableGen;
-        private IInfoTextService _infoTextService;
 
         private int _index;
         private int _cellWidth = 25;
@@ -26,8 +25,6 @@ namespace ISDCompanion.Services
         private string _solution;
         private string[] _calculation;
         private Algorithm _algorithm;
-
-        private string[] InfoTexts { get; set; }
 
         private int currentRowOfInterest { get; set; }
         private int currentColumnOfInterest { get; set; }
@@ -48,11 +45,6 @@ namespace ISDCompanion.Services
             _solution = solution;
             _calculation = getCalculation(_parameters, algorithm);
             _algorithm = algorithm;
-
-
-            //_infoTextService = new CRC_InfoTextService(calculation, calculation_check);
-            //InfoTexts = _infoTextService.GetInfoTexts();
-            //_tableColumnCount = calculation[0].Length + calculation_check[0].Length + 3;
 
             tableGen = new TableGen.TableGen(5, 7, 25, 80);
             _index = 0;

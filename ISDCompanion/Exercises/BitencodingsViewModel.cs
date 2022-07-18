@@ -25,6 +25,8 @@ namespace ISDCompanion
             Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
             Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
 
+            Info_Text = _TableGenService.GetInfoText();
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
             base.scroll();
         }
 
