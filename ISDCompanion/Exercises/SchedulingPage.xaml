@@ -2,7 +2,7 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:Exercise="clr-namespace:ISDCompanion.Exercises"
     x:Class="ISDCompanion.SchedulingPage"
     Title="{xct:Translate Scheduling}">
 
@@ -16,9 +16,11 @@
             <Label TextColor="Black" Text="{xct:Translate Scheduling}" FontSize="18" FontFamily="TW"></Label>
         </StackLayout>
     </Shell.TitleView>
-    
+
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand">
+        <Exercise:ExerciseContentView x:Name="Content"></Exercise:ExerciseContentView>
+        
+        <!--<StackLayout VerticalOptions="FillAndExpand">
             <Label Text="{xct:Translate Processes}"/>
             <Label Text="{Binding Processes}" VerticalOptions="Center">
                     <Label.FontFamily>
@@ -91,6 +93,6 @@
                 </Label>
             </Grid>
             <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
-        </StackLayout>        
+        </StackLayout>-->        
     </ContentPage.Content>
 </ContentPage>
