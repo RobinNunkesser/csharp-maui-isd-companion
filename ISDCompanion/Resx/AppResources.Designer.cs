@@ -313,6 +313,17 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to NRZ: 0 = -  |  1 = +
+        ///            NRZI: 1 = Voltage change (+/-) 
+        ///            MLT-3: 1 = alternating +, 0 and -.
+        /// </summary>
+        internal static string InfoText_BitEncoding {
+            get {
+                return ResourceManager.GetString("InfoText_BitEncoding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The process {0} is finished, memory is freed..
         /// </summary>
         internal static string InfoText_Buddy_Final {
@@ -327,6 +338,67 @@ namespace ISDCompanion.Resx {
         internal static string InfoText_Buddy_Request {
             get {
                 return ResourceManager.GetString("InfoText_Buddy_Request", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The remaining bit sequence is called the check bit and can be used for the check afterwards..
+        /// </summary>
+        internal static string InfoText_CRC_check {
+            get {
+                return ResourceManager.GetString("InfoText_CRC_check", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If the bit sequence remaining at the end is 0, the transmission was successful..
+        /// </summary>
+        internal static string InfoText_CRC_check_Finish {
+            get {
+                return ResourceManager.GetString("InfoText_CRC_check_Finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The original bit sequence {0} is extended by the check bit {1}. An XOR division is then carried out with the fixed generator polynomial 100101..
+        /// </summary>
+        internal static string InfoText_CRC_check_Start {
+            get {
+                return ResourceManager.GetString("InfoText_CRC_check_Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An XOR division with the generator polynomial 100101 is again carried out on the resulting bit sequence..
+        /// </summary>
+        internal static string InfoText_CRC_evenStep {
+            get {
+                return ResourceManager.GetString("InfoText_CRC_evenStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The bit sequence {0} is extended by 5 zeros. An XOR division is then carried out with the generator polynomial 100101 (CRC5)..
+        /// </summary>
+        internal static string InfoText_CRC_Start {
+            get {
+                return ResourceManager.GetString("InfoText_CRC_Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XOR division is performed:
+        ///                    
+        ///1 over 1 equals 0
+        ///0 over 0 equals 0
+        ///1 over 0 equals 1
+        ///0 over 1 equals 1
+        ///                    
+        ///Leading zeros can be omitted. The resulting bit string is extended back to 6 characters by pulling down the existing bits (zeros) of the bit string..
+        /// </summary>
+        internal static string InfoText_CRC_unevenStep {
+            get {
+                return ResourceManager.GetString("InfoText_CRC_unevenStep", resourceCulture);
             }
         }
         
@@ -492,6 +564,122 @@ namespace ISDCompanion.Resx {
         internal static string InfoText_RealTimeScheduling_RMS_Medium {
             get {
                 return ResourceManager.GetString("InfoText_RealTimeScheduling_RMS_Medium", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculation.
+        /// </summary>
+        internal static string InfoText_Scheduling_Calculation {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_Calculation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duration.
+        /// </summary>
+        internal static string InfoText_Scheduling_Duration {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_Duration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The processes are processed in order of appearance.
+        ///
+        ///For the total waiting time, the running time of each process is multiplied by the number of ready processes. The result is summed and divided by the number of processes..
+        /// </summary>
+        internal static string InfoText_Scheduling_FirstComeFirstServed_Info {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_FirstComeFirstServed_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Priority.
+        /// </summary>
+        internal static string InfoText_Scheduling_Priority {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_Priority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The processes are processed in order according to their priority.
+        ///
+        ///For the total waiting time, the runtime of each process is multiplied by the respective priority. The result is summed up and divided by the number of processes..
+        /// </summary>
+        internal static string InfoText_Scheduling_Priority_Info {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_Priority_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result.
+        /// </summary>
+        internal static string InfoText_Scheduling_Result {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After {0} time unit:.
+        /// </summary>
+        internal static string InfoText_Scheduling_RoundRobin_AfterTimeUnit {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_RoundRobin_AfterTimeUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After {0} time units:.
+        /// </summary>
+        internal static string InfoText_Scheduling_RoundRobin_AfterTimeUnits {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_RoundRobin_AfterTimeUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Begin:.
+        /// </summary>
+        internal static string InfoText_Scheduling_RoundRobin_Begin {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_RoundRobin_Begin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to According to the round robin method, each process in ready state is granted the same computing time. If a process is completed, the computing time each process gets is distributed again.
+        ///
+        ///The total wait time is the units of time it takes for each process to complete multiplied by the number of processes that are in ready state, divided by the total number of processes..
+        /// </summary>
+        internal static string InfoText_Scheduling_RoundRobin_Info {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_RoundRobin_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting time:.
+        /// </summary>
+        internal static string InfoText_Scheduling_RoundRobin_WaitingTime {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_RoundRobin_WaitingTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The processes are processed one after another, while processes with a short runtime are prioritized.
+        ///
+        ///For the total waiting time, the running time of each process is multiplied by the number of processes in ready state. The sum of the result is divided by the number of processes..
+        /// </summary>
+        internal static string InfoText_Scheduling_ShortestJobFirst_Info {
+            get {
+                return ResourceManager.GetString("InfoText_Scheduling_ShortestJobFirst_Info", resourceCulture);
             }
         }
         

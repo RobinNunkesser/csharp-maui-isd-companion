@@ -1,4 +1,5 @@
-﻿using ISDCompanion.Services.InfoTextServices;
+﻿using ISDCompanion.Resx;
+using ISDCompanion.Services.InfoTextServices;
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Adapters.Exam.OperatingSystems;
@@ -126,7 +127,7 @@ namespace ISDCompanion.Services
 
         public String GetInfoText()
         {
-            return "NRZ: 0 = -  |  1 = + \n\nNRZI: 1 = Spannungsveränderung (+/-) \n\nMLT-3: 1 = abwechselnd +, 0 und -";
+            return AppResources.InfoText_BitEncoding;
         }
 
         public bool InfoAvailable()

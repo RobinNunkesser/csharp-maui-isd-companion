@@ -36,22 +36,22 @@ namespace ISDCompanion.Services.InfoTextServices
             {
                 if (index == 0)
                 {
-                    infoText = "Die Bitfolge " + step.Substring(0, 6) + " wird um 5 Nullen erweitert. Anschließend wird eine XOR Division mit dem Generatorpolynom 100101 (CRC5) durchgeführt.";
+                    infoText = String.Format(AppResources.InfoText_CRC_Start, step.Substring(0, 6));
                 }
                 else if(index == _calculation.Length - 2)
                 {
-                    infoText = "Die übrig gebliebene Bitfolge wird als Prüfbit bezeichnet und kann im Folgenden für die Prüfung verwendet werden.";
+                    infoText = AppResources.InfoText_CRC_check;
                     calculationFinished = true;
                 }
                 else
                 {
                     if(index % 2 == 0)
                     {
-                        infoText = "Auf der resultierenden Bitfolge wird wieder eine XOR Division mit dem Generatorpolynom 100101 durchgeführt.";
+                        infoText = AppResources.InfoText_CRC_evenStep;
                     }
                     else
                     {
-                        infoText = "XOR Division wird durchgeführt: \n\n1 über 1 ergibt 0 \n0 über 0 ergibt 0 \n1 über 0 ergibt 1\n0 über 1 ergibt 1 \n\nVoranstehende Nullen können weg gelassen werden. Die resultierende Bitfolge wird wieder auf 6 Zeichen erweitert, indem die vorhandenen Bits (Nullen) der Bitfolge heruntergezogen werden.";
+                        infoText = AppResources.InfoText_CRC_unevenStep;
                     }
                 }
 
@@ -64,26 +64,26 @@ namespace ISDCompanion.Services.InfoTextServices
                 }
             }
 
-            foreach(string step in _check)
+            foreach (string step in _check)
             {
                 if (index == _calculation.Length - 1)
                 {
-                    infoText = "Die ursprüngliche Bitfolge " + step.Substring(0, 6) + " wird um das Prüfbit " + step.Substring(6, 5) + " erweitert. Anschließend wird eine XOR Division mit dem festen Generatorpolynom 100101 durchgeführt.";
+                    infoText = String.Format(AppResources.InfoText_CRC_check_Start, step.Substring(0, 6), step.Substring(6, 5));
                 }
                 else if (index == _calculation.Length + _check.Length - 2)
                 {
-                    infoText = "Ergibt die zum Schluss übrig gebliebene Bitfolge 0, so war die Übertragung erfolgreich.";
+                    infoText = AppResources.InfoText_CRC_check_Finish;
                     checkFinished = true;
                 }
                 else
                 {
                     if(index % 2 == 0)
                     {
-                        infoText = "Auf der resultierenden Bitfolge wird wieder eine XOR Division mit dem Generatorpolynom 100101 durchgeführt.";
+                        infoText = AppResources.InfoText_CRC_evenStep;
                     }
                     else
                     {
-                        infoText = "XOR Division wird durchgeführt: \n\n1 über 1 ergibt 0 \n0 über 0 ergibt 0 \n1 über 0 \n 0 über 1 ergibt 1 \n\nVoranstehende Nullen können weg gelassen werden. Die resultierende Bitfolge wird wieder auf 6 Zeichen erweitert, indem die vorhandenen Bits der Bitfolge heruntergezogen werden.";
+                        infoText = AppResources.InfoText_CRC_unevenStep;
                     }
                 }
 

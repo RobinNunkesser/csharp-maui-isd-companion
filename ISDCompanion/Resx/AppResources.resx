@@ -462,4 +462,78 @@ The process can interrupt other processes with low priority and be interrupted b
   <data name="ShortestPath_Info_3" xml:space="preserve">
     <value> is available over: </value>
   </data>
+  <data name="InfoText_BitEncoding" xml:space="preserve">
+    <value>NRZ: 0 = -  |  1 = +
+            NRZI: 1 = Voltage change (+/-) 
+            MLT-3: 1 = alternating +, 0 and -</value>
+  </data>
+  <data name="InfoText_Scheduling_FirstComeFirstServed_Info" xml:space="preserve">
+    <value>The processes are processed in order of appearance.
+
+For the total waiting time, the running time of each process is multiplied by the number of ready processes. The result is summed and divided by the number of processes.</value>
+  </data>
+  <data name="InfoText_Scheduling_Priority_Info" xml:space="preserve">
+    <value>The processes are processed in order according to their priority.
+
+For the total waiting time, the runtime of each process is multiplied by the respective priority. The result is summed up and divided by the number of processes.</value>
+  </data>
+  <data name="InfoText_Scheduling_ShortestJobFirst_Info" xml:space="preserve">
+    <value>The processes are processed one after another, while processes with a short runtime are prioritized.
+
+For the total waiting time, the running time of each process is multiplied by the number of processes in ready state. The sum of the result is divided by the number of processes.</value>
+  </data>
+  <data name="InfoText_Scheduling_Calculation" xml:space="preserve">
+    <value>Calculation</value>
+  </data>
+  <data name="InfoText_Scheduling_Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="InfoText_Scheduling_Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="InfoText_Scheduling_Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="InfoText_Scheduling_RoundRobin_AfterTimeUnit" xml:space="preserve">
+    <value>After {0} time unit:</value>
+  </data>
+  <data name="InfoText_Scheduling_RoundRobin_AfterTimeUnits" xml:space="preserve">
+    <value>After {0} time units:</value>
+  </data>
+  <data name="InfoText_Scheduling_RoundRobin_Begin" xml:space="preserve">
+    <value>Begin:</value>
+  </data>
+  <data name="InfoText_Scheduling_RoundRobin_Info" xml:space="preserve">
+    <value>According to the round robin method, each process in ready state is granted the same computing time. If a process is completed, the computing time each process gets is distributed again.
+
+The total wait time is the units of time it takes for each process to complete multiplied by the number of processes that are in ready state, divided by the total number of processes.</value>
+  </data>
+  <data name="InfoText_Scheduling_RoundRobin_WaitingTime" xml:space="preserve">
+    <value>Waiting time:</value>
+  </data>
+  <data name="InfoText_CRC_check" xml:space="preserve">
+    <value>The remaining bit sequence is called the check bit and can be used for the check afterwards.</value>
+  </data>
+  <data name="InfoText_CRC_check_Finish" xml:space="preserve">
+    <value>If the bit sequence remaining at the end is 0, the transmission was successful.</value>
+  </data>
+  <data name="InfoText_CRC_check_Start" xml:space="preserve">
+    <value>The original bit sequence {0} is extended by the check bit {1}. An XOR division is then carried out with the fixed generator polynomial 100101.</value>
+  </data>
+  <data name="InfoText_CRC_evenStep" xml:space="preserve">
+    <value>An XOR division with the generator polynomial 100101 is again carried out on the resulting bit sequence.</value>
+  </data>
+  <data name="InfoText_CRC_Start" xml:space="preserve">
+    <value>The bit sequence {0} is extended by 5 zeros. An XOR division is then carried out with the generator polynomial 100101 (CRC5).</value>
+  </data>
+  <data name="InfoText_CRC_unevenStep" xml:space="preserve">
+    <value>XOR division is performed:
+                    
+1 over 1 equals 0
+0 over 0 equals 0
+1 over 0 equals 1
+0 over 1 equals 1
+                    
+Leading zeros can be omitted. The resulting bit string is extended back to 6 characters by pulling down the existing bits (zeros) of the bit string.</value>
+  </data>
 </root>

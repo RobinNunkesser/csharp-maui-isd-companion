@@ -464,4 +464,78 @@ Er wird gestartet, da kein Prozess mit höherer Priorität ansteht. \n\nDer Proz
   <data name="ShortestPath_Info_3" xml:space="preserve">
     <value> ist zu erreichen über: </value>
   </data>
+  <data name="InfoText_BitEncoding" xml:space="preserve">
+    <value>NRZ: 0 = -  |  1 = +
+NRZI: 1 = Spannungsveränderung (+/-) 
+MLT-3: 1 = abwechselnd +, 0 und -</value>
+  </data>
+  <data name="InfoText_Scheduling_FirstComeFirstServed_Info" xml:space="preserve">
+    <value>Die Prozesse werden der Reihenfolge nach abgearbeitet. 
+            
+Für die Gesamtwartezeit wird die Laufzeit eines jeden Prozesses mit der Anzahl an bereiten Prozessen multipliziert, das Ergebnis wird summiert und durch die Anzahl der Prozesse dividiert.</value>
+  </data>
+  <data name="InfoText_Scheduling_Priority_Info" xml:space="preserve">
+    <value>Die Prozesse werden der Reihenfolge nach entsprechend ihrer Priorität abgearbeitet. 
+
+Für die Gesamtwartezeit wird die Laufzeit eines jeden Prozesses mit der jeweiligen Priorität multipliziert, das Ergebnis wird summiert und durch die Anzahl der Prozesse dividiert.</value>
+  </data>
+  <data name="InfoText_Scheduling_ShortestJobFirst_Info" xml:space="preserve">
+    <value>Die Prozesse werden der Reihenfolge nach abgearbeitet, wobei Prozesse mit geringer Laufzeit priorisiert werden.
+
+Für die Gesamtwartezeit wird die Laufzeit eines jeden Prozesses mit der Anzahl an bereiten Prozessen multipliziert, das Ergebnis wird summiert und durch die Anzahl der Prozesse dividiert.</value>
+  </data>
+  <data name="InfoText_Scheduling_Calculation" xml:space="preserve">
+    <value>Berechnung</value>
+  </data>
+  <data name="InfoText_Scheduling_Duration" xml:space="preserve">
+    <value>Dauer</value>
+  </data>
+  <data name="InfoText_Scheduling_Priority" xml:space="preserve">
+    <value>Priorität</value>
+  </data>
+  <data name="InfoText_Scheduling_Result" xml:space="preserve">
+    <value>Ergebnis</value>
+  </data>
+  <data name="InfoText_Scheduling_RoundRobin_AfterTimeUnit" xml:space="preserve">
+    <value>Nach {0} Zeiteinheit:</value>
+  </data>
+  <data name="InfoText_Scheduling_RoundRobin_AfterTimeUnits" xml:space="preserve">
+    <value>Nach {0} Zeiteinheiten:</value>
+  </data>
+  <data name="InfoText_Scheduling_RoundRobin_Begin" xml:space="preserve">
+    <value>Beginn:</value>
+  </data>
+  <data name="InfoText_Scheduling_RoundRobin_Info" xml:space="preserve">
+    <value>Nach dem Round Robin Verfahren wird jedem bereiten Prozess die selbe Rechenzeit gewährt. Wird ein Prozess vollendet, so wird die Rechenzeit erneut aufgeteilt. 
+
+Die Gesamtwartezeit ergibt sich aus den Zeiteinheiten, welche es braucht, bis ein jeder Prozess vollendet ist, multipliziert mit der jeweiligen Anzahl an bereiten Prozessen, dividiert durch die Gesamtanzahl der Prozesse.</value>
+  </data>
+  <data name="InfoText_Scheduling_RoundRobin_WaitingTime" xml:space="preserve">
+    <value>Wartezeit:</value>
+  </data>
+  <data name="InfoText_CRC_check" xml:space="preserve">
+    <value>Die übrig gebliebene Bitfolge wird als Prüfbit bezeichnet und kann im Folgenden für die Prüfung verwendet werden.</value>
+  </data>
+  <data name="InfoText_CRC_check_Finish" xml:space="preserve">
+    <value>Ergibt die zum Schluss übrig gebliebene Bitfolge 0, so war die Übertragung erfolgreich.</value>
+  </data>
+  <data name="InfoText_CRC_check_Start" xml:space="preserve">
+    <value>Die ursprüngliche Bitfolge {0} wird um das Prüfbit {1} erweitert. Anschließend wird eine XOR Division mit dem festen Generatorpolynom 100101 durchgeführt.</value>
+  </data>
+  <data name="InfoText_CRC_evenStep" xml:space="preserve">
+    <value>Auf der resultierenden Bitfolge wird wieder eine XOR Division mit dem Generatorpolynom 100101 durchgeführt.</value>
+  </data>
+  <data name="InfoText_CRC_Start" xml:space="preserve">
+    <value>Die Bitfolge {0} wird um 5 Nullen erweitert. Anschließend wird eine XOR Division mit dem Generatorpolynom 100101 (CRC5) durchgeführt.</value>
+  </data>
+  <data name="InfoText_CRC_unevenStep" xml:space="preserve">
+    <value>XOR Division wird durchgeführt: 
+
+1 über 1 ergibt 0 
+0 über 0 ergibt 0 
+1 über 0 ergibt 1
+0 über 1 ergibt 1 
+                    
+Voranstehende Nullen können weg gelassen werden. Die resultierende Bitfolge wird wieder auf 6 Zeichen erweitert, indem die vorhandenen Bits (Nullen) der Bitfolge heruntergezogen werden.</value>
+  </data>
 </root>

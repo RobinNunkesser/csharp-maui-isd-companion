@@ -67,10 +67,10 @@ namespace ISDCompanion.Services
 
             List<Label> labels = new List<Label>();
 
-            labels.Add(new Label() { Text = "Dauer" });
-            labels.Add(new Label() { Text = "Priorität" });
-            labels.Add(new Label() { Text = "Berechnung" });
-            labels.Add(new Label() { Text = "Ergebnis" });
+            labels.Add(new Label() { Text = AppResources.InfoText_Scheduling_Duration });
+            labels.Add(new Label() { Text = AppResources.InfoText_Scheduling_Priority });
+            labels.Add(new Label() { Text = AppResources.InfoText_Scheduling_Calculation });
+            labels.Add(new Label() { Text = AppResources.InfoText_Scheduling_Result });
 
             tableGen_TableHeader.AddElement(0, 0, labels[0]);
             tableGen_TableHeader.AddElement(1, 0, labels[1]);
@@ -184,7 +184,7 @@ namespace ISDCompanion.Services
 
         public String GetInfoText()
         {
-            return "Nach dem Round Robin Verfahren wird jedem bereiten Prozess die selbe Rechenzeit gewährt. Wird ein Prozess vollendet, so wird die Rechenzeit erneut aufgeteilt. Die Gesamtwartezeit ergibt sich aus den Zeiteinheiten, welche es gebraucht, bis ein jeder Prozess fertig war, multipliziert mit der jeweiligen Anzahl an bereiten Prozessen, dividiert durch die Gesamtanzahl der Prozesse.";
+            return AppResources.InfoText_Scheduling_RoundRobin_Info;
         }
 
         public bool InfoAvailable()
@@ -197,7 +197,7 @@ namespace ISDCompanion.Services
             int[] values = (int[])parameters.Values.Clone();
             int[] times = new int[5];
 
-            stepDescription[0] = "Beginn:";
+            stepDescription[0] = AppResources.InfoText_Scheduling_RoundRobin_Begin;
             stepValues[0] = values.Select(x => x.ToString()).ToArray();
 
             for (int i = 0; i < 5; i++)
@@ -227,11 +227,11 @@ namespace ISDCompanion.Services
                 }
                 if (time == 1)
                 {
-                    stepDescription[i + 1] = "Nach " + time + " Zeiteinheit:";
+                    stepDescription[i + 1] = String.Format(AppResources.InfoText_Scheduling_RoundRobin_AfterTimeUnit, time);
                 }
                 else
                 {
-                    stepDescription[i + 1] = "Nach " + time + " Zeiteinheiten:";
+                    stepDescription[i + 1] = String.Format(AppResources.InfoText_Scheduling_RoundRobin_AfterTimeUnits, time);
                 }
                 stepValues[i + 1] = values.Select(x => x.ToString()).ToArray();
             }
@@ -246,7 +246,7 @@ namespace ISDCompanion.Services
                 }
             }
 
-            stepDescription[6] = "Wartezeit:";
+            stepDescription[6] = AppResources.InfoText_Scheduling_RoundRobin_WaitingTime;
             stepValues[6] = timesStringArray;
         }
     }
