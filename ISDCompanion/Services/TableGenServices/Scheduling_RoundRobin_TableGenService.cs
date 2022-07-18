@@ -7,12 +7,13 @@ using Italbytz.Ports.Exam.Networks;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
 namespace ISDCompanion.Services
 {
-    internal class Scheduling_TableGenService : ITableGenService
+    internal class Scheduling_RoundRobin_TableGenService : ITableGenService
     {
         public enum Algorithm { ShortestJobFirst, Priority, FirstComeFirstServed }
 
@@ -24,7 +25,9 @@ namespace ISDCompanion.Services
 
         private SchedulingParameters _parameters;
         private string _solution;
-        private string[] _calculation;
+
+        private string[] stepDescription;
+        private Dictionary<int, string[]> stepValues;
 
         private string[] InfoTexts { get; set; }
 
@@ -41,27 +44,32 @@ namespace ISDCompanion.Services
             return (currentRowOfInterest - 3) * _cellWidth;
         }
 
-        public Scheduling_TableGenService(SchedulingParameters parameters, string solution, Algorithm algorithm)
+        public Scheduling_RoundRobin_TableGenService(SchedulingParameters parameters, string solution)
         {
             _parameters = parameters;
             _solution = solution;
-            _calculation = getCalculation(_parameters, algorithm);
+            //_calculation = 
+
+            stepDescription = new string[10];
+            stepValues = new Dictionary<int, string[]>();
+
+            getCalculation(_parameters);
 
 
             //_infoTextService = new CRC_InfoTextService(calculation, calculation_check);
             //InfoTexts = _infoTextService.GetInfoTexts();
             //_tableColumnCount = calculation[0].Length + calculation_check[0].Length + 3;
 
-            tableGen = new TableGen.TableGen(5, 7, 25, 80);
+            tableGen = new TableGen.TableGen(5, 18, 25, 80);
             _index = 0;
             currentRowOfInterest = 0;
         }
 
         public Grid GenerateTable_TableHeader()
         {
-            TableGen.TableGen tableGen_TableHeader = new TableGen.TableGen(1, 7, 25, 100);
+            TableGen.TableGen tableGen_TableHeader = new TableGen.TableGen(1, 18, 25, 100);
 
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 18; i++)
             {
                 tableGen_TableHeader.SetBackGroundColor(i, 0, Color.Transparent);
             }
@@ -76,10 +84,7 @@ namespace ISDCompanion.Services
             tableGen_TableHeader.AddElement(0, 0, labels[0]);
             tableGen_TableHeader.AddElement(1, 0, labels[1]);
             tableGen_TableHeader.AddElement(3, 0, labels[2]);
-            tableGen_TableHeader.AddElement(6, 0, labels[3]);
-
-            tableGen_TableHeader.SetRowHeight(2, 50);
-            tableGen_TableHeader.SetRowHeight(5, 50);
+            tableGen_TableHeader.AddElement(17, 0, labels[3]);
 
             return tableGen_TableHeader.Grid;
         }
@@ -91,60 +96,83 @@ namespace ISDCompanion.Services
                 tableGen.AddElement(0, i, new Label() { Text = _parameters.Values[i].ToString() });
                 tableGen.AddElement(1, i, new Label() { Text = _parameters.Priorities[i].ToString() });
 
-                for (int j = 0; j < 7; j++)
+                for (int j = 0; j < 18; j++)
                 {
                     tableGen.SetBackGroundColor(j, i, Color.Transparent);
                 }
             }
-            tableGen.SetRowHeight(2, 50);
-            tableGen.SetRowHeight(5, 50);
 
             return tableGen.Grid;
         }
 
         public Grid GenerateTable_NextStep()
         {
-            if (_index == 1)
+            if (_index == 6)
             {
-                tableGen.AddElement(6, 2, new Label() { Text = "= " + _solution });
-
                 _index++;
+                tableGen.AddElement(2 * _index + 3, 2, new Label() { Text = "= " + _solution });
+
                 currentRowOfInterest = _index;
             }
-
-            if (_index == 0)
+            if (_index == 5)
             {
+                _index++;
+                string[] values = new string[5];
+                stepValues.TryGetValue(_index, out values);
+                tableGen.AddElement(2 * _index + 2, 0, new Label() { Text = stepDescription[_index] }, 5, 1);
                 for (int i = 0; i < 5; i++)
                 {
-                    tableGen.AddElement(3, i, new Label() { Text = _calculation[i] });
-                    tableGen.SetBorderForCell(3, i, TableGen.Border.BorderPosition.Bot);
+                    tableGen.AddElement(2 * _index + 3, i, new Label() { Text = values[i] });
+                    tableGen.SetBorderForCell(2 * _index + 3, i, TableGen.Border.BorderPosition.Bot);
                 }
-                tableGen.AddElement(4, 2, new Label() { Text = "5" });
-
-                _index++;
+                tableGen.AddElement(2 * _index + 4, 2, new Label() { Text = "5" });
                 currentRowOfInterest = _index;
             }
+            if (_index >= 0 && _index < 5)
+            {
+                _index++;
+                string[] values = new string[5];
+                stepValues.TryGetValue(_index, out values);
+                tableGen.AddElement(2 * _index + 1, 0, new Label() { Text = stepDescription[_index] }, 5, 1);
+                for (int i = 0; i < 5; i++)
+                {
+                    tableGen.AddElement(2 * _index + 2, i, new Label() { Text = values[i] });
+                }
+                currentRowOfInterest = _index;
+            }
+
+
             return tableGen.Grid;
         }
 
         public Grid GenerateTable_PreviousStep()
         {
-            if (_index == 1)
+            if (_index > 0 && _index < 6)
             {
+                string[] values = new string[5];
+                tableGen.RemoveElements(2 * _index + 1, 0);
                 for (int i = 0; i < 5; i++)
                 {
-                    tableGen.RemoveElements(3, i);
-                    tableGen.RemoveBorder(3, i, TableGen.Border.BorderPosition.Bot);
+                    tableGen.RemoveElements(2 * _index + 2, i);
                 }
-                tableGen.RemoveElements(4, 2);
-
                 _index--;
                 currentRowOfInterest = _index;
             }
-
-            if (_index == 2)
+            if (_index == 6)
             {
-                tableGen.RemoveElements(6, 2);
+                tableGen.RemoveElements(2 * _index + 2, 0);
+                for (int i = 0; i < 5; i++)
+                {
+                    tableGen.RemoveElements(2 * _index + 3, i);
+                    tableGen.RemoveBorder(2 * _index + 3, i, TableGen.Border.BorderPosition.Bot);
+                }
+                tableGen.RemoveElements(2 * _index + 4, 2);
+                _index--;
+                currentRowOfInterest = _index;
+            }
+            if (_index == 7)
+            {
+                tableGen.RemoveElements(2 * _index + 3, 2);
 
                 _index--;
                 currentRowOfInterest = _index;
@@ -155,7 +183,7 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_ShowSolution()
         {
-            while (_index < 3)
+            while (_index < 7)
             {
                 GenerateTable_NextStep();
             }
@@ -187,81 +215,62 @@ namespace ISDCompanion.Services
             }
         }
 
-        private string[] getCalculation(SchedulingParameters parameters, Algorithm algorithm)
+        private void getCalculation(SchedulingParameters parameters)
         {
-            string[] output = new string[5];
-            int[] priorities = getPriorityAsInteger(parameters);
             int[] values = (int[])parameters.Values.Clone();
+            int[] times = new int[5];
 
-            switch (algorithm)
+            stepDescription[0] = "Beginn:";
+            stepValues[0] = values.Select(x => x.ToString()).ToArray();
+
+            for (int i = 0; i < 5; i++)
             {
-                case Algorithm.ShortestJobFirst:
-                    for(int i = 0; i < 5; i++)
+                int lowestvalue = int.MaxValue;
+                int amountNotNull = 0;
+                for (int j = 0; j < values.Length; j++)
+                {
+                    if (values[j] != 0)
                     {
-                        Array.Sort(values, priorities);
-                        output[i] = values[i].ToString() + " x " + (5 - i);
-                        if(i != 4)
+                        amountNotNull++;
+                        if (values[j] < lowestvalue)
                         {
-                            output[i] += " +";
+                            lowestvalue = values[j];
                         }
                     }
-                    break;
-                case Algorithm.Priority:
-                    for (int i = 0; i < 5; i++)
-                    {
-                        output[i] = values[i].ToString() + " x " + priorities[i];
-                        if (i != 4)
-                        {
-                            output[i] += " +";
-                        }
-                    }
-                    break;
-                case Algorithm.FirstComeFirstServed:
-                    for (int i = 0; i < 5; i++)
-                    {
-                        output[i] = values[i].ToString() + " x " + (5 - i);
-                        if (i != 4)
-                        {
-                            output[i] += " +";
-                        }
-                    }
+                }
+                int time = lowestvalue * amountNotNull;
+                times[i] = time;
 
-                    break;
+                for (int j = 0; j < values.Length; j++)
+                {
+                    if (values[j] != 0)
+                    {
+                        values[j] = values[j] - lowestvalue;
+                    }
+                }
+                if (time == 1)
+                {
+                    stepDescription[i + 1] = "Nach " + time + " Zeiteinheit:";
+                }
+                else
+                {
+                    stepDescription[i + 1] = "Nach " + time + " Zeiteinheiten:";
+                }
+                stepValues[i + 1] = values.Select(x => x.ToString()).ToArray();
             }
 
-
-            return output;
-        }
-
-        private int[] getPriorityAsInteger(SchedulingParameters parameters)
-        {
-            int[] output = new int[5];
-
-            for(int i = 0; i < 5; i++)
+            string[] timesStringArray = new string[5];
+            for (int i = 0; i < times.Length; i++)
             {
-                if(parameters.Priorities[i] == "sehr niedrig")
+                timesStringArray[i] = times[i].ToString() + " x "  + (5 - i);
+                if (i != 4)
                 {
-                    output[i] = 1;
-                }
-                if (parameters.Priorities[i] == "niedrig")
-                {
-                    output[i] = 2;
-                }
-                if (parameters.Priorities[i] == "mittel")
-                {
-                    output[i] = 3;
-                }
-                if (parameters.Priorities[i] == "hoch")
-                {
-                    output[i] = 4;
-                }
-                if (parameters.Priorities[i] == "sehr hoch")
-                {
-                    output[i] = 5;
+                    timesStringArray[i] += " +";
                 }
             }
 
-            return output;
+            stepDescription[6] = "Wartezeit:";
+            stepValues[6] = timesStringArray;
         }
     }
 }

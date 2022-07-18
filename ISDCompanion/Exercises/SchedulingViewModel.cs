@@ -98,7 +98,7 @@ namespace ISDCompanion
                     solution = rr;
                     if (solution != null)
                     {
-                        _TableGenService = new Scheduling_TableGenService(parameters, solution, Scheduling_TableGenService.Algorithm.ShortestJobFirst);
+                        _TableGenService = new Scheduling_RoundRobin_TableGenService(parameters, solution);
                         Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
                         Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
                     }
