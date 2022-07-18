@@ -193,26 +193,12 @@ namespace ISDCompanion.Services
 
         public String GetInfoText()
         {
-            if (_index == 0)
-            {
-                return "no";
-            }
-            else
-            {
-                return "no";
-            }
+            return "Nach dem Round Robin Verfahren wird jedem bereiten Prozess die selbe Rechenzeit gewährt. Wird ein Prozess vollendet, so wird die Rechenzeit erneut aufgeteilt. Die Gesamtwartezeit ergibt sich aus den Zeiteinheiten, welche es gebraucht, bis ein jeder Prozess fertig war, multipliziert mit der jeweiligen Anzahl an bereiten Prozessen, dividiert durch die Gesamtanzahl der Prozesse.";
         }
 
         public bool InfoAvailable()
         {
-            if (_index == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return true;
         }
 
         private void getCalculation(SchedulingParameters parameters)
@@ -262,7 +248,7 @@ namespace ISDCompanion.Services
             string[] timesStringArray = new string[5];
             for (int i = 0; i < times.Length; i++)
             {
-                timesStringArray[i] = times[i].ToString() + " x "  + (5 - i);
+                timesStringArray[i] = times[i].ToString() + " x " + (5 - i);
                 if (i != 4)
                 {
                     timesStringArray[i] += " +";

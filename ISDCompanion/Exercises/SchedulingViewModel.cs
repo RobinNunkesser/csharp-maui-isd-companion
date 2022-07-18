@@ -41,17 +41,12 @@ namespace ISDCompanion
             parameters = new SchedulingParameters();
             parameters.Values = new int[] {8, 1, 2, 7, 6 };
             parameters.Priorities = new string[] { "niedrig", "sehr hoch", "hoch", "sehr niedrig", "mittel" };
-            var processes = "";
 
             sjf = $"{new ShortestJobFirstSolver().Solve(parameters).Time}";
             prio = $"{new PrioritySchedulingSolver().Solve(parameters).Time}";
             fcfs = $"{new FCFSSolver().Solve(parameters).Time}";
             rr = $"{new RoundRobinSolver().Solve(parameters).Time}";
 
-            for (int i = 0; i < parameters.Values.Length; i++)
-            {
-                processes += $"{parameters.Values[i]} ({parameters.Priorities[i]}) ";
-            }
             ComputeItems();
             base.scroll();
         }
@@ -104,6 +99,8 @@ namespace ISDCompanion
                     }
                     break;
             }
+
+            Info_Text = _TableGenService.GetInfoText();
             Info_Button_Clickable = _TableGenService.InfoAvailable();
         }
 
@@ -128,9 +125,6 @@ namespace ISDCompanion
 
             Info_Button_Clickable = _TableGenService.InfoAvailable();
         }
-
-
-        private string processes;
 
         private string sjf;
 

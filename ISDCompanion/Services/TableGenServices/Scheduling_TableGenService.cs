@@ -25,6 +25,7 @@ namespace ISDCompanion.Services
         private SchedulingParameters _parameters;
         private string _solution;
         private string[] _calculation;
+        private Algorithm _algorithm;
 
         private string[] InfoTexts { get; set; }
 
@@ -46,6 +47,7 @@ namespace ISDCompanion.Services
             _parameters = parameters;
             _solution = solution;
             _calculation = getCalculation(_parameters, algorithm);
+            _algorithm = algorithm;
 
 
             //_infoTextService = new CRC_InfoTextService(calculation, calculation_check);
@@ -165,26 +167,27 @@ namespace ISDCompanion.Services
 
         public String GetInfoText()
         {
-            if (_index == 0)
+            if (_algorithm == Algorithm.ShortestJobFirst)
             {
-                return "no";
+                return "Die Prozesse werden der Reihenfolge nach abgearbeitet, wobei Prozesse mit geringer Laufzeit priorisiert werden. Für die Gesamtwartezeit wird die Laufzeit eines jeden Prozesses mit der Anzahl an bereiten Prozessen multipliziert, das Ergebnis wird summiert und durch die Anzahl der Prozesse dividiert.";
+            }
+            else if (_algorithm == Algorithm.Priority)
+            {
+                return "Die Prozesse werden der Reihenfolge nach entsprechend ihrer Priorität abgearbeitet. Für die Gesamtwartezeit wird die Laufzeit eines jeden Prozesses mit der jeweiligen Priorität multipliziert, das Ergebnis wird summiert und durch die Anzahl der Prozesse dividiert.";
+            }
+            else if (_algorithm == Algorithm.FirstComeFirstServed)
+            {
+                return "Die Prozesse werden der Reihenfolge nach abgearbeitet. Für die Gesamtwartezeit wird die Laufzeit eines jeden Prozesses mit der Anzahl an bereiten Prozessen multipliziert, das Ergebnis wird summiert und durch die Anzahl der Prozesse dividiert.";
             }
             else
             {
-                return "no";
+                return "";
             }
         }
 
         public bool InfoAvailable()
         {
-            if (_index == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return true;
         }
 
         private string[] getCalculation(SchedulingParameters parameters, Algorithm algorithm)
@@ -196,11 +199,11 @@ namespace ISDCompanion.Services
             switch (algorithm)
             {
                 case Algorithm.ShortestJobFirst:
-                    for(int i = 0; i < 5; i++)
+                    for (int i = 0; i < 5; i++)
                     {
                         Array.Sort(values, priorities);
                         output[i] = values[i].ToString() + " x " + (5 - i);
-                        if(i != 4)
+                        if (i != 4)
                         {
                             output[i] += " +";
                         }
@@ -237,9 +240,9 @@ namespace ISDCompanion.Services
         {
             int[] output = new int[5];
 
-            for(int i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                if(parameters.Priorities[i] == "sehr niedrig")
+                if (parameters.Priorities[i] == "sehr niedrig")
                 {
                     output[i] = 1;
                 }
