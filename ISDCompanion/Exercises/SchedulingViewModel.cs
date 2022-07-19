@@ -39,8 +39,6 @@ namespace ISDCompanion
 
 
             parameters = new SchedulingParameters();
-            parameters.Values = new int[] {8, 1, 2, 7, 6 };
-            parameters.Priorities = new string[] { "niedrig", "sehr hoch", "hoch", "sehr niedrig", "mittel" };
 
             sjf = $"{new ShortestJobFirstSolver().Solve(parameters).Time}";
             prio = $"{new PrioritySchedulingSolver().Solve(parameters).Time}";
