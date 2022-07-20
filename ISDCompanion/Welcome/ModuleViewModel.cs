@@ -60,7 +60,6 @@ namespace ISDCompanion
 
 
             Application.Current.MainPage = new AppShell();
-            TheTheme.SetTheme();
 
             var nav = App.Current.MainPage as Xamarin.Forms.Shell;
             nav.BackgroundColor = Color.Black;
