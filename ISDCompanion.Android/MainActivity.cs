@@ -26,11 +26,9 @@ namespace ISDCompanion.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             LoadApplication(new App());
-            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
-            {
-                Window.SetNavigationBarColor(Android.Graphics.Color.White);
-                Window.DecorView.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.LightNavigationBar;
-            }
+
+            //toBeDeleted
+            //Window.DecorView.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.LightNavigationBar;
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -50,18 +48,30 @@ namespace ISDCompanion.Droid
             var activity = Platform.CurrentActivity;
             var window = activity.Window;
 
-            //this may not be necessary(but may before older than M)
-            window.AddFlags(Android.Views.WindowManagerFlags.DrawsSystemBarBackgrounds);
-            window.ClearFlags(Android.Views.WindowManagerFlags.TranslucentStatus);
-
-
-            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.M)
-            {
-                await Task.Delay(50);
-                WindowCompat.GetInsetsController(window, window.DecorView).AppearanceLightStatusBars = darkStatusBarTint;
-            }
-
+            await Task.Delay(50);
+            WindowCompat.GetInsetsController(window, window.DecorView).AppearanceLightStatusBars = darkStatusBarTint;
             window.SetStatusBarColor(color.ToPlatformColor());
+        }
+
+        public async void SetNavigationBarColor(bool darkMode)
+        {
+            if (Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop)
+                return;
+
+            var activity = Platform.CurrentActivity;
+            var window = activity.Window;
+
+            await Task.Delay(50);
+
+            if (darkMode)
+            {
+                window.SetNavigationBarColor(Android.Graphics.Color.Black);
+            }
+            else
+            {
+                window.SetNavigationBarColor(Android.Graphics.Color.White);
+                window.DecorView.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.LightNavigationBar;
+            }
         }
     }
 }

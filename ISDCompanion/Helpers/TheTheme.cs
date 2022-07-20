@@ -31,23 +31,13 @@ namespace ISDCompanion.Helpers
             if (App.Current.RequestedTheme == OSAppTheme.Dark)
             {
                 e?.SetStatusBarColor(Color.Black, false);
-                if (nav != null)
-                {
-                    nav.BarBackgroundColor = Color.Green;
-                    nav.BarTextColor = Color.Green;
-                }
+                e?.SetNavigationBarColor(true);
             }
             else
             {
                 e?.SetStatusBarColor(Color.White, true);
-                if (nav != null)
-                {
-                    nav.BarBackgroundColor = Color.Green;
-                    nav.BarTextColor = Color.Green;
-                }
+                e?.SetNavigationBarColor(false);
             }
-
-
         }
     }
 }
