@@ -25,18 +25,16 @@ namespace ISDCompanion.Helpers
                     break;
             }
 
-            var nav = App.Current.MainPage as Xamarin.Forms.NavigationPage;
-
-            var e = DependencyService.Get<IEnvironment>();
+            var environment = DependencyService.Get<IEnvironment>();
             if (App.Current.RequestedTheme == OSAppTheme.Dark)
             {
-                e?.SetStatusBarColor(true);
-                e?.SetNavigationBarColor(true);
+                environment?.SetStatusBarColor(true);
+                environment?.SetNavigationBarColor(true);
             }
             else
             {
-                e?.SetStatusBarColor(false);
-                e?.SetNavigationBarColor(false);
+                environment?.SetStatusBarColor(false);
+                environment?.SetNavigationBarColor(false);
             }
         }
     }
