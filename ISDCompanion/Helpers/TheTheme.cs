@@ -30,12 +30,12 @@ namespace ISDCompanion.Helpers
             var e = DependencyService.Get<IEnvironment>();
             if (App.Current.RequestedTheme == OSAppTheme.Dark)
             {
-                e?.SetStatusBarColor(Color.Black, false);
+                e?.SetStatusBarColor(true);
                 e?.SetNavigationBarColor(true);
             }
             else
             {
-                e?.SetStatusBarColor(Color.White, true);
+                e?.SetStatusBarColor(false);
                 e?.SetNavigationBarColor(false);
             }
         }

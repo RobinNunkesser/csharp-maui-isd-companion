@@ -40,7 +40,7 @@ namespace ISDCompanion.Droid
 
     public class Environment : IEnvironment
     {
-        public async void SetStatusBarColor(System.Drawing.Color color, bool darkStatusBarTint)
+        public async void SetStatusBarColor(bool darkMode)
         {
             if (Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop)
                 return;
@@ -49,8 +49,17 @@ namespace ISDCompanion.Droid
             var window = activity.Window;
 
             await Task.Delay(50);
-            WindowCompat.GetInsetsController(window, window.DecorView).AppearanceLightStatusBars = darkStatusBarTint;
-            window.SetStatusBarColor(color.ToPlatformColor());
+
+            if (darkMode)
+            {
+                WindowCompat.GetInsetsController(window, window.DecorView).AppearanceLightStatusBars = false;
+                window.SetStatusBarColor(Android.Graphics.Color.Black);
+            }
+            else
+            {
+                WindowCompat.GetInsetsController(window, window.DecorView).AppearanceLightStatusBars = true;
+                window.SetStatusBarColor(Android.Graphics.Color.White);
+            }
         }
 
         public async void SetNavigationBarColor(bool darkMode)
