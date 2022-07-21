@@ -149,7 +149,7 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_ShowSolution()
         {
-            while (_index < 3)
+            while (_index < 2)
             {
                 GenerateTable_NextStep();
             }
