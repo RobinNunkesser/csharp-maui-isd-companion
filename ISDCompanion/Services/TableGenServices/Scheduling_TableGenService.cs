@@ -159,45 +159,6 @@ namespace ISDCompanion.Services
 
         public String GetInfoText()
         {
-            /*
-            InfoText_Scheduling_ShortestJobFirst
-            Die Prozesse werden der Reihenfolge nach abgearbeitet, wobei Prozesse mit geringer Laufzeit priorisiert werden. 
-            
-            Für die Gesamtwartezeit wird die Laufzeit eines jeden Prozesses mit der Anzahl an bereiten Prozessen multipliziert, das Ergebnis wird summiert und durch die Anzahl der Prozesse dividiert.
-             
-
-            The processes are processed one after another, while processes with a short runtime are prioritized.
-
-            For the total waiting time, the running time of each process is multiplied by the number of processes in ready state. The sum of the result is divided by the number of processes.
-             
-             
-
-
-            InfoText_Scheduling_Priority
-            
-            Die Prozesse werden der Reihenfolge nach entsprechend ihrer Priorität abgearbeitet. 
-            
-            Für die Gesamtwartezeit wird die Laufzeit eines jeden Prozesses mit der jeweiligen Priorität multipliziert, das Ergebnis wird summiert und durch die Anzahl der Prozesse dividiert.
-             
-            The processes are processed in order according to their priority.
-
-            For the total waiting time, the runtime of each process is multiplied by the respective priority. The result is summed up and divided by the number of processes.
-             
-             
-
-            InfoText_Scheduling_FirstComeFirstServed
-
-            Die Prozesse werden der Reihenfolge nach abgearbeitet. 
-            
-            Für die Gesamtwartezeit wird die Laufzeit eines jeden Prozesses mit der Anzahl an bereiten Prozessen multipliziert, das Ergebnis wird summiert und durch die Anzahl der Prozesse dividiert.
-             
-             
-            The processes are processed in order of appearance.
-
-            For the total waiting time, the running time of each process is multiplied by the number of ready processes. The result is summed and divided by the number of processes.
-             */
-
-
             if (_algorithm == Algorithm.ShortestJobFirst)
             {
                 return AppResources.InfoText_Scheduling_ShortestJobFirst_Info;
