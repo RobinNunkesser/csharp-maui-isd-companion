@@ -44,7 +44,6 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0" HorizontalOptions="Center">
-
                 <RelativeLayout>
                     <Button Command="{Binding ButtonNewExercise}"
                         Text="&#x002b;"

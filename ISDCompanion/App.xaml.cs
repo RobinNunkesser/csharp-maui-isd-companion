@@ -18,7 +18,9 @@ namespace ISDCompanion
             LocalizationResourceManager.Current.Init(AppResources.ResourceManager);
 
             InitializeComponent();
-            InitializeMainPage();
+
+            MainPage = new StatusPage();
+            //InitializeMainPage();
         }
 
         private void InitializeMainPage()
