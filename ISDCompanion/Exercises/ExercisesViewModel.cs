@@ -151,14 +151,6 @@ namespace ISDCompanion
                 InitExpanded = Settings.RealSemester == 4
             });
 
-            opsys.Add(new Exercise
-            {
-                Exercise_Title = "Temp_ExerciseBasicLayout",
-                Command = "{Binding NavigateCommand}",
-                CommandParameter = "ISDCompanion.ExerciseBasicLayoutPage, ISDCompanion",
-                InitExpanded = Settings.RealSemester == 4
-            });
-
             TrulyObservableCollection<Topic> temp_Topics = new TrulyObservableCollection<Topic>();
 
             temp_Topics.Add(new Topic

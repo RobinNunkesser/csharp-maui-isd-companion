@@ -102,9 +102,6 @@
     <EmbeddedResource Include="Resources\Images\reply48.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Exercises\ExerciseBasicLayoutPage.xaml.cs">
-      <DependentUpon>ExerciseBasicLayoutPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Welcome\ModulePage.xaml.cs">
       <DependentUpon>ModulePage.xaml</DependentUpon>
     </Compile>
