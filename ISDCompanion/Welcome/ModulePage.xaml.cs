@@ -12,7 +12,7 @@ namespace ISDCompanion
         public ModulePage()
         {
             InitializeComponent();
-            BindingContext = new ModuleViewModel();
+            BindingContext = new ModuleViewModel(Navigation);
         }
     }
 }

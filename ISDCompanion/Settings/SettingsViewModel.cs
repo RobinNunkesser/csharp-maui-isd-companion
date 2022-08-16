@@ -18,8 +18,8 @@ namespace ISDCompanion
         }
 
         public int Semester {
-            get => Settings.Semester;
-            set => Settings.Semester = value;
+            get => Settings.Semester -1;
+            set => Settings.Semester = value +1;
         }
 
         public int Specialization

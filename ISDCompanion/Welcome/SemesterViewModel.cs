@@ -9,21 +9,25 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class SemesterViewModel
+    public class SemesterViewModel : INotifyPropertyChanged
     {
         public Command SelectedSemesterCommand { get; }
 
-
-        private string requests;
-        public string Requests
+        private int semesterValue;
+        public int SemesterValue
         {
-            get => requests;
+            get
+            {
+                if (semesterValue == 0)
+                {
+                    SemesterValue = 1;
+                }
+                return semesterValue;
+            }
             set
             {
-                if (value != requests)
-                {
-                    requests = value;
-                }
+                semesterValue = value;
+                OnPropertyChanged(nameof(SemesterValue));
             }
         }
 
@@ -31,11 +35,18 @@ namespace ISDCompanion
         {
             SelectedSemesterCommand = new Command(OnSelectedSemester);
         }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         private void OnSelectedSemester(object obj)
         {
             //Eintrag in DB speichern
-            Application.Current.MainPage = new ModulePage();
+            Settings.Semester = SemesterValue;
+
+            Application.Current.MainPage = new MainEmphasisPage();
         }
 
     }

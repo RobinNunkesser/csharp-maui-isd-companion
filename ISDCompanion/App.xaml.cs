@@ -18,26 +18,37 @@ namespace ISDCompanion
             LocalizationResourceManager.Current.Init(AppResources.ResourceManager);
 
             InitializeComponent();
-            
-            //MainPage = new StatusPage();
-            MainPage = new AppShell();
+
+            MainPage = new StatusPage();
+            //InitializeMainPage();
+        }
+
+        private void InitializeMainPage()
+        {
+            if (Settings.WelcomeStatus == (int)Enums.WelcomeStatusType.Finished)
+            {
+                MainPage = new AppShell();
+            }
+            else
+            {
+                MainPage = new StatusPage();
+            }
         }
 
         protected override void OnStart()
         {
+            RequestedThemeChanged += App_RequestedThemeChanged;
             TheTheme.SetTheme();
         }
 
         protected override void OnSleep()
         {
-            TheTheme.SetTheme();
-            RequestedThemeChanged += App_RequestedThemeChanged;
+
         }
 
         protected override void OnResume()
         {
-            TheTheme.SetTheme();
-            RequestedThemeChanged += App_RequestedThemeChanged;
+
         }
 
         private void App_RequestedThemeChanged(object sender, AppThemeChangedEventArgs e)

@@ -26,11 +26,9 @@ namespace ISDCompanion.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             LoadApplication(new App());
-            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
-            {
-                Window.SetNavigationBarColor(Android.Graphics.Color.White);
-                Window.DecorView.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.LightNavigationBar;
-            }
+
+            //toBeDeleted
+            //Window.DecorView.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.LightNavigationBar;
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -42,7 +40,7 @@ namespace ISDCompanion.Droid
 
     public class Environment : IEnvironment
     {
-        public async void SetStatusBarColor(System.Drawing.Color color, bool darkStatusBarTint)
+        public async void SetStatusBarColor(bool darkMode)
         {
             if (Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop)
                 return;
@@ -50,18 +48,39 @@ namespace ISDCompanion.Droid
             var activity = Platform.CurrentActivity;
             var window = activity.Window;
 
-            //this may not be necessary(but may before older than M)
-            window.AddFlags(Android.Views.WindowManagerFlags.DrawsSystemBarBackgrounds);
-            window.ClearFlags(Android.Views.WindowManagerFlags.TranslucentStatus);
+            await Task.Delay(50);
 
-
-            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.M)
+            if (darkMode)
             {
-                await Task.Delay(50);
-                WindowCompat.GetInsetsController(window, window.DecorView).AppearanceLightStatusBars = darkStatusBarTint;
+                WindowCompat.GetInsetsController(window, window.DecorView).AppearanceLightStatusBars = false;
+                window.SetStatusBarColor(Android.Graphics.Color.Black);
             }
+            else
+            {
+                WindowCompat.GetInsetsController(window, window.DecorView).AppearanceLightStatusBars = true;
+                window.SetStatusBarColor(Android.Graphics.Color.White);
+            }
+        }
 
-            window.SetStatusBarColor(color.ToPlatformColor());
+        public async void SetNavigationBarColor(bool darkMode)
+        {
+            if (Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop)
+                return;
+
+            var activity = Platform.CurrentActivity;
+            var window = activity.Window;
+
+            await Task.Delay(50);
+
+            if (darkMode)
+            {
+                window.SetNavigationBarColor(Android.Graphics.Color.Black);
+            }
+            else
+            {
+                window.SetNavigationBarColor(Android.Graphics.Color.White);
+                window.DecorView.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.LightNavigationBar;
+            }
         }
     }
 }

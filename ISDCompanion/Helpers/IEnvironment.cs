@@ -7,6 +7,7 @@ namespace ISDCompanion.Helpers
 {
     public interface IEnvironment
     {
-        void SetStatusBarColor(Color color, bool darkStatusBarTint);
+        void SetStatusBarColor(bool darkMode);
+        void SetNavigationBarColor(bool darkMode);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DevExpress.XamarinForms.Scheduler;
+using ISDCompanion.Enums;
 using Italbytz.Ports.Meal;
 using Xamarin.Essentials;
 
@@ -9,11 +10,24 @@ namespace ISDCompanion
     public static class Settings
     {
         private static readonly int StatusDefault = 0;
+        private static readonly int MainEmphasisDefault = 0;
         private static readonly int SemesterDefault = 0;
         private static readonly int SpecializationDefault = 0;
+        private static readonly int WelcomeStatusDefault = 0;
         private static readonly int AllergensDefault = 0b11111111111111;
         private static readonly int AdditivesDefault = 0b111111111111111;
 
+
+        public static int MainEmphasis
+        {
+            get => Preferences.Get(nameof(MainEmphasis), MainEmphasisDefault);
+            set => Preferences.Set(nameof(MainEmphasis), value);
+        }
+        public static int WelcomeStatus
+        {
+            get => Preferences.Get(nameof(WelcomeStatus), WelcomeStatusDefault);
+            set => Preferences.Set(nameof(WelcomeStatus), value);
+        }
         public static int Status
         {
             get => Preferences.Get(nameof(Status), StatusDefault);
@@ -51,10 +65,10 @@ namespace ISDCompanion
             {
                 switch (Semester)
                 {
-                    case 0: return AppointmentHelper.appointmentsSem1;
-                    case 1: return AppointmentHelper.appointmentsSem2;
-                    case 2: return AppointmentHelper.appointmentsSem3;
-                    case 3:
+                    case 1: return AppointmentHelper.appointmentsSem1;
+                    case 2: return AppointmentHelper.appointmentsSem2;
+                    case 3: return AppointmentHelper.appointmentsSem3;
+                    case 4:
                         switch (Specialization)
                         {
                             case 0: return AppointmentHelper.appointmentsSem4MoCo;
@@ -62,7 +76,7 @@ namespace ISDCompanion
                             case 2: return AppointmentHelper.appointmentsSem4CySe;
                             default: return null;
                         }
-                    case 5:
+                    case 6:
                         switch (Specialization)
                         {
                             case 0: return AppointmentHelper.appointmentsSem6MoCo;
@@ -70,7 +84,7 @@ namespace ISDCompanion
                             case 2: return AppointmentHelper.appointmentsSem6CySe;
                             default: return null;
                         }
-                    case 6:
+                    case 7:
                         switch (Specialization)
                         {
                             case 0: return AppointmentHelper.appointmentsSem7MoCo;
