@@ -2,49 +2,23 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:isdcompanion="clr-namespace:ISDCompanion" x:DataType="isdcompanion:RealtimeSchedulingViewModel"
     x:Class="ISDCompanion.RealtimeSchedulingPage"
-    Title="{xct:Translate RealtimeScheduling}">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Requests}" VerticalOptions="Center">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="CourierNewPSMT" />
-                            <On Platform="Android" Value="monospace" />
-                            <On Platform="UWP" Value="Courier New" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-             <StackLayout Orientation="Horizontal">
-                <Label Text="{xct:Translate ShowSolution}" VerticalOptions="Center"/>
-                <Switch x:Name="Switch" IsToggled="false" HorizontalOptions="EndAndExpand"/>
-            </StackLayout>
-            <Label Text="RMS" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}"/>
-            <Label Text="{Binding RMSSolution}" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="CourierNewPSMT" />
-                            <On Platform="Android" Value="monospace" />
-                            <On Platform="UWP" Value="Courier New" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-            <Label Text="EDF" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}"/>
-            <Label Text="{Binding EDFSolution}" VerticalOptions="Center"
-                   IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="CourierNewPSMT" />
-                            <On Platform="Android" Value="monospace" />
-                            <On Platform="UWP" Value="Courier New" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-            <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
+    Title="{xct:Translate RealtimeScheduling}"
+    xmlns:Exercise="clr-namespace:ISDCompanion.Exercises">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IconOverride="reply48.png" />
+    </Shell.BackButtonBehavior>
+
+
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal" Margin="0, 15, 0, 0">
+            <Label TextColor="Black" Text="{xct:Translate RealtimeScheduling}" FontSize="18" FontFamily="TW"></Label>
         </StackLayout>
+    </Shell.TitleView>
+    
+    <ContentPage.Content>
+        <Exercise:ExerciseContentView x:Name="Content"></Exercise:ExerciseContentView>
     </ContentPage.Content>
 </ContentPage>

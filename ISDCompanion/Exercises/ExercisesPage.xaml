@@ -4,10 +4,119 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:local="clr-namespace:ISDCompanion"   
+    xmlns:model="clr-namespace:ISDCompanion.Models"
     x:Class="ISDCompanion.ExercisesPage"
+    x:DataType="local:ExercisesViewModel"
     Title="{xct:Translate Exercises}">
     <ContentPage.Content>
-        <TableView Intent="Menu">
+
+        <ScrollView>
+        <StackLayout BindableLayout.ItemsSource="{Binding Semesters}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <xct:Expander x:DataType="model:Semester" IsExpanded="{Binding IsExpanded}">
+                        <xct:Expander.Header>
+                            <Grid>
+                                <Label Text="{Binding Semester_Title}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   Padding="10, 10, 0, 0"/>
+                                <Image Source="expand_48.png"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Start">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image"
+                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                                     Value="True">
+                                            <Setter Property="Source"
+                                                    Value="collapse_48.png" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+                            </Grid>
+                        </xct:Expander.Header>
+                        <StackLayout BindableLayout.ItemsSource="{Binding Modules}" HeightRequest="{Binding Modules.Height}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <xct:Expander x:DataType="model:Module" IsExpanded="{Binding IsExpanded}">
+                                        <xct:Expander.Header>
+                                            <Grid>
+                                                <Label Text="{Binding Module_Title}"
+                                                   FontSize="18"
+                                                   Padding="35, 5, 0, 0"/>
+                                                <Image Source="expand_40.png"
+                                                       HorizontalOptions="End"
+                                                       VerticalOptions="Start"
+                                                       Margin="0, 0, 4, 0">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image"
+                                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                                                     Value="True">
+                                                            <Setter Property="Source"
+                                                                    Value="collapse_40.png" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
+                                        </xct:Expander.Header>
+                                            <StackLayout BindableLayout.ItemsSource="{Binding Topics}" HeightRequest="{Binding Topics.Height}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <xct:Expander x:DataType="model:Topic" IsExpanded="{Binding IsExpanded}">
+                                                        <xct:Expander.Header>
+                                                            <Grid>
+                                                                <Label Text="{Binding Topic_Title}"
+                                                                   FontSize="16"
+                                                                   Padding="60, 5, 0, 5"/>
+                                                                <Image Source="expand_24.png"
+                                                                       HorizontalOptions="End"
+                                                                       VerticalOptions="Start"
+                                                                       Margin="0, 0, 12, 0">
+                                                                    <Image.Triggers>
+                                                                        <DataTrigger TargetType="Image"
+                                                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                                                                     Value="True">
+                                                                            <Setter Property="Source"
+                                                                                    Value="collapse_24.png" />
+                                                                        </DataTrigger>
+                                                                    </Image.Triggers>
+                                                                </Image>
+                                                            </Grid>
+                                                        </xct:Expander.Header>
+                                                        <StackLayout BindableLayout.ItemsSource="{Binding Exercises}">
+                                                            <BindableLayout.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <StackLayout x:DataType="model:Exercise">
+                                                                        <Label Text="{Binding Exercise_Title}"
+                                                                               FontSize="14"
+                                                                               Padding="85, 0, 0, 0"/>
+                                                                        <StackLayout.GestureRecognizers>
+                                                                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:ExercisesViewModel}}, Path=ExerciseTapped}"
+                                                                                                  CommandParameter="{Binding .}">
+                                                                            </TapGestureRecognizer>
+                                                                        </StackLayout.GestureRecognizers>
+                                                                    </StackLayout>
+                                                                </DataTemplate>
+                                                            </BindableLayout.ItemTemplate>
+                                                        </StackLayout>
+                                                    </xct:Expander>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </StackLayout>
+                                    </xct:Expander>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </xct:Expander>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+        </ScrollView>
+
+
+
+        <!--<TableView Intent="Menu">
             <TableRoot>
                 <TableSection Title="{xct:Translate Networks}">
                     <TextCell Text="{xct:Translate Bitencodings}"
@@ -60,9 +169,13 @@
                      <TextCell Text="{xct:Translate Quiz}"
                               Command="{Binding OpSysQuizCommand}"                              
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
-                              />                    
+                              />
+                    <TextCell Text="{xct:Translate ExerciseBasicLayout}"
+                               Command="{Binding NavigateCommand}"
+                               CommandParameter="{x:Type local:ExerciseBasicLayoutPage}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
                 </TableSection>
             </TableRoot>
-        </TableView>            
+        </TableView>-->
     </ContentPage.Content>
 </ContentPage>

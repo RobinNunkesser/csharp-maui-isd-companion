@@ -24,9 +24,14 @@
     <PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.6.0" />
     <PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.8.1" />
     <PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.3.0" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DevExpress.XamarinForms.Scheduler" />
+    <None Remove="Resources\Fonts\FA-Regular-400.otf" />
+    <None Remove="Resources\Fonts\FA-Solid-900.otf" />
+    <None Remove="Resources\Fonts\TitilliumWeb-Regular.ttf" />
+    <None Remove="Resources\Images\reply48.png" />
     <None Remove="Schedule\" />
     <None Remove="Exercises\" />
     <None Remove="Settings\" />
@@ -66,16 +71,14 @@
     <None Remove="Italbytz.Adapters.Meal.STWPB" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Exercises\s\" />
     <Folder Include="Schedule\" />
-    <Folder Include="Exercises\" />
-    <Folder Include="Settings\" />
+    <Folder Include="Services\MindMapServices\" />
     <Folder Include="Licenses\" />
-    <Folder Include="Resources\" />
     <Folder Include="Resx\" />
     <Folder Include="Mensa\" />
     <Folder Include="Profs\" />
     <Folder Include="Quiz\" />
-    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Licenses\xamarin_essentials.html" />
@@ -93,20 +96,41 @@
     <EmbeddedResource Include="Licenses\xam_plugins_logging.html" />
     <EmbeddedResource Include="Licenses\italbytz_ports_meal.html" />
     <EmbeddedResource Include="Licenses\italbytz_adapters_meal_stwpb.html" />
+    <EmbeddedResource Include="Resources\Fonts\FA-Regular-400.otf" />
+    <EmbeddedResource Include="Resources\Fonts\FA-Solid-900.otf" />
+    <EmbeddedResource Include="Resources\Fonts\TitilliumWeb-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Images\reply48.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Welcome\ModulePage.xaml.cs">
+      <DependentUpon>ModulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Welcome\MainEmphasisPage.xaml.cs">
+      <DependentUpon>MainEmphasisPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Welcome\SemesterPage.xaml.cs">
+      <DependentUpon>SemesterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Welcome\StatusPage.xaml.cs">
+      <DependentUpon>StatusPage.xaml</DependentUpon>
+    </Compile>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
       <DependentUpon>LicensesPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Resx\AppResources.Designer.cs">
       <DependentUpon>AppResources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Update="Resx\AppResources.de.Designer.cs">
       <DependentUpon>AppResources.de.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Exercises\ExerciseContentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
@@ -117,7 +141,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mensa.Infrastructure.Adapter\Mensa.Infrastructure.Adapter.csproj" />
+    <ProjectReference Include="..\..\GraphGen\NewGraphGen.csproj" />
+    <ProjectReference Include="..\..\TableGen\TableGen.csproj" />
     <ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
   </ItemGroup>
 </Project>

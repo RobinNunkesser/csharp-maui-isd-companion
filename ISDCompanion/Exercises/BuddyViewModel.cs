@@ -2,76 +2,40 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using ISDCompanion.Interfaces;
+using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class BuddyViewModel : ExerciseViewModel
+    public class BuddyViewModel : Baseclass_Table_ViewModel, IAfterRender
     {
-        private string requests;
-        public string Requests
-        {
-            get => requests;
-            set
-            {
-                if (value != requests)
-                {
-                    requests = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string freeOrder;
-        public string FreeOrder
-        {
-            get => freeOrder;
-            set
-            {
-                if (value != freeOrder)
-                {
-                    freeOrder = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string solution;
-        public string Solution
-        {
-            get => solution;
-            set
-            {
-                if (value != solution)
-                {
-                    solution = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        protected override void Initialize()
+        public void AfterRender()
         {
             var parameters = new BuddyParameters();
             var solver = new BuddySolver();
             var solution = solver.Solve(parameters);
 
-            var solutionString = "";
+            _TableGenService = new Buddy_TableGenService(parameters, solution);
+            //loading animation
+            //gets automaticly removed when contend finished loading
+            Exercise_Content_Header = new ActivityIndicator { IsRunning = true };
+            Exercise_Content = new ActivityIndicator { IsRunning = true };
 
-            foreach (var entry in solution.History)
-            {
-                foreach (var cell in entry)
-                {
-                    solutionString += cell == -1 ? "-" : parameters.Processes[cell];
-                }
-                solutionString += "\n";
-            }
+            Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
+            Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
 
-            Requests = $"A ({parameters.Requests[0]}), B ({parameters.Requests[1]}), C ({parameters.Requests[2]}), D ({parameters.Requests[3]}), E ({parameters.Requests[4]})";
-            FreeOrder = $"Free {parameters.FreeOrder[0]}, {parameters.FreeOrder[1]}, {parameters.FreeOrder[2]}, {parameters.FreeOrder[3]}, {parameters.FreeOrder[4]}";
-            Solution = solutionString;
+            base.scroll();
+
+
         }
 
+        protected override void newExercise()
+        {
+            AfterRender();
+
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
+        }
     }
 }

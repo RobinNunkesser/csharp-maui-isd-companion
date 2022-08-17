@@ -1,35 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using ISDCompanion.Interfaces;
+using ISDCompanion.Resx;
+using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Infrastructure.Exam.OperatingSystems.PageReplacement;
 using Italbytz.Ports.Exam.OperatingSystems;
+using TableGen;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace ISDCompanion
 {
-    public class PageReplacementViewModel : ExerciseViewModel
+    public class PageReplacementViewModel : Baseclass_Table_ViewModel, IAfterRender
     {
-
-        public List<string[]> Items { get; set; }
-        private string referenceRequests;
-        public string ReferenceRequests
+        public void AfterRender()
         {
-            get => referenceRequests;
-            set
+            //Add Picker control to view. This must be done here, defining it in XAML will break the ContentView template because of the height.
+            Picker picker = new Picker();
+            picker.Title = AppResources.ShowSolution;
+            picker.TitleColor = Color.Red;
+            picker.Margin = 5;
+            picker.SetBinding(Picker.SelectedIndexProperty, new Binding("SelectedStrategy"));
+
+            picker.ItemsSource = new[] {
+                "Optimal",
+                "FIFO",
+                "Least Reacently Used",
+                "Second Chance/Clock"
+            };
+
+            Exercise_Header = picker;
+
+            var parameters = new PageReplacementParameters()
             {
-                if (value != referenceRequests)
-                {
-                    referenceRequests = value;
-                    OnPropertyChanged();
-                }
-            }
+                MemorySize = 4
+            };
+
+            optimalSolution = new OptimalSolver().Solve(parameters).Steps;
+            optimalSolution.RemoveAt(0);
+
+            fifoSolution = new FIFOSolver().Solve(parameters).Steps;
+            fifoSolution.RemoveAt(0);
+
+            lruSolution = new LRUSolver().Solve(parameters).Steps;
+            lruSolution.RemoveAt(0);
+
+            clockSolution = new ClockSolver().Solve(parameters).Steps;
+            clockSolution.RemoveAt(0);
+
+            //loading animation
+            //gets automaticly removed when contend finished loading
+            Exercise_Content_Header = new ActivityIndicator { IsRunning = true };
+            Exercise_Content = new ActivityIndicator { IsRunning = true };
+
+            ComputeItems();
+
+            base.scroll();
         }
 
-        private int selectedStrategy;
+
+        private int selectedStrategy = 0;
         public int SelectedStrategy
         {
             get => selectedStrategy;
@@ -49,69 +85,62 @@ namespace ISDCompanion
         private List<IPageReplacementStep> lruSolution;
         private List<IPageReplacementStep> fifoSolution;
 
+        protected override void newExercise()
+        {
+            AfterRender();
+
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
+        }
+
         private void ComputeItems()
         {
-            Items = new List<string[]>();
-
             List<IPageReplacementStep> solution = null;
+
+            if (selectedStrategy == -1)
+            {
+                selectedStrategy = 0;
+            }
+
             switch (selectedStrategy)
             {
-                case 0: solution = optimalSolution; break;
-                case 1: solution = fifoSolution; break;
-                case 2: solution = lruSolution; break;
-                case 3: solution = clockSolution; break;
+                case 0:
+                    solution = optimalSolution;
+                    if (solution != null)
+                    {
+                        _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.Optimal);
+                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
+                    }
+                    break;
+                case 1:
+                    solution = fifoSolution;
+                    if (solution != null)
+                    {
+                        _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.FIFO);
+                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
+                    }
+                    break;
+                case 2:
+                    solution = lruSolution;
+                    if (solution != null)
+                    {
+                        _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.LRU);
+                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
+                    }
+                    break;
+                case 3:
+                    solution = clockSolution;
+                    if (solution != null)
+                    {
+                        _TableGenService = new PageReplacement_SecondChanceClock_TableGenService(solution);
+                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
+                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
+                    }
+                    break;
             }
-
-            if (solution != null)
-            {
-                Items = solution.Select(Present).ToList();
-            }
-            OnPropertyChanged("Items");
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
         }
-
-        private string[] Present(IPageReplacementStep sim)
-        {
-            var element = sim.Element;
-            var frames = sim.Frames.Select(Present).ToList();
-            var frameInformation = sim.FrameInformation.Select(Present).ToList();
-            return new string[] {
-        $"{element}",
-        $"{frames[0]} ({frameInformation[0]})",
-        $"{frames[1]} ({frameInformation[1]})",
-        $"{frames[2]} ({frameInformation[2]})",
-        $"{frames[3]} ({frameInformation[3]})"};
-        }
-
-        private string Present(int arg)
-        {
-            if (arg == int.MaxValue) return "-";//"∞";
-            return $"{arg}";
-        }
-
-        protected override void Initialize()
-        {
-
-            SelectedStrategy = -1;
-
-            var parameters = new PageReplacementParameters()
-            {
-                MemorySize = 4
-            };
-            ReferenceRequests = string.Join("", parameters.ReferenceRequests);
-
-            optimalSolution = new OptimalSolver().Solve(parameters).Steps;
-            optimalSolution.RemoveAt(0);
-
-            fifoSolution = new FIFOSolver().Solve(parameters).Steps;
-            fifoSolution.RemoveAt(0);
-
-            lruSolution = new LRUSolver().Solve(parameters).Steps;
-            lruSolution.RemoveAt(0);
-
-            clockSolution = new ClockSolver().Solve(parameters).Steps;
-            clockSolution.RemoveAt(0);
-
-        }
-
     }
 }

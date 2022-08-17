@@ -2,72 +2,35 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using ISDCompanion.Interfaces;
+using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class RealtimeSchedulingViewModel : ExerciseViewModel
+    public class RealtimeSchedulingViewModel : Baseclass_Table_ViewModel, IAfterRender
     {
-        private string requests;
-        public string Requests
-        {
-            get => requests;
-            set
-            {
-                if (value != requests)
-                {
-                    requests = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string edfSolution;
-        public string EDFSolution
-        {
-            get => edfSolution;
-            set
-            {
-                if (value != edfSolution)
-                {
-                    edfSolution = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string rmsSolution;
-        public string RMSSolution
-        {
-            get => rmsSolution;
-            set
-            {
-                if (value != rmsSolution)
-                {
-                    rmsSolution = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        protected override void Initialize()
+        public void AfterRender()
         {
             var parameters = new RealtimeSchedulingParameters();
+            _TableGenService = new RealtimeScheduling_TableGenService(parameters, new EDFSolver().Solve(parameters).Processes, new RMSSolver().Solve(parameters).Processes);
 
-            var requests = "";
-            var index = 0;
-            foreach (var request in parameters.Requests)
-            {
-                requests += $"Process {index}: (Time: {request.Item1}, Freq: {request.Item2})\n";
-                index++;
-            }
+            //loading animation
+            //gets automaticly removed when contend finished loading
+            Exercise_Content_Header = new ActivityIndicator { IsRunning = true };
+            Exercise_Content = new ActivityIndicator { IsRunning = true };
 
-            Requests = requests;
-            EDFSolution = string.Join("", new EDFSolver().Solve(parameters).Processes);
-            RMSSolution = string.Join("", new RMSSolver().Solve(parameters).Processes);
-
+            Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
+            Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
+            base.scroll();
         }
 
+        protected override void newExercise()
+        {
+            AfterRender();
+
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
+        }
     }
 }

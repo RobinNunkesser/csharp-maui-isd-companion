@@ -9,6 +9,10 @@ namespace ISDCompanion
 {
     public class NetmaskViewModel : ExerciseViewModel
     {
+        protected override void newExercise()
+        {
+            //todo  
+        }
         private string address;
         public string Address
         {

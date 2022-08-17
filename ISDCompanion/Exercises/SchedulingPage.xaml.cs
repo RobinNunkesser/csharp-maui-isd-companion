@@ -1,25 +1,27 @@
-﻿using System;
+﻿using ISDCompanion.Interfaces;
+using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public partial class SchedulingPage : ContentPage
+    public partial class SchedulingPage : ContentPage, IAfterRender
     {
+        protected IAfterRender ViewModelAfterRender = null;
+        public void AfterRender()
+        {
+            ViewModelAfterRender.AfterRender();
+        }
+
         public SchedulingPage()
         {
             InitializeComponent();
-            BindingContext = new SchedulingViewModel();
-        }
+            var vm = new SchedulingViewModel(); 
+            BindingContext = vm;
+            ViewModelAfterRender = vm;
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            SwitchFCFS.IsToggled = false;
-            SwitchPRIO.IsToggled = false;
-            SwitchRR.IsToggled = false;
-            SwitchSJF.IsToggled = false;
+            vm.ScrollToPosition += (int x, int y, bool isAnimated) => { Content.ScrollToPosition(x, y, isAnimated); };
         }
-
     }
 }

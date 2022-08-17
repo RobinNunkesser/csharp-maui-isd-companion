@@ -3,67 +3,38 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using ISDCompanion.Interfaces;
+using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.Networks;
 using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class CRCViewModel : ExerciseViewModel
+    public class CRCViewModel : Baseclass_Table_ViewModel, IAfterRender
     {
-        private string bits = "";
-        public string Bits
-        {
-            get => bits;
-            set
-            {
-                if (value != bits)
-                {
-                    bits = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string calculation = "";
-        public string Calculation
-        {
-            get => calculation;
-            set
-            {
-                if (value != calculation)
-                {
-                    calculation = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string check = "";
-        public string Check
-        {
-            get => check;
-            set
-            {
-                if (value != check)
-                {
-                    check = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-
-        protected override void Initialize()
+        public void AfterRender()
         {
             var parameters = new CRCParameters();
             var solver = new CRCSolver();
             var solution = solver.Solve(parameters);
 
-            Bits = Convert.ToString(parameters.Term, 2);
-            Calculation = solution.Calculation;
-            Check = solution.Check;
+            _TableGenService = new CRC_TableGenService(parameters, solution);
+            //loading animation
+            //gets automaticly removed when contend finished loading
+            //Exercise_Header = new ActivityIndicator { IsRunning = true };
+            Exercise_Content = new ActivityIndicator { IsRunning = true };
+
+            //Exercise_Header = _TableGenService.GenerateTable_TableHeader();
+            Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
+
+            base.scroll();
         }
 
-    }
+        protected override void newExercise()
+        {
+            AfterRender();
 
+            Info_Button_Clickable = _TableGenService.InfoAvailable();
+        }
+    }
 }
