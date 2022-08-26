@@ -87,7 +87,11 @@
                                CommandParameter="{x:Type local:AdditivesPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                
                 </TableSection>
-                <TableSection Title="Acknowledgements">
+                <TableSection Title="Acknowledgements / Licenses">
+                    <TextCell Text="Acknowledgements"
+                              Command="{Binding NavigateCommand}"
+                               CommandParameter="{x:Type local:AcknowledgementsPage}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                
                     <TextCell Text="DevExpress.XamarinForms.Scheduler"                              
                               Command="{Binding LicensesCommand}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">

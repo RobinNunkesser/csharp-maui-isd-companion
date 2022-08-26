@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ISDCompanion.AcknowledgementsPage"
+    Title="Acknowledgements">
+    <ContentPage.Content>
+        <StackLayout Padding="5,10">       
+        <Label LineBreakMode="WordWrap">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Code contributors &#10; " FontAttributes="Bold" />
+                    <Span Text=" &#10;" />
+                    <Span Text="Marcel Felix &#10;" Style="{DynamicResource BodyStyle}"/>
+                    <Span Text="Pascal Felix &#10;" Style="{DynamicResource BodyStyle}"/>
+                    <Span Text="Alexander Strauch &#10;" Style="{DynamicResource BodyStyle}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
