@@ -11,17 +11,16 @@ namespace ISDCompanion
 {
     public partial class CoursesPage : ContentPage
     {
+        readonly CoursesViewModel viewModel = new();
+
         public CoursesPage()
         {
             InitializeComponent();
-            BindingContext = new CoursesViewModel();
+            BindingContext = viewModel;
         }
 
         async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string previous = (e.PreviousSelection.FirstOrDefault() as ItemViewModel)?.Text;
-            string current = (e.CurrentSelection.FirstOrDefault() as ItemViewModel)?.Text;
-
             var calendars = await CrossCalendars.Current.GetCalendarsAsync();
             var editableCalendars = calendars.Where((c) => c.CanEditCalendar).ToList();
 
@@ -50,15 +49,8 @@ namespace ISDCompanion
                 }
             }
 
+            viewModel.AddCourseToCalendar(e.CurrentSelection.FirstOrDefault() as CourseViewModel, selectedCalendar);
 
-            var calendarEvent = new CalendarEvent
-            {
-                Name = "Add calendar support",
-                Start = DateTime.Now,
-                End = DateTime.Now.AddHours(1),
-                Reminders = new List<CalendarEventReminder> { new CalendarEventReminder() }
-            };
-            await CrossCalendars.Current.AddOrUpdateEventAsync(selectedCalendar, calendarEvent);
         }
     }
 }

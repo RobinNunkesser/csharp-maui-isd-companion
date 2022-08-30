@@ -4,14 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ISDCompanion.CoursesPage">
     <ContentPage.Content>
-        <CollectionView ItemsSource="{Binding Items}"
+        <CollectionView ItemsSource="{Binding FilteredItems}"
                         SelectionMode="Single"
                         SelectionChanged="OnCollectionViewSelectionChanged">
+        <CollectionView.Header>
+            <SearchBar x:Name="MainSearchBar" Placeholder="Search term" 
+                       Text="{Binding SearchTerm}"/>
+        </CollectionView.Header>
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <StackLayout>
-                    <Label Text="{Binding Text}" FontAttributes="Bold" />
-                    <Label Text="{Binding Detail}" FontAttributes="Italic"
+                    <Label Text="{Binding Name}" FontAttributes="Bold" />
+                    <Label Text="{Binding Room}" FontAttributes="Italic"
                            VerticalOptions="End" />
                 </StackLayout>
             </DataTemplate>
