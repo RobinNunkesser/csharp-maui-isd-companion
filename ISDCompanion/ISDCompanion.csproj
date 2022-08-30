@@ -25,6 +25,7 @@
     <PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.8.1" />
     <PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.3.0" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="CClarke.Plugin.Calendars" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DevExpress.XamarinForms.Scheduler" />
@@ -69,9 +70,9 @@
     <None Remove="Licenses\italbytz_ports_meal.html" />
     <None Remove="Licenses\italbytz_adapters_exam_networks %28copy%29.html" />
     <None Remove="Italbytz.Adapters.Meal.STWPB" />
+    <None Remove="CClarke.Plugin.Calendars" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Exercises\s\" />
     <Folder Include="Schedule\" />
     <Folder Include="Services\MindMapServices\" />
     <Folder Include="Licenses\" />
