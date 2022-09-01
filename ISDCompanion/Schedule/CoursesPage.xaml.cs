@@ -17,6 +17,7 @@ namespace ISDCompanion
         {
             InitializeComponent();
             BindingContext = viewModel;
+            courses.ItemsSource = CourseDataService.Courses;
         }
 
         async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -51,6 +52,12 @@ namespace ISDCompanion
 
             viewModel.AddCourseToCalendar(e.CurrentSelection.FirstOrDefault() as CourseViewModel, selectedCalendar);
 
+        }
+
+        void OnSearchTextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
+        {
+            SearchBar searchBar = (SearchBar)sender;
+            courses.ItemsSource = CourseDataService.GetSearchResults(searchBar.Text);
         }
     }
 }
