@@ -11,12 +11,9 @@ namespace ISDCompanion
 {
     public partial class CoursesPage : ContentPage
     {
-        readonly CoursesViewModel viewModel = new();
-
         public CoursesPage()
         {
             InitializeComponent();
-            BindingContext = viewModel;
             courses.ItemsSource = CourseDataService.Courses;
         }
 
@@ -50,7 +47,7 @@ namespace ISDCompanion
                 }
             }
 
-            viewModel.AddCourseToCalendar(e.CurrentSelection.FirstOrDefault() as CourseViewModel, selectedCalendar);
+            CourseDataService.AddCourseToCalendar(e.CurrentSelection.FirstOrDefault() as CourseViewModel, selectedCalendar);
 
         }
 
