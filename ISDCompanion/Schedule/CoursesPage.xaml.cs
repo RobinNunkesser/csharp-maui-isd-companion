@@ -58,6 +58,7 @@ namespace ISDCompanion
         {
             SearchBar searchBar = (SearchBar)sender;
             courses.ItemsSource = CourseDataService.GetSearchResults(searchBar.Text);
+            searchBar.Focus();
         }
     }
 }
