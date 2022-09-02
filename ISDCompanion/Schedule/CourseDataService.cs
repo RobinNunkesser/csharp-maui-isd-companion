@@ -19,13 +19,216 @@ namespace ISDCompanion
 
         public static List<CourseViewModel> Courses { get; } = new List<CourseViewModel>
             {
-            new CourseViewModel { Name = "Mathematik II VL",
-                                  Room = "Detail 1",
-                                    StartDate = "01.09.2022 08:00",
-            Length = 180, Lecturer = "Bubu", Semester=3, Occurrences=3},
-            new CourseViewModel { Name = "Banana", Room = "Detail 2", Lecturer = "Buba" },
-            new CourseViewModel { Name = "Laptop", Room = "Detail 3", Lecturer = "Bubi" },
-            new CourseViewModel { Name = "Teddy Bear", Room = "Detail 4", Lecturer = "Bub" }
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "19.09.2022 08:00",
+                Name = "Chemie VL",
+                Lecturer = "Berndt",
+                Room = "Hörsaal Stadtwerke Hamm",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "19.09.2022 10:00",
+                Name = "Technisches Englisch I VL",
+                Lecturer = "Strack",
+                Room = "Hörsaal Stadtwerke Hamm",
+                Length = 60,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "19.09.2022 12:00",
+                Name = "Mathematik I VL",
+                Lecturer = "Ponick",
+                Room = "Hörsaal HAM 6",
+                Length = 60,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "19.09.2022 13:00",
+                Name = "Grundlagen der Programmierung VL",
+                Lecturer = "Stuckenholz",
+                Room = "Hörsaal HAM 6",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "20.09.2022 08:00",
+                Name = "Technische Informatik I VL",
+                Lecturer = "Krenz-Baath",
+                Room = "Hörsaal WESTPRESS",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "20.09.2022 10:00",
+                Name = "Mathematik I VL",
+                Lecturer = "Ponick",
+                Room = "Hörsaal WESTPRESS",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "20.09.2022 14:00",
+                Name = "Technische Informatik I ÜB - Gruppe A",
+                Lecturer = "Krenz-Baath",
+                Room = "PC-Pool H4.2-E00-140, Labor H3.3-E01-220",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "21.09.2022 13:00",
+                Name = "Technische Informatik I ÜB - Gruppe B",
+                Lecturer = "Krenz-Baath",
+                Room = "PC-Pool H4.2-E00-140, Labor H3.3-E01-220",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "22.09.2022 08:00",
+                Name = "Personal Skills I VL/ÜB",
+                Lecturer = "Grewe",
+                Room = "Hörsaal HAM 6",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "22.09.2022 10:00",
+                Name = "Mathematik I ÜB",
+                Lecturer = "Ponick",
+                Room = "Seminarraum H1.2-E01-010",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "22.09.2022 14:00",
+                Name = "Technisches Englisch I ÜB",
+                Lecturer = "Strack",
+                Room = "Seminarraum H1.2-E01-010",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "22.09.2022 16:00",
+                Name = "Physik ÜB - Gruppe A",
+                Lecturer = "Kientopf",
+                Room = "Seminarraum H7.2-E00-002",
+                Length = 60,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "21.09.2022 11:00",
+                Name = "Physik ÜB - Gruppe B",
+                Lecturer = "Kientopf",
+                Room = "Hörsaal HAM 6",
+                Length = 60,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "23.09.2022 08:00",
+                Name = "Physik VL",
+                Lecturer = "Kientopf",
+                Room = "Seminarraum H4.2-E00-110",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "23.09.2022 10:00",
+                Name = "Biologie VL",
+                Lecturer = "Tickenbrock",
+                Room = "Seminarraum H4.2-E00-110",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "23.09.2022 14:00",
+                Name = "Grundlagen der Programmierung ÜB - Gruppe A",
+                Lecturer = "Stuckenholz",
+                Room = "PC-Pool H4.2-E00-140",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 1,
+                StartDate = "21.09.2022 09:00",
+                Name = "Grundlagen der Programmierung ÜB - Gruppe B",
+                Lecturer = "Stuckenholz",
+                Room = "PC-Pool H4.2-E00-140",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 3,
+                StartDate = "19.09.2022 08:00",
+                Name = "Digitaltechnik I VL",
+                Lecturer = "Krenz-Baath",
+                Room = "Seminarraum H1.1-E01-150",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 3,
+                StartDate = "19.09.2022 10:00",
+                Name = "Embedded Systems I VL",
+                Lecturer = "Pelzl",
+                Room = "Seminarraum H1.1-E01-150",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 3,
+                StartDate = "19.09.2022 12:00",
+                Name = "Technisches Englisch III VL",
+                Lecturer = "Strack",
+                Room = "Seminarraum H1.1-E01-150",
+                Length = 60,
+                Occurrences = 17,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 3,
+                StartDate = "19.09.2022 13:00",
+                Name = "System Modellierung II VL",
+                Lecturer = "Runovska",
+                Room = "PC-Pool H4.2-E00-140",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
+            }
             };
 
         public static List<CourseViewModel> GetSearchResults(string queryString)
