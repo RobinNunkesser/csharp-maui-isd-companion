@@ -348,6 +348,26 @@ namespace ISDCompanion
                 Length = 60,
                 Occurrences = 17,
                 Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "19.09.2022 11:00",
+                Name = "System Verifikation und System Validierung ÜB",
+                Lecturer = "Krenz-Baath",
+                Room = "PC-Pool H3.3-E00-010",
+                Length = 120,
+                Occurrences = 8,
+                Biweekly = true
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "19.09.2022 13:00",
+                Name = " Safety und Security Projektkurs VL",
+                Lecturer = "Pelzl",
+                Room = "Seminarraum H1.1-E01-140",
+                Length = 120,
+                Occurrences = 17,
+                Biweekly = false
             }
             };
 
@@ -372,6 +392,9 @@ namespace ISDCompanion
         {
             var startDate = DateTime.ParseExact(courseViewModel.StartDate, longFormat, CultureInfo.InvariantCulture);
             var endDate = startDate.AddMinutes(courseViewModel.Length);
+
+            // TODO Hier: while startDate <= Semesterende, Occurences streichen
+
             for (int i = 0; i < courseViewModel.Occurrences; i++)
             {
                 var isHoliday = false;
