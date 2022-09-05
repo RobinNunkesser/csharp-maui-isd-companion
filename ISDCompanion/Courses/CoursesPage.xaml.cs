@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using ISDCompanion.Resx;
 using Plugin.Calendars;
 using Plugin.Calendars.Abstractions;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace ISDCompanion
@@ -15,6 +17,54 @@ namespace ISDCompanion
         {
             InitializeComponent();
             courses.ItemsSource = CourseDataService.Courses;
+        }
+
+        public async Task<PermissionStatus> CheckAndRequestCalendarReadPermission()
+        {
+            var status = await Permissions.CheckStatusAsync<Permissions.CalendarRead>();
+
+            if (status == PermissionStatus.Granted)
+                return status;
+
+            if (status == PermissionStatus.Denied && DeviceInfo.Platform == DevicePlatform.iOS)
+            {
+                // Prompt the user to turn on in settings
+                // On iOS once a permission has been denied it may not be requested again from the application
+                return status;
+            }
+
+            if (Permissions.ShouldShowRationale<Permissions.CalendarRead>())
+            {
+                // Prompt the user with additional information as to why the permission is needed
+            }
+
+            status = await Permissions.RequestAsync<Permissions.CalendarRead>();
+
+            return status;
+        }
+
+        public async Task<PermissionStatus> CheckAndRequestCalendarWritePermission()
+        {
+            var status = await Permissions.CheckStatusAsync<Permissions.CalendarWrite>();
+
+            if (status == PermissionStatus.Granted)
+                return status;
+
+            if (status == PermissionStatus.Denied && DeviceInfo.Platform == DevicePlatform.iOS)
+            {
+                // Prompt the user to turn on in settings
+                // On iOS once a permission has been denied it may not be requested again from the application
+                return status;
+            }
+
+            if (Permissions.ShouldShowRationale<Permissions.CalendarWrite>())
+            {
+                // Prompt the user with additional information as to why the permission is needed
+            }
+
+            status = await Permissions.RequestAsync<Permissions.CalendarWrite>();
+
+            return status;
         }
 
         async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -29,11 +79,11 @@ namespace ISDCompanion
                 await DisplayAlert(AppResources.Error, AppResources.NoCalendars, AppResources.OK);
                 return;
             }
-            else if (editableCalendars.Count > 1)
+            else
             {
                 var names = editableCalendars.Select((c) => c.Name).ToArray();
-                string chosenCalendar = await DisplayActionSheet("Kalender?", "Cancel", null, names);
-                if (chosenCalendar.Equals("Cancel"))
+                string chosenCalendar = await DisplayActionSheet(AppResources.CalendarExportQuery, AppResources.Cancel, null, names);
+                if (chosenCalendar.Equals(AppResources.Cancel))
                 {
                     return;
                 }

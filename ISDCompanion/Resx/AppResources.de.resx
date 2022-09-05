@@ -153,6 +153,9 @@
 	<data name="Schedule" xml:space="preserve">
     <value>Stundenplan</value>
   </data>
+	<data name="Courses" xml:space="preserve">
+    <value>Veranstaltungen</value>
+  </data>
 	<data name="Specialization" xml:space="preserve">
     <value>Vertiefung</value>
   </data>
@@ -264,6 +267,9 @@
 	<data name="Cancel" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
+	<data name="SearchTerm" xml:space="preserve">
+    <value>Suchbegriff</value>
+  </data>
 	<data name="MensaInfo" xml:space="preserve">
     <value>Weitere Informationen zu Inhaltsstoffen und Nährwerten gibt es auf der Webseite des Studierendenwerks Paderborn.</value>
   </data>
@@ -341,6 +347,9 @@
   </data>
 	<data name="Guest" xml:space="preserve">
     <value>Gäste</value>
+  </data>
+	<data name="CalendarExportQuery" xml:space="preserve">
+    <value>Veranstaltung in Kalender exportieren?</value>
   </data>
 	<data name="ExerciseBasicLayout" xml:space="preserve">
     <value>Exercise Basic Layout</value>

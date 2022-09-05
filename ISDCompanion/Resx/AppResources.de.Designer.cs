@@ -229,11 +229,29 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Veranstaltung in Kalender exportieren?.
+        /// </summary>
+        internal static string CalendarExportQuery {
+            get {
+                return ResourceManager.GetString("CalendarExportQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Abbrechen.
         /// </summary>
         internal static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veranstaltungen.
+        /// </summary>
+        internal static string Courses {
+            get {
+                return ResourceManager.GetString("Courses", resourceCulture);
             }
         }
         
@@ -904,6 +922,15 @@ namespace ISDCompanion.Resx {
         internal static string Scheduling {
             get {
                 return ResourceManager.GetString("Scheduling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suchbegriff.
+        /// </summary>
+        internal static string SearchTerm {
+            get {
+                return ResourceManager.GetString("SearchTerm", resourceCulture);
             }
         }
         

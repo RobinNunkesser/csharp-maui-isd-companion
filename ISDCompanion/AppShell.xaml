@@ -108,15 +108,6 @@
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:MensaPage}" />
         </Tab>
-        <Tab Title="{xct:Translate Schedule}">
-            <Tab.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="outline_calendar_today_black_24pt" />
-                    <On Platform="Android" Value="ic_baseline_calendar_today_24" />
-                </OnPlatform>
-            </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate local:CoursesPage}" />
-        </Tab>
         <Tab Title="{xct:Translate Exercises}">
             <Tab.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -125,6 +116,15 @@
                 </OnPlatform>
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:ExercisesPage}" />
+        </Tab>
+        <Tab Title="{xct:Translate Courses}">
+            <Tab.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="outline_calendar_today_black_24pt" />
+                    <On Platform="Android" Value="ic_baseline_calendar_today_24" />
+                </OnPlatform>
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:CoursesPage}" />
         </Tab>
         <Tab Title="{xct:Translate Profs}">
             <Tab.Icon>

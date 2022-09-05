@@ -2,8 +2,10 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:local="clr-namespace:ISDCompanion"
-    x:Class="ISDCompanion.CoursesPage">
+    x:Class="ISDCompanion.CoursesPage"
+    Title="{xct:Translate Courses}">
     <!--<Shell.SearchHandler>
         <local:CourseSearchHandler Placeholder="Enter search term"
                                       ShowsResults="False"
@@ -14,7 +16,7 @@
                         SelectionMode="Single"
                         SelectionChanged="OnCollectionViewSelectionChanged">
         <CollectionView.Header>
-            <SearchBar x:Name="MainSearchBar" Placeholder="Search term" 
+            <SearchBar x:Name="MainSearchBar" Placeholder="{xct:Translate SearchTerm}" 
                        TextChanged="OnSearchTextChanged"/>
         </CollectionView.Header>
         <CollectionView.ItemTemplate>
