@@ -9,7 +9,6 @@
         public int Semester { get; set; }
         public int Length { get; set; } = 120;
         public bool Biweekly { get; set; } = false;
-        public int Occurrences { get; set; } = 1;
     }
 }
 

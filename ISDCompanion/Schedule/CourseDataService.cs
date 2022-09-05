@@ -12,6 +12,8 @@ namespace ISDCompanion
     {
         private static readonly string shortFormat = "dd.MM.yyyy";
 
+        public static DateTime SemesterEnd { get; } = DateTime.ParseExact("15.01.2023", shortFormat, CultureInfo.InvariantCulture);
+
         public static List<DateTime> Holidays { get; } = new List<DateTime>
         {
             DateTime.ParseExact("03.10.2022",shortFormat, CultureInfo.InvariantCulture),
@@ -36,7 +38,6 @@ namespace ISDCompanion
                 Lecturer = "Berndt",
                 Room = "Hörsaal Stadtwerke Hamm",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -46,7 +47,6 @@ namespace ISDCompanion
                 Lecturer = "Strack",
                 Room = "Hörsaal Stadtwerke Hamm",
                 Length = 60,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -56,7 +56,6 @@ namespace ISDCompanion
                 Lecturer = "Ponick",
                 Room = "Hörsaal HAM 6",
                 Length = 60,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -66,7 +65,6 @@ namespace ISDCompanion
                 Lecturer = "Stuckenholz",
                 Room = "Hörsaal HAM 6",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -76,7 +74,6 @@ namespace ISDCompanion
                 Lecturer = "Krenz-Baath",
                 Room = "Hörsaal WESTPRESS",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -86,7 +83,6 @@ namespace ISDCompanion
                 Lecturer = "Ponick",
                 Room = "Hörsaal WESTPRESS",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -96,7 +92,6 @@ namespace ISDCompanion
                 Lecturer = "Krenz-Baath",
                 Room = "PC-Pool H4.2-E00-140, Labor H3.3-E01-220",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -106,7 +101,6 @@ namespace ISDCompanion
                 Lecturer = "Krenz-Baath",
                 Room = "PC-Pool H4.2-E00-140, Labor H3.3-E01-220",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -116,7 +110,6 @@ namespace ISDCompanion
                 Lecturer = "Grewe",
                 Room = "Hörsaal HAM 6",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -126,7 +119,6 @@ namespace ISDCompanion
                 Lecturer = "Ponick",
                 Room = "Seminarraum H1.2-E01-010",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -136,7 +128,6 @@ namespace ISDCompanion
                 Lecturer = "Strack",
                 Room = "Seminarraum H1.2-E01-010",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -146,7 +137,6 @@ namespace ISDCompanion
                 Lecturer = "Kientopf",
                 Room = "Seminarraum H7.2-E00-002",
                 Length = 60,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -156,7 +146,6 @@ namespace ISDCompanion
                 Lecturer = "Kientopf",
                 Room = "Hörsaal HAM 6",
                 Length = 60,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -166,7 +155,6 @@ namespace ISDCompanion
                 Lecturer = "Kientopf",
                 Room = "Seminarraum H4.2-E00-110",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -176,7 +164,6 @@ namespace ISDCompanion
                 Lecturer = "Tickenbrock",
                 Room = "Seminarraum H4.2-E00-110",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -186,7 +173,6 @@ namespace ISDCompanion
                 Lecturer = "Stuckenholz",
                 Room = "PC-Pool H4.2-E00-140",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -196,7 +182,6 @@ namespace ISDCompanion
                 Lecturer = "Stuckenholz",
                 Room = "PC-Pool H4.2-E00-140",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -206,7 +191,6 @@ namespace ISDCompanion
                 Lecturer = "Krenz-Baath",
                 Room = "Seminarraum H1.1-E01-150",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -216,7 +200,6 @@ namespace ISDCompanion
                 Lecturer = "Pelzl",
                 Room = "Seminarraum H1.1-E01-150",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -226,7 +209,6 @@ namespace ISDCompanion
                 Lecturer = "Strack",
                 Room = "Seminarraum H1.1-E01-150",
                 Length = 60,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -236,7 +218,6 @@ namespace ISDCompanion
                 Lecturer = "Runovska",
                 Room = "PC-Pool H4.2-E00-140",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -246,7 +227,6 @@ namespace ISDCompanion
                 Lecturer = "Ponick",
                 Room = "Hörsaal HAM 4",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -256,7 +236,6 @@ namespace ISDCompanion
                 Lecturer = "Zips",
                 Room = "Hörsaal HAM 4",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -266,7 +245,6 @@ namespace ISDCompanion
                 Lecturer = "Pelzl",
                 Room = "Labor H3.3-E01-160",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -276,7 +254,6 @@ namespace ISDCompanion
                 Lecturer = "Krenz-Baath",
                 Room = "Labor H3.3-E01-160",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -286,7 +263,6 @@ namespace ISDCompanion
                 Lecturer = "Nunkesser",
                 Room = "Hörsaal HAM 5",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -296,7 +272,6 @@ namespace ISDCompanion
                 Lecturer = "Nunkesser",
                 Room = "Hörsaal HAM 5",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -306,7 +281,6 @@ namespace ISDCompanion
                 Lecturer = "Strack",
                 Room = "Seminarraum H7.2-E00-002",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -316,7 +290,6 @@ namespace ISDCompanion
                 Lecturer = "Ponick",
                 Room = "Seminarraum H7.2-E00-002",
                 Length = 60,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -326,7 +299,6 @@ namespace ISDCompanion
                 Lecturer = "Stuckenholz",
                 Room = "Seminarraum H1.1-E01-150",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -336,7 +308,6 @@ namespace ISDCompanion
                 Lecturer = "Stuckenholz",
                 Room = "PC-Pool H3.3-E00-010",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -346,7 +317,6 @@ namespace ISDCompanion
                 Lecturer = "Zips",
                 Room = "Seminarraum H1.1-E01-150",
                 Length = 60,
-                Occurrences = 17,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -356,7 +326,6 @@ namespace ISDCompanion
                 Lecturer = "Krenz-Baath",
                 Room = "PC-Pool H3.3-E00-010",
                 Length = 120,
-                Occurrences = 8,
                 Biweekly = true
             },
             new CourseViewModel {
@@ -366,7 +335,6 @@ namespace ISDCompanion
                 Lecturer = "Pelzl",
                 Room = "Seminarraum H1.1-E01-140",
                 Length = 120,
-                Occurrences = 17,
                 Biweekly = false
             }
             };
@@ -393,9 +361,7 @@ namespace ISDCompanion
             var startDate = DateTime.ParseExact(courseViewModel.StartDate, longFormat, CultureInfo.InvariantCulture);
             var endDate = startDate.AddMinutes(courseViewModel.Length);
 
-            // TODO Hier: while startDate <= Semesterende, Occurences streichen
-
-            for (int i = 0; i < courseViewModel.Occurrences; i++)
+            while (startDate < SemesterEnd)
             {
                 var isHoliday = false;
                 foreach (var holiday in Holidays)
