@@ -80,7 +80,7 @@ namespace ISDCompanion
                 Exercise_Title = "Bitencodings",
                 Command = "{Binding NavigateCommand}",
                 CommandParameter = "ISDCompanion.BitencodingsPage, ISDCompanion",
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
             networks.Add(new Exercise
@@ -88,7 +88,7 @@ namespace ISDCompanion
                 Exercise_Title = "CRC",
                 Command = "{Binding NavigateCommand}",
                 CommandParameter = "ISDCompanion.CRCPage, ISDCompanion",
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
             networks.Add(new Exercise
@@ -96,7 +96,7 @@ namespace ISDCompanion
                 Exercise_Title = "MST",
                 Command = "{Binding NavigateCommand}",
                 CommandParameter = "ISDCompanion.MSTPage, ISDCompanion",
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
             networks.Add(new Exercise
@@ -104,7 +104,7 @@ namespace ISDCompanion
                 Exercise_Title = "ShortestPaths",
                 Command = "{Binding NavigateCommand}",
                 CommandParameter = "ISDCompanion.ShortestPathsPage, ISDCompanion",
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
             networks.Add(new Exercise
@@ -112,7 +112,7 @@ namespace ISDCompanion
                 Exercise_Title = "Netmasks",
                 Command = "{Binding NavigateCommand}",
                 CommandParameter = "ISDCompanion.NetmaskPage, ISDCompanion",
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
 
@@ -124,7 +124,7 @@ namespace ISDCompanion
                 Exercise_Title = "PageReplacement",
                 Command = "{Binding NavigateCommand}",
                 CommandParameter = "ISDCompanion.PageReplacementPage, ISDCompanion",
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
             opsys.Add(new Exercise
@@ -132,7 +132,7 @@ namespace ISDCompanion
                 Exercise_Title = "Buddy",
                 Command = "{Binding NavigateCommand}",
                 CommandParameter = "ISDCompanion.BuddyPage, ISDCompanion",
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
             opsys.Add(new Exercise
@@ -140,7 +140,7 @@ namespace ISDCompanion
                 Exercise_Title = "Scheduling",
                 Command = "{Binding NavigateCommand}",
                 CommandParameter = "ISDCompanion.SchedulingPage, ISDCompanion",
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
             opsys.Add(new Exercise
@@ -148,7 +148,7 @@ namespace ISDCompanion
                 Exercise_Title = "RealtimeScheduling",
                 Command = "{Binding NavigateCommand}",
                 CommandParameter = "ISDCompanion.RealtimeSchedulingPage, ISDCompanion",
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
             TrulyObservableCollection<Topic> temp_Topics = new TrulyObservableCollection<Topic>();
@@ -157,14 +157,14 @@ namespace ISDCompanion
             {
                 Topic_Title = "Betriebssysteme",
                 Exercises = opsys,
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
             temp_Topics.Add(new Topic
             {
                 Topic_Title = "Netzwerke",
                 Exercises = networks,
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
             TrulyObservableCollection<Module> temp_Modules = new TrulyObservableCollection<Module>();
@@ -173,7 +173,7 @@ namespace ISDCompanion
             {
                 Module_Title = "Betriebssysteme & Netzwerke",
                 Topics = temp_Topics,
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
 
@@ -181,7 +181,7 @@ namespace ISDCompanion
             {
                 Semester_Title = "Fachsemester 3",
                 Modules = temp_Modules,
-                InitExpanded = Settings.RealSemester == 3
+                InitExpanded = true
             });
 
 

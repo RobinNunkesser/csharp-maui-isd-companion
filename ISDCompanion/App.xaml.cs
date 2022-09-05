@@ -12,15 +12,11 @@ namespace ISDCompanion
     {
         public App()
         {
-            DevExpress.XamarinForms.Scheduler.Initializer.Init();
-
             LocalizationResourceManager.Current.PropertyChanged += (sender, e) => AppResources.Culture = LocalizationResourceManager.Current.CurrentCulture;
             LocalizationResourceManager.Current.Init(AppResources.ResourceManager);
 
             InitializeComponent();
-
-            MainPage = new StatusPage();
-            //InitializeMainPage();
+            InitializeMainPage();
         }
 
         private void InitializeMainPage()

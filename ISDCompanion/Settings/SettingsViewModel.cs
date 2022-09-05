@@ -17,22 +17,11 @@ namespace ISDCompanion
             set => Settings.Status = value;
         }
 
-        public int Semester {
-            get => Settings.Semester -1;
-            set => Settings.Semester = value +1;
-        }
-
-        public int Specialization
-        {
-            get => Settings.Specialization;
-            set => Settings.Specialization = value;
-        }
-
         public SettingsViewModel(INavigation navigation)
         {
             OnPropertyChanged();
             LicensesCommand = new Command<string>(async (string licenseFile) =>
-            {                
+            {
                 await navigation.PushAsync(new LicensesPage(licenseFile));
             });
             NavigateCommand = new Command<Type>(async (Type pageType) =>

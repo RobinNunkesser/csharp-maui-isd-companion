@@ -17,7 +17,6 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
-    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.2.6" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" />
     <PackageReference Include="Xam.Plugins.Logging" Version="1.1.1" />
     <PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
@@ -33,7 +32,6 @@
     <None Remove="Resources\Fonts\FA-Solid-900.otf" />
     <None Remove="Resources\Fonts\TitilliumWeb-Regular.ttf" />
     <None Remove="Resources\Images\reply48.png" />
-    <None Remove="Schedule\" />
     <None Remove="Exercises\" />
     <None Remove="Settings\" />
     <None Remove="Licenses\" />
@@ -71,9 +69,10 @@
     <None Remove="Licenses\italbytz_adapters_exam_networks %28copy%29.html" />
     <None Remove="Italbytz.Adapters.Meal.STWPB" />
     <None Remove="CClarke.Plugin.Calendars" />
+    <None Remove="Licenses\italbytz_ports_trivia %28copy%29.html" />
+    <None Remove="Licenses\xamarin_forms %28copy%29.html" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Schedule\" />
     <Folder Include="Services\MindMapServices\" />
     <Folder Include="Licenses\" />
     <Folder Include="Resx\" />
@@ -101,17 +100,10 @@
     <EmbeddedResource Include="Resources\Fonts\FA-Solid-900.otf" />
     <EmbeddedResource Include="Resources\Fonts\TitilliumWeb-Regular.ttf" />
     <EmbeddedResource Include="Resources\Images\reply48.png" />
+    <EmbeddedResource Include="Licenses\cclarke_plugin_calendars.html" />
+    <EmbeddedResource Include="Licenses\xamarin_forms_pancakeview.html" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Welcome\ModulePage.xaml.cs">
-      <DependentUpon>ModulePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Welcome\MainEmphasisPage.xaml.cs">
-      <DependentUpon>MainEmphasisPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Welcome\SemesterPage.xaml.cs">
-      <DependentUpon>SemesterPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Welcome\StatusPage.xaml.cs">
       <DependentUpon>StatusPage.xaml</DependentUpon>
     </Compile>

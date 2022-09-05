@@ -40,7 +40,6 @@ namespace ISDCompanion
         private void OnSelectedGuest(object obj)
         {
             Settings.Status = (int)StatusType.Guest;
-            Settings.Semester = 1;
             Settings.WelcomeStatus = (int)WelcomeStatusType.Finished;
 
             Application.Current.MainPage = new AppShell();
@@ -53,13 +52,18 @@ namespace ISDCompanion
         private void OnSelectedStudent(object obj)
         {
             Settings.Status = (int)StatusType.Student;
-            Application.Current.MainPage = new SemesterPage();
+            Settings.WelcomeStatus = (int)WelcomeStatusType.Finished;
+
+            Application.Current.MainPage = new AppShell();
+            TheTheme.SetTheme();
+
+            var nav = App.Current.MainPage as Xamarin.Forms.Shell;
+            nav.BackgroundColor = Color.Black;
         }
 
         private void OnSelectedServant(object obj)
         {
             Settings.Status = (int)StatusType.Emmployee;
-            Settings.Semester = 5;
             Settings.WelcomeStatus = (int)WelcomeStatusType.Finished;
 
             Application.Current.MainPage = new AppShell();

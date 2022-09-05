@@ -65,9 +65,6 @@
 		</PackageReference>
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
 		<PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
-		<PackageReference Include="DevExpress.XamarinForms.Scheduler">
-			<Version>21.2.6</Version>
-		</PackageReference>
 		<PackageReference Include="Xam.Plugins.Logging">
 			<Version>1.1.1</Version>
 		</PackageReference>
