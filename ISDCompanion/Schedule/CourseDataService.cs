@@ -321,6 +321,24 @@ namespace ISDCompanion
             },
             new CourseViewModel {
                 Semester = 7,
+                StartDate = "19.09.2022 08:00",
+                Name = "Advanced App Development VL",
+                Lecturer = "Nunkesser",
+                Room = "Seminarraum H4.3-E00-110",
+                Length = 120,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "19.09.2022 10:00",
+                Name = "Advanced App Development ÜB",
+                Lecturer = "Nunkesser",
+                Room = "Labor H3.3-E01-220",
+                Length = 60,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
                 StartDate = "19.09.2022 11:00",
                 Name = "System Verifikation und System Validierung ÜB",
                 Lecturer = "Krenz-Baath",
@@ -330,10 +348,100 @@ namespace ISDCompanion
             },
             new CourseViewModel {
                 Semester = 7,
+                StartDate = "26.09.2022 11:00",
+                Name = "Embedded Programming ÜB",
+                Lecturer = "Krenz-Baath",
+                Room = "Seminarraum H4.3- E00-100",
+                Length = 120,
+                Biweekly = true
+            },
+            new CourseViewModel {
+                Semester = 7,
                 StartDate = "19.09.2022 13:00",
-                Name = " Safety und Security Projektkurs VL",
+                Name = "Safety und Security Projektkurs VL",
                 Lecturer = "Pelzl",
                 Room = "Seminarraum H1.1-E01-140",
+                Length = 120,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "19.09.2022 17:00",
+                Name = "Embedded Programming VL",
+                Lecturer = "Krenz-Baath",
+                Room = "Seminarraum H4.3-E00-110",
+                Length = 120,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "20.09.2022 08:00",
+                Name = "Cross-Platform Development VL",
+                Lecturer = "Nunkesser",
+                Room = "Seminarraum H1.1-E01-170",
+                Length = 120,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "20.09.2022 10:00",
+                Name = "Cross-Platform Development ÜB",
+                Lecturer = "Nunkesser",
+                Room = "PC-Pool H4.2-E00-140",
+                Length = 120,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "20.09.2022 12:00",
+                Name = "System Verifikation und System Validierung VL",
+                Lecturer = "Krenz-Baath",
+                Room = "Seminarraum H1.1-E01-150",
+                Length = 120,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "22.09.2022 08:00",
+                Name = "IT-Consulting VL",
+                Lecturer = "Nunkesser",
+                Room = "Seminarraum H4.2-E00-110",
+                Length = 120,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "22.09.2022 10:00",
+                Name = "Intelligent Systems in Theory and Practice V",
+                Lecturer = "Nunkesser",
+                Room = "Seminarraum H4.2-E00-110",
+                Length = 120,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "22.09.2022 13:00",
+                Name = "Web-Backends VL",
+                Lecturer = "Stuckenholz",
+                Room = "Seminarraum H1.1-E01-130",
+                Length = 120,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "23.09.2022 09:00",
+                Name = "Safety und Security Analysis VL",
+                Lecturer = "Pelzl",
+                Room = "Seminarraum H1.2-E01-010",
+                Length = 120,
+                Biweekly = false
+            },
+            new CourseViewModel {
+                Semester = 7,
+                StartDate = "23.09.2022 11:00",
+                Name = "Safety und Security Analysis ÜB",
+                Lecturer = "Pelzl",
+                Room = "Labor H3.3-E01-160",
                 Length = 120,
                 Biweekly = false
             }
