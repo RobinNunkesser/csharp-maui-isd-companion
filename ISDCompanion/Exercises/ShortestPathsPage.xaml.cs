@@ -12,5 +12,10 @@ namespace ISDCompanion
             InitializeComponent();
             BindingContext = new ShortestPathsViewModel();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Switch.IsToggled = false;
+        }
     }
 }
