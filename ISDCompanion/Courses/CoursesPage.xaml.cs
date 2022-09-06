@@ -16,7 +16,7 @@ namespace ISDCompanion
         public CoursesPage()
         {
             InitializeComponent();
-            courses.ItemsSource = CourseDataService.Courses;
+            courses.ItemsSource = CourseDataService.GetGroupedCourses(CourseDataService.Courses);
         }
 
         private async Task DisplayIOSPermissionRequest()
@@ -121,7 +121,7 @@ namespace ISDCompanion
         void OnSearchTextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
         {
             SearchBar searchBar = (SearchBar)sender;
-            courses.ItemsSource = CourseDataService.GetSearchResults(searchBar.Text);
+            courses.ItemsSource = CourseDataService.GetGroupedCourses(CourseDataService.GetSearchResults(searchBar.Text));
             searchBar.Focus();
         }
     }

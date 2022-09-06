@@ -463,6 +463,24 @@ namespace ISDCompanion
                 item.Lecturer.ToLower().Contains(normalizedQuery)).ToList();
         }
 
+        public static List<SectionViewModel<CourseViewModel>> GetGroupedCourses(List<CourseViewModel> courses)
+        {
+            List<SectionViewModel<CourseViewModel>> groups = new();
+            foreach (var group in courses.GroupBy(c => c.Semester))
+            {
+                var section = new SectionViewModel<CourseViewModel>()
+                {
+                    LongName = $"Semester {group.Key}"
+                };
+                foreach (var item in group)
+                {
+                    section.Add(item);
+                }
+                groups.Add(section);
+            }
+            return groups;
+        }
+
         internal static async void AddCourseToCalendar(CourseViewModel courseViewModel, Calendar selectedCalendar)
         {
             var startDate = DateTime.ParseExact(courseViewModel.StartDate, longFormat, CultureInfo.InvariantCulture);

@@ -19,24 +19,28 @@
     <ContentPage.Content>
         <CollectionView x:Name="courses"
                         SelectionMode="Single"
-                        SelectionChanged="OnCollectionViewSelectionChanged">
+                        SelectionChanged="OnCollectionViewSelectionChanged"
+                        IsGrouped="True"
+                        >
         <CollectionView.Header>
             <SearchBar x:Name="MainSearchBar" Placeholder="{xct:Translate SearchTerm}" 
                        TextChanged="OnSearchTextChanged"/>
         </CollectionView.Header>
+            <CollectionView.GroupHeaderTemplate>
+            <DataTemplate>
+                <Label Text="{Binding LongName}" BackgroundColor="LightGray"
+                       FontAttributes="Bold" Padding="20,4,20,4"/>
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <StackLayout Orientation="Horizontal"                                 
-                                 VerticalOptions="FillAndExpand"
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"
                                          Padding="20,8,20,8">
-                <StackLayout Orientation="Vertical">
                     <Label Text="{Binding Name}" FontAttributes="Bold" />
                     <Label Text="{Binding Detail}" FontAttributes="Italic"
                            VerticalOptions="End" />
                     <Label Text="{Binding StartDate, Converter={StaticResource dateConverter}}"/>
                 </StackLayout>
-                    <Label Text="{Binding Semester}" FontSize="Large" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>
-                    </StackLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
