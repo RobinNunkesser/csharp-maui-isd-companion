@@ -10,6 +10,7 @@
         <BackButtonBehavior IconOverride="reply48.png" />
     </Shell.BackButtonBehavior>
 
+    <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
 
     <Shell.TitleView>
         <StackLayout Orientation="Horizontal" Margin="0, 15, 0, 0">

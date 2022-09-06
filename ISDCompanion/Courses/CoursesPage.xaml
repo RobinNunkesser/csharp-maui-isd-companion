@@ -29,13 +29,13 @@
                 <StackLayout Orientation="Horizontal"                                 
                                  VerticalOptions="FillAndExpand"
                                          Padding="20,8,20,8">
-                    <Label Text="{Binding Semester}" FontSize="Large" VerticalOptions="CenterAndExpand"/>
                 <StackLayout Orientation="Vertical">
                     <Label Text="{Binding Name}" FontAttributes="Bold" />
                     <Label Text="{Binding Detail}" FontAttributes="Italic"
                            VerticalOptions="End" />
                     <Label Text="{Binding StartDate, Converter={StaticResource dateConverter}}"/>
                 </StackLayout>
+                    <Label Text="{Binding Semester}" FontSize="Large" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>
                     </StackLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>
