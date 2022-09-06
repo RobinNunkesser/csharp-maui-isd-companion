@@ -699,6 +699,15 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please allow calendar access in the Settings app..
+        /// </summary>
+        internal static string IOSPermissions {
+            get {
+                return ResourceManager.GetString("IOSPermissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dishes.
         /// </summary>
         internal static string Maindishes {
@@ -843,6 +852,15 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Calendar access is needed for calendar export..
+        /// </summary>
+        internal static string PermissionRationale {
+            get {
+                return ResourceManager.GetString("PermissionRationale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Students / Staff / Guests.
         /// </summary>
         internal static string PricesLabel {
@@ -866,6 +884,15 @@ namespace ISDCompanion.Resx {
         internal static string Profs {
             get {
                 return ResourceManager.GetString("Profs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can change the setting later!.
+        /// </summary>
+        internal static string QueryInfo {
+            get {
+                return ResourceManager.GetString("QueryInfo", resourceCulture);
             }
         }
         
@@ -1046,6 +1073,15 @@ namespace ISDCompanion.Resx {
         internal static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is your current status?.
+        /// </summary>
+        internal static string StatusQuery {
+            get {
+                return ResourceManager.GetString("StatusQuery", resourceCulture);
             }
         }
         

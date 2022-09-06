@@ -273,6 +273,12 @@
 	<data name="MensaInfo" xml:space="preserve">
     <value>Weitere Informationen zu Inhaltsstoffen und Nährwerten gibt es auf der Webseite des Studierendenwerks Paderborn.</value>
   </data>
+	<data name="IOSPermissions" xml:space="preserve">
+    <value>Bitte erlaube Kalenderzugriff in der Einstellungsapp.</value>
+  </data>
+	<data name="PermissionRationale" xml:space="preserve">
+    <value>Kalenderzugriff wird für den Export benötigt.</value>
+  </data>
 	<data name="Show" xml:space="preserve">
     <value>Anzeigen</value>
   </data>
@@ -350,6 +356,12 @@
   </data>
 	<data name="CalendarExportQuery" xml:space="preserve">
     <value>Veranstaltung in Kalender exportieren?</value>
+  </data>
+	<data name="StatusQuery" xml:space="preserve">
+    <value>Was ist dein aktueller Status an der HSHL?</value>
+  </data>
+	<data name="QueryInfo" xml:space="preserve">
+    <value>Du kannst die Einstellung auch nachher ändern!</value>
   </data>
 	<data name="ExerciseBasicLayout" xml:space="preserve">
     <value>Exercise Basic Layout</value>

@@ -245,6 +245,18 @@
 			<Generator>
 			</Generator>
 		</AndroidResource>
+		<AndroidResource Include="Resources\drawable\josh_redd.jpg">
+		  <SubType></SubType>
+		  <Generator></Generator>
+		</AndroidResource>
+		<AndroidResource Include="Resources\drawable\sam_albury.jpg">
+		  <SubType></SubType>
+		  <Generator></Generator>
+		</AndroidResource>
+		<AndroidResource Include="Resources\drawable\nathan_dumlao.jpg">
+		  <SubType></SubType>
+		  <Generator></Generator>
+		</AndroidResource>
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\ISDCompanion\ISDCompanion.csproj">

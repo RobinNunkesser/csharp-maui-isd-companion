@@ -19,7 +19,17 @@ namespace ISDCompanion
             courses.ItemsSource = CourseDataService.Courses;
         }
 
-        public async Task<PermissionStatus> CheckAndRequestCalendarReadPermission()
+        private async Task DisplayIOSPermissionRequest()
+        {
+            await DisplayAlert(AppResources.Error, AppResources.IOSPermissions, AppResources.OK);
+        }
+
+        private async Task DisplayPermissionRationale()
+        {
+            await DisplayAlert(AppResources.Error, AppResources.PermissionRationale, AppResources.OK);
+        }
+
+        private async Task<PermissionStatus> CheckAndRequestCalendarReadPermission()
         {
             var status = await Permissions.CheckStatusAsync<Permissions.CalendarRead>();
 
@@ -28,14 +38,13 @@ namespace ISDCompanion
 
             if (status == PermissionStatus.Denied && DeviceInfo.Platform == DevicePlatform.iOS)
             {
-                // Prompt the user to turn on in settings
-                // On iOS once a permission has been denied it may not be requested again from the application
+                await DisplayIOSPermissionRequest();
                 return status;
             }
 
             if (Permissions.ShouldShowRationale<Permissions.CalendarRead>())
             {
-                // Prompt the user with additional information as to why the permission is needed
+                await DisplayPermissionRationale();
             }
 
             status = await Permissions.RequestAsync<Permissions.CalendarRead>();
@@ -43,7 +52,7 @@ namespace ISDCompanion
             return status;
         }
 
-        public async Task<PermissionStatus> CheckAndRequestCalendarWritePermission()
+        private async Task<PermissionStatus> CheckAndRequestCalendarWritePermission()
         {
             var status = await Permissions.CheckStatusAsync<Permissions.CalendarWrite>();
 
@@ -52,14 +61,13 @@ namespace ISDCompanion
 
             if (status == PermissionStatus.Denied && DeviceInfo.Platform == DevicePlatform.iOS)
             {
-                // Prompt the user to turn on in settings
-                // On iOS once a permission has been denied it may not be requested again from the application
+                await DisplayIOSPermissionRequest();
                 return status;
             }
 
             if (Permissions.ShouldShowRationale<Permissions.CalendarWrite>())
             {
-                // Prompt the user with additional information as to why the permission is needed
+                await DisplayPermissionRationale();
             }
 
             status = await Permissions.RequestAsync<Permissions.CalendarWrite>();
@@ -69,6 +77,15 @@ namespace ISDCompanion
 
         async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var statusRead = await CheckAndRequestCalendarReadPermission();
+            var statusWrite = await CheckAndRequestCalendarWritePermission();
+
+            if (statusRead != PermissionStatus.Granted || statusWrite != PermissionStatus.Granted)
+            {
+                await DisplayPermissionRationale();
+                return;
+            }
+
             var calendars = await CrossCalendars.Current.GetCalendarsAsync();
             var editableCalendars = calendars.Where((c) => c.CanEditCalendar).ToList();
 

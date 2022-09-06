@@ -701,6 +701,15 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bitte erlaube Kalenderzugriff in der Einstellungsapp..
+        /// </summary>
+        internal static string IOSPermissions {
+            get {
+                return ResourceManager.GetString("IOSPermissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Essen.
         /// </summary>
         internal static string Maindishes {
@@ -845,6 +854,15 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kalenderzugriff wird für den Export benötigt..
+        /// </summary>
+        internal static string PermissionRationale {
+            get {
+                return ResourceManager.GetString("PermissionRationale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Studierende / Bedienstete / Gäste.
         /// </summary>
         internal static string PricesLabel {
@@ -868,6 +886,15 @@ namespace ISDCompanion.Resx {
         internal static string Profs {
             get {
                 return ResourceManager.GetString("Profs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du kannst die Einstellung auch nachher ändern!.
+        /// </summary>
+        internal static string QueryInfo {
+            get {
+                return ResourceManager.GetString("QueryInfo", resourceCulture);
             }
         }
         
@@ -1048,6 +1075,15 @@ namespace ISDCompanion.Resx {
         internal static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Was ist dein aktueller Status an der HSHL?.
+        /// </summary>
+        internal static string StatusQuery {
+            get {
+                return ResourceManager.GetString("StatusQuery", resourceCulture);
             }
         }
         

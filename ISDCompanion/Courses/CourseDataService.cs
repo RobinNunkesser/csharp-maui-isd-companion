@@ -11,6 +11,7 @@ namespace ISDCompanion
     public static class CourseDataService
     {
         private static readonly string shortFormat = "dd.MM.yyyy";
+        public static readonly string longFormat = "dd.MM.yyyy HH:mm";
 
         public static DateTime SemesterEnd { get; } = DateTime.ParseExact("15.01.2023", shortFormat, CultureInfo.InvariantCulture);
 
@@ -461,8 +462,6 @@ namespace ISDCompanion
                 item => item.Name.ToLower().Contains(normalizedQuery) ||
                 item.Lecturer.ToLower().Contains(normalizedQuery)).ToList();
         }
-
-        private static readonly string longFormat = "dd.MM.yyyy HH:mm";
 
         internal static async void AddCourseToCalendar(CourseViewModel courseViewModel, Calendar selectedCalendar)
         {

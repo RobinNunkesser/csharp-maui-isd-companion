@@ -273,6 +273,12 @@
 	<data name="MensaInfo" xml:space="preserve">
     <value>Ingredients/Nutritional information is available at Studierendenwerk Paderborn's web page.</value>
   </data>
+	<data name="IOSPermissions" xml:space="preserve">
+    <value>Please allow calendar access in the Settings app.</value>
+  </data>
+	<data name="PermissionRationale" xml:space="preserve">
+    <value>Calendar access is needed for calendar export.</value>
+  </data>
 	<data name="Show" xml:space="preserve">
     <value>Show</value>
   </data>
@@ -353,6 +359,12 @@
   </data>
 	<data name="ExerciseBasicLayout" xml:space="preserve">
     <value>Exercise Basic Layout</value>
+  </data>
+	<data name="StatusQuery" xml:space="preserve">
+    <value>What is your current status?</value>
+  </data>
+	<data name="QueryInfo" xml:space="preserve">
+    <value>You can change the setting later!</value>
   </data>
 	<data name="InfoText_Buddy_Request" xml:space="preserve">
     <value>The process {0} requests {1} KB of memory. {2} KB are allocated for the process.</value>
