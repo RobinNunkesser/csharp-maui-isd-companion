@@ -2,14 +2,13 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using ISDCompanion.Interfaces;
 using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class RealtimeSchedulingViewModel : Baseclass_Table_ViewModel, IAfterRender
+    public class RealtimeSchedulingViewModel : Baseclass_Table_ViewModel
     {
         public void AfterRender()
         {

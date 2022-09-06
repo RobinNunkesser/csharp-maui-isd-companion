@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using ISDCompanion.Interfaces;
 using ISDCompanion.Resx;
 using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
@@ -10,7 +9,7 @@ using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class SchedulingViewModel : Baseclass_Table_ViewModel, IAfterRender
+    public class SchedulingViewModel : Baseclass_Table_ViewModel
     {
         SchedulingParameters parameters;
 

@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using ISDCompanion.Interfaces;
 using ISDCompanion.Resx;
 using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
@@ -17,7 +16,7 @@ using Xamarin.Forms.Xaml;
 
 namespace ISDCompanion
 {
-    public class PageReplacementViewModel : Baseclass_Table_ViewModel, IAfterRender
+    public class PageReplacementViewModel : Baseclass_Table_ViewModel
     {
         public void AfterRender()
         {

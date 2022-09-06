@@ -1,14 +1,13 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using ISDCompanion.Interfaces;
 using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.Networks;
 using Xamarin.Forms;
 
 namespace ISDCompanion
 {
-    public class BitencodingsViewModel : Baseclass_Table_ViewModel, IAfterRender
+    public class BitencodingsViewModel : Baseclass_Table_ViewModel
     {
         public void AfterRender()
         {
