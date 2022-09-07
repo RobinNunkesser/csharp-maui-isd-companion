@@ -12,7 +12,7 @@
                 <ContentView Padding="15, 15, 0, 15" Content="{Binding Exercise_Header}">
                 </ContentView>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" BackgroundColor="White">
+            <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
                 <ContentView Padding="15, 15, 0, 15" Content="{Binding Exercise_Content_Header}">
                 </ContentView>
                 <ScrollView x:Name="scrollView" Orientation="Both">
