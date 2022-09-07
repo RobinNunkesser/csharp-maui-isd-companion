@@ -6,6 +6,7 @@
     xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts"
     x:Class="ISDCompanion.QuizPage"
     Title="{xct:Translate Quiz}">
+    <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding Question}" HorizontalOptions="Center"

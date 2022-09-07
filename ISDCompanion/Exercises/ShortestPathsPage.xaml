@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ISDCompanion.ShortestPathsPage"
-    Title="{xct:Translate ShortestPaths}">    
+    Title="{xct:Translate ShortestPaths}">
+    <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
     <ContentPage.Content>
         <StackLayout>
                 <Label Text="Graph" VerticalOptions="Center"/>

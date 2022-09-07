@@ -101,7 +101,7 @@ namespace ISDCompanion
 
         }
 
-        
+
         public void scroll()
         {
             ScrollToPosition?.Invoke(_TableGenService.X_CoordoninatesOfInterest(), _TableGenService.Y_CoordoninatesOfInterest(), true);

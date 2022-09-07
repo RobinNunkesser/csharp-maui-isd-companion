@@ -25,7 +25,7 @@
 
         <Grid Padding="10"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
-                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}" 
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.9}" 
                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" 
                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.10}"   
                          BackgroundColor="Transparent"
@@ -36,11 +36,11 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20*"></ColumnDefinition>
-                <ColumnDefinition Width="20*"></ColumnDefinition>
-                <ColumnDefinition Width="20*"></ColumnDefinition>
-                <ColumnDefinition Width="20*"></ColumnDefinition>
-                <ColumnDefinition Width="20*"></ColumnDefinition>
+                <ColumnDefinition Width="25*"></ColumnDefinition>
+                <ColumnDefinition Width="25*"></ColumnDefinition>
+                <ColumnDefinition Width="25*"></ColumnDefinition>
+                <ColumnDefinition Width="25*"></ColumnDefinition>
+            <!--    <ColumnDefinition Width="20*"></ColumnDefinition>-->
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0" HorizontalOptions="Center">
@@ -62,18 +62,18 @@
                 </RelativeLayout>
             </Grid>
 
-            <Grid Grid.Column="1"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <Grid Grid.Column="1"  HorizontalOptions="Center">
                 <RelativeLayout>
                     <Button Command="{Binding ButtonLastStep}"
                         Text="&#x2039;"
                             TextColor="#4cc2ba"
                             FontFamily="ACC"
-                            FontSize="Large"
+                            FontSize="Medium"
                             BorderColor="#959595"
                             CornerRadius="1000"
                             BorderWidth="0.5"
-                            WidthRequest="60"
-                            HeightRequest="60"
+                            WidthRequest="45"
+                            HeightRequest="45"
                             BackgroundColor="White"
                          VerticalOptions="CenterAndExpand"
                             >
@@ -100,19 +100,19 @@
                 </RelativeLayout>
             </Grid>-->
 
-            <Grid Grid.Column="3" HorizontalOptions="Center">
+            <Grid Grid.Column="2" HorizontalOptions="Center">
 
                 <RelativeLayout>
                     <Button Command="{Binding ButtonNextStep}"
                         Text="&#x203a;"
                             TextColor="#4cc2ba"
                             FontFamily="ACC"
-                            FontSize="Large"
+                            FontSize="Medium"
                             BorderColor="#959595"
                             CornerRadius="1000"
                             BorderWidth="0.5"
-                            WidthRequest="60"
-                            HeightRequest="60"
+                            WidthRequest="45"
+                            HeightRequest="45"
                             BackgroundColor="White"
                          VerticalOptions="CenterAndExpand"
                             >
@@ -120,7 +120,7 @@
                 </RelativeLayout>
             </Grid>
 
-            <Grid Grid.Column="4" HorizontalOptions="CenterAndExpand">
+            <Grid Grid.Column="3" HorizontalOptions="Center">
 
                 <RelativeLayout>
                     <Button Command="{Binding ButtonCompleteSolution}"
