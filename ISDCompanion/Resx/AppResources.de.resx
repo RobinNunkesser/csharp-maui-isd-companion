@@ -154,7 +154,7 @@
     <value>Stundenplan</value>
   </data>
 	<data name="Courses" xml:space="preserve">
-    <value>Veranstaltungen</value>
+    <value>Kurse</value>
   </data>
 	<data name="Specialization" xml:space="preserve">
     <value>Vertiefung</value>

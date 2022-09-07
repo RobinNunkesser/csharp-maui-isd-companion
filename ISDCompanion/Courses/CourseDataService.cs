@@ -259,11 +259,11 @@ namespace ISDCompanion
             },
             new CourseViewModel {
                 Semester = 3,
-                StartDate = "21.09.2022 10:00",
+                StartDate = "21.09.2022 10:30",
                 Name = "Betriebssysteme VL",
                 Lecturer = "Nunkesser",
                 Room = "Hörsaal HAM 5",
-                Length = 120,
+                Length = 90,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -272,7 +272,7 @@ namespace ISDCompanion
                 Name = "Netzwerke VL",
                 Lecturer = "Nunkesser",
                 Room = "Hörsaal HAM 5",
-                Length = 120,
+                Length = 90,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -322,11 +322,11 @@ namespace ISDCompanion
             },
             new CourseViewModel {
                 Semester = 7,
-                StartDate = "19.09.2022 08:00",
+                StartDate = "19.09.2022 08:30",
                 Name = "Advanced App Development VL",
                 Lecturer = "Nunkesser",
                 Room = "Seminarraum H4.3-E00-110",
-                Length = 120,
+                Length = 90,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -376,11 +376,11 @@ namespace ISDCompanion
             },
             new CourseViewModel {
                 Semester = 7,
-                StartDate = "20.09.2022 08:00",
+                StartDate = "20.09.2022 08:30",
                 Name = "Cross-Platform Development VL",
                 Lecturer = "Nunkesser",
                 Room = "Seminarraum H1.1-E01-170",
-                Length = 120,
+                Length = 90,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -389,7 +389,7 @@ namespace ISDCompanion
                 Name = "Cross-Platform Development ÜB",
                 Lecturer = "Nunkesser",
                 Room = "PC-Pool H4.2-E00-140",
-                Length = 120,
+                Length = 90,
                 Biweekly = false
             },
             new CourseViewModel {
@@ -403,20 +403,20 @@ namespace ISDCompanion
             },
             new CourseViewModel {
                 Semester = 7,
-                StartDate = "22.09.2022 08:00",
+                StartDate = "22.09.2022 08:30",
                 Name = "IT-Consulting VL",
                 Lecturer = "Nunkesser",
                 Room = "Seminarraum H4.2-E00-110",
-                Length = 120,
+                Length = 90,
                 Biweekly = false
             },
             new CourseViewModel {
                 Semester = 7,
                 StartDate = "22.09.2022 10:00",
-                Name = "Intelligent Systems in Theory and Practice V",
+                Name = "Intelligent Systems in Theory and Practice VL",
                 Lecturer = "Nunkesser",
                 Room = "Seminarraum H4.2-E00-110",
-                Length = 120,
+                Length = 90,
                 Biweekly = false
             },
             new CourseViewModel {

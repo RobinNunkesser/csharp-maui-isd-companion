@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ISDCompanion.Exercises.ExerciseContentView">    
-    <StackLayout Orientation="Vertical" >
-        <StackLayout Orientation="Vertical"  Padding="0, 0, 0, 10" VerticalOptions="StartAndExpand">
+             x:Class="ISDCompanion.Exercises.ExerciseContentView">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="44"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0" Orientation="Vertical"  Padding="0, 0, 0, 10" VerticalOptions="StartAndExpand">
             <StackLayout Orientation="Vertical">
                 <ContentView Padding="15, 15, 0, 15" Content="{Binding Exercise_Header}">
                 </ContentView>
@@ -17,23 +21,7 @@
                 </ScrollView>
             </StackLayout>
         </StackLayout>
-
-
-        <Grid Padding="10" BackgroundColor="Transparent" VerticalOptions="End">
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="25*"></ColumnDefinition>
-                <ColumnDefinition Width="25*"></ColumnDefinition>
-                <ColumnDefinition Width="25*"></ColumnDefinition>
-                <ColumnDefinition Width="25*"></ColumnDefinition>
-            <!--    <ColumnDefinition Width="20*"></ColumnDefinition>-->
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0" HorizontalOptions="Center">
+        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                     <Button Command="{Binding ButtonNewExercise}"
                         Text="&#x002b;"
                             TextColor="#1d8fcc"
@@ -45,12 +33,9 @@
                             WidthRequest="45"
                             HeightRequest="45"
                             BackgroundColor="White"
-                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand"
                             >
                     </Button>
-            </Grid>
-
-            <Grid Grid.Column="1"  HorizontalOptions="Center">
                     <Button Command="{Binding ButtonLastStep}"
                         Text="&#x2039;"
                             TextColor="#4cc2ba"
@@ -62,33 +47,11 @@
                             WidthRequest="45"
                             HeightRequest="45"
                             BackgroundColor="White"
-                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand"
                             >
                     </Button>
-            </Grid>
 
-            <!--<Grid Grid.Column="2" HorizontalOptions="Center">
-                <RelativeLayout>
-                    <Button Command="{Binding ButtonInfo}" IsEnabled="{Binding Info_Button_Clickable}"
-                        Text="&#x003f;"
-                            TextColor="#5875d6"
-                            FontFamily="ACC"
-                            FontSize="Medium"
-                            BorderColor="#959595"
-                            CornerRadius="1000"
-                            BorderWidth="0.5"
-                            WidthRequest="45"
-                            HeightRequest="45"
-                            BackgroundColor="White"
-                         VerticalOptions="CenterAndExpand"
-                            >
-                    </Button>
-                </RelativeLayout>
-            </Grid>-->
-
-            <Grid Grid.Column="2" HorizontalOptions="Center">
-
-                    <Button Command="{Binding ButtonNextStep}"
+            <Button Command="{Binding ButtonNextStep}"
                         Text="&#x203a;"
                             TextColor="#4cc2ba"
                             FontFamily="ACC"
@@ -99,12 +62,9 @@
                             WidthRequest="45"
                             HeightRequest="45"
                             BackgroundColor="White"
-                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand"
                             >
                     </Button>
-            </Grid>
-
-            <Grid Grid.Column="3" HorizontalOptions="Center">
 
                     <Button Command="{Binding ButtonCompleteSolution}"
                         Text="&#x00bb;"
@@ -117,10 +77,9 @@
                             WidthRequest="45"
                             HeightRequest="45"
                             BackgroundColor="White"
-                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand"
                             >
                     </Button>
-            </Grid>
-        </Grid>
-    </StackLayout>
+        </StackLayout>
+    </Grid>                    
 </ContentView>

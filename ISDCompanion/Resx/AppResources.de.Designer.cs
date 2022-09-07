@@ -247,7 +247,7 @@ namespace ISDCompanion.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Veranstaltungen.
+        ///   Looks up a localized string similar to Kurse.
         /// </summary>
         internal static string Courses {
             get {
