@@ -104,9 +104,6 @@
     <EmbeddedResource Include="Licenses\xamarin_forms_pancakeview.html" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Welcome\StatusPage.xaml.cs">
-      <DependentUpon>StatusPage.xaml</DependentUpon>
-    </Compile>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
       <DependentUpon>LicensesPage.xaml</DependentUpon>
       <SubType>Code</SubType>

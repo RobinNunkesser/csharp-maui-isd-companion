@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ISDCompanion.Enums;
 using ISDCompanion.Resx;
 using Italbytz.Adapters.Meal.STWPB;
 using Italbytz.Ports.Meal;
@@ -18,7 +19,7 @@ namespace ISDCompanion
 
         public MensaPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
             BindingContext = viewModel;
             var repository = new MealRepository(Secrets.id, LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName);
             service = new GetMealsService(repository);
@@ -34,15 +35,26 @@ namespace ISDCompanion
             catch (Exception ex)
             {
                 Error(ex);
-            }             
+            }
         }
 
         private async void Success(List<IMeal> meals)
         {
+            if (Settings.WelcomeStatus == (int)WelcomeStatusType.Unfinished)
+            {
+                List<string> statusChoices = new List<string> { AppResources.Student, AppResources.Staff, AppResources.Guest };
+                string chosenStatus = await DisplayActionSheet(AppResources.StatusQuery, AppResources.Cancel, null, statusChoices.ToArray());
+                if (!chosenStatus.Equals(AppResources.Cancel))
+                {
+                    Settings.WelcomeStatus = (int)WelcomeStatusType.Finished;
+                    Settings.Status = statusChoices.IndexOf(chosenStatus);
+                }
+            }
             if (meals.Count > 0)
             {
                 viewModel.SetMeals(meals);
-            } else
+            }
+            else
             {
                 await DisplayAlert(AppResources.Error, AppResources.NoMeals, AppResources.OK);
             }
@@ -57,7 +69,7 @@ namespace ISDCompanion
         async void ToolbarItem_Clicked(object sender, System.EventArgs e)
         {
             var result = await DisplayAlert(AppResources.Info, AppResources.MensaInfo, AppResources.Show, AppResources.Cancel);
-            if (result) await Launcher.OpenAsync(new Uri("https://www.studierendenwerk-pb.de/gastronomie/speiseplaene/mensa-basilica-hamm"));            
+            if (result) await Launcher.OpenAsync(new Uri("https://www.studierendenwerk-pb.de/gastronomie/speiseplaene/mensa-basilica-hamm"));
         }
     }
 }

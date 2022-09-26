@@ -14,7 +14,7 @@ namespace ISDCompanion.Enums
 
     public enum WelcomeStatusType
     {
-        Unifished = 0,
+        Unfinished = 0,
         Finished = 1
     }
 
