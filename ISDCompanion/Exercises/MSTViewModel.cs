@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
-using ISDCompanion.Exercises.Baseclasses;
-using ISDCompanion.Exercises.Extensions;
+﻿using GraphGen.Classes;
 using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Ports.Exam.Networks;
-using Xamarin.Forms;
-using System.Linq;
-using System.Text.RegularExpressions;
-using GraphGen.Classes;
+using ISDCompanion.Exercises.Extensions;
 using ISDCompanion.Services.InfoTextServices;
 
 namespace ISDCompanion

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Input;
-using ISDCompanion.Resx;
-using Xamarin.Forms;
+﻿using System.Windows.Input;
 
 namespace ISDCompanion
 {

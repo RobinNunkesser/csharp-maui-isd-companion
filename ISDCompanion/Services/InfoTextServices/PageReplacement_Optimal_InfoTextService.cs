@@ -1,4 +1,4 @@
-﻿using ISDCompanion.Resx;
+﻿using ISDCompanion.Resources.Strings;
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
@@ -21,7 +21,7 @@ namespace ISDCompanion.Services.InfoTextServices
             string[] infoTexts = new string[_steps.Count];
             int index = 0;
 
-            foreach(IPageReplacementStep step in _steps)
+            foreach (IPageReplacementStep step in _steps)
             {
                 string infoText = "";
 
@@ -42,7 +42,7 @@ namespace ISDCompanion.Services.InfoTextServices
                 }
 
                 //Bestimmung, ob die Kachel vorher leer war
-                if(index == 0)
+                if (index == 0)
                 {
                     inserted_Frame_Was_Empty_Before = true;
                 }
@@ -57,7 +57,7 @@ namespace ISDCompanion.Services.InfoTextServices
                         else
                         {
                             //Bestimmung, ob das Element bereits vorhanden ist
-                            foreach(var i in _steps[index-1].Frames)
+                            foreach (var i in _steps[index - 1].Frames)
                             {
                                 if (i == element)
                                 {
@@ -65,7 +65,7 @@ namespace ISDCompanion.Services.InfoTextServices
                                     break;
                                 }
                             }
-                            
+
                             distance = _steps[index - 1].FrameInformation[frame_Index];
                         }
                     }

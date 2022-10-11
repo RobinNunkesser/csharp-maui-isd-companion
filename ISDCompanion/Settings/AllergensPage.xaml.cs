@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace ISDCompanion;
 
-using Xamarin.Forms;
-
-namespace ISDCompanion
+public partial class AllergensPage : ContentPage
 {
-    public partial class AllergensPage : ContentPage
+    public AllergensPage()
     {
-        public AllergensPage()
-        {
-            InitializeComponent();
-            BindingContext = new AllergensViewModel();
-        }
+        InitializeComponent();
+        BindingContext = new AllergensViewModel();
     }
 }

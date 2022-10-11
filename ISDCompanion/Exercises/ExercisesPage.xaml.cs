@@ -1,17 +1,10 @@
-﻿using ISDCompanion.Models;
-using System;
-using System.Collections.Generic;
+﻿namespace ISDCompanion;
 
-using Xamarin.Forms;
-
-namespace ISDCompanion
+public partial class ExercisesPage : ContentPage
 {
-    public partial class ExercisesPage : ContentPage
+    public ExercisesPage()
     {
-        public ExercisesPage()
-        {
-            InitializeComponent();
-            BindingContext = new ExercisesViewModel(Navigation);
-        }
+        InitializeComponent();
+        BindingContext = new ExercisesViewModel(Navigation);
     }
 }

@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Italbytz.Ports.Meal;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Italbytz.Ports.Meal;
 
 namespace ISDCompanion
 {

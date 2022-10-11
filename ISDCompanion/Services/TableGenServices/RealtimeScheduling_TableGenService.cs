@@ -4,7 +4,6 @@ using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xamarin.Forms;
 
 namespace ISDCompanion.Services
 {
@@ -24,7 +23,7 @@ namespace ISDCompanion.Services
         private bool _lastActionWasPreviousStep = false;
 
 
-        private int currentColumnOfInterest { get;  set; }
+        private int currentColumnOfInterest { get; set; }
 
         public int X_CoordoninatesOfInterest()
         {
@@ -65,9 +64,9 @@ namespace ISDCompanion.Services
             tableGen_TableHeader.SetRowHeight(3, 10);
             tableGen_TableHeader.SetRowHeight(7, 10);
 
-            for(int i = 0; i <= 10; i++)
+            for (int i = 0; i <= 10; i++)
             {
-                tableGen_TableHeader.SetBackGroundColor(i, 0, Color.Transparent);
+                tableGen_TableHeader.SetBackGroundColor(i, 0, Colors.Transparent);
             }
 
             tableGen_TableHeader.SetColumnWidth(0, 80);
@@ -157,15 +156,15 @@ namespace ISDCompanion.Services
 
         public Grid GenerateTable_NextStep()
         {
-           _lastActionWasNextStep = true;
+            _lastActionWasNextStep = true;
             if (_lastActionWasPreviousStep)
             {
                 _lastActionWasPreviousStep = false;
-                if(_rmsIndex != 0 && _rmsIndex < _rms.Length -1)
+                if (_rmsIndex != 0 && _rmsIndex < _rms.Length - 1)
                 {
                     _rmsIndex++;
                 }
-                if(_edfIndex != 0 && _edfIndex < _edf.Length -1 && _rmsIndex == _rms.Length - 1)
+                if (_edfIndex != 0 && _edfIndex < _edf.Length - 1 && _rmsIndex == _rms.Length - 1)
                 {
                     _edfIndex++;
                 }
@@ -240,7 +239,7 @@ namespace ISDCompanion.Services
             if (_lastActionWasNextStep)
             {
                 _lastActionWasNextStep = false;
-                if(_rmsIndex != _rms.Length -1 && _rmsIndex != 0)
+                if (_rmsIndex != _rms.Length - 1 && _rmsIndex != 0)
                 {
                     _rmsIndex--;
                 }
@@ -252,15 +251,15 @@ namespace ISDCompanion.Services
 
             if (_rmsIndex == 0)
             {
-                tableGen.SetBackGroundColor(4, 0, Color.Transparent);
-                tableGen.SetBackGroundColor(5, 0, Color.Transparent);
-                tableGen.SetBackGroundColor(6, 0, Color.Transparent);
+                tableGen.SetBackGroundColor(4, 0, Colors.Transparent);
+                tableGen.SetBackGroundColor(5, 0, Colors.Transparent);
+                tableGen.SetBackGroundColor(6, 0, Colors.Transparent);
             }
             if (_edfIndex == 0)
             {
-                tableGen.SetBackGroundColor(8, 0, Color.Transparent);
-                tableGen.SetBackGroundColor(9, 0, Color.Transparent);
-                tableGen.SetBackGroundColor(10, 0, Color.Transparent);
+                tableGen.SetBackGroundColor(8, 0, Colors.Transparent);
+                tableGen.SetBackGroundColor(9, 0, Colors.Transparent);
+                tableGen.SetBackGroundColor(10, 0, Colors.Transparent);
             }
 
             if (_edfIndex > 0 && _edfIndex <= _edf.Length - 1)
@@ -271,15 +270,15 @@ namespace ISDCompanion.Services
                 {
                     if (_edf[i] == 0)
                     {
-                        tableGen.SetBackGroundColor(8, i, Color.Transparent);
+                        tableGen.SetBackGroundColor(8, i, Colors.Transparent);
                     }
                     if (_edf[i] == 1)
                     {
-                        tableGen.SetBackGroundColor(9, i, Color.Transparent);
+                        tableGen.SetBackGroundColor(9, i, Colors.Transparent);
                     }
                     if (_edf[i] == 2)
                     {
-                        tableGen.SetBackGroundColor(10, i, Color.Transparent);
+                        tableGen.SetBackGroundColor(10, i, Colors.Transparent);
                     }
                     i--;
                     if (i < 0)
@@ -301,15 +300,15 @@ namespace ISDCompanion.Services
                     {
                         if (_rms[i] == 0)
                         {
-                            tableGen.SetBackGroundColor(4, i, Color.Transparent);
+                            tableGen.SetBackGroundColor(4, i, Colors.Transparent);
                         }
                         if (_rms[i] == 1)
                         {
-                            tableGen.SetBackGroundColor(5, i, Color.Transparent);
+                            tableGen.SetBackGroundColor(5, i, Colors.Transparent);
                         }
                         if (_rms[i] == 2)
                         {
-                            tableGen.SetBackGroundColor(6, i, Color.Transparent);
+                            tableGen.SetBackGroundColor(6, i, Colors.Transparent);
                         }
                         i--;
                         if (i < 0)
@@ -340,7 +339,7 @@ namespace ISDCompanion.Services
 
         public String GetInfoText()
         {
-            int index =  _rmsIndex + _edfIndex;
+            int index = _rmsIndex + _edfIndex;
 
             if (index == 0)
             {

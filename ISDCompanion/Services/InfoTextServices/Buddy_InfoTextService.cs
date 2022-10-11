@@ -1,15 +1,11 @@
-﻿using ISDCompanion.Resx;
+﻿using ISDCompanion.Resources.Strings;
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Ports.Exam.OperatingSystems;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ISDCompanion.Services.InfoTextServices
 {
-    internal class Buddy_InfoTextService: IInfoTextService
+    internal class Buddy_InfoTextService : IInfoTextService
     {
         BuddyParameters _parameters;
         IBuddySolution _solution;
@@ -33,7 +29,7 @@ namespace ISDCompanion.Services.InfoTextServices
 
                 //Anweisungen abarbeiten
                 //Prozessanforderungen
-                if(index < _parameters.Processes.Length)
+                if (index < _parameters.Processes.Length)
                 {
                     process_Size_Allocated = (from num in _solution.History[index]
                                               where num == index
@@ -45,7 +41,7 @@ namespace ISDCompanion.Services.InfoTextServices
                 else
                 {
                     infoText = String.Format(AppResources.InfoText_Buddy_Final, _parameters.FreeOrder[index - 5]);
-                 }
+                }
 
                 infoTexts[index] = infoText;
                 index++;

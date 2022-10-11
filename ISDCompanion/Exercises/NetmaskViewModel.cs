@@ -1,9 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
-using Italbytz.Adapters.Exam.Networks;
-using Xamarin.Forms;
+﻿using Italbytz.Adapters.Exam.Networks;
 
 namespace ISDCompanion
 {

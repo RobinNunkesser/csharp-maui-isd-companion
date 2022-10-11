@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace ISDCompanion;
 
-using Xamarin.Forms;
-
-namespace ISDCompanion
+public partial class NetmaskPage : ContentPage
 {
-    public partial class NetmaskPage : ContentPage
+    public NetmaskPage()
     {
-        public NetmaskPage()
-        {
-            InitializeComponent();
-            BindingContext = new NetmaskViewModel();
-        }
+        InitializeComponent();
+        BindingContext = new NetmaskViewModel();
+    }
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            SwitchNetwork.IsToggled = false;
-            SwitchHost.IsToggled = false;
-        }
-
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        SwitchNetwork.IsToggled = false;
+        SwitchHost.IsToggled = false;
     }
 }

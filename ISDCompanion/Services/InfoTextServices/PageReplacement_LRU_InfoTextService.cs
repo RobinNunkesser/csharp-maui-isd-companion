@@ -1,4 +1,4 @@
-﻿using ISDCompanion.Resx;
+﻿using ISDCompanion.Resources.Strings;
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ISDCompanion.Services.InfoTextServices
 {
-    internal class PageReplacement_LRU_InfoTextService: IInfoTextService
+    internal class PageReplacement_LRU_InfoTextService : IInfoTextService
     {
         List<IPageReplacementStep> _steps;
 

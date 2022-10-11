@@ -1,16 +1,8 @@
-﻿using ISDCompanion.Resx;
-using ISDCompanion.Services.InfoTextServices;
-using ISDCompanion.Services.Interfaces;
+﻿using ISDCompanion.Resources.Strings;
 using Italbytz.Adapters.Exam.Networks;
-using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Ports.Exam.Networks;
-using Italbytz.Ports.Exam.OperatingSystems;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
 
-namespace ISDCompanion.Services
+namespace ISDCompanion
 {
     internal class Bitencodings_TableGenService : ITableGenService
     {
@@ -33,7 +25,7 @@ namespace ISDCompanion.Services
             return 0;
         }
 
-        Color Color_Transparent = Color.Transparent;
+        Color Color_Transparent = Colors.Transparent;
 
         public Bitencodings_TableGenService(BitencodingParameters parameters, IBitencodingSolution solution)
         {
@@ -51,7 +43,7 @@ namespace ISDCompanion.Services
 
             for (int i = 0; i < 4; i++)
             {
-                tableGen_TableHeader.SetBackGroundColor(i, 0, Color.Transparent);
+                tableGen_TableHeader.SetBackGroundColor(i, 0, Colors.Transparent);
             }
 
             List<Label> labels = new List<Label>();

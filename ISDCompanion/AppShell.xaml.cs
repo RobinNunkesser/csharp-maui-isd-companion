@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
+﻿namespace ISDCompanion;
 
-namespace ISDCompanion
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
+

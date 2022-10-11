@@ -1,13 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using ISDCompanion.Services;
-using Italbytz.Adapters.Exam.OperatingSystems;
-using Xamarin.Forms;
-
-namespace ISDCompanion
+﻿namespace ISDCompanion
 {
     public abstract class Baseclass_Table_ViewModel : ExerciseViewModel
     {

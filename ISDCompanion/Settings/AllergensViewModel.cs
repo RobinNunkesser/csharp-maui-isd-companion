@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Italbytz.Ports.Meal;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Italbytz.Ports.Meal;
 
 namespace ISDCompanion
 {
@@ -11,7 +10,8 @@ namespace ISDCompanion
         {
         }
 
-        public bool A1 {
+        public bool A1
+        {
             get => Settings.Allergens.HasFlag(Allergens.Gluten);
             set
             {

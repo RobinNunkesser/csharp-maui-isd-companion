@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace ISDCompanion;
 
-using Xamarin.Forms;
-
-namespace ISDCompanion
+public partial class AcknowledgementsPage : ContentPage
 {
-    public partial class AcknowledgementsPage : ContentPage
+    public AcknowledgementsPage()
     {
-        public AcknowledgementsPage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
-

@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
-using Xamarin.Forms;
 
 namespace ISDCompanion
 {

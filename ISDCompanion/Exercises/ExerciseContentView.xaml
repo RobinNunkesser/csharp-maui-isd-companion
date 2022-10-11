@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ISDCompanion.Exercises.ExerciseContentView">
-    <Grid x:Name="ContentGrid">
+             x:Class="ISDCompanion.ExerciseContentView">
+        <Grid x:Name="ContentGrid">
             <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -79,5 +79,6 @@
                             >
                     </Button>
         </StackLayout>
-    </Grid>                    
+    </Grid>  
 </ContentView>
+

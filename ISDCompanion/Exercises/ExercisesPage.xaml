@@ -1,66 +1,65 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    xmlns:local="clr-namespace:ISDCompanion"   
-    x:Class="ISDCompanion.ExercisesPage"
-    Title="{xct:Translate Exercises}">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ISDCompanion"   
+             x:Class="ISDCompanion.ExercisesPage"
+             Title="{local:Localize Exercises}">
+
     <ContentPage.Content>
         <TableView Intent="Menu">
             <TableRoot>
-                <TableSection Title="{xct:Translate Networks}">
-                    <TextCell Text="{xct:Translate Bitencodings}"
+                <TableSection Title="{local:Localize Networks}">
+                    <TextCell Text="{local:Localize Bitencodings}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:BitencodingsPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
-                    <TextCell Text="{xct:Translate CRC}"
+                   <TextCell Text="{local:Localize CRC}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:CRCPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
-                    <TextCell Text="{xct:Translate MST}"
+                    <TextCell Text="{local:Localize MST}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:MSTPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
-                    <TextCell Text="{xct:Translate ShortestPaths}"
+                    <TextCell Text="{local:Localize ShortestPaths}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:ShortestPathsPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
-                              />
-                    <TextCell Text="{xct:Translate Netmasks}"
+                              /> 
+                    <TextCell Text="{local:Localize Netmasks}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:NetmaskPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
-                    <TextCell Text="{xct:Translate Quiz}"
+                    <TextCell Text="{local:Localize Quiz}"
                               Command="{Binding NetworksQuizCommand}"                              
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
-                              />                    
+                              />     
                 </TableSection>
-                <TableSection Title="{xct:Translate OperatingSystems}">
-                     <TextCell Text="{xct:Translate PageReplacement}"
+               <TableSection Title="{local:Localize OperatingSystems}">
+                    <TextCell Text="{local:Localize PageReplacement}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:PageReplacementPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
-                     <TextCell Text="{xct:Translate Buddy}"
+                     <TextCell Text="{local:Localize Buddy}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:BuddyPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
-                     <TextCell Text="{xct:Translate Scheduling}"
+                     <TextCell Text="{local:Localize Scheduling}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:SchedulingPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
-                     <TextCell Text="{xct:Translate RealtimeScheduling}"
+                     <TextCell Text="{local:Localize RealtimeScheduling}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:RealtimeSchedulingPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                    
-                     <TextCell Text="{xct:Translate Quiz}"
+                     <TextCell Text="{local:Localize Quiz}"
                               Command="{Binding OpSysQuizCommand}"                              
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
-                              />                    
+                              />  
                 </TableSection>
             </TableRoot>
         </TableView>            

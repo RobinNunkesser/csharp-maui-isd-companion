@@ -1,10 +1,4 @@
-﻿using Italbytz.Ports.Exam.OperatingSystems;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
-
-namespace ISDCompanion.Services
+﻿namespace ISDCompanion
 {
     public interface ITableGenService
     {

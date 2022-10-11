@@ -1,4 +1,4 @@
-﻿using ISDCompanion.Resx;
+﻿using ISDCompanion.Resources.Strings;
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;

@@ -1,10 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    x:Class="ISDCompanion.ProfsPage"
-    Title="{xct:Translate Profs}">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ISDCompanion"
+             x:Class="ISDCompanion.ProfsPage"
+             Title="{local:Localize Profs}">
     <ContentPage.Resources>
     </ContentPage.Resources>
     <ContentPage.Content>

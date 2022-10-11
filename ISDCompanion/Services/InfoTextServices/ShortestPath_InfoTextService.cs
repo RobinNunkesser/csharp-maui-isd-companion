@@ -1,5 +1,5 @@
 ﻿using ISDCompanion.Exercises.Baseclasses;
-using ISDCompanion.Resx;
+using ISDCompanion.Resources.Strings;
 using System;
 
 namespace ISDCompanion.Services.InfoTextServices

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
-
-namespace ISDCompanion
+﻿namespace ISDCompanion
 {
     public partial class AdditivesPage : ContentPage
     {

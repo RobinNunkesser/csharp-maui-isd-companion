@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Italbytz.Ports.Trivia;
-using Xamarin.Forms;
+﻿using Italbytz.Ports.Trivia;
 
 namespace ISDCompanion
 {

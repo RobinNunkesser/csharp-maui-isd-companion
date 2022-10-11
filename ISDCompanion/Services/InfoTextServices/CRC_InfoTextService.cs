@@ -1,4 +1,4 @@
-﻿using ISDCompanion.Resx;
+﻿using ISDCompanion.Resources.Strings;
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Adapters.Exam.OperatingSystems;
@@ -38,14 +38,14 @@ namespace ISDCompanion.Services.InfoTextServices
                 {
                     infoText = String.Format(AppResources.InfoText_CRC_Start, step.Substring(0, 6));
                 }
-                else if(index == _calculation.Length - 2)
+                else if (index == _calculation.Length - 2)
                 {
                     infoText = AppResources.InfoText_CRC_check;
                     calculationFinished = true;
                 }
                 else
                 {
-                    if(index % 2 == 0)
+                    if (index % 2 == 0)
                     {
                         infoText = AppResources.InfoText_CRC_evenStep;
                     }
@@ -77,7 +77,7 @@ namespace ISDCompanion.Services.InfoTextServices
                 }
                 else
                 {
-                    if(index % 2 == 0)
+                    if (index % 2 == 0)
                     {
                         infoText = AppResources.InfoText_CRC_evenStep;
                     }
@@ -95,7 +95,7 @@ namespace ISDCompanion.Services.InfoTextServices
                     break;
                 }
             }
-      
+
 
             return infoTexts;
         }

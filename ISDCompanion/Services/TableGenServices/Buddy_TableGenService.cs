@@ -2,10 +2,6 @@
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Ports.Exam.OperatingSystems;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
 
 namespace ISDCompanion.Services
 {
@@ -34,7 +30,7 @@ namespace ISDCompanion.Services
             return (currentRowOfInterest - 3) * _cellHeight;
         }
 
-        Color Color_Transparent = Color.Transparent;
+        Color Color_Transparent = Colors.Transparent;
 
         public Buddy_TableGenService(BuddyParameters parameters, IBuddySolution solution)
         {
@@ -55,7 +51,7 @@ namespace ISDCompanion.Services
 
             for (int i = 0; i < 10; i++)
             {
-                tableGen_TableHeader.SetBackGroundColor(i, 0, Color.Transparent);
+                tableGen_TableHeader.SetBackGroundColor(i, 0, Colors.Transparent);
             }
 
             List<Label> labels = new List<Label>();

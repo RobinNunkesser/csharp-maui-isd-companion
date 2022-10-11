@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ISDCompanion.Resources.Strings;
+using Italbytz.Extensions;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using ISDCompanion.Resx;
-using Italbytz.Extensions;
 using Italbytz.Ports.Trivia;
-using Xamarin.Forms;
 
 namespace ISDCompanion
 {
@@ -75,7 +72,7 @@ namespace ISDCompanion
         }
 
         void Skip()
-        {            
+        {
             IncreaseIndex();
         }
 
@@ -90,7 +87,7 @@ namespace ISDCompanion
           PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         #endregion
 
-        
+
     }
 
 }

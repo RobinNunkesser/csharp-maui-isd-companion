@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using Xamarin.Forms;
+﻿using System.Reflection;
 
 namespace ISDCompanion
 {
     public partial class LicensesPage : ContentPage
     {
+        private string licenseFile { get; set; }
+
         public LicensesPage(string licenseFile)
         {
             InitializeComponent();
+            this.licenseFile = licenseFile;
+        }
 
-            var assembly = typeof(LicensesPage).GetTypeInfo().Assembly;
-            Stream stream = assembly
-                .GetManifestResourceStream($"ISDCompanion.Licenses.{licenseFile}");
-            string html = "";
-            using (var reader = new System.IO.StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            using var stream = await FileSystem.OpenAppPackageFileAsync(licenseFile);
+            using var reader = new StreamReader(stream);
+
+            var html = reader.ReadToEnd();
 
             var htmlSource = new HtmlWebViewSource
             {
@@ -27,5 +27,6 @@ namespace ISDCompanion
             };
             Browser.Source = htmlSource;
         }
+
     }
 }

@@ -1,54 +1,53 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    xmlns:local="clr-namespace:ISDCompanion"
-    x:Class="ISDCompanion.MensaPage"
-    Title="{xct:Translate Mensa}">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ISDCompanion"
+             x:Class="ISDCompanion.MensaPage"
+             Title="{local:Localize Mensa}">
     <ContentPage.Resources>
 		<ResourceDictionary>
 			<local:PriceConverter x:Key="priceConverter" />
 		</ResourceDictionary>
 	</ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Clicked="ToolbarItem_Clicked" >
-            <ToolbarItem.IconImageSource>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="outline_info_black_24pt" />
-                    <On Platform="Android" Value="ic_baseline_info_24" />
-                </OnPlatform>
-            </ToolbarItem.IconImageSource>
-        </ToolbarItem>
+        <ToolbarItem Clicked="ToolbarItem_Clicked" IconImageSource="info_black_24dp.png" />
+
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView IsGroupingEnabled="true" HasUnevenRows="true"
-                  ItemsSource="{Binding Meals}"
-                  GroupDisplayBinding="{Binding LongName}"
-                  >
-            <ListView.ItemTemplate>
+        <CollectionView IsGrouped="true" ItemsSource="{Binding Meals}">
+            <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <StackLayout Orientation="Horizontal"                                 
-                                 VerticalOptions="FillAndExpand"
-                                         Padding="20,8,20,8">
-                                <Image Source="{Binding Image}" WidthRequest="90"/>
-                                <StackLayout Orientation="Vertical"
-                                     HorizontalOptions="StartAndExpand">
-                                    <Label Text="{Binding Name}"
-                                         FontAttributes="Bold"
-                                         HorizontalOptions="FillAndExpand"
-                                         VerticalOptions="Start" />
-                                    <Label Text="{Binding Price, Converter={StaticResource priceConverter}}"
-                                         HorizontalOptions="FillAndExpand"
-                                         VerticalOptions="End" />
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell.View>
-                    </ViewCell>
+                    <Label Text="{Binding LongName}" BackgroundColor="LightGray"
+                       FontSize="Medium" FontAttributes="Bold" Padding="10"/>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.GroupHeaderTemplate>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.RowSpan="2" 
+                               Source="{Binding Image}" 
+                               Aspect="AspectFill"
+                               HeightRequest="60" 
+                               WidthRequest="60" />
+                        <Label Grid.Column="1" 
+                               Text="{Binding Name}" 
+                               FontAttributes="Bold" />
+                        <Label Grid.Row="1"
+                               Grid.Column="1" 
+                               Text="{Binding Price, Converter={StaticResource priceConverter}}"
+                               FontAttributes="Italic" 
+                               VerticalOptions="End" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </ContentPage.Content>
 </ContentPage>

@@ -1,4 +1,4 @@
-﻿using ISDCompanion.Resx;
+﻿using ISDCompanion.Resources.Strings;
 using ISDCompanion.Services.InfoTextServices;
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Adapters.Exam.Networks;
@@ -8,7 +8,6 @@ using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xamarin.Forms;
 
 namespace ISDCompanion.Services
 {
@@ -47,7 +46,7 @@ namespace ISDCompanion.Services
             _parameters = parameters;
             _solution = solution;
 
-            calculation = _solution.Calculation.Split(new string[] {"\n\n"}, StringSplitOptions.None);
+            calculation = _solution.Calculation.Split(new string[] { "\n\n" }, StringSplitOptions.None);
             calculation_check = _solution.Check.Split(new string[] { "\n\n" }, StringSplitOptions.None);
 
 
@@ -119,7 +118,7 @@ namespace ISDCompanion.Services
             {
                 char[] solutions = calculation[_index + 1].ToCharArray();
 
-                if(_index != calculation.Length - 2)
+                if (_index != calculation.Length - 2)
                 {
                     solutions = cleanUpCharArray(solutions);
                 }
@@ -127,12 +126,12 @@ namespace ISDCompanion.Services
 
                 for (int j = 0; j < calculation[0].Length; j++)
                 {
-                    tableGen.AddCenteredElement(_index+2, j, new Label() { Text = solutions[j].ToString() });
-                    if(_index % 2 == 0)
+                    tableGen.AddCenteredElement(_index + 2, j, new Label() { Text = solutions[j].ToString() });
+                    if (_index % 2 == 0)
                     {
-                        if(solutions[j] != ' ')
+                        if (solutions[j] != ' ')
                         {
-                            tableGen.SetBorderForCell(_index+2, j, TableGen.Border.BorderPosition.Bot);
+                            tableGen.SetBorderForCell(_index + 2, j, TableGen.Border.BorderPosition.Bot);
                         }
                     }
 
@@ -145,8 +144,8 @@ namespace ISDCompanion.Services
             else if ((_index - calculation.Length - 1) < calculation_check.Length - 2)
             {
                 char[] solutions = calculation_check[_index - calculation.Length + 1].ToCharArray();
-                
-                if((_index != (calculation.Length - 1)) && (_index != (calculation.Length + calculation_check.Length) - 2))
+
+                if ((_index != (calculation.Length - 1)) && (_index != (calculation.Length + calculation_check.Length) - 2))
                 {
                     solutions = cleanUpCharArray(solutions);
                 }
@@ -172,7 +171,7 @@ namespace ISDCompanion.Services
         }
 
         public Grid GenerateTable_PreviousStep()
-        {            
+        {
             if (_index >= calculation.Length && _index <= calculation.Length + calculation_check.Length)
             {
 
@@ -198,7 +197,7 @@ namespace ISDCompanion.Services
                 currentColumnOfInterest = 0;
                 currentRowOfInterest = _index;
             }
-            
+
 
             return tableGen.Grid;
         }

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using ISDCompanion.Enums;
-using ISDCompanion.Resx;
-using Italbytz.Adapters.Meal.STWPB;
-using Italbytz.Ports.Meal;
+﻿using ISDCompanion.Resources.Strings;
 using Mensa.Core;
 using Mensa.Core.Ports;
-using Xamarin.CommunityToolkit.Helpers;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+using Italbytz.Adapters.Meal.STWPB;
+using Italbytz.Ports.Meal;
+using System.Globalization;
 
 namespace ISDCompanion
 {
@@ -21,7 +16,7 @@ namespace ISDCompanion
         {
             InitializeComponent();
             BindingContext = viewModel;
-            var repository = new MealRepository(Secrets.id, LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName);
+            var repository = new MealRepository(Secrets.id, CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
             service = new GetMealsService(repository);
         }
 

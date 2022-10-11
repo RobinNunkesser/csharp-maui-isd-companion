@@ -1,138 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>portable</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <LangVersion>9.0</LangVersion>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <LangVersion>9.0</LangVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" />
-    <PackageReference Include="Xam.Plugins.Logging" Version="1.1.1" />
-    <PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
-    <PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.6.0" />
-    <PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.8.1" />
-    <PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.3.0" />
-    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
-    <PackageReference Include="CClarke.Plugin.Calendars" Version="1.1.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="DevExpress.XamarinForms.Scheduler" />
-    <None Remove="Resources\Fonts\FA-Regular-400.otf" />
-    <None Remove="Resources\Fonts\FA-Solid-900.otf" />
-    <None Remove="Resources\Fonts\TitilliumWeb-Regular.ttf" />
-    <None Remove="Resources\Images\reply48.png" />
-    <None Remove="Exercises\" />
-    <None Remove="Settings\" />
-    <None Remove="Licenses\" />
-    <None Remove="Licenses\xamarin_essentials.html" />
-    <None Remove="Licenses\xamarin_forms.html" />
-    <None Remove="Xamarin.Forms.Svg" />
-    <None Remove="Resources\" />
-    <None Remove="Xamarin.CommunityToolkit" />
-    <None Remove="Resx\" />
-    <None Remove="NetworksExam" />
-    <None Remove="OperatingSystemsExam" />
-    <None Remove="Mensa\" />
-    <None Remove="Profs\" />
-    <None Remove="Licenses\devexpress_xamarinforms_scheduler.html" />
-    <None Remove="Licenses\networksexam.html" />
-    <None Remove="Licenses\operatingsystemsexam.html" />
-    <None Remove="Licenses\xamarin_communitytoolkit.html" />
-    <None Remove="Quiz\" />
-    <None Remove="TriviaPorts" />
-    <None Remove="Licenses\triviaports.html" />
-    <None Remove="Common\" />
-    <None Remove="Licenses\commonports.html" />
-    <None Remove="Licenses\macross_json_extensions.html" />
-    <None Remove="Licenses\system_net_http.html" />
-    <None Remove="Licenses\system_net_http_json.html" />
-    <None Remove="Licenses\system_text_json.html" />
-    <None Remove="Microcharts.Forms" />
-    <None Remove="DevExpress.XamarinForms.Charts" />
-    <None Remove="Xam.Plugins.Logging" />
-    <None Remove="Licenses\xam_plugins_logging.html" />
-    <None Remove="Italbytz.Ports.Trivia" />
-    <None Remove="Italbytz.Adapters.Exam.OperatingSystems" />
-    <None Remove="Italbytz.Adapters.Exam.Networks" />
-    <None Remove="Licenses\italbytz_ports_meal.html" />
-    <None Remove="Licenses\italbytz_adapters_exam_networks %28copy%29.html" />
-    <None Remove="Italbytz.Adapters.Meal.STWPB" />
-    <None Remove="CClarke.Plugin.Calendars" />
-    <None Remove="Licenses\italbytz_ports_trivia %28copy%29.html" />
-    <None Remove="Licenses\xamarin_forms %28copy%29.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\MindMapServices\" />
-    <Folder Include="Licenses\" />
-    <Folder Include="Resx\" />
-    <Folder Include="Mensa\" />
-    <Folder Include="Profs\" />
-    <Folder Include="Quiz\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Licenses\xamarin_essentials.html" />
-    <EmbeddedResource Include="Licenses\xamarin_forms.html" />
-    <EmbeddedResource Include="Licenses\devexpress_xamarinforms_scheduler.html" />
-    <EmbeddedResource Include="Licenses\italbytz_adapters_exam_networks.html" />
-    <EmbeddedResource Include="Licenses\italbytz_adapters_exam_operatingsystems.html" />
-    <EmbeddedResource Include="Licenses\xamarin_communitytoolkit.html" />
-    <EmbeddedResource Include="Licenses\italbytz_ports_trivia.html" />
-    <EmbeddedResource Include="Licenses\italbytz_ports_common.html" />
-    <EmbeddedResource Include="Licenses\macross_json_extensions.html" />
-    <EmbeddedResource Include="Licenses\system_net_http.html" />
-    <EmbeddedResource Include="Licenses\system_net_http_json.html" />
-    <EmbeddedResource Include="Licenses\system_text_json.html" />
-    <EmbeddedResource Include="Licenses\xam_plugins_logging.html" />
-    <EmbeddedResource Include="Licenses\italbytz_ports_meal.html" />
-    <EmbeddedResource Include="Licenses\italbytz_adapters_meal_stwpb.html" />
-    <EmbeddedResource Include="Resources\Fonts\FA-Regular-400.otf" />
-    <EmbeddedResource Include="Resources\Fonts\FA-Solid-900.otf" />
-    <EmbeddedResource Include="Resources\Fonts\TitilliumWeb-Regular.ttf" />
-    <EmbeddedResource Include="Resources\Images\reply48.png" />
-    <EmbeddedResource Include="Licenses\cclarke_plugin_calendars.html" />
-    <EmbeddedResource Include="Licenses\xamarin_forms_pancakeview.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Settings\LicensePage.xaml.cs">
-      <DependentUpon>LicensesPage.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Resx\AppResources.Designer.cs">
-      <DependentUpon>AppResources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Update="Resx\AppResources.de.Designer.cs">
-      <DependentUpon>AppResources.de.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Exercises\ExerciseContentView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resx\AppResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resx\AppResources.de.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
-    <ProjectReference Include="..\..\nuget-forms-graphgen\NewGraphGen.csproj" />
-    <ProjectReference Include="..\..\nuget-forms-tablegen\TableGen.csproj" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>ISDCompanion</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<!-- Display name -->
+		<ApplicationTitle>ISDCompanion</ApplicationTitle>
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.isdcompanion</ApplicationId>
+		<ApplicationIdGuid>7318FC73-5BE8-4A0A-A002-F629A4200794</ApplicationIdGuid>
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
+	  <EnableCodeSigning>false</EnableCodeSigning>
+	</PropertyGroup>
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(Configuration)' == 'Release'">
+    <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled>
+    <PackageCertificateThumbprint>XXX</PackageCertificateThumbprint>
+</PropertyGroup>
+<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(RuntimeIdentifierOverride)' != ''">
+    <RuntimeIdentifier>$(RuntimeIdentifierOverride)</RuntimeIdentifier>
+</PropertyGroup>
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#17005E" />
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" /> 
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiFont Include="Resources\Fonts\*" />
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Strings\AppResources.de.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="Resources\Strings\AppResources.Designer.cs">
+			<DependentUpon>AppResources.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resources\Strings\AppResources.de.Designer.cs">
+			<DependentUpon>AppResources.de.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Resources\Strings\" />
+		<None Remove="Microsoft.Extensions.Localization" />
+		<None Remove="Mensa\" />
+		<None Remove="Exercises\" />
+		<None Remove="Courses\" />
+		<None Remove="Profs\" />
+		<None Remove="Common\" />
+		<None Remove="Italbytz.Adapters.Meal.STWPB" />
+		<None Remove="Italbytz.Ports.Meal" />
+		<None Remove="Italbytz.Ports.Trivia" />
+		<None Remove="Italbytz.Adapters.Exam.Networks" />
+		<None Remove="Italbytz.Adapters.Exam.OperatingSystems" />
+		<None Remove="TableGen\" />
+		<None Remove="Exercises\Baseclasses\" />
+		<None Remove="Services\" />
+		<None Remove="Services\Interfaces\" />
+		<None Remove="Settings\" />
+		<None Remove="Services\TableGenServices\" />
+		<None Remove="GraphGen\" />
+		<None Remove="GraphGen\Classes\" />
+		<None Remove="Exercises\Extensions\" />
+		<None Remove="Services\InfoTextServices\" />
+		<None Remove="CClarke.Plugin.Calendars" />
+		<None Remove="Quiz\" />
+		<None Remove="Licenses\" />
+		<None Remove="Plugin\" />
+		<None Remove="Plugin\Calendars\" />
+		<None Remove="Plugin\Calendars\Abstractions\" />
+		<None Remove="Platforms\iOS\Plugin\" />
+		<None Remove="Platforms\iOS\Plugin\Calendars\" />
+		<None Remove="Platforms\MacCatalyst\Plugin\" />
+		<None Remove="Platforms\MacCatalyst\Plugin\Calendars\" />
+		<None Remove="Platforms\Windows\Plugin\" />
+		<None Remove="Platforms\Windows\Plugin\Calendars\" />
+		<None Remove="Platforms\Android\Plugin\" />
+		<None Remove="Platforms\Android\Plugin\Calendars\" />
+		<None Remove="Platforms\Tizen\Plugin\" />
+		<None Remove="Platforms\Tizen\Plugin\Calendars\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Resources\Strings\" />
+		<Folder Include="Mensa\" />
+		<Folder Include="Exercises\" />
+		<Folder Include="Courses\" />
+		<Folder Include="Profs\" />
+		<Folder Include="Common\" />
+		<Folder Include="TableGen\" />
+		<Folder Include="Exercises\Baseclasses\" />
+		<Folder Include="Services\" />
+		<Folder Include="Services\Interfaces\" />
+		<Folder Include="Settings\" />
+		<Folder Include="Services\TableGenServices\" />
+		<Folder Include="GraphGen\" />
+		<Folder Include="GraphGen\Classes\" />
+		<Folder Include="Exercises\Extensions\" />
+		<Folder Include="Services\InfoTextServices\" />
+		<Folder Include="Quiz\" />
+		<Folder Include="Licenses\" />
+		<Folder Include="Plugin\" />
+		<Folder Include="Plugin\Calendars\" />
+		<Folder Include="Plugin\Calendars\Abstractions\" />
+		<Folder Include="Platforms\iOS\Plugin\" />
+		<Folder Include="Platforms\iOS\Plugin\Calendars\" />
+		<Folder Include="Platforms\MacCatalyst\Plugin\" />
+		<Folder Include="Platforms\MacCatalyst\Plugin\Calendars\" />
+		<Folder Include="Platforms\Windows\Plugin\" />
+		<Folder Include="Platforms\Windows\Plugin\Calendars\" />
+		<Folder Include="Platforms\Android\Plugin\" />
+		<Folder Include="Platforms\Android\Plugin\Calendars\" />
+		<Folder Include="Platforms\Tizen\Plugin\" />
+		<Folder Include="Platforms\Tizen\Plugin\Calendars\" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.9" />
+		<PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.3.0" />
+		<PackageReference Include="Italbytz.Ports.Meal" Version="0.5.0" />
+		<PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
+		<PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.8.1" />
+		<PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.6.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Update="Courses\CoursesPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Exercises\ExercisesPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Profs\ProfsPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Mensa\MensaPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Exercises\NetmaskPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Exercises\ExerciseContentView.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Exercises\BitencodingsPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Settings\SettingsPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Exercises\MSTPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Exercises\BuddyPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Exercises\CRCPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Exercises\PageReplacementPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Exercises\RealtimeSchedulingPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Exercises\SchedulingPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Exercises\ShortestPathsPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Quiz\QuizPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Profs\ProfPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Licenses\LicensesPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Settings\AcknowledgementsPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Settings\AdditivesPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Settings\AllergensPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
+	</ItemGroup>
 </Project>

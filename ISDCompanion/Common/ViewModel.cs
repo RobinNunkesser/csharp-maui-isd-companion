@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ISDCompanion
@@ -18,4 +17,3 @@ namespace ISDCompanion
 
     }
 }
-

@@ -1,40 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    x:Class="ISDCompanion.ShortestPathsPage"
-    Title="{xct:Translate ShortestPaths}">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ISDCompanion" 
+             x:Class="ISDCompanion.ShortestPathsPage"
+             Title="{local:Localize ShortestPaths}">
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
     <ContentPage.Content>
         <StackLayout>
                 <Label Text="Graph" VerticalOptions="Center"/>
-                <Label Text="{Binding Graph}" VerticalOptions="Center">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="CourierNewPSMT" />
-                            <On Platform="Android" Value="monospace" />
-                            <On Platform="UWP" Value="Courier New" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
+                <Label Text="{Binding Graph}" VerticalOptions="Center" FontFamily="SourceCodePro-Regular"/>
             <StackLayout Orientation="Horizontal">
-                <Label Text="{xct:Translate ShowSolution}" VerticalOptions="Center"/>
+                <Label Text="{local:Localize ShowSolution}" VerticalOptions="Center"/>
                 <Switch x:Name="Switch" IsToggled="false" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
             <Label Text="{Binding Solution}"
                    HorizontalOptions="StartAndExpand"
                    VerticalOptions="Center"
-                       IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="CourierNewPSMT" />
-                            <On Platform="Android" Value="monospace" />
-                            <On Platform="UWP" Value="Courier New" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-            <Button Text="{xct:Translate NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
+                       IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}" FontFamily="SourceCodePro-Regular"/>
+            <Button Text="{local:Localize NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
         </StackLayout>          
     </ContentPage.Content>
 </ContentPage>

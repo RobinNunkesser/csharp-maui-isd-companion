@@ -1,4 +1,4 @@
-﻿using ISDCompanion.Resx;
+﻿using ISDCompanion.Resources.Strings;
 using ISDCompanion.Services.InfoTextServices;
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Adapters.Exam.Networks;
@@ -8,7 +8,6 @@ using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xamarin.Forms;
 
 namespace ISDCompanion.Services
 {
@@ -57,7 +56,7 @@ namespace ISDCompanion.Services
 
             for (int i = 0; i < 7; i++)
             {
-                tableGen_TableHeader.SetBackGroundColor(i, 0, Color.Transparent);
+                tableGen_TableHeader.SetBackGroundColor(i, 0, Colors.Transparent);
             }
 
             List<Label> labels = new List<Label>();
@@ -87,7 +86,7 @@ namespace ISDCompanion.Services
 
                 for (int j = 0; j < 7; j++)
                 {
-                    tableGen.SetBackGroundColor(j, i, Color.Transparent);
+                    tableGen.SetBackGroundColor(j, i, Colors.Transparent);
                 }
             }
             tableGen.SetRowHeight(2, 50);

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Italbytz.Ports.Trivia;
-using Xamarin.Forms;
 
 namespace ISDCompanion
 {

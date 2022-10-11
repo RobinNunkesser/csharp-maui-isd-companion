@@ -1,4 +1,4 @@
-﻿using ISDCompanion.Resx;
+﻿using ISDCompanion.Resources.Strings;
 using ISDCompanion.Services.Interfaces;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
@@ -38,28 +38,28 @@ namespace ISDCompanion.Services.InfoTextServices
 
             if (_parameters.Requests[0].Item2 <= _parameters.Requests[1].Item2 && _parameters.Requests[0].Item2 <= _parameters.Requests[2].Item2)
             {
-                high.process = "A"; 
+                high.process = "A";
                 high.stepID = 0;
             }
             if (_parameters.Requests[1].Item2 <= _parameters.Requests[0].Item2 && _parameters.Requests[1].Item2 <= _parameters.Requests[2].Item2)
             {
-                high.process = "B"; 
+                high.process = "B";
                 high.stepID = 1;
             }
             if (_parameters.Requests[2].Item2 <= _parameters.Requests[0].Item2 && _parameters.Requests[2].Item2 <= _parameters.Requests[1].Item2)
             {
-                high.process = "C"; 
+                high.process = "C";
                 high.stepID = 2;
             }
 
             if (_parameters.Requests[0].Item2 >= _parameters.Requests[1].Item2 && _parameters.Requests[0].Item2 >= _parameters.Requests[2].Item2)
             {
-                low.process = "A"; 
+                low.process = "A";
                 low.stepID = 0;
             }
             if (_parameters.Requests[1].Item2 >= _parameters.Requests[0].Item2 && _parameters.Requests[1].Item2 >= _parameters.Requests[2].Item2)
             {
-                low.process = "B"; 
+                low.process = "B";
                 low.stepID = 1;
             }
             if (_parameters.Requests[2].Item2 >= _parameters.Requests[0].Item2 && _parameters.Requests[2].Item2 >= _parameters.Requests[1].Item2)
@@ -70,19 +70,19 @@ namespace ISDCompanion.Services.InfoTextServices
 
             if ((high.process == "A" && low.process == "B") || (high.process == "B" && low.process == "A"))
             {
-                medium.process = "C"; 
+                medium.process = "C";
                 medium.stepID = 2;
             }
 
             if ((high.process == "A" && low.process == "C") || (high.process == "C" && low.process == "A"))
             {
-                medium.process = "B"; 
+                medium.process = "B";
                 medium.stepID = 1;
             }
 
             if ((high.process == "B" && low.process == "C") || (high.process == "C" && low.process == "B"))
             {
-                medium.process = "A"; 
+                medium.process = "A";
                 medium.stepID = 0;
             }
 
@@ -92,7 +92,7 @@ namespace ISDCompanion.Services.InfoTextServices
             {
                 string infoText = "";
 
-                if(step == high.stepID)
+                if (step == high.stepID)
                 {
                     infoText = String.Format(AppResources.InfoText_RealTimeScheduling_RMS_High, high.process);
                 }

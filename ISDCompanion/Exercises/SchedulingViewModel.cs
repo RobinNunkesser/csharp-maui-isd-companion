@@ -2,10 +2,9 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using ISDCompanion.Resx;
+using ISDCompanion.Resources.Strings;
 using ISDCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
-using Xamarin.Forms;
 
 namespace ISDCompanion
 {
@@ -18,7 +17,7 @@ namespace ISDCompanion
             //Add Picker control to view. This must be done here, defining it in XAML will break the ContentView template because of the height.
             Picker picker = new Picker();
             picker.Title = AppResources.ShowSolution;
-            picker.TitleColor = Color.Red;
+            picker.TitleColor = Colors.Red;
             picker.Margin = 5;
             picker.SetBinding(Picker.SelectedIndexProperty, new Binding("SelectedStrategy"));
 

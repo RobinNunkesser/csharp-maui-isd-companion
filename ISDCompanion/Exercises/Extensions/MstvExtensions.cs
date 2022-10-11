@@ -17,10 +17,10 @@ namespace ISDCompanion.Exercises.Extensions
             return count;
         }
 
-        public static ITaggedEdge<string,double> GetByIndex(this IMinimumSpanningTreeSolution solution, int index)
+        public static ITaggedEdge<string, double> GetByIndex(this IMinimumSpanningTreeSolution solution, int index)
         {
             var values = solution.Edges.GetEnumerator();
-          
+
             if (index == 0)
             {
                 values.MoveNext();
@@ -28,7 +28,7 @@ namespace ISDCompanion.Exercises.Extensions
             }
             else
             {
-                var count = solution.Count();               
+                var count = solution.Count();
                 if (index <= count - 1 && index > 0)
                 {
                     for (var i = 0; i <= index; i++)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using ISDCompanion.Resx;
+using ISDCompanion.Resources.Strings;
 using Italbytz.Ports.Meal;
 
 namespace ISDCompanion
@@ -16,7 +16,7 @@ namespace ISDCompanion
         private SectionViewModel<IMeal> desserts;
 
         public MensaViewModel()
-        {            
+        {
             Meals = new ObservableCollection<SectionViewModel<IMeal>>();
             mainDishes = new SectionViewModel<IMeal>()
             {
@@ -38,7 +38,7 @@ namespace ISDCompanion
             Meals.Add(soups);
             Meals.Add(sideDishes);
             Meals.Add(desserts);
-            
+
         }
 
         internal void SetMeals(List<IMeal> meals)
@@ -74,7 +74,7 @@ namespace ISDCompanion
                 }
                 if (excludeMeal) continue;
                 switch (meal.Category)
-                {                        
+                {
                     case Category.Dessert:
                         desserts.Add(meal);
                         break;

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace ISDCompanion;
 
-using Xamarin.Forms;
-
-namespace ISDCompanion
+public partial class MSTPage : ContentPage
 {
-    public partial class MSTPage : ContentPage
+    public MSTPage()
     {
-        public MSTPage()
-        {
-            InitializeComponent();
-            BindingContext = new MSTViewModel();
-        }
+        InitializeComponent();
+        BindingContext = new MSTViewModel();
     }
 }

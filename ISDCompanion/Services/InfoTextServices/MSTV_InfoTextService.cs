@@ -1,8 +1,5 @@
-﻿using ISDCompanion.Resx;
+﻿using ISDCompanion.Resources.Strings;
 using Italbytz.Ports.Exam.Networks;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ISDCompanion.Services.InfoTextServices
 {

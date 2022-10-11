@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using Italbytz.Ports.Meal;
-using Xamarin.Forms;
 
 namespace ISDCompanion
 {

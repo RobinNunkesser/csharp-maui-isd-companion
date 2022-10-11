@@ -1,11 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using ISDCompanion.Enums;
 using Italbytz.Ports.Meal;
-using Xamarin.Essentials;
 
 namespace ISDCompanion
 {
+    public enum WelcomeStatusType
+    {
+        Unfinished = 0,
+        Finished = 1
+    }
+
     public static class Settings
     {
         private static readonly int StatusDefault = 0;
@@ -44,3 +47,4 @@ namespace ISDCompanion
 
     }
 }
+

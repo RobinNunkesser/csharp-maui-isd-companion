@@ -1,25 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    xmlns:local="clr-namespace:ISDCompanion"   
-    x:Class="ISDCompanion.SettingsPage"
-    Title="{xct:Translate Settings}">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:local="clr-namespace:ISDCompanion"   
+             x:Class="ISDCompanion.SettingsPage"
+             Title="{local:Localize Settings}">
     <ContentPage.Content>
         <TableView Intent="Settings">
             <TableRoot>
-                <TableSection Title="{xct:Translate Settings}">
+                <TableSection Title="{local:Localize Settings}">
                     <ViewCell>
                         <ViewCell.View>
                             <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
-                                <Label Text="{xct:Translate Status}"
+                                <Label Text="{local:Localize Status}"
                                        HorizontalOptions="StartAndExpand"
                                        VerticalOptions="Center"
                                        TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"/>
                                 <Picker
                                     x:Name="StatusPicker"
-                                    Title="{xct:Translate Status}"
+                                    Title="{local:Localize Status}"
                                     HorizontalOptions="EndAndExpand"
                                     SelectedIndex="{Binding Status}"
                                     >
@@ -34,11 +32,11 @@
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>
-                     <TextCell Text="{xct:Translate Allergens}"
+                     <TextCell Text="{local:Localize Allergens}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:AllergensPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                
-                     <TextCell Text="{xct:Translate Additives}"
+                     <TextCell Text="{local:Localize Additives}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:AdditivesPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                
@@ -125,41 +123,6 @@
                             <x:String>system_text_json.html</x:String>
                         </TextCell.CommandParameter>
                     </TextCell>                    
-                    <TextCell Text="Xam.Plugins.Logging"
-                              Command="{Binding LicensesCommand}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
-                        <TextCell.CommandParameter>
-                            <x:String>xam_plugins_logging.html</x:String>
-                        </TextCell.CommandParameter>
-                    </TextCell>
-                    <TextCell Text="Xamarin.CommunityToolkit"
-                              Command="{Binding LicensesCommand}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
-                        <TextCell.CommandParameter>
-                            <x:String>xamarin_communitytoolkit.html</x:String>
-                        </TextCell.CommandParameter>
-                    </TextCell>
-                    <TextCell Text="Xamarin.Essentials"
-                              Command="{Binding LicensesCommand}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
-                        <TextCell.CommandParameter>
-                            <x:String>xamarin_essentials.html</x:String>
-                        </TextCell.CommandParameter>
-                    </TextCell>
-                    <TextCell Text="Xamarin.Forms"
-                              Command="{Binding LicensesCommand}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
-                        <TextCell.CommandParameter>
-                            <x:String>xamarin_forms.html</x:String>
-                        </TextCell.CommandParameter>
-                    </TextCell>
-                    <TextCell Text="Xamarin.Forms.PancakeView"
-                              Command="{Binding LicensesCommand}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
-                        <TextCell.CommandParameter>
-                            <x:String>xamarin_forms_pancakeview.html</x:String>
-                        </TextCell.CommandParameter>
-                    </TextCell>
                 </TableSection>
             </TableRoot>
         </TableView>

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Input;
-using Xamarin.Forms;
+﻿using System.Windows.Input;
 
 namespace ISDCompanion
 {
@@ -24,4 +22,3 @@ namespace ISDCompanion
         protected abstract void Initialize();
     }
 }
-

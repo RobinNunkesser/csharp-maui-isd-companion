@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using ISDCompanion.Resx;
+﻿using ISDCompanion.Resources.Strings;
 using Plugin.Calendars;
-using Plugin.Calendars.Abstractions;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace ISDCompanion
 {
@@ -118,7 +110,7 @@ namespace ISDCompanion
 
         }
 
-        void OnSearchTextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
+        void OnSearchTextChanged(System.Object sender, TextChangedEventArgs e)
         {
             SearchBar searchBar = (SearchBar)sender;
             courses.ItemsSource = CourseDataService.GetGroupedCourses(CourseDataService.GetSearchResults(searchBar.Text));
