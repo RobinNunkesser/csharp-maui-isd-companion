@@ -8,8 +8,10 @@ using Font = Microsoft.Maui.Graphics.Font;
 using Label = Microsoft.Msagl.Core.Layout.Label;
 using Node = Microsoft.Msagl.Core.Layout.Node;
 using Edge = Microsoft.Msagl.Core.Layout.Edge;
+using Italbytz.Ports.Exam.Networks;
+using Italbytz.Adapters.Exam.Networks.Graph;
 
-namespace Italbytz.Maui
+namespace Italbytz.Maui.Graphics
 {
     public class GraphDrawable : IDrawable
     {
@@ -20,6 +22,14 @@ namespace Italbytz.Maui
 
         private Func<Edge, double> weight;
         private Func<Edge, bool> mark;
+
+        public GraphDrawable(IUndirectedGraph<string, ITaggedEdge<string, double>> graph, Func<Edge, bool> mark)
+        {
+
+            this.graph = graph.ToGeometryGraph();
+            this.weight = (edge) => ((ITaggedEdge<string, double>)edge.UserData).Tag;
+            this.mark = mark;
+        }
 
         public GraphDrawable(GeometryGraph graph, Func<Edge, double> weight, Func<Edge, bool> mark)
         {

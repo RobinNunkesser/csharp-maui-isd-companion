@@ -3,7 +3,7 @@ using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Ports.Exam.Networks;
 using ISDCompanion.Exercises.Extensions;
 using ISDCompanion.Services.InfoTextServices;
-using Italbytz.Maui;
+using Italbytz.Maui.Graphics;
 using Italbytz.Adapters.Exam.Networks.Graph;
 
 namespace ISDCompanion
@@ -89,8 +89,6 @@ namespace ISDCompanion
             MinimumSpanningTreeParameters = new MinimumSpanningTreeParameters();
             MinimumSpanningTreeSolver = new MinimumSpanningTreeSolver();
             MSTVSolution = MinimumSpanningTreeSolver.Solve(MinimumSpanningTreeParameters);
-            //MSTVSolution.Edges = MSTVSolution.Edges.Reverse();
-
 
 
             foreach (var edge in MinimumSpanningTreeParameters.Graph.Edges)
@@ -133,7 +131,7 @@ namespace ISDCompanion
 
             Exercise_Content = new GraphicsView()
             {
-                Drawable = new GraphDrawable(MinimumSpanningTreeParameters.Graph.ToGeometryGraph(), (edge) => 3.0, (edge) => false)
+                Drawable = new GraphDrawable(MinimumSpanningTreeParameters.Graph, (edge) => false)
             };
             //graphicsView.Invalidate();
             //GraphGen.RenderLayout();
