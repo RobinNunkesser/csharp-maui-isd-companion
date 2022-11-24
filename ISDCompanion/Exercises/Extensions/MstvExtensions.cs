@@ -7,7 +7,7 @@ namespace ISDCompanion.Exercises.Extensions
 {
     public static class MstvExtensions
     {
-        public static int Count(this IMinimumSpanningTreeSolution solution)
+        /*public static int Count(this IMinimumSpanningTreeSolution solution)
         {
             int count = 0;
             foreach (var edge in solution.Edges)
@@ -42,7 +42,7 @@ namespace ISDCompanion.Exercises.Extensions
                     return null;
                 }
             }
-        }
+        }*/
 
     }
 }

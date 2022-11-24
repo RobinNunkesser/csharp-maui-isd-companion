@@ -97,8 +97,6 @@
 		<None Remove="Services\Interfaces\" />
 		<None Remove="Settings\" />
 		<None Remove="Services\TableGenServices\" />
-		<None Remove="GraphGen\" />
-		<None Remove="GraphGen\Classes\" />
 		<None Remove="Exercises\Extensions\" />
 		<None Remove="Services\InfoTextServices\" />
 		<None Remove="CClarke.Plugin.Calendars" />
@@ -132,8 +130,6 @@
 		<Folder Include="Services\Interfaces\" />
 		<Folder Include="Settings\" />
 		<Folder Include="Services\TableGenServices\" />
-		<Folder Include="GraphGen\" />
-		<Folder Include="GraphGen\Classes\" />
 		<Folder Include="Exercises\Extensions\" />
 		<Folder Include="Services\InfoTextServices\" />
 		<Folder Include="Quiz\" />
@@ -158,7 +154,7 @@
 		<PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.3.0" />
 		<PackageReference Include="Italbytz.Ports.Meal" Version="0.5.0" />
 		<PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
-		<PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.9.3" />
+		<PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.9.4" />
 		<PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.6.0" />
 	</ItemGroup>
 	<ItemGroup>

@@ -21,20 +21,13 @@ namespace Italbytz.Maui.Graphics
         private double scale = 1.0;
 
         private Func<Edge, double> weight;
-        private Func<Edge, bool> mark;
+        private Func<ITaggedEdge<string, double>, bool> mark;
 
-        public GraphDrawable(IUndirectedGraph<string, ITaggedEdge<string, double>> graph, Func<Edge, bool> mark)
+        public GraphDrawable(IUndirectedGraph<string, ITaggedEdge<string, double>> graph, Func<ITaggedEdge<string, double>, bool> mark)
         {
 
             this.graph = graph.ToGeometryGraph();
             this.weight = (edge) => ((ITaggedEdge<string, double>)edge.UserData).Tag;
-            this.mark = mark;
-        }
-
-        public GraphDrawable(GeometryGraph graph, Func<Edge, double> weight, Func<Edge, bool> mark)
-        {
-            this.graph = graph;
-            this.weight = weight;
             this.mark = mark;
         }
 
@@ -76,9 +69,12 @@ namespace Italbytz.Maui.Graphics
             canvas.FontColor = Colors.Gray;
             canvas.FontSize = (float)(16 * scale);
             canvas.Font = Font.Default;
-            // Move model to positive axis.
 
+            // Move model to positive axis.
             graph.Translate(new Microsoft.Msagl.Core.Geometry.Point(-graph.Left, -graph.Bottom));
+
+            // Center graph
+            graph.Translate(new Microsoft.Msagl.Core.Geometry.Point((dirtyRect.Width - graph.BoundingBox.Width) / 2, (dirtyRect.Height - graph.BoundingBox.Height) / 2));
 
             foreach (var node in graph.Nodes)
             {
@@ -87,7 +83,7 @@ namespace Italbytz.Maui.Graphics
 
             foreach (var edge in graph.Edges)
             {
-                DrawEdge(edge, weight(edge), mark(edge));
+                DrawEdge(edge, weight(edge), mark((ITaggedEdge<string, double>)edge.UserData));
             }
         }
 

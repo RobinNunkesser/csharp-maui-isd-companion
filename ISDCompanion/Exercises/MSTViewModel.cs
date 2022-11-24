@@ -1,5 +1,4 @@
-﻿using GraphGen.Classes;
-using Italbytz.Adapters.Exam.Networks;
+﻿using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Ports.Exam.Networks;
 using ISDCompanion.Exercises.Extensions;
 using ISDCompanion.Services.InfoTextServices;
@@ -17,8 +16,8 @@ namespace ISDCompanion
 
         protected int CurrentSolutionStep { get; set; }
 
-        private GraphicsView _GraphContent = null;
-        public View Exercise_Content
+        private GraphicsView? _GraphContent = null;
+        public View? Exercise_Content
         {
             get
             {
@@ -26,45 +25,10 @@ namespace ISDCompanion
             }
             set
             {
-                _GraphContent = (GraphicsView)value;
+                _GraphContent = (GraphicsView?)value;
                 OnPropertyChanged();
             }
         }
-
-        //private View _GraphContent = null;
-        //public View Exercise_Content { get; set; }
-
-        //private GraphicsView graphicsView;
-
-        private int _ContentHeight = 0;
-        public int ContentHeight
-        {
-            get { return _ContentHeight; }
-            set
-            {
-                _ContentHeight = value;
-                OnPropertyChanged();
-            }
-        }
-        private int _ContentWidth = 0;
-        public int ContentWidth
-        {
-            get { return _ContentWidth; }
-            set
-            {
-                _ContentWidth = value;
-                OnPropertyChanged();
-            }
-        }
-
-
-        protected GraphGen.Classes.SimpleGraphGen _GraphGen = null;
-        public GraphGen.Classes.SimpleGraphGen GraphGen
-        {
-            get { return _GraphGen; }
-            set { _GraphGen = value; }
-        }
-
 
         protected override void Initialize()
         {
@@ -75,123 +39,80 @@ namespace ISDCompanion
             ButtonInfo = new Command(showInfo, () => true);
             newExercise();
         }
+
         protected override void newExercise()
         {
-
-
-
-            List<string> nodes = new List<string>();
-            List<string[]> edges = new List<string[]>();
-
-
             CurrentSolutionStep = 0;
 
             MinimumSpanningTreeParameters = new MinimumSpanningTreeParameters();
             MinimumSpanningTreeSolver = new MinimumSpanningTreeSolver();
             MSTVSolution = MinimumSpanningTreeSolver.Solve(MinimumSpanningTreeParameters);
 
-
-            foreach (var edge in MinimumSpanningTreeParameters.Graph.Edges)
-            {
-                if (!nodes.Contains(edge.Source))
-                {
-
-                    nodes.Add(edge.Source);
-                }
-
-
-                if (!nodes.Contains(edge.Target))
-                {
-
-                    nodes.Add(edge.Target);
-                }
-                var tmp = new string[3]
-                {
-                    edge.Source,edge.Tag.ToString(),edge.Target
-                };
-                edges.Add(tmp);
-            }
-
-            GraphGen = new SimpleGraphGen(nodes.Count);
-            ContentHeight = SimpleGraphGen.CalcMaxHeight();
-            ContentWidth = SimpleGraphGen.CalcMaxWidth(nodes.Count);
-            foreach (var node in nodes)
-            {
-                GraphGen.AddNewNode(node);
-            }
-            foreach (var edge in edges)
-            {
-                var s = GraphGen.GetNode(edge[0]);
-                var t = GraphGen.GetNode(edge[2]);
-
-                s.AddEdgeTo(t, edge[1]);
-            }
-
-
-
             Exercise_Content = new GraphicsView()
             {
                 Drawable = new GraphDrawable(MinimumSpanningTreeParameters.Graph, (edge) => false)
             };
-            //graphicsView.Invalidate();
-            //GraphGen.RenderLayout();
 
         }
+
         private void nextStep()
         {
-            if (CurrentSolutionStep <= MSTVSolution.Count() - 1)
+            if (CurrentSolutionStep < MSTVSolution.Edges.Count())
             {
-                var value = GetCurrentStepInfos(CurrentSolutionStep);
-                GraphGen.GetNode(value.Source).GetEdgeTo(GraphGen.GetNode(value.Target)).Mark();
-                CurrentSolutionStep++;
-                //drawable.DrawStep(CurrentSolutionStep);
-                //graphicsView.Invalidate();
+                var markedEdges = MSTVSolution.Edges.Take(++CurrentSolutionStep);
+
+                Func<ITaggedEdge<string, double>, bool> mark = (edge) => markedEdges.Contains(edge);
+
+                Exercise_Content = new GraphicsView()
+                {
+                    Drawable = new GraphDrawable(MinimumSpanningTreeParameters.Graph, mark)
+                };
+
+
+
             }
         }
 
-        private ITaggedEdge<string, double> GetCurrentStepInfos(int stepcounter)
-        {
-            //catching exceptions
-            if (!(stepcounter <= MSTVSolution.Count() - 1 && stepcounter >= 0))
-            {
-                return null;
-            }
-
-            var step = MSTVSolution.GetByIndex(stepcounter);
-            return step;
-
-        }
 
         private void lastStep()
         {
-            CurrentSolutionStep--;
-            if (CurrentSolutionStep >= 0)
+            if (CurrentSolutionStep > 0)
             {
-                var value = GetCurrentStepInfos(CurrentSolutionStep);
-                GraphGen.GetNode(value.Source).GetEdgeTo(GraphGen.GetNode(value.Target)).UnMark();
+                CurrentSolutionStep--;
+                Func<ITaggedEdge<string, double>, bool> mark = (edge) => false;
+                if (CurrentSolutionStep > 0)
+                {
+                    var markedEdges = MSTVSolution.Edges.Take(CurrentSolutionStep);
+                    mark = (edge) => markedEdges.Contains(edge);
+                }
+
+                Exercise_Content = new GraphicsView()
+                {
+                    Drawable = new GraphDrawable(MinimumSpanningTreeParameters.Graph, mark)
+                };
             }
-            else
-            {
-                CurrentSolutionStep = 0;
-            }
+
         }
 
         private void showCompleteSolution()
         {
-            var test = MSTVSolution.Count();
-            for (int i = 0; i < MSTVSolution.Count(); i++)
+            Func<ITaggedEdge<string, double>, bool> mark = (edge) => MSTVSolution.Edges.Contains(edge);
+            CurrentSolutionStep = MSTVSolution.Edges.Count();
+
+            Exercise_Content = new GraphicsView()
             {
-                nextStep();
-            }
+                Drawable = new GraphDrawable(MinimumSpanningTreeParameters.Graph, mark)
+            };
+
         }
 
         private void showInfo()
         {
-            if (CurrentSolutionStep > 0)
+            /*if (CurrentSolutionStep > 0)
             {
                 string InfoText = MSTV_InfoTextService.GetInfoText(GetCurrentStepInfos(CurrentSolutionStep - 1));
                 App.Current.MainPage.DisplayAlert("Info", InfoText, "Ok");
-            }
+            }*/
         }
     }
 }
