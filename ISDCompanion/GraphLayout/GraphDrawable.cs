@@ -14,16 +14,18 @@ namespace Italbytz.Maui
     public class GraphDrawable : IDrawable
     {
         private GeometryGraph graph;
-        private ICanvas canvas;
+        private ICanvas? canvas;
         private RectF dirtyRect;
         private double scale = 1.0;
 
-        private Func<Edge, double> weights = (edge) => 3.0;
-        private Func<Edge, bool> mark = (edge) => false;
+        private Func<Edge, double> weight;
+        private Func<Edge, bool> mark;
 
-        public GraphDrawable(GeometryGraph graph)
+        public GraphDrawable(GeometryGraph graph, Func<Edge, double> weight, Func<Edge, bool> mark)
         {
             this.graph = graph;
+            this.weight = weight;
+            this.mark = mark;
         }
 
         public void Draw(ICanvas canvas, RectF dirtyRect)
@@ -75,7 +77,7 @@ namespace Italbytz.Maui
 
             foreach (var edge in graph.Edges)
             {
-                DrawEdge(edge, weights(edge), mark(edge));
+                DrawEdge(edge, weight(edge), mark(edge));
             }
         }
 

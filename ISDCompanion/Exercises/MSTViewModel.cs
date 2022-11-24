@@ -133,7 +133,7 @@ namespace ISDCompanion
 
             Exercise_Content = new GraphicsView()
             {
-                Drawable = new GraphDrawable(MinimumSpanningTreeParameters.Graph.ToGeometryGraph())
+                Drawable = new GraphDrawable(MinimumSpanningTreeParameters.Graph.ToGeometryGraph(), (edge) => 3.0, (edge) => false)
             };
             //graphicsView.Invalidate();
             //GraphGen.RenderLayout();
