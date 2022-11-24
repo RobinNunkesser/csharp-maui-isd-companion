@@ -115,7 +115,7 @@
 		<None Remove="Platforms\Android\Plugin\Calendars\" />
 		<None Remove="Platforms\Tizen\Plugin\" />
 		<None Remove="Platforms\Tizen\Plugin\Calendars\" />
-		<None Remove="GraphLayout\" />
+		<None Remove="Italbytz.Maui.Graphics" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Resources\Strings\" />
@@ -147,15 +147,15 @@
 		<Folder Include="Platforms\Android\Plugin\Calendars\" />
 		<Folder Include="Platforms\Tizen\Plugin\" />
 		<Folder Include="Platforms\Tizen\Plugin\Calendars\" />
-		<Folder Include="GraphLayout\" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.9" />
 		<PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.3.0" />
 		<PackageReference Include="Italbytz.Ports.Meal" Version="0.5.0" />
 		<PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
-		<PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.9.4" />
+		<PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.10.0" />
 		<PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.6.0" />
+		<PackageReference Include="Italbytz.Maui.Graphics" Version="0.1.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<MauiXaml Update="Courses\CoursesPage.xaml">
