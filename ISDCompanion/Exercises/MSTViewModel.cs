@@ -3,6 +3,8 @@ using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Ports.Exam.Networks;
 using ISDCompanion.Exercises.Extensions;
 using ISDCompanion.Services.InfoTextServices;
+using Italbytz.Maui;
+using Italbytz.Adapters.Exam.Networks.Graph;
 
 namespace ISDCompanion
 {
@@ -14,7 +16,8 @@ namespace ISDCompanion
         protected IMinimumSpanningTreeSolution MSTVSolution { get; set; }
 
         protected int CurrentSolutionStep { get; set; }
-        private View _GraphContent = null;
+
+        private GraphicsView _GraphContent = null;
         public View Exercise_Content
         {
             get
@@ -23,10 +26,16 @@ namespace ISDCompanion
             }
             set
             {
-                _GraphContent = value;
+                _GraphContent = (GraphicsView)value;
                 OnPropertyChanged();
             }
         }
+
+        //private View _GraphContent = null;
+        //public View Exercise_Content { get; set; }
+
+        //private GraphicsView graphicsView;
+
         private int _ContentHeight = 0;
         public int ContentHeight
         {
@@ -80,7 +89,7 @@ namespace ISDCompanion
             MinimumSpanningTreeParameters = new MinimumSpanningTreeParameters();
             MinimumSpanningTreeSolver = new MinimumSpanningTreeSolver();
             MSTVSolution = MinimumSpanningTreeSolver.Solve(MinimumSpanningTreeParameters);
-
+            //MSTVSolution.Edges = MSTVSolution.Edges.Reverse();
 
 
 
@@ -120,7 +129,14 @@ namespace ISDCompanion
                 s.AddEdgeTo(t, edge[1]);
             }
 
-            Exercise_Content = GraphGen.RenderLayout();
+
+
+            Exercise_Content = new GraphicsView()
+            {
+                Drawable = new GraphDrawable(MinimumSpanningTreeParameters.Graph.ToGeometryGraph())
+            };
+            //graphicsView.Invalidate();
+            //GraphGen.RenderLayout();
 
         }
         private void nextStep()
@@ -130,6 +146,8 @@ namespace ISDCompanion
                 var value = GetCurrentStepInfos(CurrentSolutionStep);
                 GraphGen.GetNode(value.Source).GetEdgeTo(GraphGen.GetNode(value.Target)).Mark();
                 CurrentSolutionStep++;
+                //drawable.DrawStep(CurrentSolutionStep);
+                //graphicsView.Invalidate();
             }
         }
 
