@@ -14,11 +14,11 @@
 		<!-- Display name -->
 		<ApplicationTitle>ISDCompanion</ApplicationTitle>
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.isdcompanion</ApplicationId>
+		<ApplicationId>de.hshl.isd.companion</ApplicationId>
 		<ApplicationIdGuid>7318FC73-5BE8-4A0A-A002-F629A4200794</ApplicationIdGuid>
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
+		<ApplicationDisplayVersion>4.0</ApplicationDisplayVersion>
+		<ApplicationVersion>12</ApplicationVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
@@ -32,6 +32,7 @@
 		<GenerateTestArtifacts>False</GenerateTestArtifacts>
 		<GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+		<ReleaseVersion>4.0</ReleaseVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
 		<EnableCodeSigning>false</EnableCodeSigning>
@@ -48,12 +49,13 @@
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
 		<CreatePackage>false</CreatePackage>
+		<RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#17005E" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#17005E" BaseSize="128,128" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiFont Include="Resources\Fonts\*" />
@@ -251,17 +253,17 @@
 		<ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <BundleResource Include="Resources\Raw\italbytz_ports_graph.html">
-	    <LogicalName>italbytz_ports_meal.html</LogicalName>
-	  </BundleResource>
-	  <BundleResource Include="Resources\Raw\italbytz_maui_graphics.html">
-	    <LogicalName>italbytz_ports_meal.html</LogicalName>
-	  </BundleResource>
-	  <BundleResource Include="Resources\Raw\microsoft_msagl.html">
-	    <LogicalName>macross_json_extensions.html</LogicalName>
-	  </BundleResource>
-	  <BundleResource Include="Resources\Raw\microsoft_msagl_drawing.html">
-	    <LogicalName>macross_json_extensions.html</LogicalName>
-	  </BundleResource>
+		<BundleResource Include="Resources\Raw\italbytz_ports_graph.html">
+			<LogicalName>italbytz_ports_meal.html</LogicalName>
+		</BundleResource>
+		<BundleResource Include="Resources\Raw\italbytz_maui_graphics.html">
+			<LogicalName>italbytz_ports_meal.html</LogicalName>
+		</BundleResource>
+		<BundleResource Include="Resources\Raw\microsoft_msagl.html">
+			<LogicalName>macross_json_extensions.html</LogicalName>
+		</BundleResource>
+		<BundleResource Include="Resources\Raw\microsoft_msagl_drawing.html">
+			<LogicalName>macross_json_extensions.html</LogicalName>
+		</BundleResource>
 	</ItemGroup>
 </Project>
