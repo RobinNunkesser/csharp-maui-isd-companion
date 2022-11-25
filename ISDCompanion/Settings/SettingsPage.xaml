@@ -74,11 +74,25 @@
                             <x:String>italbytz_adapters_meal_stwpb.html</x:String>
                         </TextCell.CommandParameter>
                     </TextCell>
+                    <TextCell Text="Italbytz.Maui.Graphics"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>italbytz_maui_graphics.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
                     <TextCell Text="Italbytz.Ports.Common"
                               Command="{Binding LicensesCommand}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
                         <TextCell.CommandParameter>
                             <x:String>italbytz_ports_common.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>
+                    <TextCell Text="Italbytz.Ports.Graph"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>italbytz_ports_graph.html</x:String>
                         </TextCell.CommandParameter>
                     </TextCell>
                     <TextCell Text="Italbytz.Ports.Meal"
@@ -100,6 +114,20 @@
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
                         <TextCell.CommandParameter>
                             <x:String>macross_json_extensions.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>                     
+                    <TextCell Text="Microsoft.Msagl"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>microsoft_msagl.html</x:String>
+                        </TextCell.CommandParameter>
+                    </TextCell>                     
+                    <TextCell Text="Microsoft.Msagl.Drawing"
+                              Command="{Binding LicensesCommand}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}">
+                        <TextCell.CommandParameter>
+                            <x:String>microsoft_msagl_drawing.html</x:String>
                         </TextCell.CommandParameter>
                     </TextCell>                     
                     <TextCell Text="System.Net.Http"

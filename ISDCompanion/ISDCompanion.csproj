@@ -116,6 +116,10 @@
 		<None Remove="Platforms\Tizen\Plugin\" />
 		<None Remove="Platforms\Tizen\Plugin\Calendars\" />
 		<None Remove="Italbytz.Maui.Graphics" />
+		<None Remove="Resources\Raw\italbytz_ports_meal %28copy%29.html" />
+		<None Remove="Resources\Raw\italbytz_ports_graph %28copy%29.html" />
+		<None Remove="Resources\Raw\macross_json_extensions %28copy%29.html" />
+		<None Remove="Resources\Raw\microsoft_msagl %28copy%29.html" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Resources\Strings\" />
@@ -245,5 +249,19 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Raw\italbytz_ports_graph.html">
+	    <LogicalName>italbytz_ports_meal.html</LogicalName>
+	  </BundleResource>
+	  <BundleResource Include="Resources\Raw\italbytz_maui_graphics.html">
+	    <LogicalName>italbytz_ports_meal.html</LogicalName>
+	  </BundleResource>
+	  <BundleResource Include="Resources\Raw\microsoft_msagl.html">
+	    <LogicalName>macross_json_extensions.html</LogicalName>
+	  </BundleResource>
+	  <BundleResource Include="Resources\Raw\microsoft_msagl_drawing.html">
+	    <LogicalName>macross_json_extensions.html</LogicalName>
+	  </BundleResource>
 	</ItemGroup>
 </Project>
