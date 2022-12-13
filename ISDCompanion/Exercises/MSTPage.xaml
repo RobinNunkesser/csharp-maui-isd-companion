@@ -7,8 +7,26 @@
 
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
 
+
     <ContentPage.Content>
-        <local:ExerciseContentView x:Name="Content"></local:ExerciseContentView>
+        <Grid>
+            <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+         </Grid.ColumnDefinitions>
+            <ContentView Grid.Row="0" Grid.Column="0" Content="{Binding Exercise_Content}" />
+            <ContentView Grid.Row="1" Grid.Column="0">
+            <local:ExerciseControlsView
+                NewExerciseCommand="{Binding ButtonNewExercise}"
+                PreviousStepCommand="{Binding ButtonLastStep}"
+                NextStepCommand="{Binding ButtonNextStep}"
+                ShowSolutionCommand="{Binding ButtonCompleteSolution}"
+                />
+        </ContentView>
+            </Grid>        
     </ContentPage.Content>
 
 </ContentPage>
