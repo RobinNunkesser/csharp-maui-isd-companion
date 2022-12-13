@@ -3,8 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ISDCompanion.ExerciseControlsView">
     <ContentView.Content>
-    <HorizontalStackLayout HorizontalOptions="FillAndExpand">
-        <Button Command="{Binding NewExerciseCommand}"
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0"
+                Command="{Binding NewExerciseCommand}"
                         Text="&#x002b;"
                             TextColor="#1d8fcc"
                             FontFamily="ACC"
@@ -17,8 +27,9 @@
                             BackgroundColor="White"
                          HorizontalOptions="CenterAndExpand"
                             >
-                    </Button>
-                    <Button Command="{Binding PreviousStepCommand}"
+            </Button>
+            <Button Grid.Row="0" Grid.Column="1"
+                            Command="{Binding PreviousStepCommand}"
                         Text="&#x2039;"
                             TextColor="#4cc2ba"
                             FontFamily="ACC"
@@ -31,9 +42,10 @@
                             BackgroundColor="White"
                          HorizontalOptions="CenterAndExpand"
                             >
-                    </Button>
+            </Button>
 
-            <Button Command="{Binding NextStepCommand}"
+            <Button Grid.Row="0" Grid.Column="2"
+                    Command="{Binding NextStepCommand}"
                         Text="&#x203a;"
                             TextColor="#4cc2ba"
                             FontFamily="ACC"
@@ -46,9 +58,10 @@
                             BackgroundColor="White"
                          HorizontalOptions="CenterAndExpand"
                             >
-                    </Button>
+            </Button>
 
-                    <Button Command="{Binding ShowSolutionCommand}"
+            <Button Grid.Row="0" Grid.Column="3"
+                            Command="{Binding ShowSolutionCommand}"
                         Text="&#x00bb;"
                             TextColor="#119191"
                             FontFamily="ACC"
@@ -61,8 +74,8 @@
                             BackgroundColor="White"
                          HorizontalOptions="CenterAndExpand"
                             >
-                    </Button>
-    </HorizontalStackLayout>
-        </ContentView.Content>
+            </Button>
+        </Grid>
+    </ContentView.Content>
 </ContentView>
 
