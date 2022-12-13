@@ -251,6 +251,9 @@
 			<SubType>
 			</SubType>
 		</MauiXaml>
+		<MauiXaml Update="Exercises\ExerciseControlsView.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />

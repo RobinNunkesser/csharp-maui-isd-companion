@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ISDCompanion"
              x:Class="ISDCompanion.ExerciseContentView">
         <Grid x:Name="ContentGrid">
             <Grid.RowDefinitions>
@@ -19,66 +20,17 @@
                     <ContentView Padding="0, 8, 8, 8" Content="{Binding Exercise_Content}" >
                     </ContentView>
                 </ScrollView>
-        <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Padding="0,0,0,8" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                    <Button Command="{Binding ButtonNewExercise}"
-                        Text="&#x002b;"
-                            TextColor="#1d8fcc"
-                            FontFamily="ACC"
-                            FontSize="Medium"
-                            BorderColor="#959595"
-                            CornerRadius="1000"
-                            BorderWidth="0.5"
-                            WidthRequest="45"
-                            HeightRequest="45"
-                            BackgroundColor="White"
-                         HorizontalOptions="CenterAndExpand"
-                            >
-                    </Button>
-                    <Button Command="{Binding ButtonLastStep}"
-                        Text="&#x2039;"
-                            TextColor="#4cc2ba"
-                            FontFamily="ACC"
-                            FontSize="Medium"
-                            BorderColor="#959595"
-                            CornerRadius="1000"
-                            BorderWidth="0.5"
-                            WidthRequest="45"
-                            HeightRequest="45"
-                            BackgroundColor="White"
-                         HorizontalOptions="CenterAndExpand"
-                            >
-                    </Button>
 
-            <Button Command="{Binding ButtonNextStep}"
-                        Text="&#x203a;"
-                            TextColor="#4cc2ba"
-                            FontFamily="ACC"
-                            FontSize="Medium"
-                            BorderColor="#959595"
-                            CornerRadius="1000"
-                            BorderWidth="0.5"
-                            WidthRequest="45"
-                            HeightRequest="45"
-                            BackgroundColor="White"
-                         HorizontalOptions="CenterAndExpand"
-                            >
-                    </Button>
 
-                    <Button Command="{Binding ButtonCompleteSolution}"
-                        Text="&#x00bb;"
-                            TextColor="#119191"
-                            FontFamily="ACC"
-                            FontSize="Medium"
-                            BorderColor="#959595"
-                            CornerRadius="1000"
-                            BorderWidth="0.5"
-                            WidthRequest="45"
-                            HeightRequest="45"
-                            BackgroundColor="White"
-                         HorizontalOptions="CenterAndExpand"
-                            >
-                    </Button>
-        </StackLayout>
+        <ContentView Grid.Row="2" Grid.ColumnSpan="2">
+            <local:ExerciseControlsView
+                NewExerciseCommand="{Binding ButtonNewExercise}"
+                PreviousStepCommand="{Binding ButtonLastStep}"
+                NextStepCommand="{Binding ButtonNextStep}"
+                ShowSolutionCommand="{Binding ButtonCompleteSolution}"
+                />
+        </ContentView>
+                
     </Grid>  
 </ContentView>
 
