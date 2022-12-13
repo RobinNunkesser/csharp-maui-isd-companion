@@ -71,23 +71,23 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" 
-                               Text="  " 
+                               Text="   " 
                                BackgroundColor="{Binding A}"
                                 />
                         <Label Grid.Row="1" 
-                               Text="  " 
+                               Text="   " 
                                BackgroundColor="{Binding B}"
                                 />
                         <Label Grid.Row="2" 
-                               Text="  " 
+                               Text="   " 
                                BackgroundColor="{Binding C}"
                                 />
                         <Label Grid.Row="3" 
-                               Text="  " 
+                               Text="{Binding Text}" 
                                BackgroundColor="{Binding RMS}"
                                 />
                         <Label Grid.Row="4" 
-                               Text="  " 
+                               Text="{Binding Text}" 
                                BackgroundColor="{Binding EDF}"
                                 />
                         </Grid>

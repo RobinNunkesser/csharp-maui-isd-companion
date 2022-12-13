@@ -43,35 +43,37 @@ namespace ISDCompanion
 
         private void showCompleteSolution()
         {
-            throw new NotImplementedException();
+            while (CurrentSolutionStep != 32)
+            {
+                nextStep();
+            }
         }
 
         private void lastStep()
         {
-            throw new NotImplementedException();
+            if (CurrentSolutionStep == 0) return;
+            CurrentSolutionStep--;
+            hideCurrentStep();
         }
 
         private void nextStep()
         {
             if (CurrentSolutionStep == 32) return;
+            showCurrentStep();
             CurrentSolutionStep++;
-            setItemsForCurrentStep();
-
         }
 
-        private void setItemsForCurrentStep()
+        private void showCurrentStep()
         {
-            Items = (RealtimeSchedulingStepViewModel[])steps.Select((item) => new RealtimeSchedulingStepViewModel()
-            {
-                A = item.A,
-                B = item.B,
-                C = item.C,
-                EDF = item.Step < CurrentSolutionStep ? item.EDF : Colors.Transparent,
-                RMS = item.Step < CurrentSolutionStep ? item.RMS : Colors.Transparent,
-            });
+            Items[CurrentSolutionStep].Text = "   ";
         }
 
-        protected async override void newExercise()
+        private void hideCurrentStep()
+        {
+            Items[CurrentSolutionStep].Text = "";
+        }
+
+        protected override void newExercise()
         {
             CurrentSolutionStep = 0;
 
