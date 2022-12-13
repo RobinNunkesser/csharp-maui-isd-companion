@@ -6,8 +6,102 @@
              Title="{local:Localize RealtimeScheduling}">
 
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
-    
-    <ContentPage.Content>
-        <local:ExerciseContentView x:Name="Content"></local:ExerciseContentView>
-    </ContentPage.Content>
+
+<ContentPage.Content>
+    <Grid>
+            <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+         </Grid.ColumnDefinitions>
+            
+        <CollectionView Grid.Row="0" Grid.Column="0"
+                        ItemsSource="{Binding Items}"
+                        ItemsLayout="HorizontalList">
+        <CollectionView.Header>
+            <Grid Padding="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" 
+                               Text="A" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                        <Label Grid.Row="1" 
+                               Text="B" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                        <Label Grid.Row="2" 
+                               Text="C" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                        <Label Grid.Row="3" 
+                               Text="RMS" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                        <Label Grid.Row="4" 
+                               Text="EDF" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                        </Grid>
+        </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" 
+                               Text="  " 
+                               BackgroundColor="{Binding A}"
+                                />
+                        <Label Grid.Row="1" 
+                               Text="  " 
+                               BackgroundColor="{Binding B}"
+                                />
+                        <Label Grid.Row="2" 
+                               Text="  " 
+                               BackgroundColor="{Binding C}"
+                                />
+                        <Label Grid.Row="3" 
+                               Text="  " 
+                               BackgroundColor="{Binding RMS}"
+                                />
+                        <Label Grid.Row="4" 
+                               Text="  " 
+                               BackgroundColor="{Binding EDF}"
+                                />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+        </CollectionView>
+        <ContentView Grid.Row="1" Grid.Column="0">
+            <local:ExerciseControlsView
+                NewExerciseCommand="{Binding ButtonNewExercise}"
+                PreviousStepCommand="{Binding ButtonLastStep}"
+                NextStepCommand="{Binding ButtonNextStep}"
+                ShowSolutionCommand="{Binding ButtonCompleteSolution}"
+                />
+        </ContentView>
+            </Grid>
+    </ContentPage.Content>    
 </ContentPage>
