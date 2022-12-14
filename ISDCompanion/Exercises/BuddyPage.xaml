@@ -1,258 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ISDCompanion.BuddyPage"
-             xmlns:local="clr-namespace:ISDCompanion" 
-             Title="{local:Localize Buddy}">
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="ISDCompanion.BuddyPage"
+                 xmlns:local="clr-namespace:ISDCompanion" 
+                 Title="{local:Localize Buddy}">
 
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
-    
-    <ContentPage.Content>
-    <Grid>
-            <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-         </Grid.ColumnDefinitions>
 
-        <ScrollView Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-        <CollectionView 
-                        ItemsSource="{Binding Steps}"
-                        ItemsLayout="VerticalList">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0"
-                               TextColor="Blue"
-                               FontAttributes="Bold"
-                               Text="{Binding Label}" 
-                                />
-                        <Label Grid.Column="1" 
-                               Text="{Binding Occupation[0]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="2" 
-                               Text="{Binding Occupation[1]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="3" 
-                               Text="{Binding Occupation[2]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="4" 
-                               Text="{Binding Occupation[3]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="5" 
-                               Text="{Binding Occupation[4]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="6" 
-                               Text="{Binding Occupation[5]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="7" 
-                               Text="{Binding Occupation[6]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="8" 
-                               Text="{Binding Occupation[7]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="9" 
-                               Text="{Binding Occupation[8]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="10" 
-                               Text="{Binding Occupation[9]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="11" 
-                               Text="{Binding Occupation[10]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="12" 
-                               Text="{Binding Occupation[11]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="13" 
-                               Text="{Binding Occupation[12]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="14" 
-                               Text="{Binding Occupation[13]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="15" 
-                               Text="{Binding Occupation[14]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="16" 
-                               Text="{Binding Occupation[15]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="17" 
-                               Text="{Binding Occupation[16]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="18" 
-                               Text="{Binding Occupation[17]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="19" 
-                               Text="{Binding Occupation[18]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="20" 
-                               Text="{Binding Occupation[19]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="21" 
-                               Text="{Binding Occupation[20]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="22" 
-                               Text="{Binding Occupation[21]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="23" 
-                               Text="{Binding Occupation[22]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="24" 
-                               Text="{Binding Occupation[23]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="25" 
-                               Text="{Binding Occupation[24]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="26" 
-                               Text="{Binding Occupation[25]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="27" 
-                               Text="{Binding Occupation[26]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="28" 
-                               Text="{Binding Occupation[27]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="29" 
-                               Text="{Binding Occupation[28]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="30" 
-                               Text="{Binding Occupation[29]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        <Label Grid.Column="31" 
-                               Text="{Binding Occupation[30]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                               BackgroundColor="LightGray"
-                                />
-                        <Label Grid.Column="32" 
-                               Text="{Binding Occupation[31]}" 
-                               IsVisible="{Binding Visible}"
-                               FontFamily="SourceCodePro-Regular"
-                                />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-        </CollectionView>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollView Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                <CollectionView 
+                            ItemsSource="{Binding Steps}"
+                            ItemsLayout="VerticalList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0"
+                                   TextColor="Blue"
+                                   FontAttributes="Bold"
+                                   Text="{Binding Label}" 
+                                    />
+                                <Label Grid.Column="1" IsVisible="{Binding Visible}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Occupation[0]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[1]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[2]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[3]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[4]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[5]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[6]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[7]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[8]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[9]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[10]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[11]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[12]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[13]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[14]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[15]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[16]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[17]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[18]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[19]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[20]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[21]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[22]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[23]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[24]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[25]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[26]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[27]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[28]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[29]}" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[30]}" TextColor="Black" BackgroundColor="LightGray" FontFamily="SourceCodePro-Regular"/>
+                                            <Span Text="{Binding Occupation[31]}" FontFamily="SourceCodePro-Regular"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </ScrollView>
-        <ContentView Grid.Row="1" Grid.ColumnSpan="2">
-            <local:ExerciseControlsView
-                NewExerciseCommand="{Binding ButtonNewExercise}"
-                PreviousStepCommand="{Binding ButtonPreviousStep}"
-                NextStepCommand="{Binding ButtonNextStep}"
-                ShowSolutionCommand="{Binding ButtonCompleteSolution}"
-                />
-        </ContentView>
-            </Grid>
-    </ContentPage.Content>  
+            <ContentView Grid.Row="1" Grid.ColumnSpan="2">
+                <local:ExerciseControlsView
+                    NewExerciseCommand="{Binding ButtonNewExercise}"
+                    PreviousStepCommand="{Binding ButtonPreviousStep}"
+                    NextStepCommand="{Binding ButtonNextStep}"
+                    ShowSolutionCommand="{Binding ButtonCompleteSolution}"
+                    />
+            </ContentView>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
