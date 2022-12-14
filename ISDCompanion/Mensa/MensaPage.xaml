@@ -17,7 +17,7 @@
         <CollectionView IsGrouped="true" ItemsSource="{Binding Meals}">
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>
-                    <Label Text="{Binding LongName}" BackgroundColor="LightGray"
+                    <Label Text="{Binding LongName}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
                        FontSize="Medium" FontAttributes="Bold" Padding="10"/>
                 </DataTemplate>
             </CollectionView.GroupHeaderTemplate>
