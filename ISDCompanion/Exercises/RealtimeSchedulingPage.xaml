@@ -84,11 +84,13 @@
                                BackgroundColor="{Binding C}"
                                 />
                         <Label Grid.Row="3" 
-                               Text="{Binding Text}" 
+                               Text="   "
+                               IsVisible="{Binding Visible}"
                                BackgroundColor="{Binding RMS}"
                                 />
                         <Label Grid.Row="4" 
-                               Text="{Binding Text}" 
+                               Text="   "
+                               IsVisible="{Binding Visible}"
                                BackgroundColor="{Binding EDF}"
                                 />
                         </Grid>

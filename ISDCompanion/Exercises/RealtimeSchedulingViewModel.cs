@@ -65,12 +65,12 @@ namespace ISDCompanion
 
         private void showCurrentStep()
         {
-            Items[CurrentSolutionStep].Text = "   ";
+            Items[CurrentSolutionStep].Visible = true;
         }
 
         private void hideCurrentStep()
         {
-            Items[CurrentSolutionStep].Text = "";
+            Items[CurrentSolutionStep].Visible = false;
         }
 
         protected override void newExercise()
