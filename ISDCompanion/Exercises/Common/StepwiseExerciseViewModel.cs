@@ -11,6 +11,8 @@ namespace ISDCompanion
         public ICommand ButtonInfo { set; get; }
         public ICommand ButtonNewExercise { set; get; }
 
+        protected int CurrentSolutionStep { get; set; }
+
         public StepwiseExerciseViewModel() : base()
         {
             ButtonNewExercise = new Command(newExercise, () => true);
@@ -20,10 +22,13 @@ namespace ISDCompanion
             ButtonInfo = new Command(showInfo, () => true);
         }
 
-        protected abstract void showInfo();
         protected abstract void showCompleteSolution();
         protected abstract void previousStep();
         protected abstract void nextStep();
+        protected abstract void showInfo();
+
     }
 }
+
+
 

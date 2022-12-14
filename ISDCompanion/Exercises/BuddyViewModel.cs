@@ -3,7 +3,7 @@ using Italbytz.Adapters.Exam.OperatingSystems;
 
 namespace ISDCompanion
 {
-    public class BuddyViewModel : Baseclass_Table_ViewModel
+    public class BuddyViewModel //: StepwiseExerciseViewModel<String>
     {
         public void AfterRender()
         {
@@ -11,25 +11,18 @@ namespace ISDCompanion
             var solver = new BuddySolver();
             var solution = solver.Solve(parameters);
 
-            _TableGenService = new Buddy_TableGenService(parameters, solution);
-            //loading animation
-            //gets automaticly removed when contend finished loading
-            Exercise_Content_Header = new ActivityIndicator { IsRunning = true };
-            Exercise_Content = new ActivityIndicator { IsRunning = true };
-
-            Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
-            Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
-
-            base.scroll();
 
 
         }
 
-        protected override void newExercise()
+        /*protected override void newExercise()
         {
-            AfterRender();
 
-            Info_Button_Clickable = _TableGenService.InfoAvailable();
         }
+
+        protected override void showInfo()
+        {
+            throw new NotImplementedException();
+        }*/
     }
 }

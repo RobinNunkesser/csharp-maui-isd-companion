@@ -15,8 +15,6 @@ namespace ISDCompanion
 
         protected IMinimumSpanningTreeSolution MSTVSolution { get; set; }
 
-        protected int CurrentSolutionStep { get; set; }
-
         private GraphicsView? _GraphContent = null;
         public View? Exercise_Content
         {

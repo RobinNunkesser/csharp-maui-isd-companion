@@ -55,7 +55,7 @@
 
 
         <CollectionView Grid.Row="0" Grid.Column="1"
-                        ItemsSource="{Binding Items}"
+                        ItemsSource="{Binding Steps}"
                         ItemsLayout="HorizontalList">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
