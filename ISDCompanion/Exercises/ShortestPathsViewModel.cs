@@ -37,7 +37,7 @@ namespace ISDCompanion
             }
         }
 
-        protected override void Initialize()
+        protected override void newExercise()
         {
             var parameters = new ShortestPathsParameters();
             var solver = new ShortestPathsSolver();
@@ -60,11 +60,6 @@ namespace ISDCompanion
             }
 
             Solution = solutionString;
-        }
-
-        protected override void newExercise()
-        {
-            throw new NotImplementedException();
         }
     }
 

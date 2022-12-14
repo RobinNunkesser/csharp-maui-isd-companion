@@ -21,7 +21,7 @@
             <ContentView Grid.Row="1" Grid.Column="0">
             <local:ExerciseControlsView
                 NewExerciseCommand="{Binding ButtonNewExercise}"
-                PreviousStepCommand="{Binding ButtonLastStep}"
+                PreviousStepCommand="{Binding ButtonPreviousStep}"
                 NextStepCommand="{Binding ButtonNextStep}"
                 ShowSolutionCommand="{Binding ButtonCompleteSolution}"
                 />

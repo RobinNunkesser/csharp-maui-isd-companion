@@ -4,10 +4,6 @@ namespace ISDCompanion
 {
     public class NetmaskViewModel : ExerciseViewModel
     {
-        protected override void newExercise()
-        {
-            //todo  
-        }
         private string address;
         public string Address
         {
@@ -50,7 +46,7 @@ namespace ISDCompanion
             }
         }
 
-        protected override void Initialize()
+        protected override void newExercise()
         {
             var parameters = new NetmaskParameters();
             var solver = new NetmaskSolver();

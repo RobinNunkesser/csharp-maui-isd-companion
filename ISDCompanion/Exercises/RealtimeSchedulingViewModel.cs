@@ -7,7 +7,7 @@ using Italbytz.Adapters.Exam.OperatingSystems;
 
 namespace ISDCompanion
 {
-    public class RealtimeSchedulingViewModel : ExerciseViewModel
+    public class RealtimeSchedulingViewModel : StepwiseExerciseViewModel
     {
         private RealtimeSchedulingStepViewModel[] steps = new RealtimeSchedulingStepViewModel[32];
         private RealtimeSchedulingStepViewModel[] items = new RealtimeSchedulingStepViewModel[32];
@@ -26,22 +26,7 @@ namespace ISDCompanion
 
         protected int CurrentSolutionStep { get; set; }
 
-        protected override void Initialize()
-        {
-            ButtonNewExercise = new Command(newExercise, () => true);
-            ButtonNextStep = new Command(nextStep, () => true);
-            ButtonLastStep = new Command(lastStep, () => true);
-            ButtonCompleteSolution = new Command(showCompleteSolution, () => true);
-            ButtonInfo = new Command(showInfoAsync, () => true);
-            newExercise();
-        }
-
-        private void showInfoAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void showCompleteSolution()
+        protected override void showCompleteSolution()
         {
             while (CurrentSolutionStep != 32)
             {
@@ -49,14 +34,14 @@ namespace ISDCompanion
             }
         }
 
-        private void lastStep()
+        protected override void previousStep()
         {
             if (CurrentSolutionStep == 0) return;
             CurrentSolutionStep--;
             hideCurrentStep();
         }
 
-        private void nextStep()
+        protected override void nextStep()
         {
             if (CurrentSolutionStep == 32) return;
             showCurrentStep();
@@ -111,6 +96,11 @@ namespace ISDCompanion
             Items = steps;
             //setItemsForCurrentStep();
 
+        }
+
+        protected override void showInfo()
+        {
+            throw new NotImplementedException();
         }
     }
 }

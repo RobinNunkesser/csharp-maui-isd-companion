@@ -1,6 +1,6 @@
 ﻿namespace ISDCompanion
 {
-    public abstract class Baseclass_Table_ViewModel : ExerciseViewModel
+    public abstract class Baseclass_Table_ViewModel : StepwiseExerciseViewModel
     {
         public View Exercise_Header
         {
@@ -82,24 +82,13 @@
         public event ScrollToPositionAction ScrollToPosition;
 
 
-        protected override void Initialize()
-        {
-            ButtonNewExercise = new Command(newExercise, () => true);
-            ButtonNextStep = new Command(nextStep, () => true);
-            ButtonLastStep = new Command(lastStep, () => true);
-            ButtonCompleteSolution = new Command(showCompleteSolution, () => true);
-            ButtonInfo = new Command(showInfoAsync, () => true);
-
-        }
-
-
         public void scroll()
         {
             ScrollToPosition?.Invoke(_TableGenService.X_CoordoninatesOfInterest(), _TableGenService.Y_CoordoninatesOfInterest(), true);
         }
 
 
-        private void nextStep()
+        protected override void nextStep()
         {
             Exercise_Content = _TableGenService.GenerateTable_NextStep();
             Info_Text = _TableGenService.GetInfoText();
@@ -107,7 +96,7 @@
             scroll();
         }
 
-        private void lastStep()
+        protected override void previousStep()
         {
             Exercise_Content = _TableGenService.GenerateTable_PreviousStep();
             Info_Text = _TableGenService.GetInfoText();
@@ -115,14 +104,14 @@
             scroll();
         }
 
-        private void showCompleteSolution()
+        protected override void showCompleteSolution()
         {
             Exercise_Content = _TableGenService.GenerateTable_ShowSolution();
             Info_Button_Clickable = _TableGenService.InfoAvailable();
             scroll();
         }
 
-        private async void showInfoAsync()
+        protected override async void showInfo()
         {
             await App.Current.MainPage.DisplayAlert("Info", Info_Text, "Ok");
         }

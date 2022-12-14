@@ -8,7 +8,7 @@ using Italbytz.Ports.Exam.Networks;
 
 namespace ISDCompanion
 {
-    public class MSTViewModel : ExerciseViewModel
+    public class MSTViewModel : StepwiseExerciseViewModel
     {
         protected MinimumSpanningTreeParameters MinimumSpanningTreeParameters { get; set; }
         protected MinimumSpanningTreeSolver MinimumSpanningTreeSolver { get; set; }
@@ -31,16 +31,6 @@ namespace ISDCompanion
             }
         }
 
-        protected override void Initialize()
-        {
-            ButtonNewExercise = new Command(newExercise, () => true);
-            ButtonNextStep = new Command(nextStep, () => true);
-            ButtonLastStep = new Command(lastStep, () => true);
-            ButtonCompleteSolution = new Command(showCompleteSolution, () => true);
-            ButtonInfo = new Command(showInfo, () => true);
-            newExercise();
-        }
-
         protected override void newExercise()
         {
             CurrentSolutionStep = 0;
@@ -56,7 +46,7 @@ namespace ISDCompanion
 
         }
 
-        private void nextStep()
+        protected override void nextStep()
         {
             if (CurrentSolutionStep < MSTVSolution.Edges.Count())
             {
@@ -75,7 +65,7 @@ namespace ISDCompanion
         }
 
 
-        private void lastStep()
+        protected override void previousStep()
         {
             if (CurrentSolutionStep > 0)
             {
@@ -95,7 +85,7 @@ namespace ISDCompanion
 
         }
 
-        private void showCompleteSolution()
+        protected override void showCompleteSolution()
         {
             Func<ITaggedEdge<string, double>, bool> mark = (edge) => MSTVSolution.Edges.Contains(edge);
             CurrentSolutionStep = MSTVSolution.Edges.Count();
@@ -107,7 +97,7 @@ namespace ISDCompanion
 
         }
 
-        private void showInfo()
+        protected override void showInfo()
         {
             /*if (CurrentSolutionStep > 0)
             {
