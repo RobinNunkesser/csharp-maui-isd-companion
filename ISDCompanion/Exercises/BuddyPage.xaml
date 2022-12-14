@@ -14,82 +14,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
          </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0" Padding="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Label Grid.Row="0" 
-                               Text=" " 
-                               FontAttributes="Bold"
-                               TextColor="Blue"
-                               />
-                        <Label Grid.Row="1" 
-                               Text="{Binding Request1}" 
-                               FontAttributes="Bold"
-                               TextColor="Blue"
-                               />
-                        <Label Grid.Row="2" 
-                               Text="{Binding Request2}" 
-                               FontAttributes="Bold"
-                               TextColor="Blue"
-                               />
-                        <Label Grid.Row="3" 
-                               Text="{Binding Request3}" 
-                               FontAttributes="Bold"
-                               TextColor="Blue"
-                               />
-                        <Label Grid.Row="4" 
-                               Text="{Binding Request4}" 
-                               FontAttributes="Bold"
-                               TextColor="Blue"
-                               />
-                        <Label Grid.Row="5" 
-                               Text="{Binding Request5}" 
-                               FontAttributes="Bold"
-                               TextColor="Blue"
-                               />
-                        <Label Grid.Row="6" 
-                               Text="{Binding Free1}" 
-                               FontAttributes="Bold"
-                               TextColor="Blue"
-                               />
-                        <Label Grid.Row="7" 
-                               Text="{Binding Free2}" 
-                               FontAttributes="Bold"
-                               TextColor="Blue"
-                               />
-                        <Label Grid.Row="8" 
-                               Text="{Binding Free3}" 
-                               FontAttributes="Bold"
-                               TextColor="Blue"
-                               />
-                        <Label Grid.Row="9" 
-                               Text="{Binding Free4}" 
-                               FontAttributes="Bold"
-                               TextColor="Blue"
-                               />
-                        <Label Grid.Row="10" 
-                               Text="{Binding Free5}" 
-                               FontAttributes="Bold"
-                               TextColor="Blue"
-                               />
-                        </Grid>
-
-        <ScrollView Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+        <ScrollView Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
         <CollectionView 
                         ItemsSource="{Binding Steps}"
                         ItemsLayout="VerticalList">
@@ -97,6 +25,7 @@
                 <DataTemplate>
                     <Grid Padding="2">
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
@@ -130,132 +59,186 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" 
-                               Text="{Binding Occupation[0]}" 
+                        <Label Grid.Column="0"
+                               TextColor="Blue"
+                               FontAttributes="Bold"
+                               Text="{Binding Label}" 
                                 />
                         <Label Grid.Column="1" 
-                               Text="{Binding Occupation[1]}" 
+                               Text="{Binding Occupation[0]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="2" 
-                               Text="{Binding Occupation[2]}" 
+                               Text="{Binding Occupation[1]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="3" 
-                               Text="{Binding Occupation[3]}" 
+                               Text="{Binding Occupation[2]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="4" 
-                               Text="{Binding Occupation[4]}" 
+                               Text="{Binding Occupation[3]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="5" 
-                               Text="{Binding Occupation[5]}" 
+                               Text="{Binding Occupation[4]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="6" 
-                               Text="{Binding Occupation[6]}" 
+                               Text="{Binding Occupation[5]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="7" 
-                               Text="{Binding Occupation[7]}" 
+                               Text="{Binding Occupation[6]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="8" 
-                               Text="{Binding Occupation[8]}" 
+                               Text="{Binding Occupation[7]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="9" 
-                               Text="{Binding Occupation[9]}" 
+                               Text="{Binding Occupation[8]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="10" 
-                               Text="{Binding Occupation[10]}" 
+                               Text="{Binding Occupation[9]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="11" 
-                               Text="{Binding Occupation[11]}" 
+                               Text="{Binding Occupation[10]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="12" 
-                               Text="{Binding Occupation[12]}" 
+                               Text="{Binding Occupation[11]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="13" 
-                               Text="{Binding Occupation[13]}" 
+                               Text="{Binding Occupation[12]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="14" 
-                               Text="{Binding Occupation[14]}" 
+                               Text="{Binding Occupation[13]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="15" 
-                               Text="{Binding Occupation[15]}" 
+                               Text="{Binding Occupation[14]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="16" 
-                               Text="{Binding Occupation[16]}" 
+                               Text="{Binding Occupation[15]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="17" 
-                               Text="{Binding Occupation[17]}" 
+                               Text="{Binding Occupation[16]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="18" 
-                               Text="{Binding Occupation[18]}" 
+                               Text="{Binding Occupation[17]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="19" 
-                               Text="{Binding Occupation[19]}" 
+                               Text="{Binding Occupation[18]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="20" 
-                               Text="{Binding Occupation[20]}" 
+                               Text="{Binding Occupation[19]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="21" 
-                               Text="{Binding Occupation[21]}" 
+                               Text="{Binding Occupation[20]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="22" 
-                               Text="{Binding Occupation[22]}" 
+                               Text="{Binding Occupation[21]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="23" 
-                               Text="{Binding Occupation[23]}" 
+                               Text="{Binding Occupation[22]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="24" 
-                               Text="{Binding Occupation[24]}" 
+                               Text="{Binding Occupation[23]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="25" 
-                               Text="{Binding Occupation[25]}" 
+                               Text="{Binding Occupation[24]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="26" 
-                               Text="{Binding Occupation[26]}" 
+                               Text="{Binding Occupation[25]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="27" 
-                               Text="{Binding Occupation[27]}" 
+                               Text="{Binding Occupation[26]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="28" 
-                               Text="{Binding Occupation[28]}" 
+                               Text="{Binding Occupation[27]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="29" 
-                               Text="{Binding Occupation[29]}" 
+                               Text="{Binding Occupation[28]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
                                 />
                         <Label Grid.Column="30" 
-                               Text="{Binding Occupation[30]}" 
+                               Text="{Binding Occupation[29]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         <Label Grid.Column="31" 
+                               Text="{Binding Occupation[30]}" 
+                               IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
+                               BackgroundColor="LightGray"
+                                />
+                        <Label Grid.Column="32" 
                                Text="{Binding Occupation[31]}" 
                                IsVisible="{Binding Visible}"
+                               FontFamily="SourceCodePro-Regular"
                                 />
                         </Grid>
                     </DataTemplate>
