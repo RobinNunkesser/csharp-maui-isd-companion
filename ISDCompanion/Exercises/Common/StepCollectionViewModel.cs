@@ -5,7 +5,9 @@ namespace ISDCompanion
 {
     public abstract class StepCollectionViewModel<StepType> : StepwiseExerciseViewModel where StepType : ExerciseStepViewModel
     {
-        private StepType[] steps = new StepType[32];
+        protected abstract int NoOfSteps { get; }
+
+        private StepType[] steps;
         public StepType[] Steps
         {
             get
@@ -21,7 +23,7 @@ namespace ISDCompanion
 
         protected override void showCompleteSolution()
         {
-            while (CurrentSolutionStep != 32)
+            while (CurrentSolutionStep != NoOfSteps)
             {
                 nextStep();
             }
@@ -47,7 +49,7 @@ namespace ISDCompanion
 
         protected override void nextStep()
         {
-            if (CurrentSolutionStep == 32) return;
+            if (CurrentSolutionStep == NoOfSteps) return;
             showCurrentStep();
             CurrentSolutionStep++;
         }

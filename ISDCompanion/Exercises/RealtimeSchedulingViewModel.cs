@@ -9,6 +9,8 @@ namespace ISDCompanion
 {
     public class RealtimeSchedulingViewModel : StepCollectionViewModel<RealtimeSchedulingStepViewModel>
     {
+        protected override int NoOfSteps => 32;
+
         protected override void newExercise()
         {
             CurrentSolutionStep = 0;
