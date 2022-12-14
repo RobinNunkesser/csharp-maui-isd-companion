@@ -80,6 +80,8 @@ namespace ISDCompanion
             var parameters = new RealtimeSchedulingParameters();
             var edfSolution = new EDFSolver().Solve(parameters);
             var rmsSolution = new RMSSolver().Solve(parameters);
+
+            steps = new RealtimeSchedulingStepViewModel[32];
             for (int i = 0; i < 32; i++)
             {
                 steps[i] = new RealtimeSchedulingStepViewModel()
