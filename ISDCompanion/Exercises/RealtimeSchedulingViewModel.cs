@@ -19,8 +19,8 @@ namespace ISDCompanion
             var edfSolution = new EDFSolver().Solve(parameters);
             var rmsSolution = new RMSSolver().Solve(parameters);
 
-            var newSteps = new RealtimeSchedulingStepViewModel[32];
-            for (int i = 0; i < 32; i++)
+            var newSteps = new RealtimeSchedulingStepViewModel[NoOfSteps];
+            for (int i = 0; i < NoOfSteps; i++)
             {
                 newSteps[i] = new RealtimeSchedulingStepViewModel();
                 newSteps[i].A = (i % parameters.Requests[0].Item2 < parameters.Requests[0].Item1) ? Colors.Red : Colors.Transparent;

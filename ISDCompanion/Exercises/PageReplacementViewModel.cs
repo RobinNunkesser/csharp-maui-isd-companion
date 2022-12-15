@@ -14,27 +14,35 @@ using TableGen;
 
 namespace ISDCompanion
 {
-    public class PageReplacementViewModel : Baseclass_Table_ViewModel
+    public class PageReplacementViewModel : StepCollectionViewModel<PageReplacementStepViewModel>
     {
-        public void AfterRender()
+
+        private int selectedStrategy = 0;
+        public int SelectedStrategy
         {
-            //Add Picker control to view. This must be done here, defining it in XAML will break the ContentView template because of the height.
-            Picker picker = new Picker();
-            picker.Title = AppResources.ShowSolution;
-            picker.TitleColor = Colors.Red;
-            picker.Margin = 5;
-            picker.SetBinding(Picker.SelectedIndexProperty, new Binding("SelectedStrategy"));
+            get => selectedStrategy;
+            set
+            {
+                if (selectedStrategy != value)
+                {
+                    selectedStrategy = value;
+                    OnPropertyChanged();
+                    Steps = ComputeItems();
+                }
+            }
+        }
 
-            picker.ItemsSource = new[] {
-                "Optimal",
-                "FIFO",
-                "Least Reacently Used",
-                "Second Chance/Clock"
-            };
+        protected override int NoOfSteps => 13;
 
-            Exercise_Header = picker;
+        private List<IPageReplacementStep>? clockSolution;
+        private List<IPageReplacementStep>? optimalSolution;
+        private List<IPageReplacementStep>? lruSolution;
+        private List<IPageReplacementStep>? fifoSolution;
+        private PageReplacementParameters? parameters;
 
-            var parameters = new PageReplacementParameters()
+        protected override void newExercise()
+        {
+            parameters = new PageReplacementParameters()
             {
                 MemorySize = 4
             };
@@ -51,47 +59,14 @@ namespace ISDCompanion
             clockSolution = new ClockSolver().Solve(parameters).Steps;
             clockSolution.RemoveAt(0);
 
-            //loading animation
-            //gets automaticly removed when contend finished loading
-            Exercise_Content_Header = new ActivityIndicator { IsRunning = true };
-            Exercise_Content = new ActivityIndicator { IsRunning = true };
-
-            ComputeItems();
-
-            base.scroll();
+            Steps = ComputeItems();
         }
 
-
-        private int selectedStrategy = 0;
-        public int SelectedStrategy
+        private PageReplacementStepViewModel[] ComputeItems()
         {
-            get => selectedStrategy;
-            set
-            {
-                if (selectedStrategy != value)
-                {
-                    selectedStrategy = value;
-                    OnPropertyChanged();
-                    ComputeItems();
-                }
-            }
-        }
+            CurrentSolutionStep = 0;
 
-        private List<IPageReplacementStep> clockSolution;
-        private List<IPageReplacementStep> optimalSolution;
-        private List<IPageReplacementStep> lruSolution;
-        private List<IPageReplacementStep> fifoSolution;
-
-        protected override void newExercise()
-        {
-            AfterRender();
-
-            Info_Button_Clickable = _TableGenService.InfoAvailable();
-        }
-
-        private void ComputeItems()
-        {
-            List<IPageReplacementStep> solution = null;
+            List<IPageReplacementStep>? solution = null;
 
             if (selectedStrategy == -1)
             {
@@ -102,42 +77,41 @@ namespace ISDCompanion
             {
                 case 0:
                     solution = optimalSolution;
-                    if (solution != null)
-                    {
-                        _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.Optimal);
-                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
-                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
-                    }
                     break;
                 case 1:
                     solution = fifoSolution;
-                    if (solution != null)
-                    {
-                        _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.FIFO);
-                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
-                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
-                    }
                     break;
                 case 2:
                     solution = lruSolution;
-                    if (solution != null)
-                    {
-                        _TableGenService = new PageReplacement_TableGenService(solution, PageReplacement_TableGenService.Algorithm.LRU);
-                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
-                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
-                    }
                     break;
                 case 3:
                     solution = clockSolution;
-                    if (solution != null)
-                    {
-                        _TableGenService = new PageReplacement_SecondChanceClock_TableGenService(solution);
-                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
-                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
-                    }
                     break;
             }
-            Info_Button_Clickable = _TableGenService.InfoAvailable();
+
+            var newSteps = solution.Select((item) =>
+            {
+                return new PageReplacementStepViewModel()
+                {
+                    Element = $"{item.Element}",
+                    Frames = item.Frames.Select((x) => PageReplacementViewModel.entryToString(x)).ToArray(),
+                    FrameInformation = item.FrameInformation.Select((x) => PageReplacementViewModel.entryToString(x)).ToArray(),
+                    AdditionalInfo = item.AdditionalInfo
+                };
+            }).ToArray();
+
+            return newSteps;
+        }
+
+        private static String entryToString(int value)
+        {
+            if (value == int.MaxValue) return "∞";
+            return $"{value}";
+        }
+
+        protected override void showInfo()
+        {
+            throw new NotImplementedException();
         }
     }
 }

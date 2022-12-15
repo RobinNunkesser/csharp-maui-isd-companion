@@ -7,88 +7,88 @@
 
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
 
-<ContentPage.Content>
-    <Grid>
+    <ContentPage.Content>
+        <Grid>
             <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-         </Grid.ColumnDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0" Padding="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Label Grid.Row="0" 
+            <Grid Grid.Row="0" Grid.Column="0" Padding="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" 
                                Text="A" 
                                FontAttributes="Bold"
                                TextColor="Blue"
                                />
-                        <Label Grid.Row="1" 
+                <Label Grid.Row="1" 
                                Text="B" 
                                FontAttributes="Bold"
                                TextColor="Blue"
                                />
-                        <Label Grid.Row="2" 
+                <Label Grid.Row="2" 
                                Text="C" 
                                FontAttributes="Bold"
                                TextColor="Blue"
                                />
-                        <Label Grid.Row="3" 
+                <Label Grid.Row="3" 
                                Text="RMS" 
                                FontAttributes="Bold"
                                TextColor="Blue"
                                />
-                        <Label Grid.Row="4" 
+                <Label Grid.Row="4" 
                                Text="EDF" 
                                FontAttributes="Bold"
                                TextColor="Blue"
                                />
-                        </Grid>
+            </Grid>
 
 
-        <CollectionView Grid.Row="0" Grid.Column="1"
+            <CollectionView Grid.Row="0" Grid.Column="1"
                         ItemsSource="{Binding Steps}"
                         ItemsLayout="HorizontalList">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Label Grid.Row="0" 
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" 
                                Text="   " 
                                BackgroundColor="{Binding A}"
                                 />
-                        <Label Grid.Row="1" 
+                            <Label Grid.Row="1" 
                                Text="   " 
                                BackgroundColor="{Binding B}"
                                 />
-                        <Label Grid.Row="2" 
+                            <Label Grid.Row="2" 
                                Text="   " 
                                BackgroundColor="{Binding C}"
                                 />
-                        <Label Grid.Row="3" 
+                            <Label Grid.Row="3" 
                                Text="   "
                                IsVisible="{Binding Visible}"
                                BackgroundColor="{Binding RMS}"
                                 />
-                        <Label Grid.Row="4" 
+                            <Label Grid.Row="4" 
                                Text="   "
                                IsVisible="{Binding Visible}"
                                BackgroundColor="{Binding EDF}"
@@ -96,15 +96,15 @@
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-        </CollectionView>
-        <ContentView Grid.Row="1" Grid.ColumnSpan="2">
-            <local:ExerciseControlsView
+            </CollectionView>
+            <ContentView Grid.Row="1" Grid.ColumnSpan="2">
+                <local:ExerciseControlsView
                 NewExerciseCommand="{Binding ButtonNewExercise}"
                 PreviousStepCommand="{Binding ButtonPreviousStep}"
                 NextStepCommand="{Binding ButtonNextStep}"
                 ShowSolutionCommand="{Binding ButtonCompleteSolution}"
                 />
-        </ContentView>
-            </Grid>
-    </ContentPage.Content>    
+            </ContentView>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>

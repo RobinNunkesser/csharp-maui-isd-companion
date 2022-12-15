@@ -3,15 +3,174 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ISDCompanion" 
     x:Class="ISDCompanion.PageReplacementPage"
-    x:DataType="local:PageReplacementViewModel"
     Title="{local:Localize PageReplacement}">
 
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
 
 
     <ContentPage.Content>
-        <local:ExerciseContentView x:Name="Content"></local:ExerciseContentView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
 
+            <Picker Grid.Row="0" Grid.ColumnSpan="2" x:Name="StrategyPicker" Title="{local:Localize ShowSolution}" TitleColor="Red"
+                    SelectedIndex="{Binding SelectedStrategy}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Optimal</x:String>
+                        <x:String>FIFO</x:String>
+                        <x:String>Least Recently Used</x:String>
+                        <x:String>Second Chance / Clock</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Grid Grid.Row="1" Grid.Column="0" Padding="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" 
+                               Text="Reference" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                <Label Grid.Row="1" 
+                               Text="Slot 1" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                <Label Grid.Row="2" 
+                               Text="Slot 2" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                <Label Grid.Row="3" 
+                               Text="Slot 3" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                <Label Grid.Row="4" 
+                               Text="Slot 4" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                <Label Grid.Row="5" 
+                               Text="Slot 4" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                <Label Grid.Row="6" 
+                               Text="Slot 4" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                <Label Grid.Row="7" 
+                               Text="Slot 4" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                <Label Grid.Row="8" 
+                               Text="Slot 4" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+                <Label Grid.Row="9" 
+                               Text="Slot 4" 
+                               FontAttributes="Bold"
+                               TextColor="Blue"
+                               />
+
+            </Grid>
+
+
+            <CollectionView Grid.Row="1" Grid.Column="1"
+                        ItemsSource="{Binding Steps}"
+                        ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" 
+                               Text="{Binding Element}" 
+                                />
+                            <Label Grid.Row="1" 
+                               Text="{Binding Frames[0]}"
+                                   IsVisible="{Binding Visible}"
+                                />
+                            <Label Grid.Row="2" 
+                               Text="{Binding Frames[1]}"
+                                   IsVisible="{Binding Visible}"
+                                />
+                            <Label Grid.Row="3" 
+                               Text="{Binding Frames[2]}"
+                                   IsVisible="{Binding Visible}"
+                                />
+                            <Label Grid.Row="4" 
+                               Text="{Binding Frames[3]}"
+                                   IsVisible="{Binding Visible}"
+                                />
+                            <Label Grid.Row="5" 
+                               Text="{Binding FrameInformation[0]}"
+                                   IsVisible="{Binding Visible}"
+                                />
+                            <Label Grid.Row="6" 
+                               Text="{Binding FrameInformation[1]}"
+                                   IsVisible="{Binding Visible}"
+                                />
+                            <Label Grid.Row="7" 
+                               Text="{Binding FrameInformation[2]}"
+                                   IsVisible="{Binding Visible}"
+                                />
+                            <Label Grid.Row="8" 
+                               Text="{Binding FrameInformation[3]}"
+                                   IsVisible="{Binding Visible}"
+                                />
+                            <Label Grid.Row="9" 
+                               Text="{Binding AdditionalInfo}"
+                                   IsVisible="{Binding Visible}"
+                                />
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <ContentView Grid.Row="2" Grid.ColumnSpan="2">
+                <local:ExerciseControlsView
+                NewExerciseCommand="{Binding ButtonNewExercise}"
+                PreviousStepCommand="{Binding ButtonPreviousStep}"
+                NextStepCommand="{Binding ButtonNextStep}"
+                ShowSolutionCommand="{Binding ButtonCompleteSolution}"
+                />
+            </ContentView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
