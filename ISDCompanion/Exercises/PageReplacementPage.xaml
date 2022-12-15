@@ -72,27 +72,27 @@
                                TextColor="Blue"
                                />
                 <Label Grid.Row="5" 
-                               Text="Slot 4" 
+                               Text="{Binding InfoLabel1}" 
                                FontAttributes="Bold"
                                TextColor="Blue"
                                />
                 <Label Grid.Row="6" 
-                               Text="Slot 4" 
+                               Text="{Binding InfoLabel2}" 
                                FontAttributes="Bold"
                                TextColor="Blue"
                                />
                 <Label Grid.Row="7" 
-                               Text="Slot 4" 
+                               Text="{Binding InfoLabel3}" 
                                FontAttributes="Bold"
                                TextColor="Blue"
                                />
                 <Label Grid.Row="8" 
-                               Text="Slot 4" 
+                               Text="{Binding InfoLabel4}" 
                                FontAttributes="Bold"
                                TextColor="Blue"
                                />
                 <Label Grid.Row="9" 
-                               Text="Slot 4" 
+                               Text="{Binding InfoLabel5}" 
                                FontAttributes="Bold"
                                TextColor="Blue"
                                />

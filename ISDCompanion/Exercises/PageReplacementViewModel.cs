@@ -32,6 +32,62 @@ namespace ISDCompanion
             }
         }
 
+        private String infoLabel1 { get; set; } = String.Empty;
+        public String InfoLabel1
+        {
+            get => infoLabel1;
+            set
+            {
+                infoLabel1 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private String infoLabel2 { get; set; } = String.Empty;
+        public String InfoLabel2
+        {
+            get => infoLabel2;
+            set
+            {
+                infoLabel2 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private String infoLabel3 { get; set; } = String.Empty;
+        public String InfoLabel3
+        {
+            get => infoLabel3;
+            set
+            {
+                infoLabel3 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private String infoLabel4 { get; set; } = String.Empty;
+        public String InfoLabel4
+        {
+            get => infoLabel4;
+            set
+            {
+                infoLabel4 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private String infoLabel5 { get; set; } = String.Empty;
+        public String InfoLabel5
+        {
+            get => infoLabel5;
+            set
+            {
+                infoLabel5 = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         protected override int NoOfSteps => 13;
 
         private List<IPageReplacementStep>? clockSolution;
@@ -73,6 +129,12 @@ namespace ISDCompanion
                 selectedStrategy = 0;
             }
 
+            InfoLabel1 = "Distance 1";
+            InfoLabel2 = "Distance 2";
+            InfoLabel3 = "Distance 3";
+            InfoLabel4 = "Distance 4";
+            InfoLabel5 = "";
+
             switch (selectedStrategy)
             {
                 case 0:
@@ -86,6 +148,11 @@ namespace ISDCompanion
                     break;
                 case 3:
                     solution = clockSolution;
+                    InfoLabel1 = "Reference 1";
+                    InfoLabel2 = "Reference 2";
+                    InfoLabel3 = "Reference 3";
+                    InfoLabel4 = "Reference 4";
+                    InfoLabel5 = "Pointer";
                     break;
             }
 
