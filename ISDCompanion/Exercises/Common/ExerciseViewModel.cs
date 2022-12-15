@@ -10,10 +10,10 @@ namespace ISDCompanion
 
         public ExerciseViewModel()
         {
-            Initialize();
+            //Initialize();
             NewParams = new Command(Initialize);
         }
 
-        protected void Initialize() => newExercise();
+        public void Initialize() => newExercise();
     }
 }

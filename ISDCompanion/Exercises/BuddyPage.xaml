@@ -18,65 +18,64 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <ScrollView Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-                <CollectionView 
+            <CollectionView Grid.Row="0" Grid.Column="0"
                             ItemsSource="{Binding Steps}"
-                            ItemsLayout="VerticalList">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Padding="2">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="60" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0"
+                            ItemsLayout="VerticalList"
+                            EmptyView="No items">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
                                    TextColor="Blue"
                                    FontAttributes="Bold"
                                    Text="{Binding Label}" 
                                     />
-                                <Label Grid.Column="1" IsVisible="{Binding Visible}">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="{Binding Occupation[0]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[1]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[2]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[3]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[4]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[5]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[6]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[7]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[8]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[9]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[10]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[11]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[12]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[13]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[14]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[15]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[16]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[17]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[18]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[19]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[20]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[21]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[22]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[23]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[24]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[25]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[26]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[27]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[28]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[29]}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[30]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
-                                            <Span Text="{Binding Occupation[31]}" FontFamily="SourceCodePro-Regular"/>
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </ScrollView>
+                            <Label Grid.Column="1" IsVisible="{Binding Visible}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Occupation[0]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[1]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[2]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[3]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[4]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[5]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[6]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[7]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[8]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[9]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[10]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[11]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[12]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[13]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[14]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[15]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[16]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[17]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[18]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[19]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[20]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[21]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[22]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[23]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[24]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[25]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[26]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[27]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[28]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[29]}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[30]}" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" FontFamily="SourceCodePro-Regular"/>
+                                        <Span Text="{Binding Occupation[31]}" FontFamily="SourceCodePro-Regular"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
             <ContentView Grid.Row="1" Grid.ColumnSpan="2">
                 <local:ExerciseControlsView
                     NewExerciseCommand="{Binding ButtonNewExercise}"
