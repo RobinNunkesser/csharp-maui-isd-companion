@@ -14,6 +14,6 @@ public partial class BitencodingsPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        viewModel.AfterRender();
+        viewModel.Initialize();
     }
 }

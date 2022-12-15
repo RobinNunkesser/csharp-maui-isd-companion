@@ -7,8 +7,8 @@ namespace ISDCompanion
     {
         protected abstract int NoOfSteps { get; }
 
-        private StepType[] steps;
-        public StepType[] Steps
+        private StepType[]? steps;
+        public StepType[]? Steps
         {
             get
             {

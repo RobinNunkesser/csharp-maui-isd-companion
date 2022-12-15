@@ -21,7 +21,10 @@
             <CollectionView Grid.Row="0" Grid.Column="0"
                             ItemsSource="{Binding Steps}"
                             ItemsLayout="VerticalList"
-                            EmptyView="No items">
+                            >
+                <CollectionView.EmptyView>
+                    <ActivityIndicator IsRunning="True"/>
+                </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="2">

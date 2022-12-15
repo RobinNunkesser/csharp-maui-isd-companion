@@ -10,10 +10,9 @@ namespace ISDCompanion
 
         public ExerciseViewModel()
         {
-            //Initialize();
             NewParams = new Command(Initialize);
         }
 
-        public void Initialize() => newExercise();
+        public virtual void Initialize() => Task.Run(newExercise);
     }
 }

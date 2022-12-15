@@ -13,7 +13,7 @@
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Task.Run(viewModel.Initialize);
+            viewModel.Initialize();
         }
 
     }

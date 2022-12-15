@@ -103,6 +103,9 @@
             <CollectionView Grid.Row="1" Grid.Column="1"
                         ItemsSource="{Binding Steps}"
                         ItemsLayout="HorizontalList">
+                <CollectionView.EmptyView>
+                    <ActivityIndicator IsRunning="True"/>
+                </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="2">

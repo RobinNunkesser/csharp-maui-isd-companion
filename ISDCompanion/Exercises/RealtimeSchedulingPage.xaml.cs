@@ -10,5 +10,10 @@
             BindingContext = viewModel;
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.Initialize();
+        }
     }
 }
