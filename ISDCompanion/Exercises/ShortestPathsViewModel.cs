@@ -4,27 +4,28 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Italbytz.Adapters.Exam.Networks;
+using Italbytz.Maui.Graphics;
 
 namespace ISDCompanion
 {
     public class ShortestPathsViewModel : ExerciseViewModel
     {
-        private string graph = "";
-        public string Graph
+        private GraphicsView? _GraphContent = null;
+        public View? Exercise_Content
         {
-            get => graph;
+            get
+            {
+                return _GraphContent;
+            }
             set
             {
-                if (value != graph)
-                {
-                    graph = value;
-                    OnPropertyChanged();
-                }
+                _GraphContent = (GraphicsView?)value;
+                OnPropertyChanged();
             }
         }
 
-        private string solution = "";
-        public string Solution
+        private string[] solution = new string[7];
+        public string[] Solution
         {
             get => solution;
             set
@@ -43,23 +44,12 @@ namespace ISDCompanion
             var solver = new ShortestPathsSolver();
             var solution = solver.Solve(parameters);
 
-            var graphString = "";
-
-            foreach (var edge in parameters.Graph.Edges)
+            Exercise_Content = new GraphicsView()
             {
-                graphString += edge.ToString();
-            }
+                Drawable = new GraphDrawable(parameters.Graph, (edge) => false)
+            };
 
-            Graph = graphString;
-
-            var solutionString = "";
-
-            foreach (var path in solution.Paths)
-            {
-                solutionString += path + "\n";
-            }
-
-            Solution = solutionString;
+            Solution = solution.Paths.ToArray();
         }
     }
 
