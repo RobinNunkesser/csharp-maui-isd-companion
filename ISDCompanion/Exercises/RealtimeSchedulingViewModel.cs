@@ -2,10 +2,10 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using ISDCompanion.Services;
+using StudyCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class RealtimeSchedulingViewModel : StepCollectionViewModel<RealtimeSchedulingStepViewModel>
     {

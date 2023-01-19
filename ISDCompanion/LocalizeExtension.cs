@@ -1,8 +1,8 @@
 ﻿using System;
-using ISDCompanion.Resources.Strings;
+using StudyCompanion.Resources.Strings;
 using Microsoft.Extensions.Localization;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     [ContentProperty(nameof(Key))]
     public class LocalizeExtension : IMarkupExtension

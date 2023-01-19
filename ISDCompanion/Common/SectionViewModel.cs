@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     /// <summary>
     ///     Convenience `ViewModel` for Group bindings in ListViews.

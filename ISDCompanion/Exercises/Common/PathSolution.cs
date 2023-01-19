@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-namespace ISDCompanion.Exercises.Baseclasses
+namespace StudyCompanion.Exercises.Baseclasses
 {
     internal class PathSolution
     {

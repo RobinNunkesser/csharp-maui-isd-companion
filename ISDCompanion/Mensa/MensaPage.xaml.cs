@@ -1,11 +1,11 @@
-﻿using ISDCompanion.Resources.Strings;
+﻿using StudyCompanion.Resources.Strings;
 using Mensa.Core;
 using Mensa.Core.Ports;
 using Italbytz.Adapters.Meal.STWPB;
 using Italbytz.Ports.Meal;
 using System.Globalization;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public partial class MensaPage : ContentPage
     {

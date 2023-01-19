@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace ISDCompanion;
+namespace StudyCompanion;
 
 public partial class ExerciseControlsView : ContentView
 {

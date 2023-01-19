@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public abstract class ViewModel : INotifyPropertyChanged
     {

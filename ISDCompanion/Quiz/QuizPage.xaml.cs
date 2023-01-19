@@ -1,6 +1,6 @@
 ﻿using Italbytz.Ports.Trivia;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public partial class QuizPage : ContentPage
     {

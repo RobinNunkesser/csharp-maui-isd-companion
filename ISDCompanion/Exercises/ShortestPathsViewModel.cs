@@ -6,7 +6,7 @@ using System.Windows.Input;
 using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Maui.Graphics;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class ShortestPathsViewModel : ExerciseViewModel
     {

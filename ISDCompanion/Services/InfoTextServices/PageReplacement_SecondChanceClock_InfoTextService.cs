@@ -1,11 +1,11 @@
-﻿using ISDCompanion.Resources.Strings;
-using ISDCompanion.Services.Interfaces;
+﻿using StudyCompanion.Resources.Strings;
+using StudyCompanion.Services.Interfaces;
 using Italbytz.Ports.Exam.OperatingSystems;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ISDCompanion.Services.InfoTextServices
+namespace StudyCompanion.Services.InfoTextServices
 {
     internal class PageReplacement_SecondChanceClock_InfoTextService : IInfoTextService
     {

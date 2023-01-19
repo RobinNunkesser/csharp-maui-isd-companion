@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class ExerciseStepViewModel : ViewModel
     {

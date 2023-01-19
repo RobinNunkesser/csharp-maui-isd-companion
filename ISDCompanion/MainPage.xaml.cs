@@ -1,4 +1,4 @@
-﻿namespace ISDCompanion;
+﻿namespace StudyCompanion;
 
 public partial class MainPage : ContentPage
 {

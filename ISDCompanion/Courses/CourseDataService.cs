@@ -6,7 +6,7 @@ using Plugin.Calendars;
 using Plugin.Calendars.Abstractions;
 using Calendar = Plugin.Calendars.Abstractions.Calendar;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public static class CourseDataService
     {

@@ -1,8 +1,8 @@
-﻿using ISDCompanion.Resources.Strings;
+﻿using StudyCompanion.Resources.Strings;
 using Italbytz.Ports.Exam.Networks;
 using Italbytz.Ports.Graph;
 
-namespace ISDCompanion.Services.InfoTextServices
+namespace StudyCompanion.Services.InfoTextServices
 {
     internal static class MSTV_InfoTextService
     {

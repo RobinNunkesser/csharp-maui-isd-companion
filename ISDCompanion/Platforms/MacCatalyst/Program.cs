@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace ISDCompanion;
+namespace StudyCompanion;
 
 public class Program
 {

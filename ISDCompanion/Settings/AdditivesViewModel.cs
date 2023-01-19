@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class AdditivesViewModel : INotifyPropertyChanged
     {

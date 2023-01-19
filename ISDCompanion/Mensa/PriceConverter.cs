@@ -2,7 +2,7 @@
 using System.Globalization;
 using Italbytz.Ports.Meal;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class PriceConverter : IValueConverter
     {

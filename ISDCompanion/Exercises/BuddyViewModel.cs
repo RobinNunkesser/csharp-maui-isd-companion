@@ -1,7 +1,7 @@
-﻿using ISDCompanion.Services;
+﻿using StudyCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class BuddyViewModel : StepCollectionViewModel<BuddyStepViewModel>
     {

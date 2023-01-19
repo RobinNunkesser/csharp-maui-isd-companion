@@ -1,6 +1,6 @@
 ﻿using Italbytz.Adapters.Exam.Networks;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class BitencodingsViewModel : Baseclass_Table_ViewModel
     {

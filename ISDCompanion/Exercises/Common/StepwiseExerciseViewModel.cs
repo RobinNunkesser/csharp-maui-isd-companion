@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public abstract class StepwiseExerciseViewModel : ExerciseViewModel
     {

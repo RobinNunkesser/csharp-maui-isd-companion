@@ -1,7 +1,7 @@
-﻿using ISDCompanion.Resources.Strings;
+﻿using StudyCompanion.Resources.Strings;
 using Plugin.Calendars;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public partial class CoursesPage : ContentPage
     {

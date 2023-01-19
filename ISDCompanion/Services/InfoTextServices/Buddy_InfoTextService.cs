@@ -1,9 +1,9 @@
-﻿using ISDCompanion.Resources.Strings;
-using ISDCompanion.Services.Interfaces;
+﻿using StudyCompanion.Resources.Strings;
+using StudyCompanion.Services.Interfaces;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Ports.Exam.OperatingSystems;
 
-namespace ISDCompanion.Services.InfoTextServices
+namespace StudyCompanion.Services.InfoTextServices
 {
     internal class Buddy_InfoTextService : IInfoTextService
     {

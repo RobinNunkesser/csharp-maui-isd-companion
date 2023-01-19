@@ -1,11 +1,11 @@
-﻿using ISDCompanion.Resources.Strings;
+﻿using StudyCompanion.Resources.Strings;
 using Italbytz.Extensions;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Italbytz.Ports.Trivia;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class QuizViewModel : INotifyPropertyChanged
     {

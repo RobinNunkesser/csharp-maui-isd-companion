@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public partial class LicensesPage : ContentPage
     {

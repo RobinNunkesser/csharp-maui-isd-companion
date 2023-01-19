@@ -1,5 +1,5 @@
-﻿using ISDCompanion.Resources.Strings;
-using ISDCompanion.Services.Interfaces;
+﻿using StudyCompanion.Resources.Strings;
+using StudyCompanion.Services.Interfaces;
 using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Ports.Exam.Networks;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ISDCompanion.Services.InfoTextServices
+namespace StudyCompanion.Services.InfoTextServices
 {
     internal class CRC_InfoTextService : IInfoTextService
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using ISDCompanion.Resources.Strings;
+using StudyCompanion.Resources.Strings;
 using Italbytz.Ports.Meal;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class MensaViewModel
     {

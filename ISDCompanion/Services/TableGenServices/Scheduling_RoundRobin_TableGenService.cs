@@ -1,6 +1,6 @@
-﻿using ISDCompanion.Resources.Strings;
-using ISDCompanion.Services.InfoTextServices;
-using ISDCompanion.Services.Interfaces;
+﻿using StudyCompanion.Resources.Strings;
+using StudyCompanion.Services.InfoTextServices;
+using StudyCompanion.Services.Interfaces;
 using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Ports.Exam.Networks;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ISDCompanion.Services
+namespace StudyCompanion.Services
 {
     internal class Scheduling_RoundRobin_TableGenService : ITableGenService
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Italbytz.Ports.Meal;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public enum WelcomeStatusType
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using ISDCompanion.Services;
+using StudyCompanion.Services;
 using Italbytz.Adapters.Exam.Networks;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class CRCViewModel : Baseclass_Table_ViewModel
     {

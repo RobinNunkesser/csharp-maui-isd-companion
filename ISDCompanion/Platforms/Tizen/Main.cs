@@ -2,7 +2,7 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace ISDCompanion;
+namespace StudyCompanion;
 
 class Program : MauiApplication
 {

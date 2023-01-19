@@ -1,12 +1,12 @@
 ﻿using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Ports.Graph;
-using ISDCompanion.Exercises.Extensions;
-using ISDCompanion.Services.InfoTextServices;
+using StudyCompanion.Exercises.Extensions;
+using StudyCompanion.Services.InfoTextServices;
 using Italbytz.Maui.Graphics;
 using Italbytz.Adapters.Exam.Networks.Graph;
 using Italbytz.Ports.Exam.Networks;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class MSTViewModel : StepwiseExerciseViewModel
     {

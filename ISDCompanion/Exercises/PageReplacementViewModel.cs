@@ -5,14 +5,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using ISDCompanion.Resources.Strings;
-using ISDCompanion.Services;
+using StudyCompanion.Resources.Strings;
+using StudyCompanion.Services;
 using Italbytz.Adapters.Exam.OperatingSystems;
 using Italbytz.Infrastructure.Exam.OperatingSystems.PageReplacement;
 using Italbytz.Ports.Exam.OperatingSystems;
 using TableGen;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class PageReplacementViewModel : StepCollectionViewModel<PageReplacementStepViewModel>
     {

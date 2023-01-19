@@ -1,8 +1,8 @@
-﻿using ISDCompanion.Exercises.Baseclasses;
-using ISDCompanion.Resources.Strings;
+﻿using StudyCompanion.Exercises.Baseclasses;
+using StudyCompanion.Resources.Strings;
 using System;
 
-namespace ISDCompanion.Services.InfoTextServices
+namespace StudyCompanion.Services.InfoTextServices
 {
     internal static class ShortestPath_InfoTextService
     {

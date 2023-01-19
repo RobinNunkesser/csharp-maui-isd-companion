@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ISDCompanion.Services.Interfaces
+namespace StudyCompanion.Services.Interfaces
 {
     public interface IInfoTextService
     {

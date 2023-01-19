@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using Italbytz.Ports.Trivia;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     public class ExercisesViewModel
     {

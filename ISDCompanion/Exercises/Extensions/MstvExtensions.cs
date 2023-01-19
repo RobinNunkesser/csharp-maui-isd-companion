@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ISDCompanion.Exercises.Extensions
+namespace StudyCompanion.Exercises.Extensions
 {
     public static class MstvExtensions
     {

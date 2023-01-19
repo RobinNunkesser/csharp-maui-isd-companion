@@ -1,4 +1,4 @@
-﻿namespace ISDCompanion
+﻿namespace StudyCompanion
 {
     public interface ITableGenService
     {

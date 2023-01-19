@@ -1,4 +1,4 @@
-﻿namespace ISDCompanion
+﻿namespace StudyCompanion
 {
     public abstract class Baseclass_Table_ViewModel : StepwiseExerciseViewModel
     {

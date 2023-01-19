@@ -1,8 +1,8 @@
-﻿using ISDCompanion.Resources.Strings;
+﻿using StudyCompanion.Resources.Strings;
 using Italbytz.Adapters.Exam.Networks;
 using Italbytz.Ports.Exam.Networks;
 
-namespace ISDCompanion
+namespace StudyCompanion
 {
     internal class Bitencodings_TableGenService : ITableGenService
     {

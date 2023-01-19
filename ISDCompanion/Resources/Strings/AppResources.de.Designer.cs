@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ISDCompanion.Resources.Strings {
+namespace StudyCompanion.Resources.Strings {
     using System;
     
     
