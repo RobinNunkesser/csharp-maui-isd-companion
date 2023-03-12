@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Java.Lang;
-using Java.Security;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 using Plugin.Calendars;
 using Plugin.Calendars.Abstractions;
-using static Android.Provider.Settings;
 using Calendar = Plugin.Calendars.Abstractions.Calendar;
 
 namespace StudyCompanion
@@ -589,7 +586,7 @@ namespace StudyCompanion
             },
             new CourseViewModel {
                 Semester = 4,
-                StartDate = "20.03.2023 11:00",
+                StartDate = "20.03.2023 09:00",
                 Name = "Software Design VL",
                 Lecturer = "Nunkesser",
                 Room = "Seminarraum H4.3-E00-110",
