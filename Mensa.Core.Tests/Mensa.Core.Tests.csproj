@@ -4,7 +4,7 @@
 		<TargetFrameworks>net7.0;net7.0-windows10.0.19041.0</TargetFrameworks>
 		<IsPackable>false</IsPackable>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
-		<ReleaseVersion>4.1</ReleaseVersion>
+		<ReleaseVersion>4.2</ReleaseVersion>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="NUnit" Version="3.13.3" />
