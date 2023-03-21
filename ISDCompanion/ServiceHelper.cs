@@ -3,7 +3,8 @@ namespace StudyCompanion
 {
     public static class ServiceHelper
     {
-        public static TService GetService<TService>() => Current.GetService<TService>();
+        public static TService? GetService<TService>() =>
+            Current.GetService<TService>();
 
         public static IServiceProvider Current =>
 #if WINDOWS
@@ -17,3 +18,4 @@ namespace StudyCompanion
 #endif
     }
 }
+

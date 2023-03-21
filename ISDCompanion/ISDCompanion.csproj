@@ -6,6 +6,7 @@
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<Nullable>enable</Nullable>
+		<GenerateSatelliteAssembliesForCore>true</GenerateSatelliteAssembliesForCore>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>ISDCompanion</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -28,6 +29,7 @@
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
 		<CreatePackage>false</CreatePackage>
+		<RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
 		<CreatePackage>false</CreatePackage>
@@ -45,21 +47,8 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 	<ItemGroup>
-		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Strings\AppResources.de.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-	</ItemGroup>
-	<ItemGroup>
-		<Compile Update="Resources\Strings\AppResources.Designer.cs">
+		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\Strings\AppResources.Designer.cs">
 			<DependentUpon>AppResources.resx</DependentUpon>
-		</Compile>
-		<Compile Update="Resources\Strings\AppResources.de.Designer.cs">
-			<DependentUpon>AppResources.de.resx</DependentUpon>
 		</Compile>
 	</ItemGroup>
 	<ItemGroup>
@@ -99,10 +88,6 @@
 		<None Remove="Platforms\Tizen\Plugin\" />
 		<None Remove="Platforms\Tizen\Plugin\Calendars\" />
 		<None Remove="Italbytz.Maui.Graphics" />
-		<None Remove="Resources\Raw\italbytz_ports_meal %28copy%29.html" />
-		<None Remove="Resources\Raw\italbytz_ports_graph %28copy%29.html" />
-		<None Remove="Resources\Raw\macross_json_extensions %28copy%29.html" />
-		<None Remove="Resources\Raw\microsoft_msagl %28copy%29.html" />
 		<None Remove="Exercises\Common\" />
 	</ItemGroup>
 	<ItemGroup>
@@ -137,7 +122,13 @@
 		<Folder Include="Exercises\Common\" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.9" />
+		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.4" />
 		<PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.3.0" />
 		<PackageReference Include="Italbytz.Ports.Meal" Version="0.5.0" />
 		<PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
