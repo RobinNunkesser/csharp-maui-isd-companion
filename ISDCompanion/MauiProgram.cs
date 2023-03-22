@@ -14,8 +14,6 @@ public static class MauiProgram
                 fonts.AddFont("SourceCodePro-Regular.ttf");
             });
 
-        builder.Services.AddLocalization();
-
         return builder.Build();
     }
 }
