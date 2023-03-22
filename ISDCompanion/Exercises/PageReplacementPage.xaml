@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:StudyCompanion" 
+    xmlns:local="clr-namespace:StudyCompanion"
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
     x:Class="StudyCompanion.PageReplacementPage"
-    Title="{local:Localize PageReplacement}">
+    Title="{x:Static localization:AppResources.PageReplacement}">
 
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
 
@@ -21,7 +22,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <Picker Grid.Row="0" Grid.ColumnSpan="2" x:Name="StrategyPicker" Title="{local:Localize ShowSolution}" TitleColor="Red"
+            <Picker Grid.Row="0" Grid.ColumnSpan="2" x:Name="StrategyPicker" Title="{x:Static localization:AppResources.ShowSolution}" TitleColor="Red"
                     SelectedIndex="{Binding SelectedStrategy}">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">

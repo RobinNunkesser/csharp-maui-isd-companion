@@ -1,62 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:StudyCompanion"   
+             xmlns:local="clr-namespace:StudyCompanion"
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
              x:Class="StudyCompanion.ExercisesPage"
-             Title="{local:Localize Exercises}">
+             Title="{x:Static localization:AppResources.Exercises}">
 
     <ContentPage.Content>
         <TableView Intent="Menu">
             <TableRoot>
-                <TableSection Title="{local:Localize Networks}">
-                    <TextCell Text="{local:Localize Bitencodings}"
+                <TableSection Title="{x:Static localization:AppResources.Networks}">
+                    <TextCell Text="{x:Static localization:AppResources.Bitencodings}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:BitencodingsPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
-                   <TextCell Text="{local:Localize CRC}"
+                   <TextCell Text="{x:Static localization:AppResources.CRC}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:CRCPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
-                    <TextCell Text="{local:Localize MST}"
+                    <TextCell Text="{x:Static localization:AppResources.MST}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:MSTPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
-                    <TextCell Text="{local:Localize ShortestPaths}"
+                    <TextCell Text="{x:Static localization:AppResources.ShortestPaths}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:ShortestPathsPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               /> 
-                    <TextCell Text="{local:Localize Netmasks}"
+                    <TextCell Text="{x:Static localization:AppResources.Netmasks}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:NetmaskPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
-                    <TextCell Text="{local:Localize Quiz}"
+                    <TextCell Text="{x:Static localization:AppResources.Quiz}"
                               Command="{Binding NetworksQuizCommand}"                              
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />     
                 </TableSection>
-               <TableSection Title="{local:Localize OperatingSystems}">
-                    <TextCell Text="{local:Localize PageReplacement}"
+               <TableSection Title="{x:Static localization:AppResources.OperatingSystems}">
+                    <TextCell Text="{x:Static localization:AppResources.PageReplacement}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:PageReplacementPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
-                     <TextCell Text="{local:Localize Buddy}"
+                     <TextCell Text="{x:Static localization:AppResources.Buddy}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:BuddyPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
-                     <TextCell Text="{local:Localize Scheduling}"
+                     <TextCell Text="{x:Static localization:AppResources.Scheduling}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:SchedulingPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
-                     <TextCell Text="{local:Localize RealtimeScheduling}"
+                     <TextCell Text="{x:Static localization:AppResources.RealtimeScheduling}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:RealtimeSchedulingPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                    
-                     <TextCell Text="{local:Localize Quiz}"
+                     <TextCell Text="{x:Static localization:AppResources.Quiz}"
                               Command="{Binding OpSysQuizCommand}"                              
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />  

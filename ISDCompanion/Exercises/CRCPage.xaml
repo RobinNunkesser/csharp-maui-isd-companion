@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudyCompanion.CRCPage"
-             xmlns:local="clr-namespace:StudyCompanion" 
-             Title="{local:Localize CRC}">
+             xmlns:local="clr-namespace:StudyCompanion"
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
+             Title="{x:Static localization:AppResources.CRC}">
 
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
     

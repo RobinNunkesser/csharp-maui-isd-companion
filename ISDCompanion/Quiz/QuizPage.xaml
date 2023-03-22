@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:StudyCompanion"
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
              x:Class="StudyCompanion.QuizPage"
-             Title="{local:Localize Quiz}">
+             Title="{x:Static localization:AppResources.Quiz}">
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
     <ContentPage.Content>
         <StackLayout>
@@ -12,14 +13,14 @@
             <Label x:Name="answerLabel" Text="{Binding Answer}" HorizontalOptions="Center"
              VerticalOptions="Center" Opacity="0" />
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                <Button x:Name="falseButton" Text="{local:Localize Wrong}" HorizontalOptions="CenterAndExpand" 
+                <Button x:Name="falseButton" Text="{x:Static localization:AppResources.Wrong}" HorizontalOptions="CenterAndExpand" 
                     Clicked="Answer_Clicked"
                     Command="{Binding AnswerCommand}">
                     <Button.CommandParameter>
                         <x:Boolean>False</x:Boolean>
                     </Button.CommandParameter>
                 </Button>
-                <Button x:Name="trueButton" Text="{local:Localize Right}" HorizontalOptions="CenterAndExpand" 
+                <Button x:Name="trueButton" Text="{x:Static localization:AppResources.Right}" HorizontalOptions="CenterAndExpand" 
                     Clicked="Answer_Clicked"
                     Command="{Binding AnswerCommand}">
                     <Button.CommandParameter>
@@ -27,7 +28,7 @@
                     </Button.CommandParameter>
                 </Button>
             </StackLayout>
-            <Button x:Name="skipButton" Text="{local:Localize Skip}" HorizontalOptions="Center" VerticalOptions="End" 
+            <Button x:Name="skipButton" Text="{x:Static localization:AppResources.Skip}" HorizontalOptions="Center" VerticalOptions="End" 
                 Command="{Binding SkipCommand}"/>
         </StackLayout>
     </ContentPage.Content>

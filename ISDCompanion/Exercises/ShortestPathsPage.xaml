@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:StudyCompanion" 
+             xmlns:local="clr-namespace:StudyCompanion"
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
              x:Class="StudyCompanion.ShortestPathsPage"
-             Title="{local:Localize ShortestPaths}">
+             Title="{x:Static localization:AppResources.ShortestPaths}">
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
     <ContentPage.Content>
         <Grid>
@@ -28,7 +29,7 @@
             <ContentView Grid.Row="0" Grid.ColumnSpan="2"
                          Content="{Binding Exercise_Content}" />
             <Label Grid.Row="1" Grid.Column="0"
-                       Text="{local:Localize ShowSolution}" VerticalOptions="Center"/>
+                       Text="{x:Static localization:AppResources.ShowSolution}" VerticalOptions="Center"/>
             <Switch Grid.Row="1" Grid.Column="1"
                         x:Name="Switch" IsToggled="false" HorizontalOptions="EndAndExpand"/>
             <Label Grid.Row="2" Grid.Column="0" Text="A" FontFamily="SourceCodePro-Regular"/>
@@ -48,7 +49,7 @@
             <Label Grid.Row="8" Grid.Column="1" Text="{Binding Solution[5]}" IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}" FontFamily="SourceCodePro-Regular"/>
             <Label Grid.Row="9" Grid.Column="1" Text="{Binding Solution[6]}" IsVisible="{Binding Source={x:Reference Switch}, Path=IsToggled}" FontFamily="SourceCodePro-Regular"/>
             <Button Grid.Row="10" Grid.ColumnSpan="2"
-                    Text="{local:Localize NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
+                    Text="{x:Static localization:AppResources.NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

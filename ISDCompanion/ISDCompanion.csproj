@@ -18,8 +18,8 @@
 		<ApplicationId>de.hshl.isd.companion</ApplicationId>
 		<ApplicationIdGuid>7318FC73-5BE8-4A0A-A002-F629A4200794</ApplicationIdGuid>
 		<!-- Versions -->
-		<ApplicationDisplayVersion>4.2</ApplicationDisplayVersion>
-		<ApplicationVersion>14</ApplicationVersion>
+		<ApplicationDisplayVersion>4.2.1</ApplicationDisplayVersion>
+		<ApplicationVersion>15</ApplicationVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>

@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:StudyCompanion"
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
              x:Class="StudyCompanion.NetmaskPage"
-             Title="{local:Localize Netmasks}">
+             Title="{x:Static localization:AppResources.Netmasks}">
     
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
 
@@ -20,7 +21,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Text="{local:Localize Address}" VerticalOptions="Center"/>
+                <Label Grid.Row="0" Grid.Column="0" Text="{x:Static localization:AppResources.Address}" VerticalOptions="Center"/>
                 <Label Grid.Row="1" Grid.Column="0" Text="Network" VerticalOptions="Center"/>
                 <Label Grid.Row="2" Grid.Column="0" Text="Host" VerticalOptions="Center"/>
                 <Switch Grid.Row="1" Grid.Column="1" x:Name="SwitchNetwork" IsToggled="false"/>
@@ -31,7 +32,7 @@
                 <Label Grid.Row="2" Grid.Column="2" Text="{Binding Host}" VerticalOptions="Center" FontFamily="SourceCodePro-Regular"
                        IsVisible="{Binding Source={x:Reference SwitchHost}, Path=IsToggled}"/>
             </Grid>
-            <Button Text="{local:Localize NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
+            <Button Text="{x:Static localization:AppResources.NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
         </StackLayout>        
     </ContentPage.Content>
 </ContentPage>
