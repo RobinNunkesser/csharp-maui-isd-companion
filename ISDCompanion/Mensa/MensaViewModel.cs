@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using StudyCompanion.Resources.Strings;
 using Italbytz.Ports.Meal;
+using Italbytz.Adapters.Meal.STWPB;
 
 namespace StudyCompanion
 {
-    public class MensaViewModel
+    public class MensaViewModel : ViewModel
     {
         public ObservableCollection<SectionViewModel<IMeal>> Meals { get; set; }
 
@@ -17,40 +18,33 @@ namespace StudyCompanion
 
         public MensaViewModel()
         {
+        }
+
+        internal void SetMeals(List<IMeal> meals)
+        {
             Meals = new ObservableCollection<SectionViewModel<IMeal>>();
             mainDishes = new SectionViewModel<IMeal>()
             {
-                LongName = AppResources.Maindishes
+                Header = AppResources.Maindishes
             };
             soups = new SectionViewModel<IMeal>()
             {
-                LongName = AppResources.Soups
+                Header = AppResources.Soups
             };
             sideDishes = new SectionViewModel<IMeal>()
             {
-                LongName = AppResources.Sidedishes
+                Header = AppResources.Sidedishes
             };
             desserts = new SectionViewModel<IMeal>()
             {
-                LongName = AppResources.Desserts
+                Header = AppResources.Desserts
             };
             Meals.Add(mainDishes);
             Meals.Add(soups);
             Meals.Add(sideDishes);
             Meals.Add(desserts);
-
-        }
-
-        internal void SetMeals(List<IMeal> meals)
-        {
-            mainDishes.Clear();
-            soups.Clear();
-            sideDishes.Clear();
-            desserts.Clear();
             foreach (var meal in meals)
             {
-
-
                 var excludeMeal = false;
                 foreach (Allergens flagToCheck in Enum.GetValues(typeof(Allergens)))
                 {
@@ -73,6 +67,7 @@ namespace StudyCompanion
                     }
                 }
                 if (excludeMeal) continue;
+
                 switch (meal.Category)
                 {
                     case Category.Dessert:
@@ -91,6 +86,7 @@ namespace StudyCompanion
                         break;
                 }
             }
+            OnPropertyChanged("Meals");
         }
     }
 

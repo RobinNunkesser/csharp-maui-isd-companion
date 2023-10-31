@@ -25,7 +25,8 @@ namespace StudyCompanion
             base.OnAppearing();
             try
             {
-                Success(await service.Execute());
+                //var result = await service.Execute();
+                Success(service.Execute());
             }
             catch (Exception ex)
             {
@@ -33,8 +34,9 @@ namespace StudyCompanion
             }
         }
 
-        private async void Success(List<IMeal> meals)
+        private async void Success(Task<List<IMeal>> mealsTask)
         {
+            var meals = await mealsTask;
             if (Settings.WelcomeStatus == (int)WelcomeStatusType.Unfinished)
             {
                 List<string> statusChoices = new List<string> { AppResources.Student, AppResources.Staff, AppResources.Guest };

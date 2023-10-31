@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;netstandard2.1;net7.0-ios;net7.0-maccatalyst;net7.0-windows10.0.19041.0;net7.0-android</TargetFrameworks>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
-		<ReleaseVersion>4.2</ReleaseVersion>
+		<ReleaseVersion>4.3</ReleaseVersion>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="CommonPorts" />

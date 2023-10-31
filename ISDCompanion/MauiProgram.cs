@@ -1,4 +1,6 @@
-﻿namespace StudyCompanion;
+﻿using Microsoft.Maui.Controls;
+
+namespace StudyCompanion;
 
 public static class MauiProgram
 {
