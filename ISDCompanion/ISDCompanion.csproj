@@ -49,7 +49,7 @@
 			<Link>Common\SectionViewModel.cs</Link>
 		</Compile>
 		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\PriceConverter.cs">
-			<Link>Mensa\PriceConverter.cs</Link>
+		  <Link>Tabs\Mensa\PriceConverter.cs</Link>
 		</Compile>
 	</ItemGroup>
 	<ItemGroup>
@@ -60,10 +60,6 @@
 	<ItemGroup>
 		<None Remove="Resources\Strings\" />
 		<None Remove="Microsoft.Extensions.Localization" />
-		<None Remove="Mensa\" />
-		<None Remove="Exercises\" />
-		<None Remove="Courses\" />
-		<None Remove="Profs\" />
 		<None Remove="Common\" />
 		<None Remove="Italbytz.Adapters.Meal.STWPB" />
 		<None Remove="Italbytz.Ports.Meal" />
@@ -73,9 +69,7 @@
 		<None Remove="TableGen\" />
 		<None Remove="Services\" />
 		<None Remove="Services\Interfaces\" />
-		<None Remove="Settings\" />
 		<None Remove="Services\TableGenServices\" />
-		<None Remove="Exercises\Extensions\" />
 		<None Remove="Services\InfoTextServices\" />
 		<None Remove="CClarke.Plugin.Calendars" />
 		<None Remove="Quiz\" />
@@ -94,21 +88,20 @@
 		<None Remove="Platforms\Tizen\Plugin\" />
 		<None Remove="Platforms\Tizen\Plugin\Calendars\" />
 		<None Remove="Italbytz.Maui.Graphics" />
-		<None Remove="Exercises\Common\" />
+		<None Remove="Tabs\" />
+		<None Remove="Tabs\Courses\" />
+		<None Remove="Tabs\Exercises\" />
+		<None Remove="Tabs\Profs\" />
+		<None Remove="Tabs\Mensa\" />
+		<None Remove="Tabs\Settings\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Resources\Strings\" />
-		<Folder Include="Mensa\" />
-		<Folder Include="Exercises\" />
-		<Folder Include="Courses\" />
-		<Folder Include="Profs\" />
 		<Folder Include="Common\" />
 		<Folder Include="TableGen\" />
 		<Folder Include="Services\" />
 		<Folder Include="Services\Interfaces\" />
-		<Folder Include="Settings\" />
 		<Folder Include="Services\TableGenServices\" />
-		<Folder Include="Exercises\Extensions\" />
 		<Folder Include="Services\InfoTextServices\" />
 		<Folder Include="Quiz\" />
 		<Folder Include="Licenses\" />
@@ -125,7 +118,12 @@
 		<Folder Include="Platforms\Android\Plugin\Calendars\" />
 		<Folder Include="Platforms\Tizen\Plugin\" />
 		<Folder Include="Platforms\Tizen\Plugin\Calendars\" />
-		<Folder Include="Exercises\Common\" />
+		<Folder Include="Tabs\" />
+		<Folder Include="Tabs\Courses\" />
+		<Folder Include="Tabs\Exercises\" />
+		<Folder Include="Tabs\Profs\" />
+		<Folder Include="Tabs\Mensa\" />
+		<Folder Include="Tabs\Settings\" />
 	</ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
@@ -142,67 +140,7 @@
 		<PackageReference Include="Italbytz.Maui.Graphics" Version="0.1.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<MauiXaml Update="Courses\CoursesPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Exercises\ExercisesPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Profs\ProfsPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Mensa\MensaPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Exercises\NetmaskPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Exercises\BitencodingsPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Settings\SettingsPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Exercises\MSTPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Exercises\BuddyPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Exercises\CRCPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Exercises\PageReplacementPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Exercises\RealtimeSchedulingPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Exercises\SchedulingPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Exercises\ShortestPathsPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
 		<MauiXaml Update="Quiz\QuizPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Update="Profs\ProfPage.xaml">
 			<SubType>
 			</SubType>
 		</MauiXaml>
@@ -210,25 +148,65 @@
 			<SubType>
 			</SubType>
 		</MauiXaml>
-		<MauiXaml Update="Settings\AcknowledgementsPage.xaml">
-			<SubType>
-			</SubType>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Courses\CoursesPage.xaml">
+		  <SubType></SubType>
 		</MauiXaml>
-		<MauiXaml Update="Settings\AdditivesPage.xaml">
-			<SubType>
-			</SubType>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\BitencodingsPage.xaml">
+		  <SubType></SubType>
 		</MauiXaml>
-		<MauiXaml Update="Settings\AllergensPage.xaml">
-			<SubType>
-			</SubType>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\BuddyPage.xaml">
+		  <SubType></SubType>
 		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Exercises\Common\ExerciseContentView.xaml">
-			<SubType>
-			</SubType>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\Common\ExerciseContentView.xaml">
+		  <SubType></SubType>
 		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Exercises\Common\ExerciseControlsView.xaml">
-			<SubType>
-			</SubType>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\Common\ExerciseControlsView.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\CRCPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\ExercisesPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\MSTPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\NetmaskPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\PageReplacementPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\RealtimeSchedulingPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\SchedulingPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\ShortestPathsPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Profs\ProfPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Profs\ProfsPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Mensa\MensaPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\AcknowledgementsPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\AdditivesPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\AllergensPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\SettingsPage.xaml">
+		  <SubType></SubType>
 		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
