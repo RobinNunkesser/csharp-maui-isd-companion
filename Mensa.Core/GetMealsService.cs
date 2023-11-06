@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Italbytz.Adapters.Meal;
 using Italbytz.Ports.Common;
 using Italbytz.Ports.Meal;
 using Mensa.Core.Ports;
@@ -19,7 +21,7 @@ namespace Mensa.Core
             _repository = repository;
         }
 
-        public async Task<List<IMeal>> Execute()
+        public async Task<List<IMealCollection>> Execute()
         {
             if (DateTime.Now.ToString(format) != lastSuccess)
             {
@@ -27,7 +29,21 @@ namespace Mensa.Core
                 lastSuccess = DateTime.Now.ToString(format);
                 lastMeals = meals;
             }
-            return lastMeals;
+            var collectionsList = new List<IMealCollection>();
+            var collections = lastMeals.GroupBy(meal => meal.Category);
+            foreach (var collection in collections)
+            {
+                var mealCollection = new MealCollection()
+                {
+                    Category = collection.Key
+                };
+                foreach (var meal in collection)
+                {
+                    mealCollection.Meals.Add(meal);
+                }
+                collectionsList.Add(mealCollection);
+            }
+            return collectionsList;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace StudyCompanion
             }
         }
 
-        private async void Success(Task<List<IMeal>> mealsTask)
+        private async void Success(Task<List<IMealCollection>> mealsTask)
         {
             var meals = await mealsTask;
             if (Settings.WelcomeStatus == (int)WelcomeStatusType.Unfinished)

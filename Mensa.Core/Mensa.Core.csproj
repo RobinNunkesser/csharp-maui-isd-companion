@@ -5,6 +5,12 @@
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 		<ReleaseVersion>4.3</ReleaseVersion>
 	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <LangVersion>9.0</LangVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	  <LangVersion>9.0</LangVersion>
+	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="CommonPorts" />
 		<None Remove="MealPorts" />
@@ -17,6 +23,11 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Italbytz.Ports.Meal" Version="0.5.0" />
-		<PackageReference Include="Italbytz.Ports.Common" Version="0.4.0" />
+		<PackageReference Include="Italbytz.Ports.Common" Version="0.5.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core\MealCollection.cs">
+	    <Link>MealCollection.cs</Link>
+	  </Compile>
 	</ItemGroup>
 </Project>

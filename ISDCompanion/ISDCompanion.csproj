@@ -51,6 +51,9 @@
 		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\PriceConverter.cs">
 		  <Link>Tabs\Mensa\PriceConverter.cs</Link>
 		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaViewModel.cs">
+		  <Link>Tabs\Mensa\MensaViewModel.cs</Link>
+		</Compile>
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\Strings\AppResources.Designer.cs">
