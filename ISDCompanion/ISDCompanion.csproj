@@ -150,6 +150,12 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 	<ItemGroup>
+	  <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaPage.xaml">
+	    <Link>Tabs\Mensa\MensaPage.xaml</Link>
+	    <SubType></SubType>
+	  </MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
 		<MauiXaml Update="Quiz\QuizPage.xaml">
 			<SubType>
 			</SubType>
@@ -201,9 +207,6 @@
 		  <SubType></SubType>
 		</MauiXaml>
 		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Profs\ProfsPage.xaml">
-		  <SubType></SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Mensa\MensaPage.xaml">
 		  <SubType></SubType>
 		</MauiXaml>
 		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\AcknowledgementsPage.xaml">
