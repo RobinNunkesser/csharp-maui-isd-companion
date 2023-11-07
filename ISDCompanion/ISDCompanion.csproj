@@ -69,6 +69,15 @@
 		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesViewModel.cs">
 		  <Link>Tabs\Courses\CoursesViewModel.cs</Link>
 		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Profs\ProfsPage.xaml.cs">
+		  <Link>Tabs\Profs\ProfsPage.xaml.cs</Link>
+		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Common\InternalBrowserPage.xaml.cs">
+		  <Link>Common\InternalBrowserPage.xaml.cs</Link>
+		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Profs\ProfsViewModel.cs">
+		  <Link>Tabs\Profs\ProfsViewModel.cs</Link>
+		</Compile>
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\Strings\AppResources.Designer.cs">
@@ -167,6 +176,10 @@
 	    <Link>Tabs\Courses\CoursesPage.xaml</Link>
 	    <SubType></SubType>
 	  </MauiXaml>
+	  <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Common\InternalBrowserPage.xaml">
+	    <Link>Common\InternalBrowserPage.xaml</Link>
+	    <SubType></SubType>
+	  </MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
 		<MauiXaml Update="Quiz\QuizPage.xaml">
@@ -211,9 +224,6 @@
 		  <SubType></SubType>
 		</MauiXaml>
 		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\ShortestPathsPage.xaml">
-		  <SubType></SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Profs\ProfPage.xaml">
 		  <SubType></SubType>
 		</MauiXaml>
 		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Profs\ProfsPage.xaml">
