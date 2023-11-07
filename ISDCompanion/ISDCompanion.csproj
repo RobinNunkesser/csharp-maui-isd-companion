@@ -141,6 +141,7 @@
 		<PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.11.0" />
 		<PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.6.0" />
 		<PackageReference Include="Italbytz.Maui.Graphics" Version="0.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<MauiXaml Update="Quiz\QuizPage.xaml">

@@ -10,12 +10,12 @@ namespace StudyCompanion
     public partial class MensaPage : ContentPage
     {
         private readonly Mensa.Core.Ports.IGetMealsService service;
-        private readonly MensaViewModel viewModel = new();
+        readonly MensaViewModel _viewModel;
 
-        public MensaPage()
+        public MensaPage(MensaViewModel viewModel)
         {
             InitializeComponent();
-            BindingContext = viewModel;
+            BindingContext = _viewModel = viewModel;
             var repository = new MealRepository(Secrets.id, CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
             service = new GetMealsService(repository);
         }
@@ -49,7 +49,7 @@ namespace StudyCompanion
             }
             if (meals.Count > 0)
             {
-                viewModel.SetMeals(meals);
+                _viewModel.SetMeals(meals);
             }
             else
             {
