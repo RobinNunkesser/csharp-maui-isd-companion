@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 using Italbytz.Adapters.Meal;
 using Italbytz.Ports.Common;
 using Italbytz.Ports.Meal;
-using Mensa.Core.Ports;
 
 namespace Mensa.Core
 {
-    public class GetMealsService : Ports.IGetMealsService
+    public class GetMealsService : IGetMealsService
     {
         private readonly IDataSource<int, IMeal> _repository;
         private static readonly string format = "yyyy-MM-dd";
@@ -21,7 +20,7 @@ namespace Mensa.Core
             _repository = repository;
         }
 
-        public async Task<List<IMealCollection>> Execute()
+        public async Task<List<IMealCollection>> Execute(IMealQuery inDTO)
         {
             if (DateTime.Now.ToString(format) != lastSuccess)
             {
@@ -45,5 +44,6 @@ namespace Mensa.Core
             }
             return collectionsList;
         }
+
     }
 }

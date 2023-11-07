@@ -1,6 +1,10 @@
 ﻿using Microsoft.Maui.Controls;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Italbytz.Adapters.Meal.STWPB;
+using System.Globalization;
+using Italbytz.Ports.Meal;
+using Mensa.Core;
 
 namespace StudyCompanion;
 
@@ -32,17 +36,15 @@ public static class MauiProgram
         {
             case Environment.Development:
                 builder.Logging.AddDebug();
-                /*                builder.Services.AddSingleton<IGetMealsService, MockGetMealsService>();
-                                builder.Services.AddSingleton<IGetCoursesService, MockGetCoursesService>();*/
                 break;
             case Environment.Staging:
             case Environment.Production:
-                /*builder.Services.AddSingleton<IGetMealsService>(new OpenMensaGetMealsService(new OpenMensaMealDataSource(35, DateTime.Now)));
-                builder.Services.AddSingleton<IGetCoursesService, MockGetCoursesService>();*/
-                break;
             default:
                 break;
         }
+
+        builder.Services.AddSingleton<IGetMealsService>(
+            new GetMealsService(new MealRepository(Secrets.id, CultureInfo.CurrentCulture.TwoLetterISOLanguageName)));
 
         return builder.Build();
     }

@@ -54,6 +54,12 @@
 		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaViewModel.cs">
 		  <Link>Tabs\Mensa\MensaViewModel.cs</Link>
 		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaPage.xaml.cs">
+		  <Link>Tabs\Mensa\MensaPage.xaml.cs</Link>
+		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MealQuery.cs">
+		  <Link>Tabs\Mensa\MealQuery.cs</Link>
+		</Compile>
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\Strings\AppResources.Designer.cs">
