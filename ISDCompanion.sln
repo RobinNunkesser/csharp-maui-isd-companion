@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISDCompanion", "ISDCompanion\ISDCompanion.csproj", "{BE1D14F9-037E-460D-A03B-705F5EE471AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mensa.Core", "Mensa.Core\Mensa.Core.csproj", "{7FFC9772-6C9E-41E3-ABBC-D2BFDAED84E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISDCompanion.Core", "Mensa.Core\ISDCompanion.Core.csproj", "{7FFC9772-6C9E-41E3-ABBC-D2BFDAED84E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mensa.Core.Tests", "Mensa.Core.Tests\Mensa.Core.Tests.csproj", "{8F2A9D7E-4992-456B-96A8-ED437838722C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISDCompanion.Core.Tests", "Mensa.Core.Tests\ISDCompanion.Core.Tests.csproj", "{8F2A9D7E-4992-456B-96A8-ED437838722C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

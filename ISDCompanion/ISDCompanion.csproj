@@ -223,9 +223,6 @@
 		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
-	</ItemGroup>
-	<ItemGroup>
 		<BundleResource Include="Resources\Raw\italbytz_ports_graph.html">
 			<LogicalName>italbytz_ports_meal.html</LogicalName>
 		</BundleResource>
@@ -238,5 +235,8 @@
 		<BundleResource Include="Resources\Raw\microsoft_msagl_drawing.html">
 			<LogicalName>macross_json_extensions.html</LogicalName>
 		</BundleResource>
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Mensa.Core\ISDCompanion.Core.csproj" />
 	</ItemGroup>
 </Project>
