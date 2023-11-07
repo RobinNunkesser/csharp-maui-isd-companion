@@ -26,4 +26,7 @@
 	    <Link>MealCollection.cs</Link>
 	  </Compile>
 	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\ISDCompanion.Ports\ISDCompanion.Ports.csproj" />
+	</ItemGroup>
 </Project>

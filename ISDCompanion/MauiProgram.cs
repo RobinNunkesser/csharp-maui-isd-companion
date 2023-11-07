@@ -5,6 +5,8 @@ using Italbytz.Adapters.Meal.STWPB;
 using System.Globalization;
 using Italbytz.Ports.Meal;
 using Mensa.Core;
+using StudyCompanion.Ports;
+using ISDCompanion.Core;
 
 namespace StudyCompanion;
 
@@ -45,6 +47,7 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<IGetMealsService>(
             new GetMealsService(new MealRepository(Secrets.id, CultureInfo.CurrentCulture.TwoLetterISOLanguageName)));
+        builder.Services.AddSingleton<IGetCoursesService, GetCoursesService>();
 
         return builder.Build();
     }
@@ -57,8 +60,8 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddSingleton<QuizViewModel>();*/
         mauiAppBuilder.Services.AddSingleton<MensaPage>();
         mauiAppBuilder.Services.AddSingleton<MensaViewModel>();
-        /*mauiAppBuilder.Services.AddSingleton<CoursesPage>();
-        mauiAppBuilder.Services.AddSingleton<CourseViewModel>();*/
+        mauiAppBuilder.Services.AddSingleton<CoursesPage>();
+        mauiAppBuilder.Services.AddSingleton<CoursesViewModel>();
         /*mauiAppBuilder.Services.AddSingleton<ProfsPage>();
         mauiAppBuilder.Services.AddSingleton<ProfsViewModel>();*/
         /*mauiAppBuilder.Services.AddSingleton<SettingsPage>();

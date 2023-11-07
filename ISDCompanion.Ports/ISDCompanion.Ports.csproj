@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<LangVersion>9.0</LangVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<LangVersion>9.0</LangVersion>
+	</PropertyGroup>
+	<ItemGroup>
+	  <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Ports\IGetCoursesService.cs">
+	    <Link>IGetCoursesService.cs</Link>
+	  </Compile>
+	  <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Ports\ICourse.cs">
+	    <Link>ICourse.cs</Link>
+	  </Compile>
+	  <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Ports\IService.cs">
+	    <Link>IService.cs</Link>
+	  </Compile>
+	</ItemGroup>
+</Project>

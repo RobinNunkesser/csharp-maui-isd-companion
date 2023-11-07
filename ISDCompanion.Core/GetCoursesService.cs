@@ -1,50 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using Microsoft.Maui.Controls.PlatformConfiguration;
-using Plugin.Calendars;
-using Plugin.Calendars.Abstractions;
-using Calendar = Plugin.Calendars.Abstractions.Calendar;
+using System.Threading.Tasks;
+using Italbytz.Ports.Common;
+using StudyCompanion.Ports;
 
-namespace StudyCompanion
+namespace ISDCompanion.Core
 {
-    public static class CourseDataService
+    public class GetCoursesService : IGetCoursesService
     {
-        private static readonly string shortFormat = "dd.MM.yyyy";
-        public static readonly string longFormat = "dd.MM.yyyy HH:mm";
-
-        public static DateTime SemesterEnd { get; } = DateTime.ParseExact("21.01.2024", shortFormat, CultureInfo.InvariantCulture);
-
-        public static List<DateTime> Holidays { get; } = new List<DateTime>
-        {
-            DateTime.ParseExact("03.10.2023",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("01.11.2023",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("24.12.2023",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("25.12.2023",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("26.12.2023",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("27.12.2023",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("28.12.2023",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("29.12.2023",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("30.12.2023",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("31.12.2023",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("01.01.2024",shortFormat, CultureInfo.InvariantCulture),
-            /*DateTime.ParseExact("07.04.2024",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("10.04.2024",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("11.04.2024",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("12.04.2024",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("13.04.2024",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("14.04.2024",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("01.05.2024",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("18.05.2024",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("29.05.2024",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("30.05.2024",shortFormat, CultureInfo.InvariantCulture),
-            DateTime.ParseExact("08.06.2024",shortFormat, CultureInfo.InvariantCulture)*/
-        };
-
-        public static List<CourseViewModel> Courses { get; } = new List<CourseViewModel>
+        private readonly List<ICourse> Courses = new List<ICourse>
             {
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "25.09.2023 09:00",
                 Name = "Personal Skills I VL/ÜB",
@@ -53,7 +20,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "25.09.2023 11:00",
                 Name = "Mathematik I VL",
@@ -62,7 +29,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "26.09.2023 09:00",
                 Name = "Mathematik I VL",
@@ -71,7 +38,7 @@ namespace StudyCompanion
                 Length = 60,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "26.09.2023 10:00",
                 Name = "Mathematik I ÜB",
@@ -80,7 +47,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "26.09.2023 13:30",
                 Name = "Technische Informatik I VL",
@@ -89,7 +56,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "27.09.2023 08:00",
                 Name = "Physik VL",
@@ -98,7 +65,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "27.09.2023 14:00",
                 Name = "Technische Informatik I ÜB",
@@ -107,7 +74,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "27.09.2023 12:00",
                 Name = "Physik ÜB",
@@ -116,7 +83,7 @@ namespace StudyCompanion
                 Length = 60,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "27.09.2023 14:00",
                 Name = "Biologie VL",
@@ -125,7 +92,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "28.09.2023 10:00",
                 Name = "Technisches Englisch I VL",
@@ -134,7 +101,7 @@ namespace StudyCompanion
                 Length = 60,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "28.09.2023 11:00",
                 Name = "Technisches Englisch I ÜB",
@@ -143,7 +110,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "28.09.2023 14:00",
                 Name = "Chemie VL",
@@ -152,7 +119,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "29.09.2023 09:00",
                 Name = "Grundlagen der Programmierung VL",
@@ -161,7 +128,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 1,
                 StartDate = "29.09.2023 11:00",
                 Name = "Grundlagen der Programmierung ÜB",
@@ -170,7 +137,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "25.09.2023 08:00",
                 Name = "Embedded Systems I VL",
@@ -179,7 +146,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "25.09.2023 10:00",
                 Name = "Mathematik III ÜB",
@@ -188,7 +155,7 @@ namespace StudyCompanion
                 Length = 60,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "25.09.2023 11:00",
                 Name = "Digitaltechnik I VL",
@@ -197,7 +164,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "25.09.2023 15:00",
                 Name = "Digitaltechnik I ÜB",
@@ -206,7 +173,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "26.09.2023 08:00",
                 Name = "System Modellierung II VL",
@@ -215,7 +182,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "26.09.2023 12:00",
                 Name = "Technisches Englisch III VL+ÜB",
@@ -224,7 +191,7 @@ namespace StudyCompanion
                 Length = 180,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "26.09.2023 14:00",
                 Name = "Personal Skills III VL",
@@ -233,7 +200,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "26.09.2023 16:00",
                 Name = "Personal Skills III ÜB",
@@ -242,7 +209,7 @@ namespace StudyCompanion
                 Length = 60,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "27.09.2023 10:00",
                 Name = "Embedded Systems I ÜB",
@@ -251,7 +218,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "28.09.2023 09:30",
                 Name = "Betriebssysteme VL",
@@ -260,7 +227,7 @@ namespace StudyCompanion
                 Length = 90,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "28.09.2023 11:15",
                 Name = "Netzwerke VL",
@@ -269,7 +236,7 @@ namespace StudyCompanion
                 Length = 90,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "29.09.2023 11:00",
                 Name = "Mathematik III VL",
@@ -278,7 +245,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "29.09.2023 14:00",
                 Name = "Praktische Informatik VL",
@@ -287,7 +254,7 @@ namespace StudyCompanion
                 Length = 90,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 3,
                 StartDate = "29.09.2023 15:30",
                 Name = "Praktische Informatik ÜB",
@@ -296,7 +263,7 @@ namespace StudyCompanion
                 Length = 90,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "25.09.2023 08:00",
                 Name = "Embedded Programming VL",
@@ -305,7 +272,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "25.09.2023 10:00",
                 Name = "Web-Backends VL",
@@ -314,7 +281,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "25.09.2023 12:15",
                 Name = "Advanced App Development VL",
@@ -323,7 +290,7 @@ namespace StudyCompanion
                 Length = 90,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "25.09.2023 14:00",
                 Name = "Advanced App Development ÜB",
@@ -332,7 +299,7 @@ namespace StudyCompanion
                 Length = 45,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "26.09.2023 08:00",
                 Name = "System Verifikation und System Validierung VL",
@@ -341,7 +308,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "26.09.2023 11:00",
                 Name = "System Verifikation und System Validierung ÜB",
@@ -350,7 +317,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = true
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "17.10.2023 11:00",
                 Name = "Embedded Programming ÜB",
@@ -359,7 +326,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = true
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "27.09.2023 09:30",
                 Name = "Intelligent Systems in Theory and Practice VL",
@@ -368,7 +335,7 @@ namespace StudyCompanion
                 Length = 90,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "27.09.2023 12:00",
                 Name = "IT-Consulting VL",
@@ -377,7 +344,7 @@ namespace StudyCompanion
                 Length = 90,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "28.09.2023 08:00",
                 Name = "Safety und Security Analysis VL",
@@ -386,7 +353,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "28.09.2023 10:00",
                 Name = "Safety und Security Analysis ÜB",
@@ -395,7 +362,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "28.09.2023 11:00",
                 Name = "Safety und Security Projektkurs VL",
@@ -404,7 +371,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "29.09.2023 09:30",
                 Name = "Interaktive Grafikanwendungen VL",
@@ -413,7 +380,7 @@ namespace StudyCompanion
                 Length = 90,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 7,
                 StartDate = "29.09.2023 11:15",
                 Name = "Interaktive Grafikanwendungen ÜB",
@@ -422,7 +389,7 @@ namespace StudyCompanion
                 Length = 90,
                 Biweekly = false
             },
-            /*new CourseViewModel {
+            /*new Course {
                 Semester = 2,
                 StartDate = "20.03.2024 08:00",
                 Name = "Praktikum Elektrotechnik",
@@ -431,7 +398,7 @@ namespace StudyCompanion
                 Length = 240,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "21.03.2024 08:00",
                 Name = "Personal Skills II VL",
@@ -440,7 +407,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = true
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "28.03.2024 08:00",
                 Name = "Personal Skills II ÜB",
@@ -449,7 +416,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = true
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "21.03.2024 10:00",
                 Name = "Mathematik II VL",
@@ -458,7 +425,7 @@ namespace StudyCompanion
                 Length = 180,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "21.03.2024 14:00",
                 Name = "Technisches Englisch II VL+ÜB",
@@ -467,7 +434,7 @@ namespace StudyCompanion
                 Length = 180,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "22.03.2024 09:00",
                 Name = "Objektorientierte Programmierung VL",
@@ -476,7 +443,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "22.03.2024 11:00",
                 Name = "Objektorientierte Programmierung ÜB",
@@ -485,7 +452,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "22.03.2024 14:00",
                 Name = "System Modellierung I VL",
@@ -494,7 +461,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "23.03.2024 08:00",
                 Name = "Elektrotechnik VL",
@@ -503,7 +470,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "23.03.2024 10:00",
                 Name = "Elektrotechnik ÜB",
@@ -512,7 +479,7 @@ namespace StudyCompanion
                 Length = 60,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "23.03.2024 12:00",
                 Name = "System Modellierung I ÜB",
@@ -521,7 +488,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "23.03.2024 14:00",
                 Name = "Mathematik II ÜB",
@@ -530,7 +497,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "24.03.2024 09:00",
                 Name = "Algorithmen und Datenstrukturen VL",
@@ -539,7 +506,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 2,
                 StartDate = "24.03.2024 11:00",
                 Name = "Algorithmen und Datenstrukturen ÜB",
@@ -548,7 +515,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "20.03.2024 09:00",
                 Name = "Software Design VL",
@@ -557,7 +524,7 @@ namespace StudyCompanion
                 Length = 240,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "20.03.2024 13:00",
                 Name = "Computer Security VL",
@@ -566,7 +533,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "20.03.2024 13:00",
                 Name = "Computer Security VL",
@@ -575,7 +542,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "20.03.2024 17:00",
                 Name = "Computer Security ÜB",
@@ -584,7 +551,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "21.03.2024 08:00",
                 Name = "Personal Skills IV VL",
@@ -593,7 +560,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "21.03.2024 08:00",
                 Name = "Personal Skills IV VL",
@@ -602,7 +569,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "21.03.2024 10:00",
                 Name = "Datenbanken VL",
@@ -611,7 +578,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "21.03.2024 12:00",
                 Name = "Datenbanken ÜB",
@@ -620,7 +587,7 @@ namespace StudyCompanion
                 Length = 60,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "21.03.2024 14:00",
                 Name = "SSP I: Digitaltechnik II VL",
@@ -629,7 +596,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "22.03.2024 09:00",
                 Name = "SSP I: Embedded Systems II VL",
@@ -638,7 +605,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "22.03.2024 12:00",
                 Name = "SSP I: Embedded Systems II ÜB",
@@ -647,7 +614,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = true
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "29.03.2024 12:00",
                 Name = "SSP I: Digitaltechnik II ÜB",
@@ -656,7 +623,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = true
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "22.03.2024 12:00",
                 Name = "SSP I: App Frontends VL",
@@ -665,7 +632,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "22.03.2024 14:00",
                 Name = "Corporate Management VL",
@@ -674,7 +641,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "24.03.2024 09:00",
                 Name = "Software Design ÜB",
@@ -683,7 +650,7 @@ namespace StudyCompanion
                 Length = 240,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "24.03.2024 13:00",
                 Name = "SSP I: App Frontends ÜB",
@@ -692,7 +659,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 4,
                 StartDate = "24.03.2024 16:00",
                 Name = "SSP I: Web Frontends VL",
@@ -701,7 +668,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 6,
                 StartDate = "20.03.2024 09:00",
                 Name = "SSP II: Mobile Security VL",
@@ -710,7 +677,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 6,
                 StartDate = "20.03.2024 12:00",
                 Name = "Personal Skills V VL",
@@ -719,7 +686,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 6,
                 StartDate = "20.03.2024 14:00",
                 Name = "Personal Skills V ÜB",
@@ -728,7 +695,7 @@ namespace StudyCompanion
                 Length = 60,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 6,
                 StartDate = "21.03.2024 10:00",
                 Name = "SSP II: Parallel Computing VL",
@@ -737,7 +704,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 6,
                 StartDate = "21.03.2024 12:00",
                 Name = "SSP II: iOS Development VL",
@@ -746,7 +713,7 @@ namespace StudyCompanion
                 Length = 90,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 6,
                 StartDate = "21.03.2024 13:30",
                 Name = "SSP II: iOS Development ÜB",
@@ -755,7 +722,7 @@ namespace StudyCompanion
                 Length = 90,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 6,
                 StartDate = "21.03.2024 14:00",
                 Name = "SSP II: Embedded Security VL",
@@ -764,7 +731,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 6,
                 StartDate = "22.03.2024 11:00",
                 Name = "Entrepreneurial Finance VL",
@@ -773,7 +740,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 6,
                 StartDate = "22.03.2024 14:00",
                 Name = "Künstliche Intelligenz VL",
@@ -782,7 +749,7 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = false
             },
-            new CourseViewModel {
+            new Course {
                 Semester = 6,
                 StartDate = "22.03.2024 16:00",
                 Name = "Künstliche Intelligenz PR",
@@ -791,74 +758,9 @@ namespace StudyCompanion
                 Length = 120,
                 Biweekly = true
             },*/
-
-
-
             };
 
-        public static List<CourseViewModel> GetSearchResults(string queryString)
-        {
-
-            var normalizedQuery = queryString?.ToLower() ?? "";
-            if (string.IsNullOrEmpty(normalizedQuery)) return Courses;
-            bool success = int.TryParse(normalizedQuery, out int semester);
-            if (success)
-            {
-                return Courses.Where(item => item.Semester == semester).ToList();
-            }
-            return Courses.Where(
-                item => item.Name.ToLower().Contains(normalizedQuery) ||
-                item.Lecturer.ToLower().Contains(normalizedQuery)).ToList();
-        }
-
-        public static List<SectionViewModel<CourseViewModel>> GetGroupedCourses(List<CourseViewModel> courses)
-        {
-            List<SectionViewModel<CourseViewModel>> groups = new();
-            foreach (var group in courses.GroupBy(c => c.Semester))
-            {
-                var section = new SectionViewModel<CourseViewModel>()
-                {
-                    Header = $"Semester {group.Key}"
-                };
-                foreach (var item in group)
-                {
-                    section.Add(item);
-                }
-                groups.Add(section);
-            }
-            return groups;
-        }
-
-        internal static async void AddCourseToCalendar(CourseViewModel courseViewModel, Calendar selectedCalendar)
-        {
-            var startDate = DateTime.ParseExact(courseViewModel.StartDate, longFormat, CultureInfo.InvariantCulture);
-            var endDate = startDate.AddMinutes(courseViewModel.Length);
-
-            while (startDate < SemesterEnd)
-            {
-                var isHoliday = false;
-                foreach (var holiday in Holidays)
-                {
-                    if (startDate.Date == holiday.Date)
-                    {
-                        isHoliday = true;
-                        break;
-                    }
-                }
-
-                if (!isHoliday) await CrossCalendars.Current.AddOrUpdateEventAsync(selectedCalendar, new CalendarEvent
-                {
-                    Name = courseViewModel.Name,
-                    Start = startDate,
-                    End = endDate,
-                    Location = courseViewModel.Room
-                });
-
-                startDate = startDate.AddDays(courseViewModel.Biweekly ? 14 : 7);
-                endDate = endDate.AddDays(courseViewModel.Biweekly ? 14 : 7);
-            }
-
-        }
+        public List<ICourse> Execute() => Courses;
     }
 }
 

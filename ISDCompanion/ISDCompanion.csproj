@@ -60,6 +60,15 @@
 		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MealQuery.cs">
 		  <Link>Tabs\Mensa\MealQuery.cs</Link>
 		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Common\DateConverter.cs">
+		  <Link>Common\DateConverter.cs</Link>
+		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesPage.xaml.cs">
+		  <Link>Tabs\Courses\CoursesPage.xaml.cs</Link>
+		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesViewModel.cs">
+		  <Link>Tabs\Courses\CoursesViewModel.cs</Link>
+		</Compile>
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\Strings\AppResources.Designer.cs">
@@ -154,6 +163,10 @@
 	    <Link>Tabs\Mensa\MensaPage.xaml</Link>
 	    <SubType></SubType>
 	  </MauiXaml>
+	  <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesPage.xaml">
+	    <Link>Tabs\Courses\CoursesPage.xaml</Link>
+	    <SubType></SubType>
+	  </MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
 		<MauiXaml Update="Quiz\QuizPage.xaml">
@@ -163,9 +176,6 @@
 		<MauiXaml Update="Licenses\LicensesPage.xaml">
 			<SubType>
 			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Courses\CoursesPage.xaml">
-		  <SubType></SubType>
 		</MauiXaml>
 		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\BitencodingsPage.xaml">
 		  <SubType></SubType>
@@ -238,5 +248,6 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\ISDCompanion.Core\ISDCompanion.Core.csproj" />
+	  <ProjectReference Include="..\ISDCompanion.Ports\ISDCompanion.Ports.csproj" />
 	</ItemGroup>
 </Project>
