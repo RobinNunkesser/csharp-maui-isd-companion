@@ -237,6 +237,6 @@
 		</BundleResource>
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\Mensa.Core\ISDCompanion.Core.csproj" />
+	  <ProjectReference Include="..\ISDCompanion.Core\ISDCompanion.Core.csproj" />
 	</ItemGroup>
 </Project>

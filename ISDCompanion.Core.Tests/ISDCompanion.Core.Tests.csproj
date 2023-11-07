@@ -12,6 +12,6 @@
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\Mensa.Core\Mensa.Core.csproj" />
+	  <ProjectReference Include="..\ISDCompanion.Core\ISDCompanion.Core.csproj" />
 	</ItemGroup>
 </Project>
