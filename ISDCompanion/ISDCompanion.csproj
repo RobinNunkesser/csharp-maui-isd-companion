@@ -117,7 +117,6 @@
 		<None Remove="Services\TableGenServices\" />
 		<None Remove="Services\InfoTextServices\" />
 		<None Remove="CClarke.Plugin.Calendars" />
-		<None Remove="Quiz\" />
 		<None Remove="Licenses\" />
 		<None Remove="Plugin\" />
 		<None Remove="Plugin\Calendars\" />
@@ -139,6 +138,7 @@
 		<None Remove="Tabs\Profs\" />
 		<None Remove="Tabs\Mensa\" />
 		<None Remove="Tabs\Settings\" />
+		<None Remove="Tabs\Exercises\Quiz\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Resources\Strings\" />
@@ -148,7 +148,6 @@
 		<Folder Include="Services\Interfaces\" />
 		<Folder Include="Services\TableGenServices\" />
 		<Folder Include="Services\InfoTextServices\" />
-		<Folder Include="Quiz\" />
 		<Folder Include="Licenses\" />
 		<Folder Include="Plugin\" />
 		<Folder Include="Plugin\Calendars\" />
@@ -169,6 +168,7 @@
 		<Folder Include="Tabs\Profs\" />
 		<Folder Include="Tabs\Mensa\" />
 		<Folder Include="Tabs\Settings\" />
+		<Folder Include="Tabs\Exercises\Quiz\" />
 	</ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
@@ -208,10 +208,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
-		<MauiXaml Update="Quiz\QuizPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
 		<MauiXaml Update="Licenses\LicensesPage.xaml">
 			<SubType>
 			</SubType>
@@ -259,6 +255,9 @@
 		  <SubType></SubType>
 		</MauiXaml>
 		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\SettingsPage.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\Quiz\QuizPage.xaml">
 		  <SubType></SubType>
 		</MauiXaml>
 	</ItemGroup>
