@@ -18,11 +18,11 @@ namespace StudyCompanion
             });
             NetworksQuizCommand = new Command(async () =>
             {
-                await navigation.PushAsync(new QuizPage(Italbytz.Adapters.Exam.Networks.YesNoQuestions.Questions));
+                await navigation.PushAsync(new QuizPage(new QuizViewModel(Italbytz.Adapters.Exam.Networks.YesNoQuestions.Questions)));
             });
             OpSysQuizCommand = new Command(async () =>
             {
-                await navigation.PushAsync(new QuizPage(Italbytz.Adapters.Exam.OperatingSystems.YesNoQuestions.Questions));
+                await navigation.PushAsync(new QuizPage(new QuizViewModel(Italbytz.Adapters.Exam.OperatingSystems.YesNoQuestions.Questions)));
             });
         }
 

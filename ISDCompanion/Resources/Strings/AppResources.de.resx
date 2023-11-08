@@ -457,4 +457,19 @@ Die Gesamtwartezeit ergibt sich aus den Zeiteinheiten, welche es braucht, bis ei
                     
 Voranstehende Nullen können weg gelassen werden. Die resultierende Bitfolge wird wieder auf 6 Zeichen erweitert, indem die vorhandenen Bits (Nullen) der Bitfolge heruntergezogen werden.</value>
   </data>
+	<data name="title.statistics" xml:space="preserve">
+    <value>Statistiken</value>
+	</data>
+	<data name="label.sum" xml:space="preserve">
+    <value>Bearbeitete Fragen</value>
+	</data>
+	<data name="label.correct" xml:space="preserve">
+    <value>Richtig beantwortet</value>
+	</data>
+	<data name="label.wrong" xml:space="preserve">
+    <value>Falsch beantwortet</value>
+	</data>
+	<data name="label.skipped" xml:space="preserve">
+    <value>Übersprungen</value>
+	</data>
 </root>

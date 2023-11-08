@@ -36,7 +36,7 @@ namespace StudyCompanion.Resources.Strings {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ISDCompanion.Resources.Strings.AppResources", typeof(AppResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("StudyCompanion.Resources.Strings.AppResources", typeof(AppResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -708,6 +708,42 @@ namespace StudyCompanion.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Answered correctly.
+        /// </summary>
+        internal static string label_correct {
+            get {
+                return ResourceManager.GetString("label.correct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skipped.
+        /// </summary>
+        internal static string label_skipped {
+            get {
+                return ResourceManager.GetString("label.skipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Questions.
+        /// </summary>
+        internal static string label_sum {
+            get {
+                return ResourceManager.GetString("label.sum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Answered wrong.
+        /// </summary>
+        internal static string label_wrong {
+            get {
+                return ResourceManager.GetString("label.wrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dishes.
         /// </summary>
         internal static string Maindishes {
@@ -1145,6 +1181,15 @@ namespace StudyCompanion.Resources.Strings {
         internal static string TableLabel_PageReplacement_Slot {
             get {
                 return ResourceManager.GetString("TableLabel_PageReplacement_Slot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        internal static string title_statistics {
+            get {
+                return ResourceManager.GetString("title.statistics", resourceCulture);
             }
         }
         

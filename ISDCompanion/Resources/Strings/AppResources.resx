@@ -455,4 +455,19 @@ The total wait time is the units of time it takes for each process to complete m
                     
 Leading zeros can be omitted. The resulting bit string is extended back to 6 characters by pulling down the existing bits (zeros) of the bit string.</value>
   </data>
+	<data name="title.statistics" xml:space="preserve">
+    <value>Statistics</value>
+	</data>
+	<data name="label.sum" xml:space="preserve">
+    <value>Total Questions</value>
+	</data>
+	<data name="label.correct" xml:space="preserve">
+    <value>Answered correctly</value>
+	</data>
+	<data name="label.wrong" xml:space="preserve">
+    <value>Answered wrong</value>
+	</data>
+	<data name="label.skipped" xml:space="preserve">
+    <value>Skipped</value>
+	</data>
 </root>

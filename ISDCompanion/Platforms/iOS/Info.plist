@@ -45,5 +45,11 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>CFBundleLocalizations</key>
+<array>
+    <string>de</string>
+</array>
+<key>CFBundleDevelopmentRegion</key>
+<string>en</string>
 </dict>
 </plist>
