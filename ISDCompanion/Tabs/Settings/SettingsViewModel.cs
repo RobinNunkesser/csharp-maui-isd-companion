@@ -18,7 +18,14 @@ namespace StudyCompanion
             OnPropertyChanged();
             LicensesCommand = new Command<string>(async (string licenseFile) =>
             {
-                await navigation.PushAsync(new LicensesPage(licenseFile));
+                using var stream = await FileSystem.OpenAppPackageFileAsync(licenseFile);
+                using var reader = new StreamReader(stream);
+                var html = reader.ReadToEnd();
+                var htmlSource = new HtmlWebViewSource
+                {
+                    Html = html
+                };
+                await navigation.PushAsync(new InternalBrowserPage(htmlSource));
             });
             NavigateCommand = new Command<Type>(async (Type pageType) =>
             {
