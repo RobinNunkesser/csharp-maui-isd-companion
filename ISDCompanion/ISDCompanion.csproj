@@ -78,6 +78,24 @@
 		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Profs\ProfsViewModel.cs">
 		  <Link>Tabs\Profs\ProfsViewModel.cs</Link>
 		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesPage.xaml.cs">
+		  <Link>Tabs\Settings\AdditivesPage.xaml.cs</Link>
+		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesViewModel.cs">
+		  <Link>Tabs\Settings\AdditivesViewModel.cs</Link>
+		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensPage.xaml.cs">
+		  <Link>Tabs\Settings\AllergensPage.xaml.cs</Link>
+		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensViewModel.cs">
+		  <Link>Tabs\Settings\AllergensViewModel.cs</Link>
+		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\Settings.cs">
+		  <Link>Tabs\Settings\Settings.cs</Link>
+		</Compile>
+		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\SettingsPage.xaml.cs">
+		  <Link>Tabs\Settings\SettingsPage.xaml.cs</Link>
+		</Compile>
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\Strings\AppResources.Designer.cs">
@@ -180,6 +198,14 @@
 	    <Link>Common\InternalBrowserPage.xaml</Link>
 	    <SubType></SubType>
 	  </MauiXaml>
+	  <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesPage.xaml">
+	    <Link>Tabs\Settings\AdditivesPage.xaml</Link>
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensPage.xaml">
+	    <Link>Tabs\Settings\AllergensPage.xaml</Link>
+	    <SubType></SubType>
+	  </MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
 		<MauiXaml Update="Quiz\QuizPage.xaml">
@@ -230,12 +256,6 @@
 		  <SubType></SubType>
 		</MauiXaml>
 		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\AcknowledgementsPage.xaml">
-		  <SubType></SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\AdditivesPage.xaml">
-		  <SubType></SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\AllergensPage.xaml">
 		  <SubType></SubType>
 		</MauiXaml>
 		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\SettingsPage.xaml">
