@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
-using Italbytz.Adapters.Exam.Networks;
+﻿using Italbytz.Adapters.Graph;
 using Italbytz.Maui.Graphics;
 
 namespace StudyCompanion

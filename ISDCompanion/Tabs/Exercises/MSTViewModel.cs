@@ -1,10 +1,6 @@
-﻿using Italbytz.Adapters.Exam.Networks;
-using Italbytz.Ports.Graph;
-using StudyCompanion.Exercises.Extensions;
-using StudyCompanion.Services.InfoTextServices;
+﻿using Italbytz.Ports.Graph;
 using Italbytz.Maui.Graphics;
-using Italbytz.Adapters.Exam.Networks.Graph;
-using Italbytz.Ports.Exam.Networks;
+using Italbytz.Adapters.Graph;
 
 namespace StudyCompanion
 {

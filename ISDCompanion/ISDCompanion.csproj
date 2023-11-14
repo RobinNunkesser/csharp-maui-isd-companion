@@ -189,10 +189,11 @@
 		<PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="0.4.0" />
 		<PackageReference Include="Italbytz.Ports.Meal" Version="0.5.0" />
 		<PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
-		<PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.11.0" />
-		<PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.6.0" />
+		<PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.12.0" />
+		<PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.7.0" />
 		<PackageReference Include="Italbytz.Maui.Graphics" Version="0.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Italbytz.Adapters.Graph" Version="0.2.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaPage.xaml">
