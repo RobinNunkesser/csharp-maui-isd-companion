@@ -17,8 +17,8 @@
 		<ApplicationId>de.hshl.isd.companion</ApplicationId>
 		<ApplicationIdGuid>7318FC73-5BE8-4A0A-A002-F629A4200794</ApplicationIdGuid>
 		<!-- Versions -->
-		<ApplicationDisplayVersion>4.3</ApplicationDisplayVersion>
-		<ApplicationVersion>16</ApplicationVersion>
+		<ApplicationDisplayVersion>4.4</ApplicationDisplayVersion>
+		<ApplicationVersion>17</ApplicationVersion>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<DefaultLanguage>en</DefaultLanguage>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
@@ -34,6 +34,13 @@
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
 		<CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+	  <AndroidKeyStore>true</AndroidKeyStore>
+	  <AndroidSigningKeyStore>upload.keystore</AndroidSigningKeyStore>
+	  <AndroidSigningStorePass>file:AndroidSigningPassword.txt</AndroidSigningStorePass>
+	  <AndroidSigningKeyAlias>upload</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>file:AndroidSigningPassword.txt</AndroidSigningKeyPass>
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
@@ -194,6 +201,7 @@
 		<PackageReference Include="Italbytz.Maui.Graphics" Version="0.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Italbytz.Adapters.Graph" Version="0.2.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.7" />
 	</ItemGroup>
 	<ItemGroup>
 		<MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaPage.xaml">
