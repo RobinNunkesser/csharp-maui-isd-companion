@@ -17,8 +17,8 @@
 		<ApplicationId>de.hshl.isd.companion</ApplicationId>
 		<ApplicationIdGuid>7318FC73-5BE8-4A0A-A002-F629A4200794</ApplicationIdGuid>
 		<!-- Versions -->
-		<ApplicationDisplayVersion>4.4</ApplicationDisplayVersion>
-		<ApplicationVersion>17</ApplicationVersion>
+		<ApplicationDisplayVersion>4.5</ApplicationDisplayVersion>
+		<ApplicationVersion>19</ApplicationVersion>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<DefaultLanguage>en</DefaultLanguage>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
@@ -318,7 +318,11 @@
 		<BundleResource Include="Resources\Images\statistics.svg" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\ISDCompanion.Core\ISDCompanion.Core.csproj" />
-		<ProjectReference Include="..\ISDCompanion.Ports\ISDCompanion.Ports.csproj" />
+		<ProjectReference Include="..\ISDCompanion.Core\ISDCompanion.Core.csproj">
+		  <ReferenceSourceTarget></ReferenceSourceTarget>
+		</ProjectReference>
+		<ProjectReference Include="..\ISDCompanion.Ports\ISDCompanion.Ports.csproj">
+		  <ReferenceSourceTarget></ReferenceSourceTarget>
+		</ProjectReference>
 	</ItemGroup>
 </Project>
