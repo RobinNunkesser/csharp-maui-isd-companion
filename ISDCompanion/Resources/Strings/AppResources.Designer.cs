@@ -878,5 +878,11 @@ namespace StudyCompanion.Resources.Strings {
                 return ResourceManager.GetString("BinaryToDecimal", resourceCulture);
             }
         }
+        
+        internal static string DecimalToBinary {
+            get {
+                return ResourceManager.GetString("DecimalToBinary", resourceCulture);
+            }
+        }
     }
 }

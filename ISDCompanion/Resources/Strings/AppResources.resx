@@ -476,4 +476,7 @@ Leading zeros can be omitted. The resulting bit string is extended back to 6 cha
 	<data name="BinaryToDecimal" xml:space="preserve">
 		<value>Binary to Decimal</value>
 	</data>
+	<data name="DecimalToBinary" xml:space="preserve">
+		<value>Decimal to Binary</value>
+	</data>
 </root>

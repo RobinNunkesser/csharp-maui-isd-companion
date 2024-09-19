@@ -15,6 +15,11 @@
                               CommandParameter="{x:Type local:BinaryToDecimalPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                     />
+                    <TextCell Text="{x:Static localization:AppResources.DecimalToBinary}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:DecimalToBinaryPage}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
+                    />
                 </TableSection>
                 <TableSection Title="{x:Static localization:AppResources.Networks}">
                     <TextCell Text="{x:Static localization:AppResources.Bitencodings}"

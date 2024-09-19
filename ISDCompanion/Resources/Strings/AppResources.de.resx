@@ -478,4 +478,7 @@ Voranstehende Nullen können weg gelassen werden. Die resultierende Bitfolge wir
 	<data name="BinaryToDecimal" xml:space="preserve">
 		<value>Binär zu Dezimal</value>
 	</data>
+	<data name="DecimalToBinary" xml:space="preserve">
+		<value>Dezimal zu Binär</value>
+	</data>
 </root>
