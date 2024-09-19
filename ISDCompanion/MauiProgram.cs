@@ -62,6 +62,8 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddSingleton<MensaViewModel>();
         mauiAppBuilder.Services.AddSingleton<CoursesPage>();
         mauiAppBuilder.Services.AddSingleton<CoursesViewModel>();
+        /*mauiAppBuilder.Services.AddSingleton<BinaryToDecimalPage>();
+        mauiAppBuilder.Services.AddSingleton<BinaryToDecimalViewModel>();*/
         /*mauiAppBuilder.Services.AddSingleton<ProfsPage>();
         mauiAppBuilder.Services.AddSingleton<ProfsViewModel>();*/
         /*mauiAppBuilder.Services.AddSingleton<SettingsPage>();

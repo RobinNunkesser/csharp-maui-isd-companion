@@ -12,6 +12,9 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+    <data name="ComputingSystems" xml:space="preserve">
+    <value>Computing Systems</value>
+    </data>
 	<data name="Networks" xml:space="preserve">
     <value>Networks</value>
   </data>
@@ -469,5 +472,8 @@ Leading zeros can be omitted. The resulting bit string is extended back to 6 cha
 	</data>
 	<data name="label.skipped" xml:space="preserve">
     <value>Skipped</value>
+	</data>
+	<data name="BinaryToDecimal" xml:space="preserve">
+		<value>Binary to Decimal</value>
 	</data>
 </root>

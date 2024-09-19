@@ -9,6 +9,13 @@
     <ContentPage.Content>
         <TableView Intent="Menu">
             <TableRoot>
+                <TableSection Title="{x:Static localization:AppResources.ComputingSystems}">
+                    <TextCell Text="{x:Static localization:AppResources.BinaryToDecimal}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:BinaryToDecimalPage}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
+                    />
+                </TableSection>
                 <TableSection Title="{x:Static localization:AppResources.Networks}">
                     <TextCell Text="{x:Static localization:AppResources.Bitencodings}"
                               Command="{Binding NavigateCommand}"

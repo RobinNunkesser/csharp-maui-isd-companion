@@ -13,7 +13,7 @@ namespace StudyCompanion
         {
             NavigateCommand = new Command<Type>(async (Type pageType) =>
             {
-                Page page = (Page)Activator.CreateInstance(pageType);
+                var page = (Page)Activator.CreateInstance(pageType);
                 await navigation.PushAsync(page);
             });
             NetworksQuizCommand = new Command(async () =>

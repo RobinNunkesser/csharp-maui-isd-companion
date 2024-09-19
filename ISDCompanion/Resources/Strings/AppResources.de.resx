@@ -472,4 +472,10 @@ Voranstehende Nullen können weg gelassen werden. Die resultierende Bitfolge wir
 	<data name="label.skipped" xml:space="preserve">
     <value>Übersprungen</value>
 	</data>
+	<data name="ComputingSystems" xml:space="preserve">
+		<value>Technische Informatik</value>
+	</data>
+	<data name="BinaryToDecimal" xml:space="preserve">
+		<value>Binär zu Dezimal</value>
+	</data>
 </root>

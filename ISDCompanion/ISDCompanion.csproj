@@ -186,7 +186,6 @@
 		<Folder Include="Platforms\Tizen\Plugin\Calendars\" />
 		<Folder Include="Tabs\" />
 		<Folder Include="Tabs\Courses\" />
-		<Folder Include="Tabs\Exercises\" />
 		<Folder Include="Tabs\Profs\" />
 		<Folder Include="Tabs\Mensa\" />
 		<Folder Include="Tabs\Settings\" />
