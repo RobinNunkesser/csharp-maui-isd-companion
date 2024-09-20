@@ -481,4 +481,10 @@ Voranstehende Nullen können weg gelassen werden. Die resultierende Bitfolge wir
 	<data name="DecimalToBinary" xml:space="preserve">
 		<value>Dezimal zu Binär</value>
 	</data>
+	<data name="BinaryAddition" xml:space="preserve">
+		<value>Addition binärer Zahlen</value>
+	</data>
+	<data name="TwosComplement" xml:space="preserve">
+		<value>Zweierkomplement</value>
+	</data>
 </root>

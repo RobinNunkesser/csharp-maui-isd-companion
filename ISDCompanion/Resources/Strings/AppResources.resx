@@ -479,4 +479,10 @@ Leading zeros can be omitted. The resulting bit string is extended back to 6 cha
 	<data name="DecimalToBinary" xml:space="preserve">
 		<value>Decimal to Binary</value>
 	</data>
+	<data name="BinaryAddition" xml:space="preserve">
+		<value>Addition of binary numbers</value>
+	</data>
+	<data name="TwosComplement" xml:space="preserve">
+		<value>Two's Complement</value>
+	</data>
 </root>

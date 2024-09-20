@@ -884,5 +884,17 @@ namespace StudyCompanion.Resources.Strings {
                 return ResourceManager.GetString("DecimalToBinary", resourceCulture);
             }
         }
+        
+        internal static string BinaryAddition {
+            get {
+                return ResourceManager.GetString("BinaryAddition", resourceCulture);
+            }
+        }
+        
+        internal static string TwosComplement {
+            get {
+                return ResourceManager.GetString("TwosComplement", resourceCulture);
+            }
+        }
     }
 }

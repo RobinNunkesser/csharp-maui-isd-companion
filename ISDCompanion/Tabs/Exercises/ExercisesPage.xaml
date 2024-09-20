@@ -20,6 +20,16 @@
                               CommandParameter="{x:Type local:DecimalToBinaryPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                     />
+                    <TextCell Text="{x:Static localization:AppResources.BinaryAddition}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:BinaryAdditionPage}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
+                    />
+                    <TextCell Text="{x:Static localization:AppResources.TwosComplement}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:TwosComplementPage}"
+                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
+                    />
                 </TableSection>
                 <TableSection Title="{x:Static localization:AppResources.Networks}">
                     <TextCell Text="{x:Static localization:AppResources.Bitencodings}"

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace Mensa.Core.Tests
 {
@@ -12,7 +13,8 @@ namespace Mensa.Core.Tests
         [Test]
         public void Test1()
         {
-            Assert.Pass();
+            var result = Convert.ToString((sbyte)-9, 2)[8..];
+            Assert.AreEqual(result, "-1001");
         }
     }
 }
