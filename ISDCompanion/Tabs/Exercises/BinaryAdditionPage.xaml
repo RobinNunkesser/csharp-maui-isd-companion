@@ -6,7 +6,7 @@
              xmlns:studyCompanion="clr-namespace:StudyCompanion"
              x:Class="StudyCompanion.BinaryAdditionPage"
              Title="{x:Static localization:AppResources.BinaryAddition}"
-             x:DataType="studyCompanion:BinaryAdditionViewModel">
+             >
     
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
 

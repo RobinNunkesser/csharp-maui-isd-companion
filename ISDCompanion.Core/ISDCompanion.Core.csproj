@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 		<ReleaseVersion>4.3</ReleaseVersion>
 	</PropertyGroup>
@@ -18,8 +18,8 @@
 		<None Remove="Italbytz.Ports.Common" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Italbytz.Ports.Meal" Version="0.5.0" />
-		<PackageReference Include="Italbytz.Ports.Common" Version="0.5.0" />
+		<PackageReference Include="Italbytz.Ports.Meal" Version="9.0.0-rc.1" />
+		<PackageReference Include="Italbytz.Ports.Common" Version="0.5.1" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core\MealCollection.cs">

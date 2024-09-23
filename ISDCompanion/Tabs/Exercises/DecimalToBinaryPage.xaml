@@ -6,7 +6,7 @@
              xmlns:studyCompanion="clr-namespace:StudyCompanion"
              x:Class="StudyCompanion.DecimalToBinaryPage"
              Title="{x:Static localization:AppResources.DecimalToBinary}"
-             x:DataType="studyCompanion:DecimalToBinaryViewModel">
+             >
     
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
 
