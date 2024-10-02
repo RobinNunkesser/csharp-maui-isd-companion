@@ -485,4 +485,7 @@ Leading zeros can be omitted. The resulting bit string is extended back to 6 cha
 	<data name="TwosComplement" xml:space="preserve">
 		<value>Two's Complement</value>
 	</data>
+	<data name="Licenses" xml:space="preserve">
+		<value>Licenses</value>
+	</data>
 </root>

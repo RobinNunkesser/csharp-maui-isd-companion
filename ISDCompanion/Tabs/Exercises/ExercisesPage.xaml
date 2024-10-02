@@ -47,11 +47,11 @@
                               CommandParameter="{x:Type local:MSTPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
-                    <TextCell Text="{x:Static localization:AppResources.ShortestPaths}"
+                    <!--<TextCell Text="{x:Static localization:AppResources.ShortestPaths}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:ShortestPathsPage}"
                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
-                              /> 
+                              />--> 
                     <TextCell Text="{x:Static localization:AppResources.Netmasks}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:NetmaskPage}"
@@ -71,10 +71,10 @@
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:BuddyPage}"
                                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
-                     <TextCell Text="{x:Static localization:AppResources.Scheduling}"
+                     <!--<TextCell Text="{x:Static localization:AppResources.Scheduling}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:SchedulingPage}"
-                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>-->
                      <TextCell Text="{x:Static localization:AppResources.RealtimeScheduling}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:RealtimeSchedulingPage}"

@@ -18,7 +18,7 @@
 		<ApplicationIdGuid>7318FC73-5BE8-4A0A-A002-F629A4200794</ApplicationIdGuid>
 		<!-- Versions -->
 		<ApplicationDisplayVersion>4.5.1</ApplicationDisplayVersion>
-		<ApplicationVersion>21</ApplicationVersion>
+		<ApplicationVersion>22</ApplicationVersion>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<DefaultLanguage>en</DefaultLanguage>
 		
@@ -188,7 +188,6 @@
 		<Folder Include="Platforms\Android\Plugin\Calendars\" />
 		<Folder Include="Platforms\Tizen\Plugin\" />
 		<Folder Include="Platforms\Tizen\Plugin\Calendars\" />
-		<Folder Include="Tabs\" />
 		<Folder Include="Tabs\Courses\" />
 		<Folder Include="Tabs\Profs\" />
 		<Folder Include="Tabs\Mensa\" />

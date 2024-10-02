@@ -896,5 +896,11 @@ namespace StudyCompanion.Resources.Strings {
                 return ResourceManager.GetString("TwosComplement", resourceCulture);
             }
         }
+        
+        internal static string Licenses {
+            get {
+                return ResourceManager.GetString("Licenses", resourceCulture);
+            }
+        }
     }
 }

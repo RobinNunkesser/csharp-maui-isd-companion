@@ -487,4 +487,7 @@ Voranstehende Nullen können weg gelassen werden. Die resultierende Bitfolge wir
 	<data name="TwosComplement" xml:space="preserve">
 		<value>Zweierkomplement</value>
 	</data>
+	<data name="Licenses" xml:space="preserve">
+		<value>Lizenzen</value>
+	</data>
 </root>
