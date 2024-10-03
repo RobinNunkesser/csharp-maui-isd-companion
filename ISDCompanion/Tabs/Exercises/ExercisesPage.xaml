@@ -13,75 +13,64 @@
                     <TextCell Text="{x:Static localization:AppResources.BinaryToDecimal}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:BinaryToDecimalPage}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                     />
                     <TextCell Text="{x:Static localization:AppResources.DecimalToBinary}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:DecimalToBinaryPage}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                     />
                     <TextCell Text="{x:Static localization:AppResources.BinaryAddition}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:BinaryAdditionPage}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                     />
                     <TextCell Text="{x:Static localization:AppResources.TwosComplement}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:TwosComplementPage}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                     />
                 </TableSection>
                 <TableSection Title="{x:Static localization:AppResources.Networks}">
                     <TextCell Text="{x:Static localization:AppResources.Bitencodings}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:BitencodingsPage}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
                    <TextCell Text="{x:Static localization:AppResources.CRC}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:CRCPage}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
                     <TextCell Text="{x:Static localization:AppResources.MST}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:MSTPage}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
                     <!--<TextCell Text="{x:Static localization:AppResources.ShortestPaths}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:ShortestPathsPage}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />--> 
                     <TextCell Text="{x:Static localization:AppResources.Netmasks}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:NetmaskPage}"
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />
                     <TextCell Text="{x:Static localization:AppResources.Quiz}"
                               Command="{Binding NetworksQuizCommand}"                              
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />     
                 </TableSection>
                <TableSection Title="{x:Static localization:AppResources.OperatingSystems}">
-                    <TextCell Text="{x:Static localization:AppResources.PageReplacement}"
+                    <!--<TextCell Text="{x:Static localization:AppResources.PageReplacement}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:PageReplacementPage}"
-                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
+                               />-->
                      <TextCell Text="{x:Static localization:AppResources.Buddy}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:BuddyPage}"
-                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>
+                               />
                      <!--<TextCell Text="{x:Static localization:AppResources.Scheduling}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:SchedulingPage}"
-                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>-->
+                               />-->
                      <TextCell Text="{x:Static localization:AppResources.RealtimeScheduling}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:RealtimeSchedulingPage}"
-                               TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"/>                    
+                               />                    
                      <TextCell Text="{x:Static localization:AppResources.Quiz}"
                               Command="{Binding OpSysQuizCommand}"                              
-                              TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark=LightGray}"
                               />  
                 </TableSection>
             </TableRoot>
