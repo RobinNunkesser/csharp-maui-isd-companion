@@ -40,10 +40,10 @@
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:MSTPage}"
                               />
-                    <!--<TextCell Text="{x:Static localization:AppResources.ShortestPaths}"
+                    <TextCell Text="{x:Static localization:AppResources.ShortestPaths}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:ShortestPathsPage}"
-                              />--> 
+                              />
                     <TextCell Text="{x:Static localization:AppResources.Netmasks}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:NetmaskPage}"
@@ -53,18 +53,18 @@
                               />     
                 </TableSection>
                <TableSection Title="{x:Static localization:AppResources.OperatingSystems}">
-                    <!--<TextCell Text="{x:Static localization:AppResources.PageReplacement}"
+                    <TextCell Text="{x:Static localization:AppResources.PageReplacement}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:PageReplacementPage}"
-                               />-->
+                               />
                      <TextCell Text="{x:Static localization:AppResources.Buddy}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:BuddyPage}"
                                />
-                     <!--<TextCell Text="{x:Static localization:AppResources.Scheduling}"
+                     <TextCell Text="{x:Static localization:AppResources.Scheduling}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:SchedulingPage}"
-                               />-->
+                               />
                      <TextCell Text="{x:Static localization:AppResources.RealtimeScheduling}"
                                Command="{Binding NavigateCommand}"
                                CommandParameter="{x:Type local:RealtimeSchedulingPage}"

@@ -1,331 +1,332 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
-		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
-		<Nullable>enable</Nullable>
-		<OutputType>Exe</OutputType>
-		<RootNamespace>StudyCompanion</RootNamespace>
-		<UseMaui>true</UseMaui>
-		<SingleProject>true</SingleProject>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<!-- Display name -->
-		<ApplicationTitle>ISDCompanion</ApplicationTitle>
-		<!-- App Identifier -->
-		<ApplicationId>de.hshl.isd.companion</ApplicationId>
-		<ApplicationIdGuid>7318FC73-5BE8-4A0A-A002-F629A4200794</ApplicationIdGuid>
-		<!-- Versions -->
-		<ApplicationDisplayVersion>4.5.1</ApplicationDisplayVersion>
-		<ApplicationVersion>23</ApplicationVersion>
-		<NeutralLanguage>en-US</NeutralLanguage>
-		<DefaultLanguage>en</DefaultLanguage>
-		
-		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
-		<WindowsPackageType>None</WindowsPackageType>
-		
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
-		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-		<ReleaseVersion>4.5.1</ReleaseVersion>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
-		<CreatePackage>false</CreatePackage>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
-		<CreatePackage>false</CreatePackage>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-	  <AndroidKeyStore>true</AndroidKeyStore>
-	  <AndroidSigningKeyStore>upload.keystore</AndroidSigningKeyStore>
-	  <AndroidSigningStorePass>file:AndroidSigningPassword.txt</AndroidSigningStorePass>
-	  <AndroidSigningKeyAlias>upload</AndroidSigningKeyAlias>
-	  <AndroidSigningKeyPass>file:AndroidSigningPassword.txt</AndroidSigningKeyPass>
-	</PropertyGroup>
-	<ItemGroup>
-		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#17005E" />
-		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#17005E" BaseSize="128,128" />
-		<!-- Images -->
-		<MauiImage Include="Resources\Images\*" />
-		<MauiFont Include="Resources\Fonts\*" />
-		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
-	<ItemGroup>
-		<Compile Update="Resources\Strings\AppResources.Designer.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>AppResources.resx</DependentUpon>
-		</Compile>
-		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-			<CustomToolNamespace>StudyCompanion.Resources.Strings</CustomToolNamespace>
-			<!--<LogicalName>DefaultNamespace.CommentResources.resources</LogicalName>-->
-		</EmbeddedResource>
-	</ItemGroup>
-	<ItemGroup>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Common\SectionViewModel.cs">
-			<Link>Common\SectionViewModel.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\PriceConverter.cs">
-			<Link>Tabs\Mensa\PriceConverter.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaViewModel.cs">
-			<Link>Tabs\Mensa\MensaViewModel.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaPage.xaml.cs">
-			<Link>Tabs\Mensa\MensaPage.xaml.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MealQuery.cs">
-			<Link>Tabs\Mensa\MealQuery.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Common\DateConverter.cs">
-			<Link>Common\DateConverter.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesPage.xaml.cs">
-			<Link>Tabs\Courses\CoursesPage.xaml.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesViewModel.cs">
-			<Link>Tabs\Courses\CoursesViewModel.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Profs\ProfsPage.xaml.cs">
-			<Link>Tabs\Profs\ProfsPage.xaml.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Common\InternalBrowserPage.xaml.cs">
-			<Link>Common\InternalBrowserPage.xaml.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Profs\ProfsViewModel.cs">
-			<Link>Tabs\Profs\ProfsViewModel.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesPage.xaml.cs">
-			<Link>Tabs\Settings\AdditivesPage.xaml.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesViewModel.cs">
-			<Link>Tabs\Settings\AdditivesViewModel.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensPage.xaml.cs">
-			<Link>Tabs\Settings\AllergensPage.xaml.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensViewModel.cs">
-			<Link>Tabs\Settings\AllergensViewModel.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\Settings.cs">
-			<Link>Tabs\Settings\Settings.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\SettingsPage.xaml.cs">
-			<Link>Tabs\Settings\SettingsPage.xaml.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizPage.xaml.cs">
-			<Link>Tabs\Exercises\Quiz\QuizPage.xaml.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizStatisticsPage.xaml.cs">
-			<Link>Tabs\Exercises\Quiz\QuizStatisticsPage.xaml.cs</Link>
-		</Compile>
-		<Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizViewModel.cs">
-			<Link>Tabs\Exercises\Quiz\QuizViewModel.cs</Link>
-		</Compile>
-	</ItemGroup>
-	<ItemGroup>
-		<None Remove="Common\" />
-		<None Remove="Italbytz.Adapters.Meal.STWPB" />
-		<None Remove="Italbytz.Ports.Meal" />
-		<None Remove="Italbytz.Ports.Trivia" />
-		<None Remove="Italbytz.Adapters.Exam.Networks" />
-		<None Remove="Italbytz.Adapters.Exam.OperatingSystems" />
-		<None Remove="TableGen\" />
-		<None Remove="Services\" />
-		<None Remove="Services\Interfaces\" />
-		<None Remove="Services\TableGenServices\" />
-		<None Remove="Services\InfoTextServices\" />
-		<None Remove="CClarke.Plugin.Calendars" />
-		<None Remove="Plugin\" />
-		<None Remove="Plugin\Calendars\" />
-		<None Remove="Plugin\Calendars\Abstractions\" />
-		<None Remove="Platforms\iOS\Plugin\" />
-		<None Remove="Platforms\iOS\Plugin\Calendars\" />
-		<None Remove="Platforms\MacCatalyst\Plugin\" />
-		<None Remove="Platforms\MacCatalyst\Plugin\Calendars\" />
-		<None Remove="Platforms\Windows\Plugin\" />
-		<None Remove="Platforms\Windows\Plugin\Calendars\" />
-		<None Remove="Platforms\Android\Plugin\" />
-		<None Remove="Platforms\Android\Plugin\Calendars\" />
-		<None Remove="Platforms\Tizen\Plugin\" />
-		<None Remove="Platforms\Tizen\Plugin\Calendars\" />
-		<None Remove="Italbytz.Maui.Graphics" />
-		<None Remove="Tabs\" />
-		<None Remove="Tabs\Courses\" />
-		<None Remove="Tabs\Exercises\" />
-		<None Remove="Tabs\Profs\" />
-		<None Remove="Tabs\Mensa\" />
-		<None Remove="Tabs\Settings\" />
-		<None Remove="Tabs\Exercises\Quiz\" />
-		<None Remove="Resources\Images\statistics.svg" />
-	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="Common\" />
-		<Folder Include="TableGen\" />
-		<Folder Include="Services\" />
-		<Folder Include="Services\Interfaces\" />
-		<Folder Include="Services\TableGenServices\" />
-		<Folder Include="Services\InfoTextServices\" />
-		<Folder Include="Plugin\" />
-		<Folder Include="Plugin\Calendars\" />
-		<Folder Include="Plugin\Calendars\Abstractions\" />
-		<Folder Include="Platforms\iOS\Plugin\" />
-		<Folder Include="Platforms\iOS\Plugin\Calendars\" />
-		<Folder Include="Platforms\MacCatalyst\Plugin\" />
-		<Folder Include="Platforms\MacCatalyst\Plugin\Calendars\" />
-		<Folder Include="Platforms\Windows\Plugin\" />
-		<Folder Include="Platforms\Windows\Plugin\Calendars\" />
-		<Folder Include="Platforms\Android\Plugin\" />
-		<Folder Include="Platforms\Android\Plugin\Calendars\" />
-		<Folder Include="Platforms\Tizen\Plugin\" />
-		<Folder Include="Platforms\Tizen\Plugin\Calendars\" />
-		<Folder Include="Tabs\Courses\" />
-		<Folder Include="Tabs\Profs\" />
-		<Folder Include="Tabs\Mensa\" />
-		<Folder Include="Tabs\Settings\" />
-		<Folder Include="Tabs\Exercises\Quiz\" />
-	</ItemGroup>
-	<ItemGroup>
-		<PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="9.0.0-rc.1.1" />
-		<PackageReference Include="Italbytz.Ports.Meal" Version="9.0.0-rc.1" />
-		<PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2" />
-		<PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.12.0" />
-		<PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.7.0" />
-		<PackageReference Include="Italbytz.Maui.Graphics" Version="0.1.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0-rc.1.24431.7" />
-		<PackageReference Include="Italbytz.Adapters.Graph" Version="0.2.0" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.0-rc.1.24453.9" />
-		<PackageReference Include="System.Private.Uri" Version="4.3.2" />
-	</ItemGroup>
-	<ItemGroup>
-		<MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaPage.xaml">
-			<Link>Tabs\Mensa\MensaPage.xaml</Link>
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesPage.xaml">
-			<Link>Tabs\Courses\CoursesPage.xaml</Link>
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Common\InternalBrowserPage.xaml">
-			<Link>Common\InternalBrowserPage.xaml</Link>
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesPage.xaml">
-			<Link>Tabs\Settings\AdditivesPage.xaml</Link>
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensPage.xaml">
-			<Link>Tabs\Settings\AllergensPage.xaml</Link>
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizPage.xaml">
-			<Link>Tabs\Exercises\Quiz\QuizPage.xaml</Link>
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizStatisticsPage.xaml">
-			<Link>Tabs\Exercises\Quiz\QuizStatisticsPage.xaml</Link>
-			<SubType>
-			</SubType>
-		</MauiXaml>
-	</ItemGroup>
-	<ItemGroup>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\BitencodingsPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\BuddyPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\Common\ExerciseContentView.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\Common\ExerciseControlsView.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\CRCPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\ExercisesPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\MSTPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\NetmaskPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\PageReplacementPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\RealtimeSchedulingPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\SchedulingPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\ShortestPathsPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Profs\ProfsPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\AcknowledgementsPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\SettingsPage.xaml">
-			<SubType>
-			</SubType>
-		</MauiXaml>
-	</ItemGroup>
-	<ItemGroup>
-		<BundleResource Include="Resources\Raw\italbytz_ports_graph.html">
-			<LogicalName>italbytz_ports_meal.html</LogicalName>
-		</BundleResource>
-		<BundleResource Include="Resources\Raw\italbytz_maui_graphics.html">
-			<LogicalName>italbytz_ports_meal.html</LogicalName>
-		</BundleResource>
-		<BundleResource Include="Resources\Raw\microsoft_msagl.html">
-			<LogicalName>macross_json_extensions.html</LogicalName>
-		</BundleResource>
-		<BundleResource Include="Resources\Raw\microsoft_msagl_drawing.html">
-			<LogicalName>macross_json_extensions.html</LogicalName>
-		</BundleResource>
-		<BundleResource Include="Resources\Images\statistics.svg" />
-	</ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\ISDCompanion.Core\ISDCompanion.Core.csproj">
-		  <ReferenceSourceTarget></ReferenceSourceTarget>
-		</ProjectReference>
-		<ProjectReference Include="..\ISDCompanion.Ports\ISDCompanion.Ports.csproj">
-		  <ReferenceSourceTarget></ReferenceSourceTarget>
-		</ProjectReference>
-	</ItemGroup>
+    <PropertyGroup>
+        <TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
+        <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+        <!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+        <Nullable>enable</Nullable>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>StudyCompanion</RootNamespace>
+        <UseMaui>true</UseMaui>
+        <SingleProject>true</SingleProject>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <!-- Display name -->
+        <ApplicationTitle>ISDCompanion</ApplicationTitle>
+        <!-- App Identifier -->
+        <ApplicationId>de.hshl.isd.companion</ApplicationId>
+        <ApplicationIdGuid>7318FC73-5BE8-4A0A-A002-F629A4200794</ApplicationIdGuid>
+        <!-- Versions -->
+        <ApplicationDisplayVersion>4.5.1</ApplicationDisplayVersion>
+        <ApplicationVersion>24</ApplicationVersion>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <DefaultLanguage>en</DefaultLanguage>
+
+        <!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+        <WindowsPackageType>None</WindowsPackageType>
+
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+        <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+        <ReleaseVersion>4.5.1</ReleaseVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+        <CreatePackage>false</CreatePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+        <CreatePackage>false</CreatePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <AndroidKeyStore>true</AndroidKeyStore>
+        <AndroidSigningKeyStore>upload.keystore</AndroidSigningKeyStore>
+        <AndroidSigningStorePass>file:AndroidSigningPassword.txt</AndroidSigningStorePass>
+        <AndroidSigningKeyAlias>upload</AndroidSigningKeyAlias>
+        <AndroidSigningKeyPass>file:AndroidSigningPassword.txt</AndroidSigningKeyPass>
+    </PropertyGroup>
+    <ItemGroup>
+        <!-- App Icon -->
+        <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#17005E"/>
+        <!-- Splash Screen -->
+        <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#17005E" BaseSize="128,128"/>
+        <!-- Images -->
+        <MauiImage Include="Resources\Images\*"/>
+        <MauiFont Include="Resources\Fonts\*"/>
+        <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+        <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Update="Resources\Strings\AppResources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>AppResources.resx</DependentUpon>
+        </Compile>
+        <EmbeddedResource Update="Resources\Strings\AppResources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+            <CustomToolNamespace>StudyCompanion.Resources.Strings</CustomToolNamespace>
+            <!--<LogicalName>DefaultNamespace.CommentResources.resources</LogicalName>-->
+        </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Common\SectionViewModel.cs">
+            <Link>Common\SectionViewModel.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\PriceConverter.cs">
+            <Link>Tabs\Mensa\PriceConverter.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaViewModel.cs">
+            <Link>Tabs\Mensa\MensaViewModel.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaPage.xaml.cs">
+            <Link>Tabs\Mensa\MensaPage.xaml.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MealQuery.cs">
+            <Link>Tabs\Mensa\MealQuery.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Common\DateConverter.cs">
+            <Link>Common\DateConverter.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesPage.xaml.cs">
+            <Link>Tabs\Courses\CoursesPage.xaml.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesViewModel.cs">
+            <Link>Tabs\Courses\CoursesViewModel.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Profs\ProfsPage.xaml.cs">
+            <Link>Tabs\Profs\ProfsPage.xaml.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Common\InternalBrowserPage.xaml.cs">
+            <Link>Common\InternalBrowserPage.xaml.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Profs\ProfsViewModel.cs">
+            <Link>Tabs\Profs\ProfsViewModel.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesPage.xaml.cs">
+            <Link>Tabs\Settings\AdditivesPage.xaml.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesViewModel.cs">
+            <Link>Tabs\Settings\AdditivesViewModel.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensPage.xaml.cs">
+            <Link>Tabs\Settings\AllergensPage.xaml.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensViewModel.cs">
+            <Link>Tabs\Settings\AllergensViewModel.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\Settings.cs">
+            <Link>Tabs\Settings\Settings.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\SettingsPage.xaml.cs">
+            <Link>Tabs\Settings\SettingsPage.xaml.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizPage.xaml.cs">
+            <Link>Tabs\Exercises\Quiz\QuizPage.xaml.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizStatisticsPage.xaml.cs">
+            <Link>Tabs\Exercises\Quiz\QuizStatisticsPage.xaml.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizViewModel.cs">
+            <Link>Tabs\Exercises\Quiz\QuizViewModel.cs</Link>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove="Common\"/>
+        <None Remove="Italbytz.Adapters.Meal.STWPB"/>
+        <None Remove="Italbytz.Ports.Meal"/>
+        <None Remove="Italbytz.Ports.Trivia"/>
+        <None Remove="Italbytz.Adapters.Exam.Networks"/>
+        <None Remove="Italbytz.Adapters.Exam.OperatingSystems"/>
+        <None Remove="TableGen\"/>
+        <None Remove="Services\"/>
+        <None Remove="Services\Interfaces\"/>
+        <None Remove="Services\TableGenServices\"/>
+        <None Remove="Services\InfoTextServices\"/>
+        <None Remove="CClarke.Plugin.Calendars"/>
+        <None Remove="Plugin\"/>
+        <None Remove="Plugin\Calendars\"/>
+        <None Remove="Plugin\Calendars\Abstractions\"/>
+        <None Remove="Platforms\iOS\Plugin\"/>
+        <None Remove="Platforms\iOS\Plugin\Calendars\"/>
+        <None Remove="Platforms\MacCatalyst\Plugin\"/>
+        <None Remove="Platforms\MacCatalyst\Plugin\Calendars\"/>
+        <None Remove="Platforms\Windows\Plugin\"/>
+        <None Remove="Platforms\Windows\Plugin\Calendars\"/>
+        <None Remove="Platforms\Android\Plugin\"/>
+        <None Remove="Platforms\Android\Plugin\Calendars\"/>
+        <None Remove="Platforms\Tizen\Plugin\"/>
+        <None Remove="Platforms\Tizen\Plugin\Calendars\"/>
+        <None Remove="Italbytz.Maui.Graphics"/>
+        <None Remove="Tabs\"/>
+        <None Remove="Tabs\Courses\"/>
+        <None Remove="Tabs\Exercises\"/>
+        <None Remove="Tabs\Profs\"/>
+        <None Remove="Tabs\Mensa\"/>
+        <None Remove="Tabs\Settings\"/>
+        <None Remove="Tabs\Exercises\Quiz\"/>
+        <None Remove="Resources\Images\statistics.svg"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Common\"/>
+        <Folder Include="TableGen\"/>
+        <Folder Include="Services\"/>
+        <Folder Include="Services\Interfaces\"/>
+        <Folder Include="Services\TableGenServices\"/>
+        <Folder Include="Services\InfoTextServices\"/>
+        <Folder Include="Plugin\"/>
+        <Folder Include="Plugin\Calendars\"/>
+        <Folder Include="Plugin\Calendars\Abstractions\"/>
+        <Folder Include="Platforms\iOS\Plugin\"/>
+        <Folder Include="Platforms\iOS\Plugin\Calendars\"/>
+        <Folder Include="Platforms\MacCatalyst\Plugin\"/>
+        <Folder Include="Platforms\MacCatalyst\Plugin\Calendars\"/>
+        <Folder Include="Platforms\Windows\Plugin\"/>
+        <Folder Include="Platforms\Windows\Plugin\Calendars\"/>
+        <Folder Include="Platforms\Android\Plugin\"/>
+        <Folder Include="Platforms\Android\Plugin\Calendars\"/>
+        <Folder Include="Platforms\Tizen\Plugin\"/>
+        <Folder Include="Platforms\Tizen\Plugin\Calendars\"/>
+        <Folder Include="Tabs\Courses\"/>
+        <Folder Include="Tabs\Profs\"/>
+        <Folder Include="Tabs\Mensa\"/>
+        <Folder Include="Tabs\Settings\"/>
+        <Folder Include="Tabs\Exercises\Quiz\"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="9.0.0-rc.1.1"/>
+        <PackageReference Include="Italbytz.Ports.Meal" Version="9.0.0-rc.1"/>
+        <PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2"/>
+        <PackageReference Include="Italbytz.Adapters.Exam.Networks" Version="0.12.0"/>
+        <PackageReference Include="Italbytz.Adapters.Exam.OperatingSystems" Version="0.7.0"/>
+        <PackageReference Include="Italbytz.Maui.Graphics" Version="0.1.0"/>
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0"/>
+        <PackageReference Include="Italbytz.Adapters.Graph" Version="0.2.0"/>
+        <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.10"/>
+        <PackageReference Include="System.Private.Uri" Version="4.3.2"/>
+    </ItemGroup>
+    <ItemGroup>
+        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaPage.xaml">
+            <Link>Tabs\Mensa\MensaPage.xaml</Link>
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesPage.xaml">
+            <Link>Tabs\Courses\CoursesPage.xaml</Link>
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Common\InternalBrowserPage.xaml">
+            <Link>Common\InternalBrowserPage.xaml</Link>
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesPage.xaml">
+            <Link>Tabs\Settings\AdditivesPage.xaml</Link>
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensPage.xaml">
+            <Link>Tabs\Settings\AllergensPage.xaml</Link>
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizPage.xaml">
+            <Link>Tabs\Exercises\Quiz\QuizPage.xaml</Link>
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizStatisticsPage.xaml">
+            <Link>Tabs\Exercises\Quiz\QuizStatisticsPage.xaml</Link>
+            <SubType>
+            </SubType>
+        </MauiXaml>
+    </ItemGroup>
+    <ItemGroup>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\BitencodingsPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\BuddyPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\Common\ExerciseContentView.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\Common\ExerciseControlsView.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\CRCPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\ExercisesPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\MSTPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\NetmaskPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\PageReplacementPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\RealtimeSchedulingPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\SchedulingPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\ShortestPathsPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Profs\ProfsPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\AcknowledgementsPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\SettingsPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+    </ItemGroup>
+    <ItemGroup>
+        <BundleResource Include="Resources\Raw\italbytz_ports_graph.html">
+            <LogicalName>italbytz_ports_meal.html</LogicalName>
+        </BundleResource>
+        <BundleResource Include="Resources\Raw\italbytz_maui_graphics.html">
+            <LogicalName>italbytz_ports_meal.html</LogicalName>
+        </BundleResource>
+        <BundleResource Include="Resources\Raw\microsoft_msagl.html">
+            <LogicalName>macross_json_extensions.html</LogicalName>
+        </BundleResource>
+        <BundleResource Include="Resources\Raw\microsoft_msagl_drawing.html">
+            <LogicalName>macross_json_extensions.html</LogicalName>
+        </BundleResource>
+        <BundleResource Include="Resources\Images\statistics.svg"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\ISDCompanion.Core.Mock\ISDCompanion.Core.Mock.csproj"/>
+        <ProjectReference Include="..\ISDCompanion.Core\ISDCompanion.Core.csproj">
+            <ReferenceSourceTarget></ReferenceSourceTarget>
+        </ProjectReference>
+        <ProjectReference Include="..\ISDCompanion.Ports\ISDCompanion.Ports.csproj">
+            <ReferenceSourceTarget></ReferenceSourceTarget>
+        </ProjectReference>
+    </ItemGroup>
 </Project>

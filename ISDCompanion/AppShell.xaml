@@ -8,13 +8,13 @@
     Shell.FlyoutBehavior="Disabled">
     
     <TabBar>
-        <!--<Tab Title="{x:Static localization:AppResources.Mensa}" Icon="restaurant_menu_black_24dp.png">
+        <Tab Title="{x:Static localization:AppResources.Mensa}" Icon="restaurant_menu_black_24dp.png">
             <ShellContent ContentTemplate="{DataTemplate local:MensaPage}" />
-        </Tab>-->
+        </Tab>
         <Tab Title="{x:Static localization:AppResources.Exercises}" Icon="assignment_black_24dp.png">
             <ShellContent ContentTemplate="{DataTemplate local:ExercisesPage}" />
         </Tab>
-        <!--<Tab Title="{x:Static localization:AppResources.Courses}" Icon="calendar_today_black_24dp.png">
+        <Tab Title="{x:Static localization:AppResources.Courses}" Icon="calendar_today_black_24dp.png">
             <ShellContent ContentTemplate="{DataTemplate local:CoursesPage}" />
         </Tab>
         <Tab Title="{x:Static localization:AppResources.Profs}" Icon="school_black_24dp.png">
@@ -22,10 +22,10 @@
         </Tab>
         <Tab Title="{x:Static localization:AppResources.Settings}" Icon="settings_black_24dp.png">
             <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" />
-        </Tab>-->
-        <Tab Title="{x:Static localization:AppResources.Licenses}" Icon="settings_black_24dp.png">
-            <ShellContent ContentTemplate="{DataTemplate local:LicensesPage}" />
         </Tab>
+        <!--<Tab Title="{x:Static localization:AppResources.Licenses}" Icon="settings_black_24dp.png">
+            <ShellContent ContentTemplate="{DataTemplate local:LicensesPage}" />
+        </Tab>-->
     </TabBar>
 
 </Shell>

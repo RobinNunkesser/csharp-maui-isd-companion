@@ -7,6 +7,8 @@ using Italbytz.Ports.Meal;
 using Mensa.Core;
 using StudyCompanion.Ports;
 using ISDCompanion.Core;
+using Italbytz.Adapters.Meal.Mock;
+
 
 namespace StudyCompanion;
 
@@ -21,6 +23,7 @@ public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
     {
+        AppContext.SetSwitch("System.Reflection.NullabilityInfoContext.IsSupported", true);
         var env = Environment.Production;
 #if DEBUG
         env = Environment.Development;
@@ -44,9 +47,9 @@ public static class MauiProgram
             default:
                 break;
         }
-
-        builder.Services.AddSingleton<IGetMealsService>(
-            new GetMealsService(new MealRepository(Secrets.id, CultureInfo.CurrentCulture.TwoLetterISOLanguageName)));
+        
+        //builder.Services.AddSingleton<IGetMealsService, MockGetMealsService>();
+        builder.Services.AddSingleton<IGetMealsService>(new GetMealsService(new MealRepository(Secrets.id, CultureInfo.CurrentCulture.TwoLetterISOLanguageName)));
         builder.Services.AddSingleton<IGetCoursesService, GetCoursesService>();
 
         return builder.Build();

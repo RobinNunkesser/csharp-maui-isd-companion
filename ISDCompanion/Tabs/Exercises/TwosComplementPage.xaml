@@ -3,11 +3,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
-             xmlns:studyCompanion="clr-namespace:StudyCompanion"
              x:Class="StudyCompanion.TwosComplementPage"
-             Title="{x:Static localization:AppResources.TwosComplement}"
-             >
-    
+             Title="{x:Static localization:AppResources.TwosComplement}">
+
     <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
 
     <ContentPage.Content>
@@ -21,12 +19,21 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Text="{Binding PositiveBinary}" VerticalOptions="Center" FontFamily="SourceCodePro-Regular"/>
-                <Switch Grid.Row="0" Grid.Column="1" x:Name="SwitchSolution" IsToggled="false"/>
-                <Label Grid.Row="0" Grid.Column="2" Text="{Binding ComplementBinary}" VerticalOptions="Center" FontFamily="SourceCodePro-Regular"
-                       IsVisible="{Binding Source={x:Reference SwitchSolution}, Path=IsToggled}"/>
+                <Label Grid.Row="0" Grid.Column="0"
+                       Text="{Binding PositiveBinary}" VerticalOptions="Center"
+                       FontFamily="SourceCodePro-Regular" />
+                <Switch Grid.Row="0" Grid.Column="1" x:Name="SwitchSolution"
+                        IsToggled="false" />
+                <Label Grid.Row="0" Grid.Column="2"
+                       Text="{Binding ComplementBinary}"
+                       VerticalOptions="Center"
+                       FontFamily="SourceCodePro-Regular"
+                       IsVisible="{Binding Source={x:Reference SwitchSolution}, Path=IsToggled}" />
             </Grid>
-            <Button Text="{x:Static localization:AppResources.NewValues}" VerticalOptions="EndAndExpand" Command="{Binding NewParams}" Clicked="Button_Clicked"/>
-        </StackLayout>        
+            <Button Text="{x:Static localization:AppResources.NewValues}"
+                    Margin="16,8"
+                    VerticalOptions="EndAndExpand"
+                    Command="{Binding NewParams}" Clicked="Button_Clicked" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

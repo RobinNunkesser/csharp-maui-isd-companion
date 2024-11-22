@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISDCompanion.Core.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISDCompanion.Ports", "ISDCompanion.Ports\ISDCompanion.Ports.csproj", "{B8F396B6-2601-4DC2-9840-F665016641F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISDCompanion.Core.Mock", "ISDCompanion.Core.Mock\ISDCompanion.Core.Mock.csproj", "{F26873E6-7CFA-4D6D-AB4A-2CF98F4F6C0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{B8F396B6-2601-4DC2-9840-F665016641F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8F396B6-2601-4DC2-9840-F665016641F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8F396B6-2601-4DC2-9840-F665016641F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F26873E6-7CFA-4D6D-AB4A-2CF98F4F6C0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F26873E6-7CFA-4D6D-AB4A-2CF98F4F6C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F26873E6-7CFA-4D6D-AB4A-2CF98F4F6C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F26873E6-7CFA-4D6D-AB4A-2CF98F4F6C0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
