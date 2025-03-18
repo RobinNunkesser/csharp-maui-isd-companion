@@ -17,8 +17,8 @@
         <ApplicationId>de.hshl.isd.companion</ApplicationId>
         <ApplicationIdGuid>7318FC73-5BE8-4A0A-A002-F629A4200794</ApplicationIdGuid>
         <!-- Versions -->
-        <ApplicationDisplayVersion>4.5.1</ApplicationDisplayVersion>
-        <ApplicationVersion>24</ApplicationVersion>
+        <ApplicationDisplayVersion>4.6</ApplicationDisplayVersion>
+        <ApplicationVersion>25</ApplicationVersion>
         <NeutralLanguage>en-US</NeutralLanguage>
         <DefaultLanguage>en</DefaultLanguage>
 
@@ -195,7 +195,7 @@
         <Folder Include="Tabs\Exercises\Quiz\"/>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Italbytz.Adapters.Exam.ComputingSystems" Version="9.0.0" />
+        <PackageReference Include="Italbytz.Adapters.Exam.ComputingSystems" Version="9.0.0"/>
         <PackageReference Include="Italbytz.Adapters.Meal.STWPB" Version="9.0.0-rc.1.1"/>
         <PackageReference Include="Italbytz.Ports.Meal" Version="9.0.0-rc.1"/>
         <PackageReference Include="Italbytz.Ports.Trivia" Version="0.1.2"/>
