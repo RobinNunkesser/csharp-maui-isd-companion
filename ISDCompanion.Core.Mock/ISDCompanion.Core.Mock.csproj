@@ -1,38 +1,38 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFrameworks>net9.0;net9.0-maccatalyst</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\MockCourse.cs">
-        <Link>MockCourse.cs</Link>
-      </Compile>
-      <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\MockGetCoursesService.cs">
-        <Link>MockGetCoursesService.cs</Link>
-      </Compile>
-      <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\MockGetMealsService.cs">
-        <Link>MockGetMealsService.cs</Link>
-      </Compile>
-      <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\MockMeal.cs">
-        <Link>MockMeal.cs</Link>
-      </Compile>
-      <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\MockPrice.cs">
-        <Link>MockPrice.cs</Link>
-      </Compile>
-      <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\Mocks.cs">
-        <Link>Mocks.cs</Link>
-      </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\MockCourse.cs">
+            <Link>MockCourse.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\MockGetCoursesService.cs">
+            <Link>MockGetCoursesService.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\MockGetMealsService.cs">
+            <Link>MockGetMealsService.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\MockMeal.cs">
+            <Link>MockMeal.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\MockPrice.cs">
+            <Link>MockPrice.cs</Link>
+        </Compile>
+        <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core.Mock\Mocks.cs">
+            <Link>Mocks.cs</Link>
+        </Compile>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Italbytz.Ports.Meal" Version="9.0.0-rc.1" />
+        <PackageReference Include="Italbytz.Ports.Meal" Version="9.0.0-rc.1"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ISDCompanion.Core\ISDCompanion.Core.csproj" />
+        <ProjectReference Include="..\ISDCompanion.Core\ISDCompanion.Core.csproj"/>
     </ItemGroup>
 
 </Project>

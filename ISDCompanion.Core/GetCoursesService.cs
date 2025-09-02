@@ -7,92 +7,65 @@ namespace ISDCompanion.Core
     {
         private readonly List<ICourse> Courses = new()
         {
-            /*
+            
             // --------------- Semester 1 ---------------
         new Course {
             Semester = 1,
-            StartDate = "23.09.2024 09:00",
-            Name = "Personal Skills I VL/ÜB",
-            Lecturer = "Grewe",
-            Room = "Seminarraum H1.2-E01-010",
-            Length = 120,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 1,
-            StartDate = "23.09.2024 11:00",
+            StartDate = "22.09.2025 10:00",
             Name = "Mathematik I VL",
             Lecturer = "Ponick",
-            Room = "Seminarraum H4.2-E00-100",
-            Length = 120,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 1,
-            StartDate = "23.09.2024 15:00",
-            Name = "Physik VL",
-            Lecturer = "Kientopf",
-            Room = "Seminarraum H1.2-E01-020",
-            Length = 120,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 1,
-            StartDate = "23.09.2024 17:00",
-            Name = "Mathematik I ÜB",
-            Lecturer = "Ponick",
-            Room = "Seminarraum H1.2-E01-020",
-            Length = 120,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 1,
-            StartDate = "24.09.2024 10:00",
-            Name = "Physik ÜB",
-            Lecturer = "Kientopf",
-            Room = "Seminarraum H4.3-E00-100",
+            Room = "Seminarraum H1.1-E01-130",
             Length = 60,
             Biweekly = false
         },
-        new Course {
+                new Course {
             Semester = 1,
-            StartDate = "24.09.2024 11:00",
-            Name = "Technisches Englisch I VL+ÜB",
-            Lecturer = "Strack",
-            Room = "Seminarraum H4.3-E00-100",
-            Length = 180,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 1,
-            StartDate = "25.09.2024 09:00",
-            Name = "Biologie VL",
-            Lecturer = "Tickenbrock",
-            Room = "Hörsaal HAM 8",
-            Length = 120,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 1,
-            StartDate = "25.09.2024 11:00",
-            Name = "Mathematik I VL",
-            Lecturer = "Ponick",
-            Room = "Seminarraum H4.1-E00-110",
+            StartDate = "22.09.2025 11:00",
+            Name = "Technisches Englisch I VL",
+            Lecturer = "Birkhahn",
+            Room = "Seminarraum H1.1-E01-140",
             Length = 60,
             Biweekly = false
         },
-        new Course {
+                new Course {
             Semester = 1,
-            StartDate = "25.09.2024 12:00",
-            Name = "Chemie VL",
-            Lecturer = "Kirner",
-            Room = "Seminarraum H4.1-E00-110",
+            StartDate = "22.09.2025 12:00",
+            Name = "Technisches Englisch I ÜB",
+            Lecturer = "Birkhahn",
+            Room = "Seminarraum H1.1-E01-140",
             Length = 120,
+            Biweekly = false
+        },
+                        new Course {
+            Semester = 1,
+            StartDate = "22.09.2025 15:00",
+            Name = "Angleichungskurs Mathematik",
+            Lecturer = "Runovska",
+            Room = "PC-Pool H4.2-E00-130",
+            Length = 120,
+            Biweekly = false
+        },
+                new Course {
+            Semester = 1,
+            StartDate = "23.09.2025 10:00",
+            Name = "Grundlagen der Informatik VL",
+            Lecturer = "Nunkesser",
+            Room = "Hörsaal HAM 4",
+            Length = 90,
             Biweekly = false
         },
         new Course {
             Semester = 1,
-            StartDate = "25.09.2024 14:00",
+            StartDate = "23.09.2025 12:00",
+            Name = "Grundlagen der Informatik ÜB",
+            Lecturer = "Nunkesser",
+            Room = "PC-Pool H4.1-E00-130",
+            Length = 90,
+            Biweekly = false
+        },
+        new Course {
+            Semester = 1,
+            StartDate = "24.09.2025 09:00",
             Name = "Grundlagen der Programmierung VL",
             Lecturer = "Stuckenholz",
             Room = "Hörsaal HAM 4",
@@ -101,107 +74,80 @@ namespace ISDCompanion.Core
         },
         new Course {
             Semester = 1,
-            StartDate = "25.09.2024 16:00",
-            Name = "Angleichungskurs Mathematik",
-            Lecturer = "Runovska",
-            Room = "PC-Pool H4.1-E00-130",
+            StartDate = "24.09.2025 11:00",
+            Name = "Physik VL",
+            Lecturer = "Kientopf",
+            Room = "Hörsaal HAM 4",
             Length = 120,
             Biweekly = false
         },
         new Course {
             Semester = 1,
-            StartDate = "26.09.2024 09:30",
-            Name = "Technische Informatik I VL",
-            Lecturer = "Nunkesser",
-            Room = "Seminarraum H4.3-E00-110",
-            Length = 90,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 1,
-            StartDate = "26.09.2024 11:00",
-            Name = "Technische Informatik I ÜB",
-            Lecturer = "Nunkesser",
-            Room = "PC-Pool H4.2-E00-140",
-            Length = 90,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 1,
-            StartDate = "26.09.2024 14:00",
-            Name = "Grundlagen der Programmierung ÜB",
-            Lecturer = "Stuckenholz",
-            Room = "PC-Pool H4.2-E00-130",
+            StartDate = "24.09.2025 13:00",
+            Name = "Mathematik I ÜB",
+            Lecturer = "Ponick",
+            Room = "Seminarraum H1.2-E01-010",
             Length = 120,
             Biweekly = false
         },
-        // --------------- Semester 3 ---------------
         new Course {
-            Semester = 3,
-            StartDate = "23.09.2024 12:00",
-            Name = "Technisches Englisch III VL+ÜB",
-            Lecturer = "Strack",
-            Room = "Seminarraum H4.3-E00-100",
-            Length = 180,
+            Semester = 1,
+            StartDate = "25.09.2025 08:00",
+            Name = "Chemie VL",
+            Lecturer = "Kirner",
+            Room = "Seminarraum H1.2-E01-020",
+            Length = 120,
             Biweekly = false
         },
         new Course {
-            Semester = 3,
-            StartDate = "23.09.2024 15:00",
-            Name = "Digitaltechnik I VL",
-            Lecturer = "Pelzl",
+            Semester = 1,
+            StartDate = "25.09.2025 10:00",
+            Name = "Personal Skills I VL/ÜB",
+            Lecturer = "Grewe",
             Room = "Seminarraum H1.1-E01-170",
             Length = 120,
             Biweekly = false
         },
-        new Course {
-            Semester = 3,
-            StartDate = "23.09.2024 17:00",
-            Name = "Digitaltechnik I ÜB",
-            Lecturer = "Beckmann",
-            Room = "Labor H3.3-E01-160",
-            Length = 120,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 3,
-            StartDate = "24.09.2024 10:00",
-            Name = "Betriebssysteme VL",
-            Lecturer = "Nunkesser",
-            Room = "Seminarraum H1.1-E01-130",
-            Length = 90,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 3,
-            StartDate = "24.09.2024 12:00",
-            Name = "Netzwerke VL",
-            Lecturer = "Nunkesser",
-            Room = "Seminarraum H1.1-E01-130",
-            Length = 90,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 3,
-            StartDate = "25.09.2024 09:00",
-            Name = "Mathematik III ÜB",
-            Lecturer = "Ponick",
-            Room = "Seminarraum H1.1-E01-130",
-            Length = 60,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 3,
-            StartDate = "25.09.2024 10:00",
-            Name = "System Modellierung II VL",
-            Lecturer = "Runovska",
+                new Course {
+            Semester = 1,
+            StartDate = "25.09.2025 12:00",
+            Name = "Grundlagen der Programmierung ÜB",
+            Lecturer = "Stuckenholz",
             Room = "PC-Pool H4.2-E00-140",
             Length = 120,
             Biweekly = false
         },
         new Course {
+            Semester = 1,
+            StartDate = "25.09.2025 14:00",
+            Name = "Physik ÜB",
+            Lecturer = "Kientopf",
+            Room = "Seminarraum H4.2-E00-100",
+            Length = 60,
+            Biweekly = false
+        },
+        new Course {
+            Semester = 1,
+            StartDate = "26.09.2025 10:00",
+            Name = "Biologie VL",
+            Lecturer = "Tickenbrock",
+            Room = "Seminarraum H1.1-E01-140",
+            Length = 120,
+            Biweekly = false
+        },
+        new Course {
+            Semester = 1,
+            StartDate = "26.09.2025 12:00",
+            Name = "Mathematik I VL",
+            Lecturer = "Ponick",
+            Room = "Hörsaal HAM 6",
+            Length = 120,
+            Biweekly = false
+        },
+            // --------------- Semester 3 ---------------
+                new Course {
             Semester = 3,
-            StartDate = "25.09.2024 14:00",
+            StartDate = "22.09.2025 11:00",
             Name = "Embedded Systems I VL",
             Lecturer = "Pelzl",
             Room = "Seminarraum H1.1-E01-160",
@@ -210,168 +156,260 @@ namespace ISDCompanion.Core
         },
         new Course {
             Semester = 3,
-            StartDate = "25.09.2024 16:00",
+            StartDate = "22.09.2025 14:00",
+            Name = "Technisches Englisch III VL",
+            Lecturer = "Birkhahn",
+            Room = "Seminarraum H1.1-E01-160",
+            Length = 60,
+            Biweekly = false
+        },
+        new Course {
+            Semester = 3,
+            StartDate = "22.09.2025 14:00",
+            Name = "Technisches Englisch III ÜB",
+            Lecturer = "Birkhahn",
+            Room = "Seminarraum H1.1-E01-160",
+            Length = 120,
+            Biweekly = false
+        },
+                new Course {
+            Semester = 3,
+            StartDate = "24.09.2025 08:00",
             Name = "Embedded Systems I ÜB",
             Lecturer = "Pelzl",
             Room = "Labor H3.3-E01-160",
             Length = 120,
             Biweekly = false
         },
+                new Course {
+            Semester = 3,
+            StartDate = "24.09.2025 10:00",
+            Name = "System Modellierung II VL",
+            Lecturer = "Runovska",
+            Room = "PC-Pool H4.2-E00-130",
+            Length = 120,
+            Biweekly = false
+        },
+                new Course {
+            Semester = 3,
+            StartDate = "24.09.2025 12:00",
+            Name = "Mathematik III ÜB",
+            Lecturer = "Ponick",
+            Room = "Seminarraum H1.2-E01-010",
+            Length = 60,
+            Biweekly = false
+        },
         new Course {
             Semester = 3,
-            StartDate = "26.09.2024 10:00",
+            StartDate = "24.09.2025 15:00",
+            Name = "IT Sicherheit VL",
+            Lecturer = "Pelzl",
+            Room = "Hörsaal HAM 3",
+            Length = 120,
+            Biweekly = false
+        },
+        new Course {
+            Semester = 3,
+            StartDate = "24.09.2025 17:00",
+            Name = "IT Sicherheit ÜB",
+            Lecturer = "Pelzl",
+            Room = "Seminarraum H1.1-E01-150",
+            Length = 120,
+            Biweekly = false
+        },
+        new Course {
+            Semester = 3,
+            StartDate = "25.09.2025 09:30",
+            Name = "Betriebssysteme VL",
+            Lecturer = "Nunkesser",
+            Room = "Seminarraum H1.1-E01-150",
+            Length = 90,
+            Biweekly = false
+        },
+        new Course {
+            Semester = 3,
+            StartDate = "25.09.2025 11:00",
+            Name = "Netzwerke VL",
+            Lecturer = "Nunkesser",
+            Room = "Seminarraum H1.1-E01-150",
+            Length = 90,
+            Biweekly = false
+        },
+        new Course {
+            Semester = 3,
+            StartDate = "25.09.2025 14:00",
             Name = "Praktische Informatik VL",
             Lecturer = "Stuckenholz",
-            Room = "Seminarraum H4.2-E00-100",
+            Room = "Seminarraum H4.3-E00-110",
             Length = 120,
             Biweekly = false
         },
         new Course {
             Semester = 3,
-            StartDate = "26.09.2024 12:00",
+            StartDate = "25.09.2025 16:00",
             Name = "Praktische Informatik ÜB",
             Lecturer = "Stuckenholz",
-            Room = "PC-Pool H4.1-E00-130",
+            Room = "PC-Pool H3.3-E00-010",
             Length = 120,
             Biweekly = false
         },
         new Course {
             Semester = 3,
-            StartDate = "27.09.2024 09:00",
+            StartDate = "26.09.2025 10:00",
             Name = "Mathematik III VL",
             Lecturer = "Ponick",
-            Room = "Seminarraum H1.1-E01-160",
+            Room = "Seminarraum H4.1-E00-100",
             Length = 120,
             Biweekly = false
         },
         new Course {
             Semester = 3,
-            StartDate = "27.09.2024 11:00",
-            Name = "Personal Skills III VL+ÜB",
+            StartDate = "26.09.2025 13:00",
+            Name = "Personal Skills III VL",
             Lecturer = "Zips",
-            Room = "Hörsaal HAM 8",
-            Length = 180,
+            Room = "Hörsaal HAM 4",
+            Length = 120,
             Biweekly = false
         },
-        // --------------- Semester 7 ---------------
         new Course {
+            Semester = 3,
+            StartDate = "26.09.2025 15:00",
+            Name = "Personal Skills III ÜB",
+            Lecturer = "Zips",
+            Room = "Seminarraum H4.1-E00-100",
+            Length = 60,
+            Biweekly = false
+        },
+            // --------------- Semester 7 ---------------
+                new Course {
             Semester = 7,
-            StartDate = "23.09.2024 09:30",
-            Name = "Advanced App Development VL",
+            StartDate = "22.09.2025 11:00",
+            Name = "IT-Consulting VL",
             Lecturer = "Nunkesser",
-            Room = "Seminarraum H1.1-E01-170",
+            Room = "Seminarraum H4.2-E00-100",
+            Length = 90,
+            Biweekly = false
+        },
+                new Course {
+            Semester = 7,
+            StartDate = "24.09.2025 09:30",
+            Name = "Interaktive Grafikanwendungen VL",
+            Lecturer = "Nunkesser",
+            Room = "Seminarraum  H7.2-E00-020",
             Length = 90,
             Biweekly = false
         },
         new Course {
             Semester = 7,
-            StartDate = "23.09.2024 11:00",
-            Name = "Advanced App Development ÜB",
+            StartDate = "24.09.2025 11:00",
+            Name = "Angewandte Künstliche Intelligenz ÜB",
             Lecturer = "Nunkesser",
             Room = "Labor H3.3-E01-220",
             Length = 45,
             Biweekly = false
         },
-        new Course {
+                new Course {
             Semester = 7,
-            StartDate = "24.09.2024 08:00",
-            Name = "System Verifikation und System Validierung VL",
-            Lecturer = "Beckmann, Günther",
-            Room = "Seminarraum H1.1-E01-170",
+            StartDate = "24.09.2025 12:00",
+            Name = "Safety und Security Projektkurs",
+            Lecturer = "Pelzl",
+            Room = "",
             Length = 120,
             Biweekly = false
         },
         new Course {
             Semester = 7,
-            StartDate = "24.09.2024 10:00",
+            StartDate = "24.09.2025 14:00",
+            Name = "System Verifikation und System Validierung ÜB",
+            Lecturer = "Beckmann, Günther",
+            Room = "PC-Pool H3.3-E00-010",
+            Length = 120,
+            Biweekly = true
+        },
+        new Course {
+            Semester = 7,
+            StartDate = "25.09.2025 08:00",
             Name = "Safety und Security Analysis VL",
             Lecturer = "Pelzl",
-            Room = "Seminarraum HS1-E02-010",
+            Room = "Seminarraum H1.2-E01-010",
+            Length = 120,
+            Biweekly = false
+        },
+                new Course {
+            Semester = 7,
+            StartDate = "25.09.2025 10:00",
+            Name = "Safety und Security Hackathon",
+            Lecturer = "Pelzl",
+            Room = "",
             Length = 120,
             Biweekly = false
         },
         new Course {
             Semester = 7,
-            StartDate = "24.09.2024 12:00",
+            StartDate = "25.09.2025 12:00",
             Name = "Safety und Security Analysis ÜB",
             Lecturer = "Pelzl",
             Room = "Labor H3.3-E01-160",
             Length = 60,
             Biweekly = false
         },
-        new Course {
+new Course {
             Semester = 7,
-            StartDate = "25.09.2024 11:15",
-            Name = "Interaktive Grafikanwendungen VL",
-            Lecturer = "Nunkesser",
-            Room = "Seminarraum HS1-E02-010",
-            Length = 90,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 7,
-            StartDate = "25.09.2024 13:15",
+            StartDate = "26.09.2025 09:30",
             Name = "Interaktive Grafikanwendungen ÜB",
             Lecturer = "Nunkesser",
-            Room = "PC-Pool H4.2-E00-130",
+            Room = "PC-Pool H4.2-E00-140",
+            Length = 90,
+            Biweekly = false
+        },
+                new Course {
+            Semester = 7,
+            StartDate = "26.09.2025 11:00",
+            Name = "Angewandte Künstliche Intelligenz VL",
+            Lecturer = "Nunkesser",
+            Room = "Seminarraum H7.2-E00-020",
             Length = 90,
             Biweekly = false
         },
         new Course {
             Semester = 7,
-            StartDate = "26.09.2024 09:00",
-            Name = "System Verifikation und System Validierung ÜB",
-            Lecturer = "Beckmann, Günther",
-            Room = "PC-Pool H4.2-E00-130, Seminarraum H1.1-E01-150",
-            Length = 120,
-            Biweekly = true
-        },
-        new Course {
-            Semester = 7,
-            StartDate = "17.10.2024 09:00",
+            StartDate = "26.09.2025 12:00",
             Name = "Embedded Programming ÜB",
             Lecturer = "Beckmann, Günther",
-            Room = "Seminarraum H1.1-E01-150",
-            Length = 120,
-            Biweekly = true
-        },
-        new Course {
-            Semester = 7,
-            StartDate = "26.09.2024 13:00",
-            Name = "IT-Consulting VL",
-            Lecturer = "Nunkesser",
             Room = "Seminarraum H1.1-E01-170",
-            Length = 90,
+            Length = 60,
             Biweekly = false
         },
+
         new Course {
             Semester = 7,
-            StartDate = "27.09.2024 08:00",
-            Name = "Embedded Programming VL",
-            Lecturer = "Beckmann, Günther",
-            Room = "Seminarraum HS1-E02-010",
+            StartDate = "26.09.2025 13:00",
+            Name = "System Verifikation und System Validierung VL",
+            Lecturer = "Hirsch",
+            Room = "Seminarraum H1.1-E01-160",
             Length = 120,
             Biweekly = false
         },
         new Course {
             Semester = 7,
-            StartDate = "27.09.2024 10:00",
-            Name = "Intelligent Systems in Theory and Practice VL",
-            Lecturer = "Nunkesser",
-            Room = "Seminarraum H4.3-E00-110",
-            Length = 90,
-            Biweekly = false
-        },
-        new Course {
-            Semester = 7,
-            StartDate = "27.09.2024 12:00",
+            StartDate = "26.09.2025 15:00",
             Name = "Web-Backends VL",
             Lecturer = "Stuckenholz",
             Room = "Seminarraum H1.1-E01-170",
             Length = 120,
             Biweekly = false
         },
-        */
+
+        new Course {
+            Semester = 7,
+            StartDate = "25.09.2025 12:00",
+            Name = "Embedded Programming VL",
+            Lecturer = "Hayek",
+            Room = "Seminarraum H4.2-E00-110",
+            Length = 120,
+            Biweekly = false
+        },
+        /*
             // --------------- Semester 2 ---------------
             new Course
             {
@@ -768,7 +806,7 @@ namespace ISDCompanion.Core
                 Room = "Labor H3.3-E01-220",
                 Length = 90,
                 Biweekly = false
-            }
+            }*/
         };
 
         public List<ICourse> Execute()

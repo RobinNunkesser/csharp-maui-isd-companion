@@ -12,7 +12,7 @@ using Italbytz.Adapters.Meal.Mock;
 
 namespace StudyCompanion;
 
-enum Environment
+internal enum Environment
 {
     Development,
     Staging,
@@ -23,7 +23,8 @@ public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
     {
-        AppContext.SetSwitch("System.Reflection.NullabilityInfoContext.IsSupported", true);
+        AppContext.SetSwitch(
+            "System.Reflection.NullabilityInfoContext.IsSupported", true);
         var env = Environment.Production;
 #if DEBUG
         env = Environment.Development;
@@ -47,9 +48,11 @@ public static class MauiProgram
             default:
                 break;
         }
-        
+
         //builder.Services.AddSingleton<IGetMealsService, MockGetMealsService>();
-        builder.Services.AddSingleton<IGetMealsService>(new GetMealsService(new MealRepository(Secrets.id, CultureInfo.CurrentCulture.TwoLetterISOLanguageName)));
+        builder.Services.AddSingleton<IGetMealsService>(
+            new GetMealsService(new MealRepository(Secrets.id,
+                CultureInfo.CurrentCulture.TwoLetterISOLanguageName)));
         builder.Services.AddSingleton<IGetCoursesService, GetCoursesService>();
 
         return builder.Build();
@@ -59,19 +62,10 @@ public static class MauiProgram
         this MauiAppBuilder mauiAppBuilder
     )
     {
-        /*mauiAppBuilder.Services.AddSingleton<QuizPage>();
-        mauiAppBuilder.Services.AddSingleton<QuizViewModel>();*/
         mauiAppBuilder.Services.AddSingleton<MensaPage>();
         mauiAppBuilder.Services.AddSingleton<MensaViewModel>();
         mauiAppBuilder.Services.AddSingleton<CoursesPage>();
         mauiAppBuilder.Services.AddSingleton<CoursesViewModel>();
-        /*mauiAppBuilder.Services.AddSingleton<BinaryToDecimalPage>();
-        mauiAppBuilder.Services.AddSingleton<BinaryToDecimalViewModel>();*/
-        /*mauiAppBuilder.Services.AddSingleton<ProfsPage>();
-        mauiAppBuilder.Services.AddSingleton<ProfsViewModel>();*/
-        /*mauiAppBuilder.Services.AddSingleton<SettingsPage>();
-        mauiAppBuilder.Services.AddSingleton<SettingsViewModel>();*/
         return mauiAppBuilder;
     }
 }
-
