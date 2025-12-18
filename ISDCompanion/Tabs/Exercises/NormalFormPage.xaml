@@ -2,13 +2,13 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:shared="clr-namespace:ISDCompanion.Shared;assembly=ISDCompanion.Shared"
+             xmlns:pages="clr-namespace:ISDCompanion.Shared.Pages;assembly=ISDCompanion.Shared"
              x:Class="StudyCompanion.NormalFormPage">
     <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html"
                    StartPath="/normalform">
         <BlazorWebView.RootComponents>
             <RootComponent Selector="#app"
-                           ComponentType="{x:Type shared:Routes}" />
+                           ComponentType="{x:Type pages:Counter}" />
         </BlazorWebView.RootComponents>
     </BlazorWebView>
 
