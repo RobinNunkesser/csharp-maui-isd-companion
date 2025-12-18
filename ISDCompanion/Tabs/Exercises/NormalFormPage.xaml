@@ -8,7 +8,7 @@
                    StartPath="/normalform">
         <BlazorWebView.RootComponents>
             <RootComponent Selector="#app"
-                           ComponentType="{x:Type pages:Counter}" />
+                           ComponentType="{x:Type pages:NormalForm}" />
         </BlazorWebView.RootComponents>
     </BlazorWebView>
 
