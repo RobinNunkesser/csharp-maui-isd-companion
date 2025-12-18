@@ -1,0 +1,72 @@
+@page "/normalform"
+
+<script type="text/javascript">
+    var normalFormInstance;
+
+    function colsChanged() {
+        var d = document.getElementById("select_cols_id").value;
+        normalFormInstance.setColumns(d);
+    }
+
+    function typeChanged() {
+        var d = document.getElementById("select_type_id").value;
+        normalFormInstance.changeType(d);
+    }
+
+</script>
+
+<h3>Disjunctive Normal Form (DNF) and Conjunctive Normal Form (CNF)</h3>
+<p>The following truth table represents the function <span
+        class="normalformMathFont"><i>y</i>&nbsp;=&nbsp;f(<i>x</i><sub><small>n</small></sub>,...,<i>x</i><sub><small>1</small></sub>, <i>x</i><sub><small>0</small></sub>)</span>.
+    You can manually edit this function by clicking on the gray elements in the
+    <i>y</i> column. Alternatively, you can generate a random function by
+    pressing the "Random example" button.</p>
+<p>
+    <button type="button" onclick="normalFormInstance.genRandom();">Random
+        example
+    </button>
+    <br>
+    Number of input variables:
+    <select onchange="colsChanged();" id="select_cols_id">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select><br>
+    Display:
+    <select onchange="typeChanged();" id="select_type_id">
+        <option value="1">CNF</option>
+        <option value="2" selected>DNF and CNF</option>
+        <option value="3">DNF</option>
+    </select>
+</p>
+<div style="overflow: auto; height: 500px; width: 640px;">
+    <div id="myNormalFormDisplay"></div>
+</div>
+
+<p>
+    Based on <a
+        href="https://www.mathematik.uni-marburg.de/~thormae/lectures/ti1/code/normalform/normalform.js"
+        target="_blank" rel="noopener noreferrer">normalform.js</a> (Copyright
+    &copy; 2013 by Thorsten Thormaehlen. All rights reserved.)
+</p>
+
+
+
+@inject IJSRuntime JS
+
+@code {
+    private IJSObjectReference _module;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _module = await JS.InvokeAsync<IJSObjectReference>("import", "./_content/ISDCompanion.Shared/Pages/NormalForm.razor.js");
+            await JS.InvokeVoidAsync("eval", "normalFormInstance = new NormalForm(\"myNormalFormDisplay\", 2, 3, 0);");
+        }
+    }
+
+}

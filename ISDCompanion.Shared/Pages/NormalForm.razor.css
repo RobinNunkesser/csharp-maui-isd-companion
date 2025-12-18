@@ -1,0 +1,42 @@
+.normalformTableClass {
+    font-size: 18pt;
+    line-height: 22px;
+    padding: 0px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: "Times New Roman", Georgia, Serif;
+    border: 1px solid black;
+}
+
+.normalformHeaderX {
+    background-color: lightblue;
+}
+
+.normalformHeaderY {
+    background-color: lightblue;
+}
+
+.normalformBit {
+    border: 1px solid black;
+    padding: 0px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.normalformBitRes {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: none;
+    border-bottom: none;
+    padding: 0px;
+    min-width: 100px;
+    text-align: left;
+}
+
+.normalformBitY {
+    background-color: #cccccc;
+}
+
+.normalformMathFont {
+    font-family: "Times New Roman", Georgia, Serif, serif;
+}
