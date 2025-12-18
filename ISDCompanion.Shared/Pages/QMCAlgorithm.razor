@@ -1,5 +1,71 @@
 @page "/qmcalgorithm"
-<h3>QMCAlgorithm</h3>
+
+<script type="text/javascript">
+  var qmc;
+
+  function run() {
+    qmc = new QuineMcCluskey("myQmcDisplay", 3, 0);
+    qmc.init();
+  }
+
+  function colsChanged() {
+    var d = document.getElementById("select_cols_id").value;
+    qmc.setNoOfVars(d);
+  }
+
+  function dontCareChanged() {
+    var d = document.getElementById("select_dontCare").value;
+    qmc.allowDontCares(d);
+  }
+
+</script>
+
+<title>Quine–McCluskey algorithm</title>
+
+<h1>Quine–McCluskey algorithm </h1>
+
+
+<p>The function that is minimized can be entered via a truth table that
+  represents the function <span
+    class="qmcMathFont"><i>y</i>&nbsp;=&nbsp;f(<i>x</i><sub><small>n</small></sub>,...,<i>x</i><sub><small>1</small></sub>, <i>x</i><sub><small>0</small></sub>)</span>.
+  You can manually edit this function by clicking on the gray elements in the
+  <span class="qmcMathFont"><i>y</i></span> column. Alternatively, you can
+  generate a random function by pressing the "Random example" button.</p>
+<p>
+  <button type="button" onclick="qmc.genRandom();">Random example</button>
+  <br>
+  Number of input variables:
+  <select onchange="colsChanged();" id="select_cols_id">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" selected>3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+  </select> &nbsp;&nbsp;&nbsp;&nbsp; Allow Don’t-Care:
+  <select onchange="dontCareChanged();" id="select_dontCare">
+    <option value="0" selected>no</option>
+    <option value="1">Yes</option>
+  </select>
+</p>
+<div id="myQmcDisplay"></div>
+
+<p><strong>Legend:</strong> <br>
+  Don't-care: &times;<br>
+  Implicant (non prime): &rarr; <br>
+  Prime implicant: &#x2713; <br>
+  Essential prime implicant: <span style="color:green;">&#9679;</span><br>
+  Prime implicant but covers only don't-care: (&times;) <br>
+</p>
+
+<p>
+  Based on <a
+    href="https://www.mathematik.uni-marburg.de/~thormae/lectures/ti1/code/qmc/qmc.js"
+    target="_blank" rel="noopener noreferrer">qmc.js</a> (Copyright
+  &copy; 2012-2013 by Thorsten Thormaehlen. All rights reserved.)
+</p>
 
 @code {
 
