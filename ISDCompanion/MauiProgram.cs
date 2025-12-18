@@ -38,9 +38,12 @@ public static class MauiProgram
             })
             .RegisterServices();
 
+        builder.Services.AddMauiBlazorWebView();
+
         switch (env)
         {
             case Environment.Development:
+                builder.Services.AddBlazorWebViewDeveloperTools();
                 builder.Logging.AddDebug();
                 break;
             case Environment.Staging:

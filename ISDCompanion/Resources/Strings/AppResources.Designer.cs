@@ -897,6 +897,12 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
         
+        internal static string NormalForm {
+            get {
+                return ResourceManager.GetString("NormalForm", resourceCulture);
+            }
+        }
+        
         internal static string Licenses {
             get {
                 return ResourceManager.GetString("Licenses", resourceCulture);

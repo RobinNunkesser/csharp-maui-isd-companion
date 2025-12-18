@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:StudyCompanion"
@@ -9,71 +10,73 @@
     <ContentPage.Content>
         <TableView Intent="Menu">
             <TableRoot>
-                <TableSection Title="{x:Static localization:AppResources.ComputingSystems}">
-                    <TextCell Text="{x:Static localization:AppResources.BinaryToDecimal}"
-                              Command="{Binding NavigateCommand}"
-                              CommandParameter="{x:Type local:BinaryToDecimalPage}"
-                    />
-                    <TextCell Text="{x:Static localization:AppResources.DecimalToBinary}"
-                              Command="{Binding NavigateCommand}"
-                              CommandParameter="{x:Type local:DecimalToBinaryPage}"
-                    />
-                    <TextCell Text="{x:Static localization:AppResources.BinaryAddition}"
-                              Command="{Binding NavigateCommand}"
-                              CommandParameter="{x:Type local:BinaryAdditionPage}"
-                    />
-                    <TextCell Text="{x:Static localization:AppResources.TwosComplement}"
-                              Command="{Binding NavigateCommand}"
-                              CommandParameter="{x:Type local:TwosComplementPage}"
-                    />
+                <TableSection
+                    Title="{x:Static localization:AppResources.ComputingSystems}">
+                    <TextCell
+                        Text="{x:Static localization:AppResources.BinaryToDecimal}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Type local:BinaryToDecimalPage}" />
+                    <TextCell
+                        Text="{x:Static localization:AppResources.DecimalToBinary}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Type local:DecimalToBinaryPage}" />
+                    <TextCell
+                        Text="{x:Static localization:AppResources.BinaryAddition}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Type local:BinaryAdditionPage}" />
+                    <TextCell
+                        Text="{x:Static localization:AppResources.TwosComplement}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Type local:TwosComplementPage}" />
+                    <TextCell
+                        Text="{x:Static localization:AppResources.NormalForm}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Type local:NormalFormPage}" />
                 </TableSection>
-                <TableSection Title="{x:Static localization:AppResources.Networks}">
-                    <TextCell Text="{x:Static localization:AppResources.Bitencodings}"
+                <TableSection
+                    Title="{x:Static localization:AppResources.Networks}">
+                    <TextCell
+                        Text="{x:Static localization:AppResources.Bitencodings}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Type local:BitencodingsPage}" />
+                    <TextCell Text="{x:Static localization:AppResources.CRC}"
                               Command="{Binding NavigateCommand}"
-                              CommandParameter="{x:Type local:BitencodingsPage}"
-                              />
-                   <TextCell Text="{x:Static localization:AppResources.CRC}"
-                              Command="{Binding NavigateCommand}"
-                              CommandParameter="{x:Type local:CRCPage}"
-                              />
+                              CommandParameter="{x:Type local:CRCPage}" />
                     <TextCell Text="{x:Static localization:AppResources.MST}"
                               Command="{Binding NavigateCommand}"
-                              CommandParameter="{x:Type local:MSTPage}"
-                              />
-                    <TextCell Text="{x:Static localization:AppResources.ShortestPaths}"
-                              Command="{Binding NavigateCommand}"
-                              CommandParameter="{x:Type local:ShortestPathsPage}"
-                              />
-                    <TextCell Text="{x:Static localization:AppResources.Netmasks}"
-                              Command="{Binding NavigateCommand}"
-                              CommandParameter="{x:Type local:NetmaskPage}"
-                              />
+                              CommandParameter="{x:Type local:MSTPage}" />
+                    <TextCell
+                        Text="{x:Static localization:AppResources.ShortestPaths}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Type local:ShortestPathsPage}" />
+                    <TextCell
+                        Text="{x:Static localization:AppResources.Netmasks}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Type local:NetmaskPage}" />
                     <TextCell Text="{x:Static localization:AppResources.Quiz}"
-                              Command="{Binding NetworksQuizCommand}"                              
-                              />     
+                              Command="{Binding NetworksQuizCommand}" />
                 </TableSection>
-               <TableSection Title="{x:Static localization:AppResources.OperatingSystems}">
-                    <TextCell Text="{x:Static localization:AppResources.PageReplacement}"
-                               Command="{Binding NavigateCommand}"
-                               CommandParameter="{x:Type local:PageReplacementPage}"
-                               />
-                     <TextCell Text="{x:Static localization:AppResources.Buddy}"
-                               Command="{Binding NavigateCommand}"
-                               CommandParameter="{x:Type local:BuddyPage}"
-                               />
-                     <TextCell Text="{x:Static localization:AppResources.Scheduling}"
-                               Command="{Binding NavigateCommand}"
-                               CommandParameter="{x:Type local:SchedulingPage}"
-                               />
-                     <TextCell Text="{x:Static localization:AppResources.RealtimeScheduling}"
-                               Command="{Binding NavigateCommand}"
-                               CommandParameter="{x:Type local:RealtimeSchedulingPage}"
-                               />                    
-                     <TextCell Text="{x:Static localization:AppResources.Quiz}"
-                              Command="{Binding OpSysQuizCommand}"                              
-                              />  
+                <TableSection
+                    Title="{x:Static localization:AppResources.OperatingSystems}">
+                    <TextCell
+                        Text="{x:Static localization:AppResources.PageReplacement}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Type local:PageReplacementPage}" />
+                    <TextCell Text="{x:Static localization:AppResources.Buddy}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:BuddyPage}" />
+                    <TextCell
+                        Text="{x:Static localization:AppResources.Scheduling}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Type local:SchedulingPage}" />
+                    <TextCell
+                        Text="{x:Static localization:AppResources.RealtimeScheduling}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Type local:RealtimeSchedulingPage}" />
+                    <TextCell Text="{x:Static localization:AppResources.Quiz}"
+                              Command="{Binding OpSysQuizCommand}" />
                 </TableSection>
             </TableRoot>
-        </TableView>            
+        </TableView>
     </ContentPage.Content>
 </ContentPage>
