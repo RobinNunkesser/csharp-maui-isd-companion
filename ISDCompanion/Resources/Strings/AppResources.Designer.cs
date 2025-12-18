@@ -903,6 +903,18 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
         
+        internal static string KVMap {
+            get {
+                return ResourceManager.GetString("KVMap", resourceCulture);
+            }
+        }
+        
+        internal static string QMC {
+            get {
+                return ResourceManager.GetString("QMC", resourceCulture);
+            }
+        }
+        
         internal static string Licenses {
             get {
                 return ResourceManager.GetString("Licenses", resourceCulture);

@@ -505,6 +505,12 @@ Voranstehende Nullen können weg gelassen werden. Die resultierende Bitfolge wir
     <data name="NormalForm" xml:space="preserve">
 		<value>DNF und KNF</value>
 	</data>
+    <data name="KVMap" xml:space="preserve">
+		<value>KV Diagramme</value>
+	</data>
+    <data name="QMC" xml:space="preserve">
+		<value>Quine–McCluskey</value>
+	</data>
     <data name="Licenses" xml:space="preserve">
 		<value>Lizenzen</value>
 	</data>

@@ -503,6 +503,12 @@ Leading zeros can be omitted. The resulting bit string is extended back to 6 cha
     <data name="NormalForm" xml:space="preserve">
 		<value>DNF and CNF</value>
 	</data>
+    <data name="KVMap" xml:space="preserve">
+		<value>KV Map</value>
+	</data>
+    <data name="QMC" xml:space="preserve">
+		<value>Quine–McCluskey</value>
+	</data>
     <data name="Licenses" xml:space="preserve">
 		<value>Licenses</value>
 	</data>
