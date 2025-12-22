@@ -101,6 +101,7 @@ export class NormalForm {
             }
             myRow.appendChild(myCell);
         }
+
         if (this.normalType >= 2) {
             var myCellDnfH = document.createElement('td');
             myCellDnfH.setAttribute(this.scopeAttr.name, '');
@@ -204,6 +205,7 @@ export class NormalForm {
                         cnfStr = "";
                         emptyDnf = false;
                     }
+
                     if (i === (this.rows - 1)) {
                         if (emptyCnf) {
                             cnfStr += "&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;1&nbsp;&nbsp;";
@@ -231,7 +233,7 @@ export class NormalForm {
         this.myDiv.appendChild(myTable);
     }
 
-    myCellMouseDown(event) {
+    myCellMouseDown(e) {
         var targ;
         if (e.target) {
             targ = e.target;
