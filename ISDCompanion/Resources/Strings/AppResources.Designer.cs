@@ -903,6 +903,12 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
         
+        internal static string NormalFormText {
+            get {
+                return ResourceManager.GetString("NormalFormText", resourceCulture);
+            }
+        }
+        
         internal static string KVMap {
             get {
                 return ResourceManager.GetString("KVMap", resourceCulture);

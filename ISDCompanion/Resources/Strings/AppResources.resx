@@ -503,6 +503,9 @@ Leading zeros can be omitted. The resulting bit string is extended back to 6 cha
     <data name="NormalForm" xml:space="preserve">
 		<value>DNF and CNF</value>
 	</data>
+    <data name="NormalFormText" xml:space="preserve">
+		<value>The following truth table represents a boolean function. You can manually edit this function by clicking on the gray elements in the y column. Alternatively, you can generate a random function by pressing the "Random example" button.</value>
+	</data>
     <data name="KVMap" xml:space="preserve">
 		<value>KV Map</value>
 	</data>

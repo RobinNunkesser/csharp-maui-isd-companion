@@ -505,6 +505,9 @@ Voranstehende Nullen können weg gelassen werden. Die resultierende Bitfolge wir
     <data name="NormalForm" xml:space="preserve">
 		<value>DNF und KNF</value>
 	</data>
+    <data name="NormalFormText" xml:space="preserve">
+		<value>Die folgende Wahrheitstabelle stellt eine boolesche Funktion dar. Du kannst diese Funktion manuell bearbeiten, indem du auf die grauen Elemente in der y\-Spalte klickst. Alternativ kannst du durch Drücken der Schaltfläche "Random example" eine zufällige Funktion erzeugen.</value>
+	</data>
     <data name="KVMap" xml:space="preserve">
 		<value>KV Diagramme</value>
 	</data>
