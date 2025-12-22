@@ -18,6 +18,7 @@ export class NormalForm {
     normalType;
     that;
     language;
+    scopeAttr;
 
     constructor(parentDivId, type, columns, lang) {
         this.divId = parentDivId;
@@ -27,17 +28,22 @@ export class NormalForm {
         this.rows = Math.pow(2, columns);
         this.data = [];
         this.that = this;
+        this.scopeAttr = Array.from(document.getElementById(parentDivId).attributes).find(attr => attr.name.startsWith('b-'));
         this.init();
     }
 
     init() {
-        this.myDiv = document.createElement('div');
-        if (!this.myDiv)
-            console.log("NormalFormerror: can not create a canvas element");
-        document.body.appendChild(this.myDiv);
-        var parent = document.getElementById(this.divId);
-        if (!parent)
+        const parent = document.getElementById(this.divId);
+        if (!parent) {
             console.log("NormalForm error: can not find an element with the given name: " + this.divId);
+            return;
+        }
+        this.myDiv = document.createElement('div');
+        this.myDiv.setAttribute(this.scopeAttr.name, '');
+        if (!this.myDiv) {
+            console.log("NormalFormerror: can not create a canvas element");
+            return;
+        }
         parent.appendChild(this.myDiv);
         for (let i = 0; i < this.rows; i++) {
             this.data[i] = 0;
@@ -79,11 +85,13 @@ export class NormalForm {
         var myTable = document.createElement('table');
         myTable.setAttribute('id', this.divId + "_normalformtable");
         myTable.setAttribute('class', 'normalformTableClass');
-
+        myTable.setAttribute(this.scopeAttr.name, '');
 
         var myRow = document.createElement('tr');
+        myRow.setAttribute(this.scopeAttr.name, '');
         for (var j = 0; j < this.cols; j++) {
             var myCell = document.createElement('th');
+            myCell.setAttribute(this.scopeAttr.name, '');
             if (j < this.cols - 1) {
                 myCell.innerHTML = "<i>x</i><sub><small>" + (this.cols - 2 - j) + "</small></sub>";
                 myCell.setAttribute('class', 'normalformHeaderX normalformBit');
@@ -95,12 +103,14 @@ export class NormalForm {
         }
         if (this.normalType >= 2) {
             var myCellDnfH = document.createElement('td');
+            myCellDnfH.setAttribute(this.scopeAttr.name, '');
             myCellDnfH.innerHTML = "DNF";
             myCellDnfH.setAttribute('class', 'normalformHeaderRes normalformBit');
             myRow.appendChild(myCellDnfH);
         }
         if (this.normalType <= 2) {
             var myCellCnfH = document.createElement('td');
+            myCellCnfH.setAttribute(this.scopeAttr.name, '');
             if (this.language === 0) {
                 myCellCnfH.innerHTML = "CNF";
             } else {
@@ -118,21 +128,25 @@ export class NormalForm {
 
         for (var i = 0; i < this.rows; i++) {
             myRow = document.createElement('tr');
+            myRow.setAttribute(this.scopeAttr.name, '');
             var myCellDnf;
             var myCellCnf;
             if (this.normalType >= 2) {
                 myCellDnf = document.createElement('td');
+                myCellDnf.setAttribute(this.scopeAttr.name, '');
                 myCellDnf.setAttribute('class', 'normalformBitRes');
             }
             var dnfStr = "";
             if (this.normalType <= 2) {
                 var myCellCnf = document.createElement('td');
+                myCellCnf.setAttribute(this.scopeAttr.name, '');
                 myCellCnf.setAttribute('class', 'normalformBitRes');
             }
             var cnfStr = "";
             var res = i.toString(2);
             for (var j = 0; j < this.cols; j++) {
                 var myCell = document.createElement('td');
+                myCell.setAttribute(this.scopeAttr.name, '');
 
                 if (j < this.cols - 1) { // x element
                     myCell.setAttribute('class', 'normalformBit');
@@ -168,9 +182,12 @@ export class NormalForm {
                 } else { // y element
                     myCell.setAttribute('class', 'normalformBit normalformBitY');
                     myCell.setAttribute('title', i);
-                    myCell.onmousedown = function (event) {
+                    myCell.onmousedown = (event) => {
                         this.myCellMouseDown(event);
                     };
+                    myCell.ontouchend = (event) => {
+                        this.myCellMouseDown(event);
+                    }
 
                     if (this.data[i] === 0) {
                         myCell.innerHTML = "0";
