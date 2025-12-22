@@ -3,11 +3,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:ISDCompanion.Shared.Pages;assembly=ISDCompanion.Shared"
-             x:Class="StudyCompanion.KVMapPage">
-    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
-        <BlazorWebView.RootComponents>
-            <RootComponent Selector="#app"
-                           ComponentType="{x:Type pages:KVMap}" />
-        </BlazorWebView.RootComponents>
-    </BlazorWebView>
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
+             x:Class="StudyCompanion.KVMapPage"
+             Title="{x:Static localization:AppResources.KVMap}">
+    <Grid RowDefinitions="Auto,*">
+        <Label Grid.Row="0"
+               Text="{x:Static localization:AppResources.KVMapText}"
+               LineBreakMode="WordWrap"
+               Padding="10" />
+        <BlazorWebView x:Name="blazorWebView"
+                       Grid.Row="1"
+                       HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent Selector="#app"
+                               ComponentType="{x:Type pages:KVMap}" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+    </Grid>
 </ContentPage>

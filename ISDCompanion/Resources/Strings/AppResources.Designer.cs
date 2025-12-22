@@ -915,9 +915,21 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
         
+        internal static string KVMapText {
+            get {
+                return ResourceManager.GetString("KVMapText", resourceCulture);
+            }
+        }
+        
         internal static string QMC {
             get {
                 return ResourceManager.GetString("QMC", resourceCulture);
+            }
+        }
+        
+        internal static string QMCText {
+            get {
+                return ResourceManager.GetString("QMCText", resourceCulture);
             }
         }
         

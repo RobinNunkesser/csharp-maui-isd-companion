@@ -509,8 +509,14 @@ Leading zeros can be omitted. The resulting bit string is extended back to 6 cha
     <data name="KVMap" xml:space="preserve">
 		<value>KV Map</value>
 	</data>
+    <data name="KVMapText" xml:space="preserve">
+		<value>This interactive Karnaugh-Veitch map represents a boolean function. You can manually edit this function by clicking on the cells of the map. Alternatively, you can generate a random function by pressing the "Random example" button.</value>
+	</data>
     <data name="QMC" xml:space="preserve">
 		<value>Quine–McCluskey</value>
+	</data>
+    <data name="QMCText" xml:space="preserve">
+		<value>The function that is minimized can be entered via a truth table that represents a boolean function. You can manually edit this function by clicking on the gray elements in the y column. Alternatively, you can generate a random function by pressing the "Random example" button.</value>
 	</data>
     <data name="Licenses" xml:space="preserve">
 		<value>Licenses</value>

@@ -3,11 +3,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:ISDCompanion.Shared.Pages;assembly=ISDCompanion.Shared"
-             x:Class="StudyCompanion.QMCAlgorithmPage">
-    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
-        <BlazorWebView.RootComponents>
-            <RootComponent Selector="#app"
-                           ComponentType="{x:Type pages:QMCAlgorithm}" />
-        </BlazorWebView.RootComponents>
-    </BlazorWebView>
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
+             x:Class="StudyCompanion.QMCAlgorithmPage"
+             Title="{x:Static localization:AppResources.QMC}">
+    <Grid RowDefinitions="Auto,*">
+        <Label Grid.Row="0"
+               Text="{x:Static localization:AppResources.QMCText}"
+               LineBreakMode="WordWrap"
+               Padding="10" />
+        <BlazorWebView x:Name="blazorWebView"
+                       Grid.Row="1"
+                       HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent Selector="#app"
+                               ComponentType="{x:Type pages:QMCAlgorithm}" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+    </Grid>
 </ContentPage>
