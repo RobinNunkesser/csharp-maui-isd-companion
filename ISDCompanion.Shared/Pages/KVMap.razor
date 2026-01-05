@@ -2,7 +2,7 @@
 <script language="JavaScript" type="text/javascript">
   var karnaugh = -1;
   var qmc = -1;
-  
+
   function noOfVarsChanged() {
     var d = document.getElementById("noOfVarsChanged_id").value;
     karnaugh.setNoOfVars(d);
@@ -68,15 +68,16 @@
 @inject IJSRuntime JS
 
 @code {
-  private IJSObjectReference _module;
+  private IJSObjectReference _qmcmodule;
+  private IJSObjectReference _kvmodule;
 
   protected override async Task OnAfterRenderAsync(bool firstRender)
   {
     if (firstRender)
     {
-      _module = await JS.InvokeAsync<IJSObjectReference>("import", "./_content/ISDCompanion.Shared/Pages/QMCAlgorithm.razor.js");
+      _qmcmodule = await JS.InvokeAsync<IJSObjectReference>("import", "./_content/ISDCompanion.Shared/Pages/QMCAlgorithm.razor.js");
       await JS.InvokeVoidAsync("eval", "qmc = new QuineMcCluskey(\"fakeDivId\", 2, 4, 0); qmc.init();");
-      _module = await JS.InvokeAsync<IJSObjectReference>("import", "./_content/ISDCompanion.Shared/Pages/KVMap.razor.js");
+      _kvmodule = await JS.InvokeAsync<IJSObjectReference>("import", "./_content/ISDCompanion.Shared/Pages/KVMap.razor.js");
       await JS.InvokeVoidAsync("eval", "karnaugh = new KarnaughMap(\"myKarnaughMap\", qmc); karnaugh.init();");
     }
   }

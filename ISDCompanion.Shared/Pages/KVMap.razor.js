@@ -867,3 +867,5 @@ function KarnaughMap(parentDivId, qmcRef) {
         return {x: mx, y: my};
     }
 }
+
+window.KarnaughMap = KarnaughMap;
