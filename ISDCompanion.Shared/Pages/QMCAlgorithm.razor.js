@@ -808,6 +808,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
     this.cols = columns + 1;
     this.rows = Math.pow(2, columns);
     this.data = new QuineMcCluskeyDataCtrl();
+    this.scopeAttr = Array.from(document.getElementById(parentDivId).attributes).find(attr => attr.name.startsWith('b-'));
     var that = this;
 
     var labels;
@@ -843,6 +844,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
         this.data.init(columns);
 
         myDiv = document.createElement('div');
+        myDiv.setAttribute(this.scopeAttr.name, '');
         if (!myDiv) {
             console.log("QuineMcCluskey error: can not create a canvas element");
             myDiv = -1;
@@ -891,10 +893,13 @@ function QuineMcCluskey(parentDivId, columns, language) {
         var primTermTable = this.data.primTermTables[t];
         var myTable = document.createElement('table');
         myTable.setAttribute('class', 'qmcTableClass');
+        myTable.setAttribute(this.scopeAttr.name, '');
         var myRow = document.createElement('tr');
+        myRow.setAttribute(this.scopeAttr.name, '');
 
         var cell1h = document.createElement('td');
         cell1h.setAttribute('class', 'qmcTdNoBorder');
+        cell1h.setAttribute(this.scopeAttr.name, '');
         cell1h.innerHTML = "";
         myRow.appendChild(cell1h);
 
@@ -902,6 +907,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
             var myCell = document.createElement('th');
             myCell.innerHTML = "<i>x</i><sub><small>" + (this.data.noOfVars - 1 - j) + "</small></sub>";
             myCell.setAttribute('class', 'qmcHeaderX qmcBit');
+            myCell.setAttribute(this.scopeAttr.name, '');
             myRow.appendChild(myCell);
         }
 
@@ -909,6 +915,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
             for (var i = 0; i < primTermTable.remainingVars.length; i++) {
                 var cellImph = document.createElement('td');
                 cellImph.setAttribute('class', 'qmcTdNoBorder');
+                cellImph.setAttribute(this.scopeAttr.name, '');
                 cellImph.innerHTML = primTermTable.remainingVars[i].toString(10);
                 myRow.appendChild(cellImph);
             }
@@ -916,6 +923,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
 
         var cellImph = document.createElement('td');
         cellImph.setAttribute('class', 'qmcTdNoBorder');
+        cellImph.setAttribute(this.scopeAttr.name, '');
         cellImph.innerHTML = "";
         myRow.appendChild(cellImph);
 
@@ -939,6 +947,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
             myRow = document.createElement('tr');
 
             var cell1 = document.createElement('td');
+            cell1.setAttribute(this.scopeAttr.name, '');
             var cell1Str = "";
             var first = true;
             for (var m in impl.imp) {
@@ -954,6 +963,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
             for (var j = 0; j < this.data.noOfVars; j++) {
                 var myCell = document.createElement('td');
                 myCell.setAttribute('class', 'qmcBit');
+                myCell.setAttribute(this.scopeAttr.name, '');
                 var str;
 
                 var currentBit = Math.pow(2, (this.data.noOfVars - 1) - j);
@@ -977,6 +987,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
             if (!primFlag) {
                 var cellLast = document.createElement('td');
                 cellLast.setAttribute('class', 'qmcTdNoBorder');
+                cellLast.setAttribute(this.scopeAttr.name, '');
                 if (impl.isPrim) {
                     cellLast.innerHTML = "&#x2713;";  //equivalent &check; in most browsers
                     if (impl.isOnlyDontCare) {
@@ -991,6 +1002,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
                     var ii = primTermTable.remainingVars[v];
                     var cellUsed = document.createElement('td');
                     cellUsed.setAttribute('class', 'qmcPrimItem qmcBit');
+                    cellUsed.setAttribute(this.scopeAttr.name, '');
                     if (ii in impl.imp) {
                         cellUsed.innerHTML = "&#9675;";
                         if (ii in primTermTable.remainingPrimTerms[i].neededByVar) {
@@ -1004,6 +1016,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
                 }
                 var cellLast = document.createElement('td');
                 cellLast.setAttribute('class', 'qmcTdNoBorder');
+                cellLast.setAttribute(this.scopeAttr.name, '');
                 cellLast.innerHTML = primTermTable.remainingPrimTerms[i].coloredTermString;
                 if (drawPetrickVars) {
                     var pVars = "&nbsp;&equiv;&nbsp;<i>p</i><sub><small>" + i + "</small></sub>";
@@ -1032,21 +1045,25 @@ function QuineMcCluskey(parentDivId, columns, language) {
 
         var myInnerDiv = document.createElement('div');
         myInnerDiv.setAttribute('id', divId + "_innerDiv");
-
+        myInnerDiv.setAttribute(this.scopeAttr.name, '');
 
         var myTruthTableDiv = document.createElement('div');
         myTruthTableDiv.innerHTML = "<div>" + labels['ttable'] + ":</div>";
         myTruthTableDiv.setAttribute('class', 'qmcTableLabelDiv');
+        myTruthTableDiv.setAttribute(this.scopeAttr.name, '');
 
         // re-generate
         var myTable = document.createElement('table');
         myTable.setAttribute('class', 'qmcTableClass');
+        myTable.setAttribute(this.scopeAttr.name, '');
 
         var myRow = document.createElement('tr');
+        myRow.setAttribute(this.scopeAttr.name, '');
 
         var cell1h = document.createElement('td');
         cell1h.innerHTML = "";
         cell1h.setAttribute('class', 'qmcTdNoBorder');
+        cell1h.setAttribute(this.scopeAttr.name, '');
         myRow.appendChild(cell1h);
 
         for (var j = 0; j < this.cols; j++) {
@@ -1058,6 +1075,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
                 myCell.innerHTML = "<i>y</i>";
                 myCell.setAttribute('class', 'qmcHeaderY qmcBit');
             }
+            myCell.setAttribute(this.scopeAttr.name, '');
             myRow.appendChild(myCell);
         }
         myTable.appendChild(myRow);
@@ -1065,10 +1083,12 @@ function QuineMcCluskey(parentDivId, columns, language) {
 
         for (var i = 0; i < this.rows; i++) {
             myRow = document.createElement('tr');
+            myRow.setAttribute(this.scopeAttr.name, '');
 
             var cell1 = document.createElement('td');
             cell1.innerHTML = i.toString(10) + ":";
             cell1.setAttribute('class', 'qmcTdNoBorder');
+            cell1.setAttribute(this.scopeAttr.name, '');
             myRow.appendChild(cell1);
 
             var res = i.toString(2);
@@ -1102,6 +1122,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
                         myCell.innerHTML = "&times;";
                     }
                 }
+                myCell.setAttribute(this.scopeAttr.name, '');
                 myRow.appendChild(myCell);
             }
             myTable.appendChild(myRow);
@@ -1115,6 +1136,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
             var myImplicantDiv = document.createElement('div');
             myImplicantDiv.innerHTML = "<div>" + labels['impli'] + " (" + labels['order'] + " " + i + "):</div>";
             myImplicantDiv.setAttribute('class', 'qmcTableLabelDiv');
+            myImplicantDiv.setAttribute(this.scopeAttr.name, '');
             this.drawImplicantGroup(this.data.implicantGroups[i], myImplicantDiv, false, 0, false);
             myInnerDiv.appendChild(myImplicantDiv);
         }
@@ -1129,6 +1151,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
             }
 
             resultDiv.setAttribute('class', 'qmcTableResultDiv');
+            resultDiv.setAttribute(this.scopeAttr.name, '');
 
             var drawPetrickVars = false;
             if (this.data.petrickTermPrims.length > 0 && i === this.data.primTermTables.length - 1) {
@@ -1138,6 +1161,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
             this.drawImplicantGroup(this.data.primTerms, resultDiv, true, i, drawPetrickVars);
 
             var essPTermsDiv = document.createElement('div');
+            essPTermsDiv.setAttribute(this.scopeAttr.name, '');
             var essPTermsStr = "";
             var primTermTable = this.data.primTermTables[i];
             var jj = primTermTable.essentialPrimTerms.length;
@@ -1156,14 +1180,17 @@ function QuineMcCluskey(parentDivId, columns, language) {
 
         if (this.data.petrickTermPrims.length > 0) {
             var petrickDiv = document.createElement('div');
+            petrickDiv.setAttribute(this.scopeAttr.name, '');
             petrickDiv.innerHTML = "<p> " + labels['petricksM'] + " </p>";
 
             var petrickInnerDiv = document.createElement('div');
             petrickInnerDiv.innerHTML = "<span class='qmcMathFont'>" + this.data.petrickSolver.log + "</span>";
             petrickInnerDiv.setAttribute('class', 'qmcIndent');
+            petrickInnerDiv.setAttribute(this.scopeAttr.name, '');
             petrickDiv.appendChild(petrickInnerDiv);
 
             var petrickEssTermsDiv = document.createElement('div');
+            petrickEssTermsDiv.setAttribute(this.scopeAttr.name, '');
             var petrickEssTermsStr = "";
             var jj = this.data.petrickTermPrims.length;
             for (var j = 0; j < jj; j++) {
@@ -1182,6 +1209,7 @@ function QuineMcCluskey(parentDivId, columns, language) {
 
 
         var termDiv = document.createElement('div');
+        termDiv.setAttribute(this.scopeAttr.name, '');
         termDiv.innerHTML = "<p><strong>" + labels['minExp'] + ":</strong> </p> <p ><span class='qmcMathFont'><i>y</i>&nbsp;=&nbsp;" + this.data.coloredMinimalTerm;
         +"</span></p>";
         myInnerDiv.appendChild(termDiv);
