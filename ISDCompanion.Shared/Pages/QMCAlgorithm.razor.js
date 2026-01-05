@@ -808,7 +808,14 @@ function QuineMcCluskey(parentDivId, columns, language) {
     this.cols = columns + 1;
     this.rows = Math.pow(2, columns);
     this.data = new QuineMcCluskeyDataCtrl();
-    this.scopeAttr = Array.from(document.getElementById(parentDivId).attributes).find(attr => attr.name.startsWith('b-'));
+    var parentElem = document.getElementById(parentDivId);
+    this.scopeAttr = null;
+    if (parentElem && parentElem.attributes) {
+        var attrs = Array.from(parentElem.attributes);
+        this.scopeAttr = attrs.find(function (attr) {
+            return attr && attr.name && attr.name.startsWith('b-');
+        }) || null;
+    }
     var that = this;
 
     var labels;

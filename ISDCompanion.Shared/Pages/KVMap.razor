@@ -2,16 +2,7 @@
 <script language="JavaScript" type="text/javascript">
   var karnaugh = -1;
   var qmc = -1;
-
-  function run() {
-    qmc = new QuineMcCluskey("fakeDivId", 2, 4, 0);
-    //qmc = new QuineMcCluskey("myQmcDisplay", 2, 4, 0); // enable for debugging
-    qmc.init();
-
-    karnaugh = new KarnaughMap("myKarnaughMap", qmc);
-    karnaugh.init();
-  }
-
+  
   function noOfVarsChanged() {
     var d = document.getElementById("noOfVarsChanged_id").value;
     karnaugh.setNoOfVars(d);
@@ -74,6 +65,20 @@
 </p>
 
 
+@inject IJSRuntime JS
+
 @code {
+  private IJSObjectReference _module;
+
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    if (firstRender)
+    {
+      _module = await JS.InvokeAsync<IJSObjectReference>("import", "./_content/ISDCompanion.Shared/Pages/QMCAlgorithm.razor.js");
+      await JS.InvokeVoidAsync("eval", "qmc = new QuineMcCluskey(\"fakeDivId\", 2, 4, 0); qmc.init();");
+      _module = await JS.InvokeAsync<IJSObjectReference>("import", "./_content/ISDCompanion.Shared/Pages/KVMap.razor.js");
+      await JS.InvokeVoidAsync("eval", "karnaugh = new KarnaughMap(\"myKarnaughMap\", qmc); karnaugh.init();");
+    }
+  }
 
 }
