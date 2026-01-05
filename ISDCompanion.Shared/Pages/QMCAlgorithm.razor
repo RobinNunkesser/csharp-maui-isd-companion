@@ -1,21 +1,21 @@
 @page "/qmcalgorithm"
 
 <script type="text/javascript">
-  var qmc;
+  var qmcInstance;
 
-  function run() {
+  <!--function run() {
     qmc = new QuineMcCluskey("myQmcDisplay", 3, 0);
     qmc.init();
-  }
+  }-->
 
   function colsChanged() {
     var d = document.getElementById("select_cols_id").value;
-    qmc.setNoOfVars(d);
+    qmcInstance.setNoOfVars(d);
   }
 
   function dontCareChanged() {
     var d = document.getElementById("select_dontCare").value;
-    qmc.allowDontCares(d);
+    qmcInstance.allowDontCares(d);
   }
 
 </script>
@@ -32,7 +32,8 @@
   <span class="qmcMathFont"><i>y</i></span> column. Alternatively, you can
   generate a random function by pressing the "Random example" button.</p>-->
 <p>
-  <button type="button" onclick="qmc.genRandom();">Random example</button>
+  <button type="button" onclick="qmcInstance.genRandom();">Random example
+  </button>
   <br>
   Number of input variables:
   <select onchange="colsChanged();" id="select_cols_id">
@@ -68,6 +69,18 @@
   &copy; 2012-2013 by Thorsten Thormaehlen. All rights reserved.)
 </p>
 
+@inject IJSRuntime JS
+
 @code {
+  private IJSObjectReference _module;
+
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    if (firstRender)
+    {
+      _module = await JS.InvokeAsync<IJSObjectReference>("import", "./_content/ISDCompanion.Shared/Pages/QMCAlgorithm.razor.js");
+      await JS.InvokeVoidAsync("eval", "qmcInstance = new QuineMcCluskey(\"myQmcDisplay\", 3, 0);");
+    }
+  }
 
 }
