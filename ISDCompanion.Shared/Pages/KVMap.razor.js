@@ -266,6 +266,15 @@ function KarnaughMap(parentDivId, qmcRef) {
     var resultStyle = 'position:inline; font-family:"Times New Roman",Georgia,Serif; visibility:inherit;';
     var dontShowResult = false;
 
+    var parentElem = document.getElementById(parentDivId);
+    this.scopeAttr = null;
+    if (parentElem && parentElem.attributes) {
+        var attrs = Array.from(parentElem.attributes);
+        this.scopeAttr = attrs.find(function (attr) {
+            return attr && attr.name && attr.name.startsWith('b-');
+        }) || null;
+    }
+
     this.init = function () {
 
         data.init(4);
@@ -366,6 +375,7 @@ function KarnaughMap(parentDivId, qmcRef) {
 
         for (var i = 0; i < data.noOfVars + 2; i++) {
             var overlay = document.createElement('div');
+            if (that.scopeAttr) overlay.setAttribute(that.scopeAttr.name, '');
             overlay.setAttribute('style', 'position:absolute; top:0px; left:0px; visibility:hidden;');
             overlay.innerHTML = "overlay" + i;
             document.body.appendChild(overlay);
