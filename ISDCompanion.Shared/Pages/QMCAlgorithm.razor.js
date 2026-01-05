@@ -316,34 +316,20 @@ function hsvToRgb(h, s, v) {
     return [Math.floor(r * 255), Math.floor(g * 255), Math.floor(b * 255)];
 }
 
-class QuineMcCluskeyDataCtrl {
-    noOfVars;
-    funcdata;
-    primTerms;
-    implicantGroups;
-    minimalTerm;
-    coloredMinimalTerm;
-    minimalTermPrims;
-    primTermTables;
-    petrickSolver;
-    petrickTermPrims;
-    allowDontCare;
+function QuineMcCluskeyDataCtrl() {
+    this.noOfVars = -1;
+    this.funcdata = new Array;
+    this.primTerms = new Array;
+    this.implicantGroups = new Array;
+    this.minimalTerm = "";
+    this.coloredMinimalTerm = "";
+    this.minimalTermPrims = new Array;
+    this.primTermTables = new Array;
+    this.petrickSolver = new PetrickMethod();
+    this.petrickTermPrims = new Array;
+    this.allowDontCare = false;
 
-    constructor() {
-        this.noOfVars = -1;
-        this.funcdata = new Array;
-        this.primTerms = new Array;
-        this.implicantGroups = new Array;
-        this.minimalTerm = "";
-        this.coloredMinimalTerm = "";
-        this.minimalTermPrims = new Array;
-        this.primTermTables = new Array;
-        this.petrickSolver = new PetrickMethod();
-        this.petrickTermPrims = new Array;
-        this.allowDontCare = false;
-    }
-
-    init(no) {
+    this.init = function (no) {
         this.noOfVars = no;
         this.funcdata.length = 0;
         this.primTerms.length = 0;
@@ -358,94 +344,698 @@ class QuineMcCluskeyDataCtrl {
         for (var i = 0; i < noOfFuncData; i++) {
             this.funcdata.push(0);
         }
+
+        //this.petrickSolver.test();
+
+    };
+
+    this.setFuncData = function (i, val) {
+        if (i < 0 || i >= this.funcdata.length)
+            return;
+        this.funcdata[i] = val;
+    };
+
+    this.activated = function (i) {
+        if (i < 0 || i >= this.funcdata.length)
+            return;
+
+        this.funcdata[i] += 1;
+        if (this.allowDontCare) {
+            if (this.funcdata[i] > 2) this.funcdata[i] = 0;
+        } else {
+            if (this.funcdata[i] > 1) this.funcdata[i] = 0;
+        }
+        this.compute();
+    };
+
+    this.random = function () {
+        for (var i = 0; i < this.funcdata.length; i++) {
+            if (this.allowDontCare) {
+                this.funcdata[i] = Math.floor(Math.random() * 3);
+            } else {
+                this.funcdata[i] = Math.floor(Math.random() * 2);
+            }
+        }
+        this.compute();
+    };
+
+    this.clear = function () {
+        for (var i = 0; i < this.funcdata.length; i++) {
+            this.funcdata[i] = 0;
+        }
+        this.compute();
+    };
+
+    function bitCount(value) {
+        var counter = 0;
+        while (value > 0) {
+            if ((value & 1) === 1) counter++;
+            value >>= 1;
+        }
+        return counter;
     }
+
+    this.compute = function () {
+        this.primTerms.length = 0;
+        this.implicantGroups.length = 0;
+        this.minimalTerm = "0";
+        this.coloredMinimalTerm = "0";
+        this.minimalTermPrims.length = 0;
+        this.primTermTables.length = 0;
+        this.petrickTermPrims.length = 0;
+
+        var counter = 0;
+        var lastIg = -1;
+        var continueLoop = true;
+        while (continueLoop) {
+
+            continueLoop = false;
+            var ig = new ImplicantGroup();
+
+            if (counter === 0) {
+                for (var i = 0; i < this.funcdata.length; i++) {
+                    if (this.funcdata[i] > 0) {
+                        var impl = new Implicant();
+                        impl.imp[i] = i;
+                        impl.isPrim = true;
+                        ig.group.push(impl);
+                        continueLoop = true;
+                    }
+                }
+            } else {
+
+                for (var i = 0; i < lastIg.group.length; i++) {
+                    for (var j = i + 1; j < lastIg.group.length; j++) {
+                        var imp1 = lastIg.group[i];
+                        var imp2 = lastIg.group[j];
+
+                        if (imp1.bitMask === imp2.bitMask) {
+
+                            var found = false;
+                            var xor = -1;
+                            for (var m in imp1.imp) {
+                                for (var n in imp2.imp) {
+                                    var i1 = imp1.imp[m];
+                                    var i2 = imp2.imp[n];
+                                    //console.log(i1 + "<->" + i2);
+                                    xor = (i1 ^ i2) & (~imp1.bitMask);
+                                    if (bitCount(xor) === 1) {
+                                        //console.log("found merge candidate" + i1 + "<->" + i2);
+                                        found = true;
+                                    }
+                                    break;
+                                }
+                                break;
+                            }
+                            if (found) {
+                                imp1.isPrim = false;
+                                imp2.isPrim = false;
+
+                                var impl = new Implicant();
+                                impl.isPrim = true;
+                                impl.bitMask = imp1.bitMask | xor;
+                                for (var m in imp1.imp)
+                                    impl.imp[m] = parseInt(m);
+                                for (var n in imp2.imp)
+                                    impl.imp[n] = parseInt(n);
+
+                                var foundMatch = false; // determine if this combination is already there
+                                for (var k = 0; k < ig.group.length; k++) {
+                                    var exist = ig.group[k];
+                                    var isTheSame = true;
+                                    for (var m in impl.imp) {
+                                        var found = false;
+                                        for (var n in exist.imp) {
+                                            if (parseInt(m) === parseInt(n)) {
+                                                found = true;
+                                            }
+                                        }
+                                        if (!found) {
+                                            isTheSame = false;
+                                            break;
+                                        }
+                                    }
+                                    if (isTheSame) {
+                                        foundMatch = true;
+                                        break;
+                                    }
+                                }
+                                if (!foundMatch) {
+                                    ig.group.push(impl);
+                                    continueLoop = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (continueLoop) this.implicantGroups.push(ig);
+            lastIg = ig;
+            counter++;
+        }
+
+        // collect primterms
+        this.primTerms.length = 0;
+        this.minimalTermPrims.length = 0;
+        var color = 0.0;
+        for (var i = this.implicantGroups.length - 1; i >= 0; i--) {
+            var g = this.implicantGroups[i].group;
+
+            for (var j = 0; j < g.length; j++) {
+                if (g[j].isPrim) {
+
+                    // prim terms introduced by don't cares
+                    // must have at least one 1
+                    var containsOne = false;
+                    var allFuncPrimTerm = g[j].imp;
+                    for (var kk in allFuncPrimTerm) {
+                        var k = allFuncPrimTerm[kk];
+                        if (this.funcdata[k] === 1) {
+                            containsOne = true;
+                        }
+                    }
+
+                    if (!containsOne) {
+                        g[j].isOnlyDontCare = true;
+                    } else {
+                        var primTerm = new PrimTerm();
+                        primTerm.implicant = g[j];
+
+                        // extract minTerm as string
+                        for (var thisVal in primTerm.implicant.imp) {
+                            var minTerm = "";
+                            var one = 1;
+                            var needed = (~primTerm.implicant.bitMask);
+                            var varCount = 0;
+                            for (var v = 0; v < this.noOfVars; v++) {
+                                if ((needed & one) === one) {
+                                    if ((thisVal & one) === one) {
+                                        minTerm = "<i>x</i><sub><small>" + v + "</small></sub>" + minTerm;
+                                    } else {
+                                        minTerm = "<i>x&#772;</i><sub><small>" + v + "</small></sub>" + minTerm;
+                                    }
+                                    varCount++;
+                                }
+                                one = one << 1;
+                            }
+                            minTerm = "(" + minTerm + ")";
+                            if (primTerm.implicant.bitMask === Math.pow(2, this.noOfVars) - 1)
+                                minTerm = "1";
+                            primTerm.color = hsvToRgb(color, 1.0, 0.5);
+                            color += 0.22;
+                            color = color % 1.0;
+
+
+                            primTerm.termString = minTerm;
+                            primTerm.varCount = varCount;
+                            var colorStr = "rgb(" + primTerm.color[0] + "," + primTerm.color[1] + "," + primTerm.color[2] + ")";
+                            primTerm.coloredTermString = "<span style='color:" + colorStr + "'>" + minTerm + "</span>";
+                            break;
+                        }
+
+                        this.primTerms.push(primTerm);
+                    }
+                }
+            }
+        }
+
+
+        // looking for essential prime implicants 
+        var remaining = new Object();
+        for (var i = 0; i < this.funcdata.length; i++) {
+            if (this.funcdata[i] === 1) {
+                remaining[i] = i;
+            }
+        }
+
+        this.primTermTables.length = 0;
+        var primTableLoop = 0;
+        var primTableFound = (this.primTerms.length > 0);
+        var cyclicCoveringFound = false;
+        var primTermTable;
+        while (primTableFound) {
+
+            primTableFound = false;
+
+            primTermTable = new PrimTermTable(primTableLoop);
+            for (var r in remaining) {
+                primTermTable.remainingVars.push(remaining[r]);
+            }
+
+            if (primTableLoop === 0) {
+                for (var j = 0; j < this.primTerms.length; j++) {
+                    primTermTable.remainingPrimTerms.push(this.primTerms[j]);
+                }
+            } else {
+                // remove rows
+                var prevTable = this.primTermTables[primTableLoop - 1];
+                for (var k = 0; k < prevTable.remainingPrimTerms.length; k++) {
+                    if (!prevTable.remainingPrimTerms[k].used) {
+
+                        var superseded = false;
+                        var impA = prevTable.remainingPrimTerms[k].implicant.imp;
+                        var varCover = new Object;
+                        var countA = 0;
+                        for (var r in remaining) {
+                            var v = remaining[r];
+                            if (v in impA) {
+                                varCover[v] = v;
+                                countA++;
+                            }
+                        }
+
+                        for (var l = 0; l < prevTable.remainingPrimTerms.length && !superseded; l++) {
+                            if (!prevTable.remainingPrimTerms[l].used && k !== l) {
+                                var impB = prevTable.remainingPrimTerms[l].implicant.imp;
+                                var countB = 0;
+                                for (var r in varCover) {
+                                    var v = varCover[r];
+                                    if (v in impB) {
+                                        countB++;
+                                    }
+                                }
+                                if (countA === countB) {
+                                    var countBInRemaining = 0;
+                                    for (var r in remaining) {
+                                        var v = remaining[r];
+                                        if (v in impB) {
+                                            countBInRemaining++;
+                                        }
+                                    }
+                                    if (countBInRemaining > countA) {
+                                        superseded = true;
+                                    } else {
+                                        if (k > l) {
+                                            superseded = true;
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+
+                        if (!superseded) {
+                            primTermTable.remainingPrimTerms.push(prevTable.remainingPrimTerms[k]);
+                        } else {
+                            prevTable.supersededPrimTerms.push(prevTable.remainingPrimTerms[k]);
+                        }
+                    }
+                }
+            }
+
+            if (primTermTable.remainingPrimTerms.length > 0) {
+                this.primTermTables.push(primTermTable);
+                var currentTerms = primTermTable.remainingPrimTerms;
+
+                var toBeRemoved = new Object();
+
+                for (var r in remaining) {
+                    var i = remaining[r];
+                    var count = 0;
+                    var term = -1;
+                    for (var j = 0; j < currentTerms.length && count < 2; j++) {
+                        if (i in currentTerms[j].implicant.imp) {
+                            term = j;
+                            count++;
+                        }
+                    }
+
+                    if (count === 1) {
+                        currentTerms[term].neededByVar[i] = primTableLoop;
+                        if (!currentTerms[term].used) {
+                            this.minimalTermPrims.push(currentTerms[term]);
+                            currentTerms[term].used = true;
+                            primTermTable.essentialPrimTerms.push(currentTerms[term]);
+                            primTableFound = true;
+
+                            for (var r in remaining) {
+                                var ii = remaining[r];
+                                if (ii in currentTerms[term].implicant.imp) {
+                                    toBeRemoved[ii] = ii;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // remove columns
+                var tmpRemaining = new Object();
+                for (var e in remaining) {
+                    var ee = remaining[e];
+                    tmpRemaining[ee] = ee;
+                    delete remaining[e];
+                }
+                var remainingCount = 0;
+                for (var r in tmpRemaining) {
+                    var t = tmpRemaining[r];
+                    if (!(t in toBeRemoved)) {
+                        remaining [t] = t;
+                        remainingCount++;
+                    }
+                }
+            }
+
+            if (remainingCount === 0) {
+                primTableFound = false; // break loop
+            } else {
+                if (!primTableFound) {
+                    cyclicCoveringFound = true;
+                }
+            }
+
+            primTableLoop++;
+        }
+
+        var solutionFound = true;
+
+        // Petrick's Method
+        if (cyclicCoveringFound) {
+            //console.log("Cyclic covering found");
+
+            var andArray = new Array();
+
+            for (var r in remaining) {
+                var ii = remaining[r];
+                var orArray = new Array();
+
+                for (var k = 0; k < primTermTable.remainingPrimTerms.length; k++) {
+                    var imp = primTermTable.remainingPrimTerms[k].implicant.imp;
+                    if (ii in imp) {
+                        var monom = new Object();
+                        monom[k] = k;
+                        orArray.push(monom);
+                    }
+                }
+                andArray.push(orArray);
+            }
+
+            solutionFound = this.petrickSolver.solve(andArray);
+
+            if (solutionFound) {
+                var solutions = this.petrickSolver.solution[0];
+
+                var bestSolution = -1;
+                var bestCount = 10000000;
+                var bestVarCount = 10000000;
+                for (var i = 0; i < solutions.length; i++) {
+                    var count = 0;
+                    for (var j in solutions[i]) {
+                        count++;
+                    }
+                    if (count <= bestCount) { // first sort according number of used prime terms
+
+                        var foundBest = true;
+                        if (count === bestCount) { // second sort according to monom length (variable count)
+                            var bestVarCountNew = 0;
+                            for (var j in solutions[i]) {
+                                bestVarCountNew += primTermTable.remainingPrimTerms[j].varCount;
+                            }
+                            if (bestVarCountNew >= bestVarCount)
+                                foundBest = false;
+                        }
+
+                        if (foundBest) {
+                            bestCount = count;
+                            bestSolution = i;
+                            bestVarCount = 0;
+                            for (var j in solutions[bestSolution]) {
+                                bestVarCount += primTermTable.remainingPrimTerms[j].varCount;
+                            }
+                        }
+                    }
+                }
+                //console.log("Best solution " + bestSolution);
+
+                var best = solutions[bestSolution];
+                for (var b in best) {
+                    var addPrimTerm = primTermTable.remainingPrimTerms[best[b]];
+                    this.minimalTermPrims.push(addPrimTerm);
+                    this.petrickTermPrims.push(addPrimTerm);
+                }
+            }
+        }
+
+        if (solutionFound) {
+            this.minimalTerm = "";
+            this.coloredMinimalTerm = "";
+            var firstL = true;
+            for (var i = 0; i < this.minimalTermPrims.length; i++) {
+                if (!firstL) {
+                    this.minimalTerm += " &or; ";
+                    this.coloredMinimalTerm += " &or; ";
+                }
+                this.minimalTerm += this.minimalTermPrims[i].termString;
+                this.coloredMinimalTerm += this.minimalTermPrims[i].coloredTermString;
+                firstL = false;
+            }
+
+            if (this.minimalTermPrims.length === 0) {
+                this.minimalTerm = "0";
+                this.coloredMinimalTerm = "0";
+            }
+        } else {
+            this.minimalTerm = 'Error: The cyclic covering problem is too large (increase the "maxProblemSize" parameter)';
+            this.coloredMinimalTerm = 'Error: The cyclic covering problem is too large (increase the "maxProblemSize" parameter)';
+        }
+    };
 }
 
-export class QuineMcCluskey {
-    myDiv;
-    divId;
-    cols;
-    rows;
-    data;
-    that;
-    language;
-    scopeAttr;
-    labels;
 
-    constructor(parentDivId, columns, language) {
-        this.myDiv = -1;
-        this.divId = parentDivId;
-        this.cols = columns + 1;
-        this.rows = Math.pow(2, columns);
-        this.data = new QuineMcCluskeyDataCtrl();
-        this.that = this;
-        this.scopeAttr = Array.from(document.getElementById(parentDivId).attributes).find(attr => attr.name.startsWith('b-'));
+function QuineMcCluskey(parentDivId, columns, language) {
+    var myDiv = -1;
+    var divId = parentDivId;
+    this.cols = columns + 1;
+    this.rows = Math.pow(2, columns);
+    this.data = new QuineMcCluskeyDataCtrl();
+    var that = this;
 
-        if (language === 0) {
-            this.labels = {
-                ttable: "Truth table",
-                minExp: "Minimal boolean expression",
-                impli: "Implicants",
-                order: "Order",
-                primChart: "Prime implicant chart",
-                primChartReduced: "Reduced prime implicant chart (Iteration",
-                extractedPrims: "Extracted essential prime implicants",
-                extractedMPrims: "Extracted prime implicants",
-                petricksM: "Petrick's method"
-            };
-        } else {
-            this.labels = {
-                ttable: "Wahrheitstafel",
-                minExp: "Minimaler boolescher Ausdruck",
-                impli: "Implikanten",
-                order: "Ordnung",
-                primChart: "Primimplikantentafel",
-                primChartReduced: "Reduzierte Primimplikantentafel (Iteration",
-                extractedPrims: "Extrahierte essentielle Primimplikanten",
-                extractedMPrims: "Extrahierte Primimplikanten",
-                petricksM: "Verfahren von Petrick"
-            };
+    var labels;
+    if (language === 0) {
+        labels = {
+            ttable: "Truth table",
+            minExp: "Minimal boolean expression",
+            impli: "Implicants",
+            order: "Order",
+            primChart: "Prime implicant chart",
+            primChartReduced: "Reduced prime implicant chart (Iteration",
+            extractedPrims: "Extracted essential prime implicants",
+            extractedMPrims: "Extracted prime implicants",
+            petricksM: "Petrick's method"
+        };
+    } else {
+        labels = {
+            ttable: "Wahrheitstafel",
+            minExp: "Minimaler boolescher Ausdruck",
+            impli: "Implikanten",
+            order: "Ordnung",
+            primChart: "Primimplikantentafel",
+            primChartReduced: "Reduzierte Primimplikantentafel (Iteration",
+            extractedPrims: "Extrahierte essentielle Primimplikanten",
+            extractedMPrims: "Extrahierte Primimplikanten",
+            petricksM: "Verfahren von Petrick"
+        };
 
-        }
-        this.init();
     }
 
-    init() {
-        this.data.init(this.cols - 1);
+    this.init = function () {
 
-        this.myDiv = document.createElement('div');
-        if (!this.myDiv) {
+        this.data.init(columns);
+
+        myDiv = document.createElement('div');
+        if (!myDiv) {
             console.log("QuineMcCluskey error: can not create a canvas element");
-            this.myDiv = -1;
+            myDiv = -1;
         } else {
 
-            var parent = document.getElementById(this.divId);
+            var parent = document.getElementById(divId);
             if (!parent) {
-                if (this.divId !== "fakeDivId") {
-                    console.log("QuineMcCluskey error: can not find an element with the given name: " + this.divId);
+                if (divId !== "fakeDivId") {
+                    console.log("QuineMcCluskey error: can not find an element with the given name: " + divId);
                 }
-                this.myDiv = -1;
+                myDiv = -1;
             } else {
-                document.body.appendChild(this.myDiv);
-                parent.appendChild(this.myDiv);
+                document.body.appendChild(myDiv);
+                parent.appendChild(myDiv);
             }
         }
         this.update();
-    }
+    };
 
-    update() {
-        if (this.myDiv === -1) return;
+    this.setNoOfVars = function (vars) {
+        var c = parseInt(vars);
+        if (c < 1 && c > 6)
+            return;
+        this.cols = c + 1;
+        this.rows = Math.pow(2, c);
+        this.data.init(c);
+        this.update();
+    };
+
+    this.genRandom = function () {
+        this.data.random();
+        this.update();
+    };
+
+    this.allowDontCares = function (type) {
+        if (type > 0) {
+            this.data.allowDontCare = true;
+        } else {
+            this.data.allowDontCare = false;
+        }
+        this.data.clear();
+        this.update();
+    };
+
+    this.drawImplicantGroup = function (g, parent, primFlag, t, drawPetrickVars) {
+        var primTermTable = this.data.primTermTables[t];
+        var myTable = document.createElement('table');
+        myTable.setAttribute('class', 'qmcTableClass');
+        var myRow = document.createElement('tr');
+
+        var cell1h = document.createElement('td');
+        cell1h.setAttribute('class', 'qmcTdNoBorder');
+        cell1h.innerHTML = "";
+        myRow.appendChild(cell1h);
+
+        for (var j = 0; j < this.data.noOfVars; j++) {
+            var myCell = document.createElement('th');
+            myCell.innerHTML = "<i>x</i><sub><small>" + (this.data.noOfVars - 1 - j) + "</small></sub>";
+            myCell.setAttribute('class', 'qmcHeaderX qmcBit');
+            myRow.appendChild(myCell);
+        }
+
+        if (primFlag) {
+            for (var i = 0; i < primTermTable.remainingVars.length; i++) {
+                var cellImph = document.createElement('td');
+                cellImph.setAttribute('class', 'qmcTdNoBorder');
+                cellImph.innerHTML = primTermTable.remainingVars[i].toString(10);
+                myRow.appendChild(cellImph);
+            }
+        }
+
+        var cellImph = document.createElement('td');
+        cellImph.setAttribute('class', 'qmcTdNoBorder');
+        cellImph.innerHTML = "";
+        myRow.appendChild(cellImph);
+
+
+        myTable.appendChild(myRow);
+
+        var iMax = 0;
+        if (!primFlag) iMax = g.group.length; else iMax = primTermTable.remainingPrimTerms.length;
+
+        for (var i = 0; i < iMax; i++) {
+            var impl = -1;
+            if (!primFlag) impl = g.group[i]; else impl = primTermTable.remainingPrimTerms[i].implicant;
+            var bits = 0;
+            var mask = impl.bitMask;
+
+            for (var m in impl.imp) {
+                bits = impl.imp[m];
+                break;
+            }
+
+            myRow = document.createElement('tr');
+
+            var cell1 = document.createElement('td');
+            var cell1Str = "";
+            var first = true;
+            for (var m in impl.imp) {
+                if (!first) cell1Str += ", ";
+                cell1Str += impl.imp[m].toString(10);
+                first = false;
+            }
+            cell1.innerHTML = cell1Str + ":";
+            cell1.setAttribute('class', 'qmcTdNoBorder');
+            myRow.appendChild(cell1);
+
+            var res = bits.toString(2);
+            for (var j = 0; j < this.data.noOfVars; j++) {
+                var myCell = document.createElement('td');
+                myCell.setAttribute('class', 'qmcBit');
+                var str;
+
+                var currentBit = Math.pow(2, (this.data.noOfVars - 1) - j);
+
+                if ((currentBit & mask) === currentBit) {
+                    str = "-";
+                    myCell.innerHTML = str;
+                } else {
+                    if (j >= (this.data.noOfVars) - res.length) {
+                        str = res.charAt(j - (this.data.noOfVars - res.length));
+                        myCell.innerHTML = str;
+                    } else {
+                        str = "0";
+                        myCell.innerHTML = str;
+                    }
+                }
+                myRow.appendChild(myCell);
+            }
+
+
+            if (!primFlag) {
+                var cellLast = document.createElement('td');
+                cellLast.setAttribute('class', 'qmcTdNoBorder');
+                if (impl.isPrim) {
+                    cellLast.innerHTML = "&#x2713;";  //equivalent &check; in most browsers
+                    if (impl.isOnlyDontCare) {
+                        cellLast.innerHTML = " (&times;)";
+                    }
+                } else {
+                    cellLast.innerHTML = "&rarr;";
+                }
+                myRow.appendChild(cellLast);
+            } else {
+                for (var v = 0; v < primTermTable.remainingVars.length; v++) {
+                    var ii = primTermTable.remainingVars[v];
+                    var cellUsed = document.createElement('td');
+                    cellUsed.setAttribute('class', 'qmcPrimItem qmcBit');
+                    if (ii in impl.imp) {
+                        cellUsed.innerHTML = "&#9675;";
+                        if (ii in primTermTable.remainingPrimTerms[i].neededByVar) {
+                            if (primTermTable.remainingPrimTerms[i].neededByVar[ii] === t) {
+                                cellUsed.innerHTML = "<span style='color:green;'>&#9679;</span>";
+                            }
+                        }
+                    }
+
+                    myRow.appendChild(cellUsed);
+                }
+                var cellLast = document.createElement('td');
+                cellLast.setAttribute('class', 'qmcTdNoBorder');
+                cellLast.innerHTML = primTermTable.remainingPrimTerms[i].coloredTermString;
+                if (drawPetrickVars) {
+                    var pVars = "&nbsp;&equiv;&nbsp;<i>p</i><sub><small>" + i + "</small></sub>";
+                    cellLast.innerHTML += pVars;
+                }
+
+
+                myRow.appendChild(cellLast);
+            }
+
+
+            myTable.appendChild(myRow);
+        }
+
+        parent.appendChild(myTable);
+    };
+
+
+    this.update = function () {
+
+        if (myDiv === -1) return;
 
         // clean up
-        var oldInnerDiv = document.getElementById(this.divId + "_innerDiv");
-        if (oldInnerDiv) this.myDiv.removeChild(oldInnerDiv);
+        var oldInnerDiv = document.getElementById(divId + "_innerDiv");
+        if (oldInnerDiv) myDiv.removeChild(oldInnerDiv);
 
         var myInnerDiv = document.createElement('div');
-        myInnerDiv.setAttribute('id', this.divId + "_innerDiv");
+        myInnerDiv.setAttribute('id', divId + "_innerDiv");
 
 
         var myTruthTableDiv = document.createElement('div');
-        myTruthTableDiv.innerHTML = "<div>" + this.labels['ttable'] + ":</div>";
+        myTruthTableDiv.innerHTML = "<div>" + labels['ttable'] + ":</div>";
         myTruthTableDiv.setAttribute('class', 'qmcTableLabelDiv');
 
         // re-generate
@@ -499,7 +1089,7 @@ export class QuineMcCluskey {
                     myCell.setAttribute('class', 'qmcBit qmcBitY');
                     myCell.setAttribute('title', i);
                     myCell.onmousedown = function (event) {
-                        this.myCellMouseDown(event);
+                        myCellMouseDown(event);
                     };
 
                     if (this.data.funcdata[i] === 0) {
@@ -516,6 +1106,104 @@ export class QuineMcCluskey {
             }
             myTable.appendChild(myRow);
         }
+
+        myTruthTableDiv.appendChild(myTable);
+        myInnerDiv.appendChild(myTruthTableDiv);
+
+
+        for (var i = 0; i < this.data.implicantGroups.length; i++) {
+            var myImplicantDiv = document.createElement('div');
+            myImplicantDiv.innerHTML = "<div>" + labels['impli'] + " (" + labels['order'] + " " + i + "):</div>";
+            myImplicantDiv.setAttribute('class', 'qmcTableLabelDiv');
+            this.drawImplicantGroup(this.data.implicantGroups[i], myImplicantDiv, false, 0, false);
+            myInnerDiv.appendChild(myImplicantDiv);
+        }
+
+
+        for (var i = 0; i < this.data.primTermTables.length; i++) {
+            var resultDiv = document.createElement('div');
+            if (i === 0) {
+                resultDiv.innerHTML = "<p>" + labels['primChart'] + ":</p";
+            } else {
+                resultDiv.innerHTML = "<p> " + labels['primChartReduced'] + " " + (i - 1) + "):</p>";
+            }
+
+            resultDiv.setAttribute('class', 'qmcTableResultDiv');
+
+            var drawPetrickVars = false;
+            if (this.data.petrickTermPrims.length > 0 && i === this.data.primTermTables.length - 1) {
+                drawPetrickVars = true;
+            }
+
+            this.drawImplicantGroup(this.data.primTerms, resultDiv, true, i, drawPetrickVars);
+
+            var essPTermsDiv = document.createElement('div');
+            var essPTermsStr = "";
+            var primTermTable = this.data.primTermTables[i];
+            var jj = primTermTable.essentialPrimTerms.length;
+            for (var j = 0; j < jj; j++) {
+                essPTermsStr += primTermTable.essentialPrimTerms[j].coloredTermString;
+                if (j !== (jj - 1)) essPTermsStr += ", ";
+            }
+            if (jj > 0) {
+                essPTermsDiv.innerHTML = "<p>" + labels['extractedPrims'] + ": <span class='qmcMathFont'>" + essPTermsStr + "</span></p>";
+                essPTermsDiv.setAttribute('class', 'qmcIndent');
+                resultDiv.appendChild(essPTermsDiv);
+            }
+
+            myInnerDiv.appendChild(resultDiv);
+        }
+
+        if (this.data.petrickTermPrims.length > 0) {
+            var petrickDiv = document.createElement('div');
+            petrickDiv.innerHTML = "<p> " + labels['petricksM'] + " </p>";
+
+            var petrickInnerDiv = document.createElement('div');
+            petrickInnerDiv.innerHTML = "<span class='qmcMathFont'>" + this.data.petrickSolver.log + "</span>";
+            petrickInnerDiv.setAttribute('class', 'qmcIndent');
+            petrickDiv.appendChild(petrickInnerDiv);
+
+            var petrickEssTermsDiv = document.createElement('div');
+            var petrickEssTermsStr = "";
+            var jj = this.data.petrickTermPrims.length;
+            for (var j = 0; j < jj; j++) {
+                petrickEssTermsStr += this.data.petrickTermPrims[j].coloredTermString;
+                if (j !== (jj - 1))
+                    petrickEssTermsStr += ", ";
+            }
+            if (jj > 0) {
+                petrickEssTermsDiv.innerHTML = "<p>" + labels['extractedMPrims'] + " (" + labels['petricksM'] + "): <span class='qmcMathFont'>" + petrickEssTermsStr + "</span></p>";
+                petrickEssTermsDiv.setAttribute('class', 'qmcIndent');
+                petrickDiv.appendChild(petrickEssTermsDiv);
+            }
+
+            myInnerDiv.appendChild(petrickDiv);
+        }
+
+
+        var termDiv = document.createElement('div');
+        termDiv.innerHTML = "<p><strong>" + labels['minExp'] + ":</strong> </p> <p ><span class='qmcMathFont'><i>y</i>&nbsp;=&nbsp;" + this.data.coloredMinimalTerm;
+        +"</span></p>";
+        myInnerDiv.appendChild(termDiv);
+        myDiv.appendChild(myInnerDiv);
+    };
+
+    function myCellMouseDown(e) {
+
+        var targ;
+        if (e.target) {
+            targ = e.target;
+        } else { // deal with Microsoft
+            if (e.srcElement)
+                targ = e.srcElement;
+        }
+        if (targ.nodeType === 3) { // deal with Safari
+            targ = targ.parentNode;
+        }
+        var i = parseInt(targ.title);
+        that.data.activated(i);
+
+        that.update();
     }
 }
 

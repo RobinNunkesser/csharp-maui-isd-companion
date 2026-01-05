@@ -79,7 +79,7 @@
     if (firstRender)
     {
       _module = await JS.InvokeAsync<IJSObjectReference>("import", "./_content/ISDCompanion.Shared/Pages/QMCAlgorithm.razor.js");
-      await JS.InvokeVoidAsync("eval", "qmcInstance = new QuineMcCluskey(\"myQmcDisplay\", 3, 0);");
+      await JS.InvokeVoidAsync("eval", "qmcInstance = new QuineMcCluskey(\"myQmcDisplay\", 3, 0); qmcInstance.init();");
     }
   }
 
