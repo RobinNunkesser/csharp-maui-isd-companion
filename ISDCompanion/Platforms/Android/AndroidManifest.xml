@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="de.hshl.isd.isdcompanion" android:versionCode="26"
-          android:versionName="4.7">
+          package="de.hshl.isd.isdcompanion" android:versionCode="27"
+          android:versionName="5.0">
     <application android:allowBackup="true" android:icon="@mipmap/appicon"
                  android:roundIcon="@mipmap/appicon_round"
                  android:supportsRtl="true" android:usesCleartextTraffic="true"
@@ -10,5 +10,5 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_CALENDAR"/>
     <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="35"/>
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="36"/>
 </manifest>
