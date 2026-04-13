@@ -1,0 +1,78 @@
+SHELL := /bin/sh
+
+PROJECT := ISDCompanion/ISDCompanion.csproj
+CONFIG ?= Debug
+DOTNET ?= $(shell /bin/sh -c 'command -v dotnet 2>/dev/null || echo /usr/local/share/dotnet/dotnet')
+
+TFM_MACCATALYST := net10.0-maccatalyst
+TFM_ANDROID := net10.0-android
+TFM_IOS := net10.0-ios
+TFM_WINDOWS := net10.0-windows10.0.19041.0
+
+# Optional: for iOS run target, e.g. IOS_DEVICE=:v2:udid=YOUR_SIMULATOR_UDID
+IOS_DEVICE ?=
+
+# Optional: override Java location for Android builds, e.g. JAVA_SDK_DIR=$$(/usr/libexec/java_home -v 17)
+JAVA_SDK_DIR ?=
+ANDROID_JAVA_ARG := $(if $(JAVA_SDK_DIR),-p:JavaSdkDirectory=$(JAVA_SDK_DIR),)
+
+.PHONY: help restore test clean \
+	build build-maccatalyst build-android build-ios build-windows \
+	run-maccatalyst run-android run-ios
+
+help:
+	@echo "ISD Companion MAUI targets"
+	@echo ""
+	@echo "General:"
+	@echo "  make restore"
+	@echo "  make test"
+	@echo "  make clean"
+	@echo ""
+	@echo "Build:"
+	@echo "  make build                    # builds solution default"
+	@echo "  make build-maccatalyst"
+	@echo "  make build-android            # optional JAVA_SDK_DIR"
+	@echo "  make build-ios"
+	@echo "  make build-windows            # only works on Windows"
+	@echo ""
+	@echo "Run:"
+	@echo "  make run-maccatalyst"
+	@echo "  make run-android              # device/emulator required"
+	@echo "  make run-ios IOS_DEVICE=:v2:udid=<SIM_UDID>"
+
+restore:
+	$(DOTNET) restore ISDCompanion.sln
+
+test:
+	$(DOTNET) test ISDCompanion.Core.Tests/ISDCompanion.Core.Tests.csproj -c $(CONFIG)
+
+clean:
+	$(DOTNET) clean ISDCompanion.sln -c $(CONFIG)
+
+build:
+	$(DOTNET) build ISDCompanion.sln -c $(CONFIG)
+
+build-maccatalyst:
+	$(DOTNET) build $(PROJECT) -f $(TFM_MACCATALYST) -c $(CONFIG)
+
+build-android:
+	$(DOTNET) build $(PROJECT) -f $(TFM_ANDROID) -c $(CONFIG) $(ANDROID_JAVA_ARG)
+
+build-ios:
+	$(DOTNET) build $(PROJECT) -f $(TFM_IOS) -c $(CONFIG)
+
+build-windows:
+	$(DOTNET) build $(PROJECT) -f $(TFM_WINDOWS) -c $(CONFIG)
+
+run-maccatalyst:
+	$(DOTNET) build $(PROJECT) -t:Run -f $(TFM_MACCATALYST) -c $(CONFIG)
+
+run-android:
+	$(DOTNET) build $(PROJECT) -t:Run -f $(TFM_ANDROID) -c $(CONFIG) $(ANDROID_JAVA_ARG)
+
+run-ios:
+	@if [ -z "$(IOS_DEVICE)" ]; then \
+		echo "Bitte IOS_DEVICE setzen, z.B. IOS_DEVICE=:v2:udid=<SIM_UDID>"; \
+		exit 1; \
+	fi
+	$(DOTNET) build $(PROJECT) -t:Run -f $(TFM_IOS) -c $(CONFIG) -p:_DeviceName=$(IOS_DEVICE)
