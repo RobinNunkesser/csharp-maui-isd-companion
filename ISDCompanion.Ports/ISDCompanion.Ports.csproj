@@ -11,15 +11,4 @@
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <LangVersion>9.0</LangVersion>
     </PropertyGroup>
-    <ItemGroup>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Ports\IGetCoursesService.cs">
-            <Link>IGetCoursesService.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Ports\ICourse.cs">
-            <Link>ICourse.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Ports\IService.cs">
-            <Link>IService.cs</Link>
-        </Compile>
-    </ItemGroup>
 </Project>

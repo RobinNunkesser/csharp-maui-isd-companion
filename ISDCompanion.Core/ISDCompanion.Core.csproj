@@ -22,11 +22,6 @@
         <PackageReference Include="Italbytz.Common.Abstractions"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion.Core\MealCollection.cs">
-            <Link>MealCollection.cs</Link>
-        </Compile>
-    </ItemGroup>
-    <ItemGroup>
         <ProjectReference Include="..\ISDCompanion.Ports\ISDCompanion.Ports.csproj">
         </ProjectReference>
     </ItemGroup>

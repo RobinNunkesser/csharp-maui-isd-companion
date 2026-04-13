@@ -72,68 +72,6 @@
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Common\SectionViewModel.cs">
-            <Link>Common\SectionViewModel.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\PriceConverter.cs">
-            <Link>Tabs\Mensa\PriceConverter.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaViewModel.cs">
-            <Link>Tabs\Mensa\MensaViewModel.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaPage.xaml.cs">
-            <Link>Tabs\Mensa\MensaPage.xaml.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MealQuery.cs">
-            <Link>Tabs\Mensa\MealQuery.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Common\DateConverter.cs">
-            <Link>Common\DateConverter.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesPage.xaml.cs">
-            <Link>Tabs\Courses\CoursesPage.xaml.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesViewModel.cs">
-            <Link>Tabs\Courses\CoursesViewModel.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Profs\ProfsPage.xaml.cs">
-            <Link>Tabs\Profs\ProfsPage.xaml.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Common\InternalBrowserPage.xaml.cs">
-            <Link>Common\InternalBrowserPage.xaml.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Profs\ProfsViewModel.cs">
-            <Link>Tabs\Profs\ProfsViewModel.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesPage.xaml.cs">
-            <Link>Tabs\Settings\AdditivesPage.xaml.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesViewModel.cs">
-            <Link>Tabs\Settings\AdditivesViewModel.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensPage.xaml.cs">
-            <Link>Tabs\Settings\AllergensPage.xaml.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensViewModel.cs">
-            <Link>Tabs\Settings\AllergensViewModel.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\Settings.cs">
-            <Link>Tabs\Settings\Settings.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\SettingsPage.xaml.cs">
-            <Link>Tabs\Settings\SettingsPage.xaml.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizPage.xaml.cs">
-            <Link>Tabs\Exercises\Quiz\QuizPage.xaml.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizStatisticsPage.xaml.cs">
-            <Link>Tabs\Exercises\Quiz\QuizStatisticsPage.xaml.cs</Link>
-        </Compile>
-        <Compile Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizViewModel.cs">
-            <Link>Tabs\Exercises\Quiz\QuizViewModel.cs</Link>
-        </Compile>
-    </ItemGroup>
-    <ItemGroup>
         <None Remove="Common\"/>
         <None Remove="Italbytz.Adapters.Meal.STWPB"/>
         <None Remove="Italbytz.Ports.Meal"/>
@@ -210,43 +148,6 @@
         <PackageReference Include="Italbytz.Graph"/>
         <PackageReference Include="Italbytz.Graph.Maui"/>
         <PackageReference Include="System.Private.Uri"/>
-    </ItemGroup>
-    <ItemGroup>
-        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaPage.xaml">
-            <Link>Tabs\Mensa\MensaPage.xaml</Link>
-            <SubType>
-            </SubType>
-        </MauiXaml>
-        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Courses\CoursesPage.xaml">
-            <Link>Tabs\Courses\CoursesPage.xaml</Link>
-            <SubType>
-            </SubType>
-        </MauiXaml>
-        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Common\InternalBrowserPage.xaml">
-            <Link>Common\InternalBrowserPage.xaml</Link>
-            <SubType>
-            </SubType>
-        </MauiXaml>
-        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AdditivesPage.xaml">
-            <Link>Tabs\Settings\AdditivesPage.xaml</Link>
-            <SubType>
-            </SubType>
-        </MauiXaml>
-        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Settings\AllergensPage.xaml">
-            <Link>Tabs\Settings\AllergensPage.xaml</Link>
-            <SubType>
-            </SubType>
-        </MauiXaml>
-        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizPage.xaml">
-            <Link>Tabs\Exercises\Quiz\QuizPage.xaml</Link>
-            <SubType>
-            </SubType>
-        </MauiXaml>
-        <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Quiz\QuizStatisticsPage.xaml">
-            <Link>Tabs\Exercises\Quiz\QuizStatisticsPage.xaml</Link>
-            <SubType>
-            </SubType>
-        </MauiXaml>
     </ItemGroup>
     <ItemGroup>
         <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\BitencodingsPage.xaml">
