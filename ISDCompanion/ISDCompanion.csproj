@@ -195,21 +195,21 @@
         <Folder Include="Tabs\Exercises\Quiz\"/>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Italbytz.ComputingSystems" Version="1.0.0-preview.3"/>
-        <PackageReference Include="Italbytz.Meal.STWPB" Version="1.0.0-preview.3"/>
-        <PackageReference Include="Italbytz.Meal.Abstractions" Version="1.0.0-preview.3"/>
-        <PackageReference Include="Italbytz.Exam.Trivia.Abstractions" Version="1.0.0-preview.3"/>
-        <PackageReference Include="Italbytz.Networking" Version="1.0.0-preview.3"/>
-        <PackageReference Include="Italbytz.Exam.Networking" Version="1.0.0-preview.3"/>
-        <PackageReference Include="Italbytz.OperatingSystems" Version="1.0.0-preview.3"/>
-        <PackageReference Include="Italbytz.Exam.OperatingSystems" Version="1.0.0-preview.3"/>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="10.0.20"/>
-        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.1"/>
-        <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.20"/>
-        <PackageReference Include="Italbytz.Common.Random" Version="1.0.1"/>
-        <PackageReference Include="Italbytz.Graph" Version="1.0.0-preview.3"/>
-        <PackageReference Include="Italbytz.Graph.Maui" Version="1.0.0-preview.3"/>
-        <PackageReference Include="System.Private.Uri" Version="4.3.2"/>
+        <PackageReference Include="Italbytz.ComputingSystems"/>
+        <PackageReference Include="Italbytz.Meal.STWPB"/>
+        <PackageReference Include="Italbytz.Meal.Abstractions"/>
+        <PackageReference Include="Italbytz.Exam.Trivia.Abstractions"/>
+        <PackageReference Include="Italbytz.Networking"/>
+        <PackageReference Include="Italbytz.Exam.Networking"/>
+        <PackageReference Include="Italbytz.OperatingSystems"/>
+        <PackageReference Include="Italbytz.Exam.OperatingSystems"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui"/>
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug"/>
+        <PackageReference Include="Microsoft.Maui.Controls"/>
+        <PackageReference Include="Italbytz.Common.Random"/>
+        <PackageReference Include="Italbytz.Graph"/>
+        <PackageReference Include="Italbytz.Graph.Maui"/>
+        <PackageReference Include="System.Private.Uri"/>
     </ItemGroup>
     <ItemGroup>
         <MauiXaml Include="..\csharp-maui-study-companion\StudyCompanion\Tabs\Mensa\MensaPage.xaml">

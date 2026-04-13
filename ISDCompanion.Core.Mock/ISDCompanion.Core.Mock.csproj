@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Italbytz.Ports.Meal" Version="9.0.0-rc.1"/>
+        <PackageReference Include="Italbytz.Meal.Abstractions"/>
     </ItemGroup>
 
     <ItemGroup>
