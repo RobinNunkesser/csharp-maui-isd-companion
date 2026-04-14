@@ -22,6 +22,60 @@
     <data name="OperatingSystems" xml:space="preserve">
     <value>Betriebssysteme</value>
   </data>
+    <data name="ArtificialIntelligence" xml:space="preserve">
+    <value>Künstliche Intelligenz</value>
+  </data>
+    <data name="RomaniaSearchDemo" xml:space="preserve">
+    <value>Rumänien-Suchdemo</value>
+  </data>
+    <data name="Algorithm" xml:space="preserve">
+    <value>Algorithmus</value>
+  </data>
+    <data name="StartCity" xml:space="preserve">
+    <value>Startstadt</value>
+  </data>
+    <data name="Step" xml:space="preserve">
+    <value>Schritt</value>
+  </data>
+    <data name="CurrentNode" xml:space="preserve">
+    <value>Aktueller Knoten</value>
+  </data>
+    <data name="Path" xml:space="preserve">
+    <value>Pfad</value>
+  </data>
+    <data name="Frontier" xml:space="preserve">
+    <value>Frontier</value>
+  </data>
+    <data name="Explored" xml:space="preserve">
+    <value>Explored</value>
+  </data>
+    <data name="Successors" xml:space="preserve">
+    <value>Nachfolger</value>
+  </data>
+    <data name="GoalReached" xml:space="preserve">
+    <value>Ziel erreicht</value>
+  </data>
+    <data name="PressNextToStart" xml:space="preserve">
+    <value>Mit &gt; die Simulation starten.</value>
+  </data>
+    <data name="Legend" xml:space="preserve">
+    <value>Legende</value>
+  </data>
+    <data name="CurrentNodeLegend" xml:space="preserve">
+    <value>Aktueller Knoten</value>
+  </data>
+    <data name="FrontierNodeLegend" xml:space="preserve">
+    <value>Knoten in der Frontier</value>
+  </data>
+    <data name="ExploredNodeLegend" xml:space="preserve">
+    <value>Bereits explorierter Knoten</value>
+  </data>
+    <data name="PathEdgeLegend" xml:space="preserve">
+    <value>Kante des aktuellen Pfads</value>
+  </data>
+    <data name="SuccessorEdgeLegend" xml:space="preserve">
+    <value>Ausgehende Kante zu einem Nachfolger</value>
+  </data>
     <data name="Bitencodings" xml:space="preserve">
     <value>Bitcodierungen</value>
   </data>

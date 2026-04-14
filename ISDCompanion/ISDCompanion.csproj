@@ -146,6 +146,14 @@
         <PackageReference Include="System.Private.Uri"/>
     </ItemGroup>
     <ItemGroup>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\AIExercisesPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\AIRomaniaSearchPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
         <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\BitencodingsPage.xaml">
             <SubType>
             </SubType>
@@ -232,5 +240,6 @@
             <ReferenceSourceTarget></ReferenceSourceTarget>
         </ProjectReference>
         <ProjectReference Include="..\ISDCompanion.Shared\ISDCompanion.Shared.csproj"/>
+        <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.Search\Italbytz.AI.Search.csproj" />
     </ItemGroup>
 </Project>

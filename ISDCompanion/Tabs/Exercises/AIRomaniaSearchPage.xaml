@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StudyCompanion"
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
+             x:Class="StudyCompanion.AIRomaniaSearchPage"
+             Title="{x:Static localization:AppResources.RomaniaSearchDemo}">
+
+    <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="16" Spacing="12">
+                <Label Text="{x:Static localization:AppResources.Algorithm}" FontAttributes="Bold" />
+                <Picker ItemsSource="{Binding Algorithms}" SelectedIndex="{Binding SelectedAlgorithmIndex}" />
+
+                <Label Text="{x:Static localization:AppResources.StartCity}" FontAttributes="Bold" />
+                <Picker ItemsSource="{Binding StartCities}" SelectedIndex="{Binding SelectedStartCityIndex}" />
+
+                <ContentView Content="{Binding Exercise_Content}" />
+
+                <Label Text="{x:Static localization:AppResources.Legend}" FontAttributes="Bold" />
+                <Grid ColumnDefinitions="24,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnSpacing="8" RowSpacing="6">
+                    <BoxView Grid.Row="0" Color="DarkGreen" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="{x:Static localization:AppResources.CurrentNodeLegend}" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="1" Color="Gold" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{x:Static localization:AppResources.FrontierNodeLegend}" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="2" Color="LightGray" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{x:Static localization:AppResources.ExploredNodeLegend}" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="3" Color="Blue" HeightRequest="4" WidthRequest="18" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Grid.Row="3" Grid.Column="1" Text="{x:Static localization:AppResources.PathEdgeLegend}" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="4" Color="DarkOrange" HeightRequest="4" WidthRequest="18" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Grid.Row="4" Grid.Column="1" Text="{x:Static localization:AppResources.SuccessorEdgeLegend}" VerticalOptions="Center" />
+                </Grid>
+
+                <Label Text="{Binding StepText}" FontAttributes="Bold" />
+                <Label Text="{Binding CurrentNodeText}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding PathText}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding FrontierText}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding ExploredText}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding SuccessorsText}" LineBreakMode="WordWrap" />
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ContentView Grid.Row="1" Padding="16,8">
+            <local:ExerciseControlsView
+                NewExerciseCommand="{Binding ButtonNewExercise}"
+                PreviousStepCommand="{Binding ButtonPreviousStep}"
+                NextStepCommand="{Binding ButtonNextStep}"
+                ShowSolutionCommand="{Binding ButtonCompleteSolution}" />
+        </ContentView>
+    </Grid>
+</ContentPage>

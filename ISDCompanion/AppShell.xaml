@@ -14,6 +14,7 @@
         <ShellContent Title="{x:Static localization:AppResources.ComputingSystems}" ContentTemplate="{DataTemplate local:ComputingSystemsExercisesPage}" />
         <ShellContent Title="{x:Static localization:AppResources.Networks}" ContentTemplate="{DataTemplate local:NetworksExercisesPage}" />
         <ShellContent Title="{x:Static localization:AppResources.OperatingSystems}" ContentTemplate="{DataTemplate local:OperatingSystemsExercisesPage}" />
+        <ShellContent Title="{x:Static localization:AppResources.ArtificialIntelligence}" ContentTemplate="{DataTemplate local:AIExercisesPage}" />
     </FlyoutItem>
     <FlyoutItem Title="{x:Static localization:AppResources.Settings}" Icon="settings_black_24dp.png">
         <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" />

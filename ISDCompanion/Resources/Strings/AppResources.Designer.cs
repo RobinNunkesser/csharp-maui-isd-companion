@@ -62,6 +62,114 @@ namespace StudyCompanion.Resources.Strings {
                 return ResourceManager.GetString("OperatingSystems", resourceCulture);
             }
         }
+
+        internal static string ArtificialIntelligence {
+            get {
+                return ResourceManager.GetString("ArtificialIntelligence", resourceCulture);
+            }
+        }
+
+        internal static string RomaniaSearchDemo {
+            get {
+                return ResourceManager.GetString("RomaniaSearchDemo", resourceCulture);
+            }
+        }
+
+        internal static string Algorithm {
+            get {
+                return ResourceManager.GetString("Algorithm", resourceCulture);
+            }
+        }
+
+        internal static string StartCity {
+            get {
+                return ResourceManager.GetString("StartCity", resourceCulture);
+            }
+        }
+
+        internal static string Step {
+            get {
+                return ResourceManager.GetString("Step", resourceCulture);
+            }
+        }
+
+        internal static string CurrentNode {
+            get {
+                return ResourceManager.GetString("CurrentNode", resourceCulture);
+            }
+        }
+
+        internal static string Path {
+            get {
+                return ResourceManager.GetString("Path", resourceCulture);
+            }
+        }
+
+        internal static string Frontier {
+            get {
+                return ResourceManager.GetString("Frontier", resourceCulture);
+            }
+        }
+
+        internal static string Explored {
+            get {
+                return ResourceManager.GetString("Explored", resourceCulture);
+            }
+        }
+
+        internal static string Successors {
+            get {
+                return ResourceManager.GetString("Successors", resourceCulture);
+            }
+        }
+
+        internal static string GoalReached {
+            get {
+                return ResourceManager.GetString("GoalReached", resourceCulture);
+            }
+        }
+
+        internal static string PressNextToStart {
+            get {
+                return ResourceManager.GetString("PressNextToStart", resourceCulture);
+            }
+        }
+
+        internal static string Legend {
+            get {
+                return ResourceManager.GetString("Legend", resourceCulture);
+            }
+        }
+
+        internal static string CurrentNodeLegend {
+            get {
+                return ResourceManager.GetString("CurrentNodeLegend", resourceCulture);
+            }
+        }
+
+        internal static string FrontierNodeLegend {
+            get {
+                return ResourceManager.GetString("FrontierNodeLegend", resourceCulture);
+            }
+        }
+
+        internal static string ExploredNodeLegend {
+            get {
+                return ResourceManager.GetString("ExploredNodeLegend", resourceCulture);
+            }
+        }
+
+        internal static string PathEdgeLegend {
+            get {
+                return ResourceManager.GetString("PathEdgeLegend", resourceCulture);
+            }
+        }
+
+        internal static string SuccessorEdgeLegend {
+            get {
+                return ResourceManager.GetString("SuccessorEdgeLegend", resourceCulture);
+            }
+        }
         
         internal static string Bitencodings {
             get {
