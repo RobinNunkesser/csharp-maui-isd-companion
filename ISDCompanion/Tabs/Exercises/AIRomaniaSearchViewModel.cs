@@ -201,6 +201,8 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
             Exercise_Content = CreateGraphView(
                 markedEdges: new HashSet<string>(),
                 successorEdges: new HashSet<string>(),
+                directedMarkedEdges: new HashSet<string>(),
+                directedSuccessorEdges: new HashSet<string>(),
                 pathStates: new[] { CurrentStartCity },
                 frontierStates: new HashSet<string> { CurrentStartCity },
                 exploredStates: new HashSet<string>(),
@@ -218,6 +220,8 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
         Exercise_Content = CreateGraphView(
             markedEdges: BuildMarkedEdges(step.PathStates),
             successorEdges: BuildSuccessorEdges(step),
+            directedMarkedEdges: BuildDirectedMarkedEdges(step.PathStates),
+            directedSuccessorEdges: BuildDirectedSuccessorEdges(step),
             pathStates: step.PathStates,
             frontierStates: step.Frontier.Select(node => node.State).ToHashSet(),
             exploredStates: step.ExploredStates.ToHashSet(),
@@ -235,6 +239,8 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
     private View CreateGraphView(
         IReadOnlySet<string> markedEdges,
         IReadOnlySet<string> successorEdges,
+        IReadOnlySet<string> directedMarkedEdges,
+        IReadOnlySet<string> directedSuccessorEdges,
         IReadOnlyCollection<string> pathStates,
         IReadOnlySet<string> frontierStates,
         IReadOnlySet<string> exploredStates,
@@ -247,6 +253,8 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
                 _graph,
                 markedEdges,
                 successorEdges,
+                directedMarkedEdges,
+                directedSuccessorEdges,
                 pathStates.ToHashSet(),
                 frontierStates,
                 exploredStates,
@@ -266,9 +274,26 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
             .ToHashSet();
     }
 
+    private static HashSet<string> BuildDirectedMarkedEdges(IReadOnlyList<string> pathStates)
+    {
+        return pathStates.Zip(pathStates.Skip(1), (from, to) => DirectedEdge(from, to)).ToHashSet();
+    }
+
+    private static HashSet<string> BuildDirectedSuccessorEdges(RomaniaSearchStep step)
+    {
+        return step.Successors
+            .Select(successor => DirectedEdge(step.ExpandedNode.State, successor.State))
+            .ToHashSet();
+    }
+
     private static string NormalizeEdge(string from, string to)
     {
         return string.CompareOrdinal(from, to) <= 0 ? $"{from}|{to}" : $"{to}|{from}";
+    }
+
+    private static string DirectedEdge(string from, string to)
+    {
+        return $"{from}>{to}";
     }
 
     private static string FormatNodes(IReadOnlyList<RomaniaSearchTraceNode> nodes)

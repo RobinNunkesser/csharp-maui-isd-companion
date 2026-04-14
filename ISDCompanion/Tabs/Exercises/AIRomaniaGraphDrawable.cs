@@ -15,10 +15,19 @@ namespace StudyCompanion;
 
 public sealed class AIRomaniaGraphDrawable : IDrawable
 {
+    private enum EdgeArrowDirection
+    {
+        None,
+        Forward,
+        Reverse
+    }
+
     private readonly GeometryGraph _graph;
     private readonly Func<Edge, double> _weight;
     private readonly HashSet<string> _markedEdges;
     private readonly HashSet<string> _successorEdges;
+    private readonly HashSet<string> _directedMarkedEdges;
+    private readonly HashSet<string> _directedSuccessorEdges;
     private readonly HashSet<string> _pathNodes;
     private readonly HashSet<string> _frontierNodes;
     private readonly HashSet<string> _exploredNodes;
@@ -32,6 +41,8 @@ public sealed class AIRomaniaGraphDrawable : IDrawable
         IUndirectedGraph<string, ITaggedEdge<string, double>> graph,
         IReadOnlySet<string> markedEdges,
         IReadOnlySet<string> successorEdges,
+        IReadOnlySet<string> directedMarkedEdges,
+        IReadOnlySet<string> directedSuccessorEdges,
         IReadOnlySet<string> pathNodes,
         IReadOnlySet<string> frontierNodes,
         IReadOnlySet<string> exploredNodes,
@@ -41,6 +52,8 @@ public sealed class AIRomaniaGraphDrawable : IDrawable
         _weight = edge => ((ITaggedEdge<string, double>)edge.UserData).Tag;
         _markedEdges = [.. markedEdges];
         _successorEdges = [.. successorEdges];
+        _directedMarkedEdges = [.. directedMarkedEdges];
+        _directedSuccessorEdges = [.. directedSuccessorEdges];
         _pathNodes = [.. pathNodes];
         _frontierNodes = [.. frontierNodes];
         _exploredNodes = [.. exploredNodes];
@@ -100,7 +113,8 @@ public sealed class AIRomaniaGraphDrawable : IDrawable
                 edge,
                 _weight(edge),
                 _markedEdges.Contains(normalizedEdge),
-                _successorEdges.Contains(normalizedEdge));
+                _successorEdges.Contains(normalizedEdge),
+                ResolveArrowDirection(source, target));
         }
 
         foreach (var node in _graph.Nodes)
@@ -159,24 +173,29 @@ public sealed class AIRomaniaGraphDrawable : IDrawable
         _canvas.DrawString(text, (float)(label.BoundingBox.LeftBottom.X + 10.0), (float)label.BoundingBox.LeftBottom.Y, (float)label.BoundingBox.Width, (float)label.BoundingBox.Height, HorizontalAlignment.Left, VerticalAlignment.Center);
     }
 
-    private void DrawEdge(Edge edge, double weight, bool mark, bool successor)
+    private void DrawEdge(Edge edge, double weight, bool mark, bool successor, EdgeArrowDirection arrowDirection)
     {
-        _canvas!.StrokeColor = mark ? Colors.Blue : successor ? Colors.DarkOrange : Colors.Grey;
+        var edgeColor = mark ? Colors.Blue : successor ? Colors.DarkOrange : Colors.Grey;
+        _canvas!.StrokeColor = edgeColor;
         _canvas.StrokeSize = mark ? 4 : successor ? 3 : 2;
 
+        List<PointF> points;
         if (edge.Curve is LineSegment line)
         {
             _canvas.DrawLine((float)line.Start.X, (float)line.Start.Y, (float)line.End.X, (float)line.End.Y);
+            points = [new PointF((float)line.Start.X, (float)line.Start.Y), new PointF((float)line.End.X, (float)line.End.Y)];
         }
         else if (edge.Curve is Curve curve)
         {
             PathF path = new();
+            points = [new PointF((float)edge.Curve.Start.X, (float)edge.Curve.Start.Y)];
             path.MoveTo((float)edge.Curve.Start.X, (float)edge.Curve.Start.Y);
             foreach (var segment in curve.Segments)
             {
                 if (segment is CubicBezierSegment bezier)
                 {
                     path.CurveTo((float)bezier.B(1).X, (float)bezier.B(1).Y, (float)bezier.B(2).X, (float)bezier.B(2).Y, (float)bezier.B(3).X, (float)bezier.B(3).Y);
+                    points.Add(new PointF((float)bezier.B(3).X, (float)bezier.B(3).Y));
                 }
                 else if (segment is Ellipse ellipse)
                 {
@@ -184,23 +203,92 @@ public sealed class AIRomaniaGraphDrawable : IDrawable
                     {
                         var point = ellipse.Center + (Math.Cos(i) * ellipse.AxisA) + (Math.Sin(i) * ellipse.AxisB);
                         path.LineTo((float)point.X, (float)point.Y);
+                        points.Add(new PointF((float)point.X, (float)point.Y));
                     }
                 }
                 else if (segment is LineSegment segmentLine)
                 {
                     path.LineTo((float)segmentLine.End.X, (float)segmentLine.End.Y);
+                    points.Add(new PointF((float)segmentLine.End.X, (float)segmentLine.End.Y));
                 }
             }
 
             path.LineTo((float)edge.Curve.End.X, (float)edge.Curve.End.Y);
+            points.Add(new PointF((float)edge.Curve.End.X, (float)edge.Curve.End.Y));
             _canvas.DrawPath(path);
         }
+        else
+        {
+            points = [];
+        }
+
+        DrawArrow(points, arrowDirection, edgeColor);
 
         DrawLabel(edge.Label, weight.ToString());
+    }
+
+    private EdgeArrowDirection ResolveArrowDirection(string source, string target)
+    {
+        var forward = DirectedEdge(source, target);
+        var reverse = DirectedEdge(target, source);
+
+        if (_directedMarkedEdges.Contains(forward) || _directedSuccessorEdges.Contains(forward))
+        {
+            return EdgeArrowDirection.Forward;
+        }
+
+        if (_directedMarkedEdges.Contains(reverse) || _directedSuccessorEdges.Contains(reverse))
+        {
+            return EdgeArrowDirection.Reverse;
+        }
+
+        return EdgeArrowDirection.None;
+    }
+
+    private void DrawArrow(IReadOnlyList<PointF> points, EdgeArrowDirection direction, Color color)
+    {
+        if (direction == EdgeArrowDirection.None || points.Count < 2)
+        {
+            return;
+        }
+
+        var tip = direction == EdgeArrowDirection.Forward ? points[^1] : points[0];
+        var previous = direction == EdgeArrowDirection.Forward ? points[^2] : points[1];
+        var dx = tip.X - previous.X;
+        var dy = tip.Y - previous.Y;
+        var length = Math.Sqrt((dx * dx) + (dy * dy));
+        if (length < 0.001)
+        {
+            return;
+        }
+
+        var ux = (float)(dx / length);
+        var uy = (float)(dy / length);
+        const float arrowLength = 10f;
+        const float arrowWidth = 5f;
+
+        var baseX = tip.X - (ux * arrowLength);
+        var baseY = tip.Y - (uy * arrowLength);
+        var left = new PointF(baseX - (uy * arrowWidth), baseY + (ux * arrowWidth));
+        var right = new PointF(baseX + (uy * arrowWidth), baseY - (ux * arrowWidth));
+
+        PathF arrow = new();
+        arrow.MoveTo(tip.X, tip.Y);
+        arrow.LineTo(left.X, left.Y);
+        arrow.LineTo(right.X, right.Y);
+        arrow.Close();
+
+        _canvas!.FillColor = color;
+        _canvas.FillPath(arrow);
     }
 
     private static string NormalizeEdge(string from, string to)
     {
         return string.CompareOrdinal(from, to) <= 0 ? $"{from}|{to}" : $"{to}|{from}";
+    }
+
+    private static string DirectedEdge(string from, string to)
+    {
+        return $"{from}>{to}";
     }
 }
