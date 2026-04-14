@@ -34,6 +34,12 @@
     <data name="MapColoringDemo" xml:space="preserve">
     <value>Map Coloring Demo</value>
   </data>
+    <data name="SearchDemos" xml:space="preserve">
+    <value>Search Demos</value>
+  </data>
+    <data name="ConstraintSatisfactionDemos" xml:space="preserve">
+    <value>Constraint Satisfaction Demos</value>
+  </data>
     <data name="Algorithm" xml:space="preserve">
     <value>Algorithm</value>
   </data>
@@ -42,6 +48,18 @@
   </data>
     <data name="BoardSize" xml:space="preserve">
     <value>Board size</value>
+  </data>
+    <data name="DisplayMode" xml:space="preserve">
+    <value>Display mode</value>
+  </data>
+    <data name="CombinedDisplayMode" xml:space="preserve">
+    <value>Combined</value>
+  </data>
+    <data name="PathOnlyDisplayMode" xml:space="preserve">
+    <value>Path only</value>
+  </data>
+    <data name="FrontierOnlyDisplayMode" xml:space="preserve">
+    <value>Frontier only</value>
   </data>
     <data name="Step" xml:space="preserve">
     <value>Step</value>
@@ -99,6 +117,15 @@
   </data>
     <data name="RecolorRegion" xml:space="preserve">
     <value>Recolor region</value>
+  </data>
+    <data name="RedRegionLegend" xml:space="preserve">
+    <value>Assigned red</value>
+  </data>
+    <data name="GreenRegionLegend" xml:space="preserve">
+    <value>Assigned green</value>
+  </data>
+    <data name="BlueRegionLegend" xml:space="preserve">
+    <value>Assigned blue</value>
   </data>
     <data name="NQueensDemo" xml:space="preserve">
     <value>N-Queens Demo</value>

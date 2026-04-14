@@ -81,6 +81,18 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
 
+        internal static string SearchDemos {
+            get {
+                return ResourceManager.GetString("SearchDemos", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintSatisfactionDemos {
+            get {
+                return ResourceManager.GetString("ConstraintSatisfactionDemos", resourceCulture);
+            }
+        }
+
         internal static string Algorithm {
             get {
                 return ResourceManager.GetString("Algorithm", resourceCulture);
@@ -96,6 +108,30 @@ namespace StudyCompanion.Resources.Strings {
         internal static string BoardSize {
             get {
                 return ResourceManager.GetString("BoardSize", resourceCulture);
+            }
+        }
+
+        internal static string DisplayMode {
+            get {
+                return ResourceManager.GetString("DisplayMode", resourceCulture);
+            }
+        }
+
+        internal static string CombinedDisplayMode {
+            get {
+                return ResourceManager.GetString("CombinedDisplayMode", resourceCulture);
+            }
+        }
+
+        internal static string PathOnlyDisplayMode {
+            get {
+                return ResourceManager.GetString("PathOnlyDisplayMode", resourceCulture);
+            }
+        }
+
+        internal static string FrontierOnlyDisplayMode {
+            get {
+                return ResourceManager.GetString("FrontierOnlyDisplayMode", resourceCulture);
             }
         }
 
@@ -210,6 +246,24 @@ namespace StudyCompanion.Resources.Strings {
         internal static string RecolorRegion {
             get {
                 return ResourceManager.GetString("RecolorRegion", resourceCulture);
+            }
+        }
+
+        internal static string RedRegionLegend {
+            get {
+                return ResourceManager.GetString("RedRegionLegend", resourceCulture);
+            }
+        }
+
+        internal static string GreenRegionLegend {
+            get {
+                return ResourceManager.GetString("GreenRegionLegend", resourceCulture);
+            }
+        }
+
+        internal static string BlueRegionLegend {
+            get {
+                return ResourceManager.GetString("BlueRegionLegend", resourceCulture);
             }
         }
 

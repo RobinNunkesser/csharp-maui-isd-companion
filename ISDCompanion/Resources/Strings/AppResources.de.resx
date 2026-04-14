@@ -31,6 +31,12 @@
     <data name="MapColoringDemo" xml:space="preserve">
     <value>Kartenfärbungs-Demo</value>
   </data>
+    <data name="SearchDemos" xml:space="preserve">
+    <value>Suchdemos</value>
+  </data>
+    <data name="ConstraintSatisfactionDemos" xml:space="preserve">
+    <value>CSP-Demos</value>
+  </data>
     <data name="Algorithm" xml:space="preserve">
     <value>Algorithmus</value>
   </data>
@@ -39,6 +45,18 @@
   </data>
     <data name="BoardSize" xml:space="preserve">
     <value>Brettgröße</value>
+  </data>
+    <data name="DisplayMode" xml:space="preserve">
+    <value>Anzeige</value>
+  </data>
+    <data name="CombinedDisplayMode" xml:space="preserve">
+    <value>Kombiniert</value>
+  </data>
+    <data name="PathOnlyDisplayMode" xml:space="preserve">
+    <value>Nur Pfad</value>
+  </data>
+    <data name="FrontierOnlyDisplayMode" xml:space="preserve">
+    <value>Nur Frontier</value>
   </data>
     <data name="Step" xml:space="preserve">
     <value>Schritt</value>
@@ -96,6 +114,15 @@
   </data>
     <data name="RecolorRegion" xml:space="preserve">
     <value>Region umfärben</value>
+  </data>
+    <data name="RedRegionLegend" xml:space="preserve">
+    <value>Rot gefärbte Region</value>
+  </data>
+    <data name="GreenRegionLegend" xml:space="preserve">
+    <value>Grün gefärbte Region</value>
+  </data>
+    <data name="BlueRegionLegend" xml:space="preserve">
+    <value>Blau gefärbte Region</value>
   </data>
     <data name="NQueensDemo" xml:space="preserve">
     <value>N-Queens-Demo</value>

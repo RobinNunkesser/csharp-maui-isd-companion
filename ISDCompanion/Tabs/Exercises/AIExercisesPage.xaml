@@ -10,10 +10,12 @@
     <ContentPage.Content>
         <TableView Intent="Menu">
             <TableRoot>
-                <TableSection Title="{x:Static localization:AppResources.ArtificialIntelligence}">
+                <TableSection Title="{x:Static localization:AppResources.SearchDemos}">
                     <TextCell Text="{x:Static localization:AppResources.RomaniaSearchDemo}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:AIRomaniaSearchPage}" />
+                </TableSection>
+                <TableSection Title="{x:Static localization:AppResources.ConstraintSatisfactionDemos}">
                     <TextCell Text="{x:Static localization:AppResources.MapColoringDemo}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:AIMapColoringPage}" />

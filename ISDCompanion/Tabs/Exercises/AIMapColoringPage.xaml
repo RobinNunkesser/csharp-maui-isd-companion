@@ -23,7 +23,7 @@
                 <ContentView Content="{Binding Exercise_Content}" />
 
                 <Label Text="{x:Static localization:AppResources.Legend}" FontAttributes="Bold" />
-                <Grid ColumnDefinitions="24,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="8" RowSpacing="6">
+                <Grid ColumnDefinitions="24,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="8" RowSpacing="6">
                     <BoxView Grid.Row="0" Color="DarkGreen" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Center" />
                     <Label Grid.Row="0" Grid.Column="1" Text="{x:Static localization:AppResources.CurrentRegionLegend}" VerticalOptions="Center" />
 
@@ -32,6 +32,15 @@
 
                     <BoxView Grid.Row="2" Color="Gray" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Center" />
                     <Label Grid.Row="2" Grid.Column="1" Text="{x:Static localization:AppResources.ColoredRegionLegend}" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="3" Color="#F28B82" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Grid.Row="3" Grid.Column="1" Text="{x:Static localization:AppResources.RedRegionLegend}" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="4" Color="#A5D6A7" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Grid.Row="4" Grid.Column="1" Text="{x:Static localization:AppResources.GreenRegionLegend}" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="5" Color="#90CAF9" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Grid.Row="5" Grid.Column="1" Text="{x:Static localization:AppResources.BlueRegionLegend}" VerticalOptions="Center" />
                 </Grid>
 
                 <Label Text="{Binding StepText}" FontAttributes="Bold" />

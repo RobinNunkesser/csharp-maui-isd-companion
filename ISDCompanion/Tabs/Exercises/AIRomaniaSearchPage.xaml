@@ -23,6 +23,9 @@
                 <Label Text="{x:Static localization:AppResources.StartCity}" FontAttributes="Bold" />
                 <Picker ItemsSource="{Binding StartCities}" SelectedIndex="{Binding SelectedStartCityIndex}" />
 
+                <Label Text="{x:Static localization:AppResources.DisplayMode}" FontAttributes="Bold" />
+                <Picker ItemsSource="{Binding DisplayModes}" SelectedIndex="{Binding SelectedDisplayModeIndex}" />
+
                 <ContentView Content="{Binding Exercise_Content}" />
 
                 <Label Text="{x:Static localization:AppResources.Legend}" FontAttributes="Bold" />

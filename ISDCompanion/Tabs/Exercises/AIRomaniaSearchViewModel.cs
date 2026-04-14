@@ -8,13 +8,22 @@ namespace StudyCompanion;
 
 public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
 {
+    private enum RomaniaDisplayMode
+    {
+        Combined,
+        PathOnly,
+        FrontierOnly
+    }
+
     private readonly RomaniaSearchSimulator _simulator = new();
     private readonly IUndirectedGraph<string, ITaggedEdge<string, double>> _graph;
     private IReadOnlyList<RomaniaSearchStep> _steps = [];
     private readonly string[] _algorithms = ["A*", "Uniform Cost", "Breadth First"];
+    private readonly string[] _displayModes = [AppResources.CombinedDisplayMode, AppResources.PathOnlyDisplayMode, AppResources.FrontierOnlyDisplayMode];
     private readonly string[] _startCities = RomaniaMap.Cities.Where(city => city != RomaniaMap.Bucharest).ToArray();
 
     private int _selectedAlgorithmIndex;
+    private int _selectedDisplayModeIndex;
     private int _selectedStartCityIndex;
     private View? _exerciseContent;
     private string _stepText = string.Empty;
@@ -36,6 +45,8 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
     }
 
     public IReadOnlyList<string> Algorithms => _algorithms;
+
+    public IReadOnlyList<string> DisplayModes => _displayModes;
 
     public IReadOnlyList<string> StartCities => _startCities;
 
@@ -68,6 +79,22 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
             _selectedStartCityIndex = value;
             OnPropertyChanged();
             newExercise();
+        }
+    }
+
+    public int SelectedDisplayModeIndex
+    {
+        get => _selectedDisplayModeIndex;
+        set
+        {
+            if (_selectedDisplayModeIndex == value)
+            {
+                return;
+            }
+
+            _selectedDisplayModeIndex = value;
+            OnPropertyChanged();
+            RenderState();
         }
     }
 
@@ -194,17 +221,25 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
 
     private string CurrentStartCity => _startCities[_selectedStartCityIndex];
 
+    private RomaniaDisplayMode CurrentDisplayMode => SelectedDisplayModeIndex switch
+    {
+        1 => RomaniaDisplayMode.PathOnly,
+        2 => RomaniaDisplayMode.FrontierOnly,
+        _ => RomaniaDisplayMode.Combined
+    };
+
     private void RenderState()
     {
         if (_steps.Count == 0 || CurrentSolutionStep == 0)
         {
+            var initialFrontier = new HashSet<string> { CurrentStartCity };
             Exercise_Content = CreateGraphView(
                 markedEdges: new HashSet<string>(),
                 successorEdges: new HashSet<string>(),
                 directedMarkedEdges: new HashSet<string>(),
                 directedSuccessorEdges: new HashSet<string>(),
                 pathStates: new[] { CurrentStartCity },
-                frontierStates: new HashSet<string> { CurrentStartCity },
+                frontierStates: ShouldShowFrontier() ? initialFrontier : new HashSet<string>(),
                 exploredStates: new HashSet<string>(),
                 currentNode: null);
             StepText = $"{AppResources.Step} 0/{_steps.Count}";
@@ -217,14 +252,17 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
         }
 
         var step = _steps[CurrentSolutionStep - 1];
+        var pathStates = ShouldShowPath() ? step.PathStates : Array.Empty<string>();
+        var frontierStates = ShouldShowFrontier() ? step.Frontier.Select(node => node.State).ToHashSet() : new HashSet<string>();
+        var exploredStates = CurrentDisplayMode == RomaniaDisplayMode.Combined ? step.ExploredStates.ToHashSet() : new HashSet<string>();
         Exercise_Content = CreateGraphView(
-            markedEdges: BuildMarkedEdges(step.PathStates),
-            successorEdges: BuildSuccessorEdges(step),
-            directedMarkedEdges: BuildDirectedMarkedEdges(step.PathStates),
-            directedSuccessorEdges: BuildDirectedSuccessorEdges(step),
-            pathStates: step.PathStates,
-            frontierStates: step.Frontier.Select(node => node.State).ToHashSet(),
-            exploredStates: step.ExploredStates.ToHashSet(),
+            markedEdges: ShouldShowPath() ? BuildMarkedEdges(step.PathStates) : new HashSet<string>(),
+            successorEdges: ShouldShowFrontier() ? BuildSuccessorEdges(step) : new HashSet<string>(),
+            directedMarkedEdges: ShouldShowPath() ? BuildDirectedMarkedEdges(step.PathStates) : new HashSet<string>(),
+            directedSuccessorEdges: ShouldShowFrontier() ? BuildDirectedSuccessorEdges(step) : new HashSet<string>(),
+            pathStates: pathStates,
+            frontierStates: frontierStates,
+            exploredStates: exploredStates,
             currentNode: step.ExpandedNode.State);
         StepText = step.GoalReached
             ? $"{AppResources.Step} {CurrentSolutionStep}/{_steps.Count} - {AppResources.GoalReached}"
@@ -234,6 +272,16 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
         FrontierText = $"{AppResources.Frontier}: {FormatNodes(step.Frontier)}";
         ExploredText = $"{AppResources.Explored}: {string.Join(", ", step.ExploredStates)}";
         SuccessorsText = $"{AppResources.Successors}: {FormatNodes(step.Successors)}";
+    }
+
+    private bool ShouldShowPath()
+    {
+        return CurrentDisplayMode is RomaniaDisplayMode.Combined or RomaniaDisplayMode.PathOnly;
+    }
+
+    private bool ShouldShowFrontier()
+    {
+        return CurrentDisplayMode is RomaniaDisplayMode.Combined or RomaniaDisplayMode.FrontierOnly;
     }
 
     private View CreateGraphView(
