@@ -170,6 +170,90 @@ namespace StudyCompanion.Resources.Strings {
                 return ResourceManager.GetString("SuccessorEdgeLegend", resourceCulture);
             }
         }
+
+        internal static string NQueensDemo {
+            get {
+                return ResourceManager.GetString("NQueensDemo", resourceCulture);
+            }
+        }
+
+        internal static string NQueensBacktracking {
+            get {
+                return ResourceManager.GetString("NQueensBacktracking", resourceCulture);
+            }
+        }
+
+        internal static string NQueensMinConflicts {
+            get {
+                return ResourceManager.GetString("NQueensMinConflicts", resourceCulture);
+            }
+        }
+
+        internal static string CurrentAssignment {
+            get {
+                return ResourceManager.GetString("CurrentAssignment", resourceCulture);
+            }
+        }
+
+        internal static string Conflicts {
+            get {
+                return ResourceManager.GetString("Conflicts", resourceCulture);
+            }
+        }
+
+        internal static string CurrentQueenLegend {
+            get {
+                return ResourceManager.GetString("CurrentQueenLegend", resourceCulture);
+            }
+        }
+
+        internal static string ConflictedQueenLegend {
+            get {
+                return ResourceManager.GetString("ConflictedQueenLegend", resourceCulture);
+            }
+        }
+
+        internal static string FixedQueenLegend {
+            get {
+                return ResourceManager.GetString("FixedQueenLegend", resourceCulture);
+            }
+        }
+
+        internal static string InitialBoard {
+            get {
+                return ResourceManager.GetString("InitialBoard", resourceCulture);
+            }
+        }
+
+        internal static string PlaceQueen {
+            get {
+                return ResourceManager.GetString("PlaceQueen", resourceCulture);
+            }
+        }
+
+        internal static string MoveQueen {
+            get {
+                return ResourceManager.GetString("MoveQueen", resourceCulture);
+            }
+        }
+
+        internal static string Backtrack {
+            get {
+                return ResourceManager.GetString("Backtrack", resourceCulture);
+            }
+        }
+
+        internal static string SolutionFound {
+            get {
+                return ResourceManager.GetString("SolutionFound", resourceCulture);
+            }
+        }
+
+        internal static string MaxStepsReached {
+            get {
+                return ResourceManager.GetString("MaxStepsReached", resourceCulture);
+            }
+        }
         
         internal static string Bitencodings {
             get {

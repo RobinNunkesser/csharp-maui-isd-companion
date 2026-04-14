@@ -76,6 +76,48 @@
     <data name="SuccessorEdgeLegend" xml:space="preserve">
     <value>Ausgehende Kante zu einem Nachfolger</value>
   </data>
+    <data name="NQueensDemo" xml:space="preserve">
+    <value>N-Queens-Demo</value>
+  </data>
+    <data name="NQueensBacktracking" xml:space="preserve">
+    <value>Backtracking</value>
+  </data>
+    <data name="NQueensMinConflicts" xml:space="preserve">
+    <value>Min-Conflicts</value>
+  </data>
+    <data name="CurrentAssignment" xml:space="preserve">
+    <value>Aktuelle Belegung</value>
+  </data>
+    <data name="Conflicts" xml:space="preserve">
+    <value>Konflikte</value>
+  </data>
+    <data name="CurrentQueenLegend" xml:space="preserve">
+    <value>Aktuell ausgewählte Dame</value>
+  </data>
+    <data name="ConflictedQueenLegend" xml:space="preserve">
+    <value>Dame mit aktuellem Konflikt</value>
+  </data>
+    <data name="FixedQueenLegend" xml:space="preserve">
+    <value>Gesetzte Dame ohne aktuellen Fokus</value>
+  </data>
+    <data name="InitialBoard" xml:space="preserve">
+    <value>Ausgangsbrett</value>
+  </data>
+    <data name="PlaceQueen" xml:space="preserve">
+    <value>Dame setzen</value>
+  </data>
+    <data name="MoveQueen" xml:space="preserve">
+    <value>Dame verschieben</value>
+  </data>
+    <data name="Backtrack" xml:space="preserve">
+    <value>Zurückspringen</value>
+  </data>
+    <data name="SolutionFound" xml:space="preserve">
+    <value>Lösung gefunden</value>
+  </data>
+    <data name="MaxStepsReached" xml:space="preserve">
+    <value>Maximale Zahl an Demo-Schritten erreicht</value>
+  </data>
     <data name="Bitencodings" xml:space="preserve">
     <value>Bitcodierungen</value>
   </data>
