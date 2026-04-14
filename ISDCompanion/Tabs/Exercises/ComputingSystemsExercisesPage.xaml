@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StudyCompanion"
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
+             x:Class="StudyCompanion.ComputingSystemsExercisesPage"
+             Title="{x:Static localization:AppResources.ComputingSystems}">
+
+    <ContentPage.Content>
+        <TableView Intent="Menu">
+            <TableRoot>
+                <TableSection Title="{x:Static localization:AppResources.ComputingSystems}">
+                    <TextCell Text="{x:Static localization:AppResources.BinaryToDecimal}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:BinaryToDecimalPage}" />
+                    <TextCell Text="{x:Static localization:AppResources.DecimalToBinary}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:DecimalToBinaryPage}" />
+                    <TextCell Text="{x:Static localization:AppResources.BinaryAddition}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:BinaryAdditionPage}" />
+                    <TextCell Text="{x:Static localization:AppResources.TwosComplement}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:TwosComplementPage}" />
+                    <TextCell Text="{x:Static localization:AppResources.NormalForm}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:NormalFormPage}" />
+                    <TextCell Text="{x:Static localization:AppResources.KVMap}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:KVMapPage}" />
+                    <TextCell Text="{x:Static localization:AppResources.QMC}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:QMCAlgorithmPage}" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

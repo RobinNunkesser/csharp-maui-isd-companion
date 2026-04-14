@@ -10,8 +10,10 @@
     <FlyoutItem Title="{x:Static localization:AppResources.Mensa}" Icon="restaurant_menu_black_24dp.png">
         <ShellContent ContentTemplate="{DataTemplate local:MensaPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="{x:Static localization:AppResources.Exercises}" Icon="assignment_black_24dp.png">
-        <ShellContent ContentTemplate="{DataTemplate local:ExercisesPage}" />
+    <FlyoutItem Title="{x:Static localization:AppResources.Exercises}" Icon="assignment_black_24dp.png" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="{x:Static localization:AppResources.ComputingSystems}" ContentTemplate="{DataTemplate local:ComputingSystemsExercisesPage}" />
+        <ShellContent Title="{x:Static localization:AppResources.Networks}" ContentTemplate="{DataTemplate local:NetworksExercisesPage}" />
+        <ShellContent Title="{x:Static localization:AppResources.OperatingSystems}" ContentTemplate="{DataTemplate local:OperatingSystemsExercisesPage}" />
     </FlyoutItem>
     <FlyoutItem Title="{x:Static localization:AppResources.Settings}" Icon="settings_black_24dp.png">
         <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" />

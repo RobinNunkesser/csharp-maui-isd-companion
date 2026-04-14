@@ -166,6 +166,10 @@
             <SubType>
             </SubType>
         </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\ComputingSystemsExercisesPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
         <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\ExercisesPage.xaml">
             <SubType>
             </SubType>
@@ -175,6 +179,14 @@
             </SubType>
         </MauiXaml>
         <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\NetmaskPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\NetworksExercisesPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\OperatingSystemsExercisesPage.xaml">
             <SubType>
             </SubType>
         </MauiXaml>
