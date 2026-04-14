@@ -28,6 +28,9 @@
     <data name="RomaniaSearchDemo" xml:space="preserve">
     <value>Rumänien-Suchdemo</value>
   </data>
+    <data name="MapColoringDemo" xml:space="preserve">
+    <value>Kartenfärbungs-Demo</value>
+  </data>
     <data name="Algorithm" xml:space="preserve">
     <value>Algorithmus</value>
   </data>
@@ -75,6 +78,21 @@
   </data>
     <data name="SuccessorEdgeLegend" xml:space="preserve">
     <value>Ausgehende Kante zu einem Nachfolger</value>
+  </data>
+    <data name="CurrentRegionLegend" xml:space="preserve">
+    <value>Aktuelle Region</value>
+  </data>
+    <data name="ConflictedRegionLegend" xml:space="preserve">
+    <value>Region mit aktuellem Konflikt</value>
+  </data>
+    <data name="ColoredRegionLegend" xml:space="preserve">
+    <value>Gefärbte Region ohne aktuellen Fokus</value>
+  </data>
+    <data name="ColorRegion" xml:space="preserve">
+    <value>Region färben</value>
+  </data>
+    <data name="RecolorRegion" xml:space="preserve">
+    <value>Region umfärben</value>
   </data>
     <data name="NQueensDemo" xml:space="preserve">
     <value>N-Queens-Demo</value>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StudyCompanion"
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
+             x:Class="StudyCompanion.AIMapColoringPage"
+             Title="{x:Static localization:AppResources.MapColoringDemo}">
+
+    <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="16" Spacing="12">
+                <Label Text="{x:Static localization:AppResources.Algorithm}" FontAttributes="Bold" />
+                <Picker ItemsSource="{Binding Algorithms}" SelectedIndex="{Binding SelectedAlgorithmIndex}" />
+
+                <ContentView Content="{Binding Exercise_Content}" />
+
+                <Label Text="{x:Static localization:AppResources.Legend}" FontAttributes="Bold" />
+                <Grid ColumnDefinitions="24,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="8" RowSpacing="6">
+                    <BoxView Grid.Row="0" Color="DarkGreen" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="{x:Static localization:AppResources.CurrentRegionLegend}" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="1" Color="Crimson" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{x:Static localization:AppResources.ConflictedRegionLegend}" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="2" Color="Gray" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{x:Static localization:AppResources.ColoredRegionLegend}" VerticalOptions="Center" />
+                </Grid>
+
+                <Label Text="{Binding StepText}" FontAttributes="Bold" />
+                <Label Text="{Binding SummaryText}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding CurrentAssignmentText}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding ConflictsText}" LineBreakMode="WordWrap" />
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ContentView Grid.Row="1" Padding="16,8">
+            <local:ExerciseControlsView
+                NewExerciseCommand="{Binding ButtonNewExercise}"
+                PreviousStepCommand="{Binding ButtonPreviousStep}"
+                NextStepCommand="{Binding ButtonNextStep}"
+                ShowSolutionCommand="{Binding ButtonCompleteSolution}" />
+        </ContentView>
+    </Grid>
+</ContentPage>

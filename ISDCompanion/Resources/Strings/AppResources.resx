@@ -31,6 +31,9 @@
     <data name="RomaniaSearchDemo" xml:space="preserve">
     <value>Romania Search Demo</value>
   </data>
+    <data name="MapColoringDemo" xml:space="preserve">
+    <value>Map Coloring Demo</value>
+  </data>
     <data name="Algorithm" xml:space="preserve">
     <value>Algorithm</value>
   </data>
@@ -78,6 +81,21 @@
   </data>
     <data name="SuccessorEdgeLegend" xml:space="preserve">
     <value>Outgoing edge to a successor</value>
+  </data>
+    <data name="CurrentRegionLegend" xml:space="preserve">
+    <value>Current region</value>
+  </data>
+    <data name="ConflictedRegionLegend" xml:space="preserve">
+    <value>Region currently in conflict</value>
+  </data>
+    <data name="ColoredRegionLegend" xml:space="preserve">
+    <value>Colored region without current focus</value>
+  </data>
+    <data name="ColorRegion" xml:space="preserve">
+    <value>Color region</value>
+  </data>
+    <data name="RecolorRegion" xml:space="preserve">
+    <value>Recolor region</value>
   </data>
     <data name="NQueensDemo" xml:space="preserve">
     <value>N-Queens Demo</value>

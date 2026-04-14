@@ -150,6 +150,10 @@
             <SubType>
             </SubType>
         </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\AIMapColoringPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
         <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\AIRomaniaSearchPage.xaml">
             <SubType>
             </SubType>

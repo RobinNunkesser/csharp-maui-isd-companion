@@ -75,6 +75,12 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
 
+        internal static string MapColoringDemo {
+            get {
+                return ResourceManager.GetString("MapColoringDemo", resourceCulture);
+            }
+        }
+
         internal static string Algorithm {
             get {
                 return ResourceManager.GetString("Algorithm", resourceCulture);
@@ -168,6 +174,36 @@ namespace StudyCompanion.Resources.Strings {
         internal static string SuccessorEdgeLegend {
             get {
                 return ResourceManager.GetString("SuccessorEdgeLegend", resourceCulture);
+            }
+        }
+
+        internal static string CurrentRegionLegend {
+            get {
+                return ResourceManager.GetString("CurrentRegionLegend", resourceCulture);
+            }
+        }
+
+        internal static string ConflictedRegionLegend {
+            get {
+                return ResourceManager.GetString("ConflictedRegionLegend", resourceCulture);
+            }
+        }
+
+        internal static string ColoredRegionLegend {
+            get {
+                return ResourceManager.GetString("ColoredRegionLegend", resourceCulture);
+            }
+        }
+
+        internal static string ColorRegion {
+            get {
+                return ResourceManager.GetString("ColorRegion", resourceCulture);
+            }
+        }
+
+        internal static string RecolorRegion {
+            get {
+                return ResourceManager.GetString("RecolorRegion", resourceCulture);
             }
         }
 

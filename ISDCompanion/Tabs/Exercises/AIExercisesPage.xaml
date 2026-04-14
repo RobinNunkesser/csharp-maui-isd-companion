@@ -14,6 +14,9 @@
                     <TextCell Text="{x:Static localization:AppResources.RomaniaSearchDemo}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:AIRomaniaSearchPage}" />
+                    <TextCell Text="{x:Static localization:AppResources.MapColoringDemo}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:AIMapColoringPage}" />
                     <TextCell Text="{x:Static localization:AppResources.NQueensDemo}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:AINQueensPage}" />
