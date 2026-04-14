@@ -11,10 +11,10 @@ namespace Mensa.Core.Tests
         }
 
         [Test]
-        public void Test1()
+        public void ConvertingNegativeSByteToBinaryYieldsTwosComplementBits()
         {
-            var result = Convert.ToString((sbyte)-9, 2)[8..];
-            Assert.AreEqual(result, "-1001");
+            var result = Convert.ToString(unchecked((byte)(sbyte)-9), 2).PadLeft(8, '0');
+            Assert.AreEqual("11110111", result);
         }
     }
 }
