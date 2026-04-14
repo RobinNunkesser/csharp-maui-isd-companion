@@ -170,10 +170,6 @@
             <SubType>
             </SubType>
         </MauiXaml>
-        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\ExercisesPage.xaml">
-            <SubType>
-            </SubType>
-        </MauiXaml>
         <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\MSTPage.xaml">
             <SubType>
             </SubType>
