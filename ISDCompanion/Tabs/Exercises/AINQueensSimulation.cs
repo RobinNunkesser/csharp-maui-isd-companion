@@ -27,81 +27,42 @@ internal sealed record AINQueensStep(
     AINQueensActionType ActionType,
     bool Solved);
 
-internal sealed record AINQueensSimulation(IReadOnlyDictionary<int, int> InitialQueens, IReadOnlyList<AINQueensStep> Steps);
-
-internal sealed class AINQueensConstraint : IConstraint<Variable, int>
-{
-    private readonly int _leftColumn;
-    private readonly int _rightColumn;
-
-    public AINQueensConstraint(Variable left, int leftColumn, Variable right, int rightColumn)
-    {
-        Scope = [left, right];
-        _leftColumn = leftColumn;
-        _rightColumn = rightColumn;
-    }
-
-    public IList<Variable> Scope { get; }
-
-    public bool IsSatisfiedWith(IAssignment<Variable, int> assignment)
-    {
-        if (!assignment.Contains(Scope[0]) || !assignment.Contains(Scope[1]))
-        {
-            return true;
-        }
-
-        var left = assignment.GetValue(Scope[0]);
-        var right = assignment.GetValue(Scope[1]);
-
-        return left != right && Math.Abs(left - right) != Math.Abs(_leftColumn - _rightColumn);
-    }
-}
+internal sealed record AINQueensSimulation(int BoardSize, IReadOnlyDictionary<int, int> InitialQueens, IReadOnlyList<AINQueensStep> Steps);
 
 internal sealed class AINQueensSimulator
 {
-    private const int BoardSize = 8;
-    private static readonly int[][] MinConflictStartBoards =
-    [
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [4, 5, 6, 3, 4, 5, 6, 5],
-        [5, 7, 0, 1, 1, 7, 7, 2]
-    ];
-
-    private readonly Variable[] _variables = Enumerable.Range(0, BoardSize).Select(index => new Variable($"Q{index + 1}")).ToArray();
-    private readonly Domain<int> _domain = new(Enumerable.Range(0, BoardSize).ToList());
-
-    public AINQueensSimulation Simulate(AINQueensAlgorithm algorithm, int scenarioIndex)
+    public AINQueensSimulation Simulate(AINQueensAlgorithm algorithm, int boardSize, int scenarioIndex)
     {
         return algorithm == AINQueensAlgorithm.Backtracking
-            ? SimulateBacktracking()
-            : SimulateMinConflicts(scenarioIndex);
+            ? SimulateBacktracking(boardSize)
+            : SimulateMinConflicts(boardSize, scenarioIndex);
     }
 
-    private AINQueensSimulation SimulateBacktracking()
+    private AINQueensSimulation SimulateBacktracking(int boardSize)
     {
         var steps = new List<AINQueensStep>();
         var assignment = new Dictionary<int, int>();
 
-        _ = Backtrack(0, assignment, steps);
+        _ = Backtrack(0, boardSize, assignment, steps);
 
-        return new AINQueensSimulation(new Dictionary<int, int>(), steps);
+        return new AINQueensSimulation(boardSize, new Dictionary<int, int>(), steps);
     }
 
-    private bool Backtrack(int column, Dictionary<int, int> assignment, List<AINQueensStep> steps)
+    private bool Backtrack(int column, int boardSize, Dictionary<int, int> assignment, List<AINQueensStep> steps)
     {
-        if (column == BoardSize)
+        if (column == boardSize)
         {
             steps.Add(CreateStep(assignment, null, null, AINQueensActionType.Solved, true));
             return true;
         }
 
-        for (var row = 0; row < BoardSize; row++)
+        for (var row = 0; row < boardSize; row++)
         {
             assignment[column] = row;
             if (IsConsistent(assignment))
             {
                 steps.Add(CreateStep(assignment, column, row, AINQueensActionType.Place, false));
-                if (Backtrack(column + 1, assignment, steps))
+                if (Backtrack(column + 1, boardSize, assignment, steps))
                 {
                     return true;
                 }
@@ -114,19 +75,20 @@ internal sealed class AINQueensSimulator
         return false;
     }
 
-    private AINQueensSimulation SimulateMinConflicts(int scenarioIndex)
+    private AINQueensSimulation SimulateMinConflicts(int boardSize, int scenarioIndex)
     {
-        var initial = CreateInitialBoard(scenarioIndex);
+        var initial = CreateInitialBoard(boardSize, scenarioIndex);
         var current = new Dictionary<int, int>(initial);
         var steps = new List<AINQueensStep>();
+        var maxSteps = Math.Max(boardSize * boardSize * 3, 40);
 
-        for (var stepIndex = 0; stepIndex < 60; stepIndex++)
+        for (var stepIndex = 0; stepIndex < maxSteps; stepIndex++)
         {
             var conflicted = GetConflictedColumns(current);
             if (conflicted.Count == 0)
             {
                 steps.Add(CreateStep(current, null, null, AINQueensActionType.Solved, true));
-                return new AINQueensSimulation(initial, steps);
+                return new AINQueensSimulation(boardSize, initial, steps);
             }
 
             var column = conflicted.OrderBy(value => value).First();
@@ -137,24 +99,27 @@ internal sealed class AINQueensSimulator
             if (GetConflictedColumns(current).Count == 0)
             {
                 steps.Add(CreateStep(current, null, null, AINQueensActionType.Solved, true));
-                return new AINQueensSimulation(initial, steps);
+                return new AINQueensSimulation(boardSize, initial, steps);
             }
         }
 
         steps.Add(CreateStep(current, null, null, AINQueensActionType.Stopped, false));
-        return new AINQueensSimulation(initial, steps);
+        return new AINQueensSimulation(boardSize, initial, steps);
     }
 
-    private Dictionary<int, int> CreateInitialBoard(int scenarioIndex)
+    private static Dictionary<int, int> CreateInitialBoard(int boardSize, int scenarioIndex)
     {
-        var rows = MinConflictStartBoards[scenarioIndex % MinConflictStartBoards.Length];
-        return Enumerable.Range(0, BoardSize).ToDictionary(index => index, index => rows[index]);
+        var shift = scenarioIndex % boardSize;
+        var multiplier = boardSize % 2 == 0 ? 2 : 3;
+        return Enumerable.Range(0, boardSize)
+            .ToDictionary(index => index, index => ((index * multiplier) + shift + (index / 2)) % boardSize);
     }
 
     private int GetBestRowForColumn(Dictionary<int, int> assignment, int column)
     {
         var currentRow = assignment[column];
-        var rows = Enumerable.Range(0, BoardSize)
+        var boardSize = assignment.Count;
+        var rows = Enumerable.Range(0, boardSize)
             .Select(row => new { Row = row, Conflicts = CountConflictsForColumn(assignment, column, row) })
             .OrderBy(candidate => candidate.Conflicts)
             .ThenBy(candidate => candidate.Row == currentRow ? 1 : 0)

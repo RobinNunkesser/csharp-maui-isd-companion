@@ -37,6 +37,9 @@
     <data name="StartCity" xml:space="preserve">
     <value>Startstadt</value>
   </data>
+    <data name="BoardSize" xml:space="preserve">
+    <value>Brettgröße</value>
+  </data>
     <data name="Step" xml:space="preserve">
     <value>Schritt</value>
   </data>

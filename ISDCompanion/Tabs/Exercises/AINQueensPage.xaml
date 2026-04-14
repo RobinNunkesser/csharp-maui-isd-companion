@@ -20,6 +20,9 @@
                 <Label Text="{x:Static localization:AppResources.Algorithm}" FontAttributes="Bold" />
                 <Picker ItemsSource="{Binding Algorithms}" SelectedIndex="{Binding SelectedAlgorithmIndex}" />
 
+                <Label Text="{x:Static localization:AppResources.BoardSize}" FontAttributes="Bold" />
+                <Picker ItemsSource="{Binding BoardSizes}" SelectedIndex="{Binding SelectedBoardSizeIndex}" />
+
                 <ContentView Content="{Binding Exercise_Content}" />
 
                 <Label Text="{x:Static localization:AppResources.Legend}" FontAttributes="Bold" />

@@ -5,9 +5,11 @@ namespace StudyCompanion;
 public class AINQueensViewModel : StepwiseExerciseViewModel
 {
     private readonly AINQueensSimulator _simulator = new();
-    private AINQueensSimulation _simulation = new(new Dictionary<int, int>(), new List<AINQueensStep>());
+    private AINQueensSimulation _simulation = new(8, new Dictionary<int, int>(), new List<AINQueensStep>());
+    private readonly int[] _boardSizes = [4, 8, 10];
 
     private int _selectedAlgorithmIndex;
+    private int _selectedBoardSizeIndex = 1;
     private int _scenarioIndex;
     private View? _exerciseContent;
     private string _stepText = string.Empty;
@@ -16,6 +18,8 @@ public class AINQueensViewModel : StepwiseExerciseViewModel
     private string _conflictsText = string.Empty;
 
     public IReadOnlyList<string> Algorithms => [AppResources.NQueensBacktracking, AppResources.NQueensMinConflicts];
+
+    public IReadOnlyList<string> BoardSizes => _boardSizes.Select(size => size.ToString()).ToArray();
 
     public int SelectedAlgorithmIndex
     {
@@ -28,6 +32,22 @@ public class AINQueensViewModel : StepwiseExerciseViewModel
             }
 
             _selectedAlgorithmIndex = value;
+            OnPropertyChanged();
+            newExercise();
+        }
+    }
+
+    public int SelectedBoardSizeIndex
+    {
+        get => _selectedBoardSizeIndex;
+        set
+        {
+            if (_selectedBoardSizeIndex == value)
+            {
+                return;
+            }
+
+            _selectedBoardSizeIndex = value;
             OnPropertyChanged();
             newExercise();
         }
@@ -91,7 +111,7 @@ public class AINQueensViewModel : StepwiseExerciseViewModel
     protected override void newExercise()
     {
         CurrentSolutionStep = 0;
-        _simulation = _simulator.Simulate(CurrentAlgorithm, _scenarioIndex++);
+        _simulation = _simulator.Simulate(CurrentAlgorithm, CurrentBoardSize, _scenarioIndex++);
         RenderState();
     }
 
@@ -131,11 +151,13 @@ public class AINQueensViewModel : StepwiseExerciseViewModel
         ? AINQueensAlgorithm.Backtracking
         : AINQueensAlgorithm.MinConflicts;
 
+    private int CurrentBoardSize => _boardSizes[_selectedBoardSizeIndex];
+
     private void RenderState()
     {
         if (_simulation.Steps.Count == 0 || CurrentSolutionStep == 0)
         {
-            Exercise_Content = CreateBoardView(_simulation.InitialQueens, GetConflictedColumns(_simulation.InitialQueens), null);
+            Exercise_Content = CreateBoardView(_simulation.BoardSize, _simulation.InitialQueens, GetConflictedColumns(_simulation.InitialQueens), null);
             StepText = $"{AppResources.Step} 0/{_simulation.Steps.Count}";
             SummaryText = AppResources.PressNextToStart;
             CurrentAssignmentText = $"{AppResources.CurrentAssignment}: {FormatAssignment(_simulation.InitialQueens)}";
@@ -144,7 +166,7 @@ public class AINQueensViewModel : StepwiseExerciseViewModel
         }
 
         var step = _simulation.Steps[CurrentSolutionStep - 1];
-        Exercise_Content = CreateBoardView(step.Queens, step.ConflictedColumns, step.CurrentColumn);
+        Exercise_Content = CreateBoardView(_simulation.BoardSize, step.Queens, step.ConflictedColumns, step.CurrentColumn);
         StepText = step.Solved
             ? $"{AppResources.Step} {CurrentSolutionStep}/{_simulation.Steps.Count} - {AppResources.GoalReached}"
             : $"{AppResources.Step} {CurrentSolutionStep}/{_simulation.Steps.Count}";
@@ -153,12 +175,12 @@ public class AINQueensViewModel : StepwiseExerciseViewModel
         ConflictsText = $"{AppResources.Conflicts}: {step.ConflictCount}";
     }
 
-    private static View CreateBoardView(IReadOnlyDictionary<int, int> queens, IReadOnlySet<int> conflictedColumns, int? currentColumn)
+    private static View CreateBoardView(int boardSize, IReadOnlyDictionary<int, int> queens, IReadOnlySet<int> conflictedColumns, int? currentColumn)
     {
         return new GraphicsView
         {
             HeightRequest = 320,
-            Drawable = new AINQueensBoardDrawable(8, queens, conflictedColumns, currentColumn)
+            Drawable = new AINQueensBoardDrawable(boardSize, queens, conflictedColumns, currentColumn)
         };
     }
 

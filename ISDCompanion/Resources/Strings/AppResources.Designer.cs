@@ -93,6 +93,12 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
 
+        internal static string BoardSize {
+            get {
+                return ResourceManager.GetString("BoardSize", resourceCulture);
+            }
+        }
+
         internal static string Step {
             get {
                 return ResourceManager.GetString("Step", resourceCulture);

@@ -40,6 +40,9 @@
     <data name="StartCity" xml:space="preserve">
     <value>Start city</value>
   </data>
+    <data name="BoardSize" xml:space="preserve">
+    <value>Board size</value>
+  </data>
     <data name="Step" xml:space="preserve">
     <value>Step</value>
   </data>
