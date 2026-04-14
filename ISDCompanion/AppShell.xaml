@@ -14,12 +14,6 @@
         <Tab Title="{x:Static localization:AppResources.Exercises}" Icon="assignment_black_24dp.png">
             <ShellContent ContentTemplate="{DataTemplate local:ExercisesPage}" />
         </Tab>
-        <Tab Title="{x:Static localization:AppResources.Courses}" Icon="calendar_today_black_24dp.png">
-            <ShellContent ContentTemplate="{DataTemplate local:CoursesPage}" />
-        </Tab>
-        <Tab Title="{x:Static localization:AppResources.Profs}" Icon="school_black_24dp.png">
-            <ShellContent ContentTemplate="{DataTemplate local:ProfsPage}" />
-        </Tab>
         <Tab Title="{x:Static localization:AppResources.Settings}" Icon="settings_black_24dp.png">
             <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" />
         </Tab>

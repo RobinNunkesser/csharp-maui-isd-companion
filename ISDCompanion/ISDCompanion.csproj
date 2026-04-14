@@ -98,9 +98,7 @@
         <None Remove="Platforms\Tizen\Plugin\"/>
         <None Remove="Platforms\Tizen\Plugin\Calendars\"/>
         <None Remove="Tabs\"/>
-        <None Remove="Tabs\Courses\"/>
         <None Remove="Tabs\Exercises\"/>
-        <None Remove="Tabs\Profs\"/>
         <None Remove="Tabs\Mensa\"/>
         <None Remove="Tabs\Settings\"/>
         <None Remove="Tabs\Exercises\Quiz\"/>
@@ -126,8 +124,6 @@
         <Folder Include="Platforms\Android\Plugin\Calendars\"/>
         <Folder Include="Platforms\Tizen\Plugin\"/>
         <Folder Include="Platforms\Tizen\Plugin\Calendars\"/>
-        <Folder Include="Tabs\Courses\"/>
-        <Folder Include="Tabs\Profs\"/>
         <Folder Include="Tabs\Mensa\"/>
         <Folder Include="Tabs\Settings\"/>
         <Folder Include="Tabs\Exercises\Quiz\"/>
@@ -198,10 +194,6 @@
             <SubType>
             </SubType>
         </MauiXaml>
-        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Profs\ProfsPage.xaml">
-            <SubType>
-            </SubType>
-        </MauiXaml>
         <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Settings\AcknowledgementsPage.xaml">
             <SubType>
             </SubType>
@@ -229,9 +221,6 @@
     <ItemGroup>
         <ProjectReference Include="..\ISDCompanion.Core.Mock\ISDCompanion.Core.Mock.csproj"/>
         <ProjectReference Include="..\ISDCompanion.Core\ISDCompanion.Core.csproj">
-            <ReferenceSourceTarget></ReferenceSourceTarget>
-        </ProjectReference>
-        <ProjectReference Include="..\ISDCompanion.Ports\ISDCompanion.Ports.csproj">
             <ReferenceSourceTarget></ReferenceSourceTarget>
         </ProjectReference>
         <ProjectReference Include="..\ISDCompanion.Shared\ISDCompanion.Shared.csproj"/>

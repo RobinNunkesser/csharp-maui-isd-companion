@@ -7,18 +7,14 @@ Dieses Repo teilt einen signifikanten Teil seines Codes mit
 
 Die Doppelung ist eine bewusste Architekturentscheidung (siehe `decisions.md` im
 `agent-workbench`): Nach der Entkopplung vom eingebetteten Submodul werden beide Apps
-unabhängig gepflegt. Ein gemeinsames NuGet-Paket für die Ports-Contracts ist der
-dokumentierte nächste Schritt, sobald eine dritte App dazukommt.
+unabhängig gepflegt.
 
 ### Betroffen sind insbesondere
 
-- `ISDCompanion.Ports/` — Interfaces (`ICourse`, `IGetCoursesService`, `IService`)
 - `ISDCompanion.Core/MealCollection.cs`
 - `ISDCompanion.Core.Mock/` — alle Mock-Klassen
-- `ISDCompanion/Common/` — `DateConverter`, `SectionViewModel`, `InternalBrowserPage`
+- `ISDCompanion/Common/` — `SectionViewModel`, `InternalBrowserPage`
 - `ISDCompanion/Tabs/Mensa/` — `MealQuery`, `MensaViewModel`, `PriceConverter`, `MensaPage`
-- `ISDCompanion/Tabs/Courses/` — `CoursesPage`, `CoursesViewModel`
-- `ISDCompanion/Tabs/Profs/` — `ProfsPage`, `ProfsViewModel`
 - `ISDCompanion/Tabs/Settings/` — Additives, Allergens, Settings
 - `ISDCompanion/Tabs/Exercises/Quiz/` — `QuizPage`, `QuizViewModel`, `QuizStatisticsPage`
 

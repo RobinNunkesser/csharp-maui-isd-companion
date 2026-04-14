@@ -105,12 +105,6 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
         
-        internal static string Profs {
-            get {
-                return ResourceManager.GetString("Profs", resourceCulture);
-            }
-        }
-        
         internal static string Mensa {
             get {
                 return ResourceManager.GetString("Mensa", resourceCulture);
@@ -120,12 +114,6 @@ namespace StudyCompanion.Resources.Strings {
         internal static string Schedule {
             get {
                 return ResourceManager.GetString("Schedule", resourceCulture);
-            }
-        }
-        
-        internal static string Courses {
-            get {
-                return ResourceManager.GetString("Courses", resourceCulture);
             }
         }
         
@@ -363,18 +351,6 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
         
-        internal static string IOSPermissions {
-            get {
-                return ResourceManager.GetString("IOSPermissions", resourceCulture);
-            }
-        }
-        
-        internal static string PermissionRationale {
-            get {
-                return ResourceManager.GetString("PermissionRationale", resourceCulture);
-            }
-        }
-        
         internal static string Show {
             get {
                 return ResourceManager.GetString("Show", resourceCulture);
@@ -408,12 +384,6 @@ namespace StudyCompanion.Resources.Strings {
         internal static string NoMeals {
             get {
                 return ResourceManager.GetString("NoMeals", resourceCulture);
-            }
-        }
-        
-        internal static string NoCalendars {
-            get {
-                return ResourceManager.GetString("NoCalendars", resourceCulture);
             }
         }
         
@@ -522,12 +492,6 @@ namespace StudyCompanion.Resources.Strings {
         internal static string Guest {
             get {
                 return ResourceManager.GetString("Guest", resourceCulture);
-            }
-        }
-        
-        internal static string CalendarExportQuery {
-            get {
-                return ResourceManager.GetString("CalendarExportQuery", resourceCulture);
             }
         }
         

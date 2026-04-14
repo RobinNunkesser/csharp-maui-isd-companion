@@ -21,8 +21,4 @@
         <PackageReference Include="Italbytz.Meal.Abstractions"/>
         <PackageReference Include="Italbytz.Common.Abstractions"/>
     </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\ISDCompanion.Ports\ISDCompanion.Ports.csproj">
-        </ProjectReference>
-    </ItemGroup>
 </Project>

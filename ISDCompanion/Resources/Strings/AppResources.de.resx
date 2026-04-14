@@ -43,17 +43,11 @@
     <data name="Settings" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
-    <data name="Profs" xml:space="preserve">
-    <value>Profs</value>
-  </data>
     <data name="Mensa" xml:space="preserve">
     <value>Mensa</value>
   </data>
     <data name="Schedule" xml:space="preserve">
     <value>Stundenplan</value>
-  </data>
-    <data name="Courses" xml:space="preserve">
-    <value>Kurse</value>
   </data>
     <data name="Specialization" xml:space="preserve">
     <value>Vertiefung</value>
@@ -172,12 +166,6 @@
     <data name="MensaInfo" xml:space="preserve">
     <value>Weitere Informationen zu Inhaltsstoffen und Nährwerten gibt es auf der Webseite des Studierendenwerks Paderborn.</value>
   </data>
-    <data name="IOSPermissions" xml:space="preserve">
-    <value>Bitte erlaube Kalenderzugriff in der Einstellungsapp.</value>
-  </data>
-    <data name="PermissionRationale" xml:space="preserve">
-    <value>Kalenderzugriff wird für den Export benötigt.</value>
-  </data>
     <data name="Show" xml:space="preserve">
     <value>Anzeigen</value>
   </data>
@@ -195,9 +183,6 @@
   </data>
     <data name="NoMeals" xml:space="preserve">
     <value>Keine Essen zur Anzeige. Mensa geschlossen?</value>
-  </data>
-    <data name="NoCalendars" xml:space="preserve">
-    <value>Keine editierbaren Kalender.</value>
   </data>
     <data name="ErrorMessage" xml:space="preserve">
     <value>Fehler beim Abrufen der Daten. Bitte später erneut probieren.</value>
@@ -252,9 +237,6 @@
   </data>
     <data name="Guest" xml:space="preserve">
     <value>Gäste</value>
-  </data>
-    <data name="CalendarExportQuery" xml:space="preserve">
-    <value>Veranstaltung in Kalender exportieren?</value>
   </data>
     <data name="StatusQuery" xml:space="preserve">
     <value>Was ist Dein aktueller Status an der HSHL?</value>

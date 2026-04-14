@@ -1,12 +1,10 @@
 ﻿using Microsoft.Maui.Controls;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Italbytz.Adapters.Meal.STWPB;
+using Italbytz.Meal.STWPB;
 using System.Globalization;
-using Italbytz.Ports.Meal;
+using Italbytz.Meal.Abstractions;
 using Mensa.Core;
-using StudyCompanion.Ports;
-using ISDCompanion.Core;
 using Italbytz.Adapters.Meal.Mock;
 
 
@@ -54,9 +52,8 @@ public static class MauiProgram
 
         //builder.Services.AddSingleton<IGetMealsService, MockGetMealsService>();
         builder.Services.AddSingleton<IGetMealsService>(
-            new GetMealsService(new MealRepository(Secrets.id,
+            new GetMealsService(new StwpbMealDataSource(Secrets.id,
                 CultureInfo.CurrentCulture.TwoLetterISOLanguageName)));
-        builder.Services.AddSingleton<IGetCoursesService, GetCoursesService>();
 
         return builder.Build();
     }
@@ -67,8 +64,6 @@ public static class MauiProgram
     {
         mauiAppBuilder.Services.AddSingleton<MensaPage>();
         mauiAppBuilder.Services.AddSingleton<MensaViewModel>();
-        mauiAppBuilder.Services.AddSingleton<CoursesPage>();
-        mauiAppBuilder.Services.AddSingleton<CoursesViewModel>();
         return mauiAppBuilder;
     }
 }
