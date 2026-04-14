@@ -1,4 +1,4 @@
-﻿using Italbytz.Adapters.Exam.Networks;
+﻿using Italbytz.Networking;
 
 namespace StudyCompanion
 {

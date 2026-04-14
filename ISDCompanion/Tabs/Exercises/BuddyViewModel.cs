@@ -1,5 +1,5 @@
 ﻿using StudyCompanion.Services;
-using Italbytz.Adapters.Exam.OperatingSystems;
+using Italbytz.OperatingSystems;
 
 namespace StudyCompanion
 {

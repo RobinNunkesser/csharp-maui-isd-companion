@@ -1,6 +1,6 @@
-﻿using Italbytz.Ports.Graph;
-using Italbytz.Maui.Graphics;
-using Italbytz.Adapters.Graph;
+﻿using Italbytz.Graph.Abstractions;
+using Italbytz.Graph.Maui;
+using Italbytz.Graph;
 
 namespace StudyCompanion
 {

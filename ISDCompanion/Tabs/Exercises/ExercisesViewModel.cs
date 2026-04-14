@@ -1,5 +1,5 @@
 ﻿using System.Windows.Input;
-using Italbytz.Ports.Trivia;
+using Italbytz.Exam.Trivia.Abstractions;
 
 namespace StudyCompanion
 {
@@ -18,11 +18,11 @@ namespace StudyCompanion
             });
             NetworksQuizCommand = new Command(async () =>
             {
-                await navigation.PushAsync(new QuizPage(new QuizViewModel(Italbytz.Adapters.Exam.Networks.YesNoQuestions.Questions)));
+                await navigation.PushAsync(new QuizPage(new QuizViewModel(Italbytz.Exam.Networking.YesNoQuestions.Questions)));
             });
             OpSysQuizCommand = new Command(async () =>
             {
-                await navigation.PushAsync(new QuizPage(new QuizViewModel(Italbytz.Adapters.Exam.OperatingSystems.YesNoQuestions.Questions)));
+                await navigation.PushAsync(new QuizPage(new QuizViewModel(Italbytz.Exam.OperatingSystems.YesNoQuestions.Questions)));
             });
         }
 

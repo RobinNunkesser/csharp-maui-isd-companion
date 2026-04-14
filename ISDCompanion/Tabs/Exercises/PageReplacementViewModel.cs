@@ -7,9 +7,8 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using StudyCompanion.Resources.Strings;
 using StudyCompanion.Services;
-using Italbytz.Adapters.Exam.OperatingSystems;
-using Italbytz.Infrastructure.Exam.OperatingSystems.PageReplacement;
-using Italbytz.Ports.Exam.OperatingSystems;
+using Italbytz.OperatingSystems;
+using Italbytz.OperatingSystems.Abstractions;
 using TableGen;
 
 namespace StudyCompanion

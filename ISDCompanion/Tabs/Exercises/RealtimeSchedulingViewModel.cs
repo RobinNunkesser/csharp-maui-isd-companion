@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using StudyCompanion.Services;
-using Italbytz.Adapters.Exam.OperatingSystems;
+using Italbytz.OperatingSystems;
 
 namespace StudyCompanion
 {

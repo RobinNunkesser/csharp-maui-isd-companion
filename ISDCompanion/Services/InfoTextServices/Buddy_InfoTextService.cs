@@ -1,7 +1,7 @@
 ﻿using StudyCompanion.Resources.Strings;
 using StudyCompanion.Services.Interfaces;
-using Italbytz.Adapters.Exam.OperatingSystems;
-using Italbytz.Ports.Exam.OperatingSystems;
+using Italbytz.OperatingSystems;
+using Italbytz.OperatingSystems.Abstractions;
 
 namespace StudyCompanion.Services.InfoTextServices
 {

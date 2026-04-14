@@ -1,10 +1,10 @@
 ﻿using StudyCompanion.Resources.Strings;
 using StudyCompanion.Services.InfoTextServices;
 using StudyCompanion.Services.Interfaces;
-using Italbytz.Adapters.Exam.Networks;
-using Italbytz.Adapters.Exam.OperatingSystems;
-using Italbytz.Ports.Exam.Networks;
-using Italbytz.Ports.Exam.OperatingSystems;
+using Italbytz.Networking;
+using Italbytz.OperatingSystems;
+using Italbytz.Networking.Abstractions;
+using Italbytz.OperatingSystems.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

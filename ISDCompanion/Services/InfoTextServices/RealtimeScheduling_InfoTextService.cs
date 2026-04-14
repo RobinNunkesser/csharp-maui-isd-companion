@@ -1,6 +1,6 @@
 ﻿using StudyCompanion.Resources.Strings;
 using StudyCompanion.Services.Interfaces;
-using Italbytz.Ports.Exam.OperatingSystems;
+using Italbytz.OperatingSystems.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;

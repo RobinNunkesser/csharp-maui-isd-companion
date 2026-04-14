@@ -1,4 +1,4 @@
-using Italbytz.Adapters.Exam.ComputingSystems;
+using Italbytz.ComputingSystems;
 
 namespace StudyCompanion;
 

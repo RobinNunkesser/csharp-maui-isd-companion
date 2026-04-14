@@ -1,5 +1,5 @@
-using Italbytz.Adapters.Exam.ComputingSystems;
-using Italbytz.Adapters.Exam.Networks;
+using Italbytz.ComputingSystems;
+using Italbytz.Networking;
 
 namespace StudyCompanion;
 

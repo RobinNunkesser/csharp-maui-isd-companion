@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using StudyCompanion.Services;
-using Italbytz.Adapters.Exam.Networks;
+using Italbytz.Networking;
 
 namespace StudyCompanion
 {

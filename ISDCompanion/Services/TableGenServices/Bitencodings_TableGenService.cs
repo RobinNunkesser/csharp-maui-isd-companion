@@ -1,6 +1,6 @@
 ﻿using StudyCompanion.Resources.Strings;
-using Italbytz.Adapters.Exam.Networks;
-using Italbytz.Ports.Exam.Networks;
+using Italbytz.Networking;
+using Italbytz.Networking.Abstractions;
 
 namespace StudyCompanion
 {

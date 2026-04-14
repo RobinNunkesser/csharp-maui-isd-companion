@@ -1,5 +1,5 @@
-﻿using Italbytz.Adapters.Graph;
-using Italbytz.Maui.Graphics;
+﻿using Italbytz.Graph;
+using Italbytz.Graph.Maui;
 
 namespace StudyCompanion
 {
