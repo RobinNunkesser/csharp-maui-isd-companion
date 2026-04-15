@@ -7,7 +7,7 @@
              x:Class="StudyCompanion.QuizPage"
              x:DataType="local:QuizViewModel"
              Title="{x:Static localization:AppResources.Quiz}"
-             BackgroundColor="#F4F7FB">
+             BackgroundColor="{AppThemeBinding Light=#F4F7FB, Dark=#0F172A}">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="statistics"
                      Clicked="Statistics_Clicked" />
@@ -15,7 +15,7 @@
     <ContentPage.Content>
         <ScrollView>
             <VerticalStackLayout Padding="20" Spacing="16">
-                <Border Padding="20" BackgroundColor="White" Stroke="#D9E3F0" StrokeThickness="1">
+                <Border Padding="20" BackgroundColor="{AppThemeBinding Light=White, Dark=#111827}" Stroke="{AppThemeBinding Light=#D9E3F0, Dark=#334155}" StrokeThickness="1">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="24" />
                     </Border.StrokeShape>
@@ -23,81 +23,81 @@
                         <Label Text="{x:Static localization:AppResources.Quiz}"
                                FontSize="28"
                                FontAttributes="Bold"
-                               TextColor="#102A43" />
+                               TextColor="{AppThemeBinding Light=#102A43, Dark=#F8FAFC}" />
                         <Label Text="{Binding CatalogSummaryText}"
                                FontSize="14"
-                               TextColor="#486581" />
+                               TextColor="{AppThemeBinding Light=#486581, Dark=#CBD5E1}" />
                         <Label Text="{Binding SessionStatusText}"
                                FontSize="15"
-                               TextColor="#334E68" />
+                               TextColor="{AppThemeBinding Light=#334E68, Dark=#E2E8F0}" />
                     </VerticalStackLayout>
                 </Border>
 
-                <Border Padding="18" BackgroundColor="#EEF6FF" Stroke="#C9DEFF" StrokeThickness="1">
+                      <Border Padding="18" BackgroundColor="{AppThemeBinding Light=#EEF6FF, Dark=#172554}" Stroke="{AppThemeBinding Light=#C9DEFF, Dark=#3B82F6}" StrokeThickness="1">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="22" />
                     </Border.StrokeShape>
                     <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="10">
                         <Label Text="{x:Static localization:AppResources.QuizCatalog}"
                                FontAttributes="Bold"
-                               TextColor="#102A43" />
+                               TextColor="{AppThemeBinding Light=#102A43, Dark=#F8FAFC}" />
                         <Button Grid.Column="1"
                                 Text="{x:Static localization:AppResources.QuizRestart}"
                                 Command="{Binding RestartQuizCommand}"
-                                BackgroundColor="#DCEBFF"
-                                TextColor="#0B3C6F"
+                                BackgroundColor="{AppThemeBinding Light=#DCEBFF, Dark=#1D4ED8}"
+                                TextColor="{AppThemeBinding Light=#0B3C6F, Dark=#EFF6FF}"
                                 CornerRadius="18"
                                 Padding="14,8" />
                         <Picker Grid.Row="1"
                                 Grid.ColumnSpan="2"
                                 ItemsSource="{Binding CatalogNames}"
                                 SelectedIndex="{Binding SelectedCatalogIndex}"
-                                BackgroundColor="White"
-                                TextColor="#102A43"
+                                BackgroundColor="{AppThemeBinding Light=White, Dark=#0F172A}"
+                                TextColor="{AppThemeBinding Light=#102A43, Dark=#F8FAFC}"
                                 Title="{x:Static localization:AppResources.QuizCatalog}" />
                     </Grid>
                 </Border>
 
                 <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
-                    <Border Grid.Row="0" Grid.Column="0" Padding="16" BackgroundColor="#F0FDF4" Stroke="#B7E4C7">
+                    <Border Grid.Row="0" Grid.Column="0" Padding="16" BackgroundColor="{AppThemeBinding Light=#F0FDF4, Dark=#052E16}" Stroke="{AppThemeBinding Light=#B7E4C7, Dark=#166534}">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20" />
                         </Border.StrokeShape>
                         <VerticalStackLayout Spacing="4">
-                            <Label Text="{x:Static localization:AppResources.label_sum}" FontSize="12" TextColor="#52796F" />
-                            <Label Text="{Binding AnsweredQuestions}" FontSize="26" FontAttributes="Bold" TextColor="#1B4332" />
+                            <Label Text="{x:Static localization:AppResources.label_sum}" FontSize="12" TextColor="{AppThemeBinding Light=#52796F, Dark=#86EFAC}" />
+                            <Label Text="{Binding AnsweredQuestions}" FontSize="26" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#1B4332, Dark=#DCFCE7}" />
                         </VerticalStackLayout>
                     </Border>
-                    <Border Grid.Row="0" Grid.Column="1" Padding="16" BackgroundColor="#FFF7E8" Stroke="#F4D58D">
+                    <Border Grid.Row="0" Grid.Column="1" Padding="16" BackgroundColor="{AppThemeBinding Light=#FFF7E8, Dark=#451A03}" Stroke="{AppThemeBinding Light=#F4D58D, Dark=#D97706}">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20" />
                         </Border.StrokeShape>
                         <VerticalStackLayout Spacing="4">
-                            <Label Text="{x:Static localization:AppResources.QuizAccuracy}" FontSize="12" TextColor="#9C6644" />
-                            <Label Text="{Binding AccuracyText}" FontSize="26" FontAttributes="Bold" TextColor="#7F5539" />
+                            <Label Text="{x:Static localization:AppResources.QuizAccuracy}" FontSize="12" TextColor="{AppThemeBinding Light=#9C6644, Dark=#FBBF24}" />
+                            <Label Text="{Binding AccuracyText}" FontSize="26" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#7F5539, Dark=#FEF3C7}" />
                         </VerticalStackLayout>
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="0" Padding="16" BackgroundColor="#EEF2FF" Stroke="#C7D2FE">
+                    <Border Grid.Row="1" Grid.Column="0" Padding="16" BackgroundColor="{AppThemeBinding Light=#EEF2FF, Dark=#1E1B4B}" Stroke="{AppThemeBinding Light=#C7D2FE, Dark=#6366F1}">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20" />
                         </Border.StrokeShape>
                         <VerticalStackLayout Spacing="4">
-                            <Label Text="{x:Static localization:AppResources.QuizRemaining}" FontSize="12" TextColor="#4C51BF" />
-                            <Label Text="{Binding RemainingQuestions}" FontSize="26" FontAttributes="Bold" TextColor="#3730A3" />
+                            <Label Text="{x:Static localization:AppResources.QuizRemaining}" FontSize="12" TextColor="{AppThemeBinding Light=#4C51BF, Dark=#A5B4FC}" />
+                            <Label Text="{Binding RemainingQuestions}" FontSize="26" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#3730A3, Dark=#E0E7FF}" />
                         </VerticalStackLayout>
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="1" Padding="16" BackgroundColor="#FDF2F8" Stroke="#FBCFE8">
+                    <Border Grid.Row="1" Grid.Column="1" Padding="16" BackgroundColor="{AppThemeBinding Light=#FDF2F8, Dark=#4A044E}" Stroke="{AppThemeBinding Light=#FBCFE8, Dark=#DB2777}">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20" />
                         </Border.StrokeShape>
                         <VerticalStackLayout Spacing="4">
-                            <Label Text="{x:Static localization:AppResources.QuizCurrentStreak}" FontSize="12" TextColor="#9D174D" />
-                            <Label Text="{Binding CurrentStreak}" FontSize="26" FontAttributes="Bold" TextColor="#831843" />
+                            <Label Text="{x:Static localization:AppResources.QuizCurrentStreak}" FontSize="12" TextColor="{AppThemeBinding Light=#9D174D, Dark=#F9A8D4}" />
+                            <Label Text="{Binding CurrentStreak}" FontSize="26" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#831843, Dark=#FCE7F3}" />
                         </VerticalStackLayout>
                     </Border>
                 </Grid>
 
-                <Border Padding="18" BackgroundColor="White" Stroke="#D9E3F0" StrokeThickness="1">
+                <Border Padding="18" BackgroundColor="{AppThemeBinding Light=White, Dark=#111827}" Stroke="{AppThemeBinding Light=#D9E3F0, Dark=#334155}" StrokeThickness="1">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="22" />
                     </Border.StrokeShape>
@@ -105,30 +105,30 @@
                         <Grid ColumnDefinitions="*,Auto">
                             <Label Text="{x:Static localization:AppResources.QuizCompletion}"
                                    FontAttributes="Bold"
-                                   TextColor="#102A43" />
+                                TextColor="{AppThemeBinding Light=#102A43, Dark=#F8FAFC}" />
                             <Label Grid.Column="1"
                                    Text="{Binding CompletionText}"
-                                   TextColor="#486581" />
+                                TextColor="{AppThemeBinding Light=#486581, Dark=#CBD5E1}" />
                         </Grid>
                         <ProgressBar Progress="{Binding CompletionRatio}"
-                                     ProgressColor="#2F855A"
-                                     BackgroundColor="#E2E8F0"
+                                  ProgressColor="{AppThemeBinding Light=#2F855A, Dark=#4ADE80}"
+                                  BackgroundColor="{AppThemeBinding Light=#E2E8F0, Dark=#334155}"
                                      HeightRequest="10" />
                     </VerticalStackLayout>
                 </Border>
 
-                <Border Padding="20" BackgroundColor="White" Stroke="#D9E3F0" StrokeThickness="1">
+                      <Border Padding="20" BackgroundColor="{AppThemeBinding Light=White, Dark=#111827}" Stroke="{AppThemeBinding Light=#D9E3F0, Dark=#334155}" StrokeThickness="1">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="24" />
                     </Border.StrokeShape>
                     <VerticalStackLayout Spacing="16">
                         <Label Text="{Binding QuestionNumberText}"
                                FontSize="13"
-                               TextColor="#486581"
+                               TextColor="{AppThemeBinding Light=#486581, Dark=#CBD5E1}"
                                HorizontalOptions="Center" />
                         <Border Padding="10,6"
-                                BackgroundColor="#EFF6FF"
-                                Stroke="#BFDBFE"
+                            BackgroundColor="{AppThemeBinding Light=#EFF6FF, Dark=#1E3A8A}"
+                            Stroke="{AppThemeBinding Light=#BFDBFE, Dark=#60A5FA}"
                                 HorizontalOptions="Center"
                                 IsVisible="{Binding HasQuestionCategory}">
                             <Border.StrokeShape>
@@ -136,13 +136,13 @@
                             </Border.StrokeShape>
                             <Label Text="{Binding CurrentQuestionCategory}"
                                    FontSize="12"
-                                   TextColor="#1D4ED8"
+                                TextColor="{AppThemeBinding Light=#1D4ED8, Dark=#DBEAFE}"
                                    HorizontalTextAlignment="Center" />
                         </Border>
                         <Label Text="{Binding Question}"
                                FontSize="24"
                                FontAttributes="Bold"
-                               TextColor="#102A43"
+                               TextColor="{AppThemeBinding Light=#102A43, Dark=#F8FAFC}"
                                HorizontalTextAlignment="Center" />
                         <Label x:Name="answerLabel"
                                Text="{Binding Answer}"
@@ -158,16 +158,16 @@
                                     Text="{x:Static localization:AppResources.Wrong}"
                                     IsEnabled="{Binding ButtonsEnabled}"
                                     Clicked="Wrong_Clicked"
-                                    BackgroundColor="#FEE2E2"
-                                    TextColor="#991B1B"
+                                    BackgroundColor="{AppThemeBinding Light=#FEE2E2, Dark=#7F1D1D}"
+                                    TextColor="{AppThemeBinding Light=#991B1B, Dark=#FEE2E2}"
                                     CornerRadius="20"
                                     Padding="16,14" />
                             <Button Grid.Column="1"
                                     Text="{x:Static localization:AppResources.Right}"
                                     IsEnabled="{Binding ButtonsEnabled}"
                                     Clicked="Right_Clicked"
-                                    BackgroundColor="#DCFCE7"
-                                    TextColor="#166534"
+                                    BackgroundColor="{AppThemeBinding Light=#DCFCE7, Dark=#14532D}"
+                                    TextColor="{AppThemeBinding Light=#166534, Dark=#DCFCE7}"
                                     CornerRadius="20"
                                     Padding="16,14" />
                         </Grid>
@@ -180,8 +180,8 @@
                                             CommandParameter="{Binding Index}"
                                             IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type local:QuizPage}}, Path=BindingContext.ButtonsEnabled}"
                                             Clicked="Option_Clicked"
-                                            BackgroundColor="#EFF6FF"
-                                            TextColor="#0F172A"
+                                            BackgroundColor="{AppThemeBinding Light=#EFF6FF, Dark=#1E3A8A}"
+                                            TextColor="{AppThemeBinding Light=#0F172A, Dark=#EFF6FF}"
                                             CornerRadius="18"
                                             Padding="16,14" />
                                 </DataTemplate>
@@ -190,8 +190,8 @@
                         <Button Text="{x:Static localization:AppResources.Skip}"
                                 IsEnabled="{Binding ButtonsEnabled}"
                                 Clicked="Skip_Clicked"
-                                BackgroundColor="#E2E8F0"
-                                TextColor="#334E68"
+                                BackgroundColor="{AppThemeBinding Light=#E2E8F0, Dark=#334155}"
+                                TextColor="{AppThemeBinding Light=#334E68, Dark=#E2E8F0}"
                                 CornerRadius="20"
                                 Padding="16,14" />
                     </VerticalStackLayout>
