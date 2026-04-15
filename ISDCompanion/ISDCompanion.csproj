@@ -146,7 +146,6 @@
         <PackageReference Include="Italbytz.Common.Random"/>
         <PackageReference Include="Italbytz.Graph"/>
         <PackageReference Include="Italbytz.Graph.Maui"/>
-        <PackageReference Include="System.Private.Uri"/>
     </ItemGroup>
     <ItemGroup>
         <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\AIExercisesPage.xaml">
