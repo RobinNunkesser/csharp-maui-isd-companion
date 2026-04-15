@@ -164,6 +164,14 @@
             <SubType>
             </SubType>
         </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\AIPlanningPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
+        <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\AILearningPage.xaml">
+            <SubType>
+            </SubType>
+        </MauiXaml>
         <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Tabs\Exercises\BitencodingsPage.xaml">
             <SubType>
             </SubType>
@@ -251,6 +259,9 @@
         </ProjectReference>
         <ProjectReference Include="..\ISDCompanion.Shared\ISDCompanion.Shared.csproj"/>
         <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.CSP\Italbytz.AI.CSP.csproj" />
+        <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.Learning.Abstractions\Italbytz.AI.Learning.Abstractions.csproj" />
+        <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.Learning\Italbytz.AI.Learning.csproj" />
+        <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.Planning\Italbytz.AI.Planning.csproj" />
         <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.Search\Italbytz.AI.Search.csproj" />
     </ItemGroup>
 </Project>

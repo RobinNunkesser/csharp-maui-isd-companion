@@ -37,6 +37,105 @@
     <data name="ConstraintSatisfactionDemos" xml:space="preserve">
     <value>CSP-Demos</value>
   </data>
+    <data name="PlanningDemos" xml:space="preserve">
+    <value>Planungsdemos</value>
+  </data>
+    <data name="PlanningDemo" xml:space="preserve">
+    <value>Go-Home-Planungsdemo</value>
+  </data>
+    <data name="PlanningScenario" xml:space="preserve">
+    <value>Szenario</value>
+  </data>
+    <data name="PlanningScenarioGoHomeToSfo" xml:space="preserve">
+    <value>Von Zuhause nach SFO</value>
+  </data>
+    <data name="PlanningScenarioParcelToLab" xml:space="preserve">
+    <value>Paket ins Labor bringen</value>
+  </data>
+    <data name="PlanningAlgorithm" xml:space="preserve">
+    <value>Planer</value>
+  </data>
+    <data name="PlanningAlgorithmHierarchical" xml:space="preserve">
+    <value>Hierarchische Planung</value>
+  </data>
+    <data name="PlanningInitialState" xml:space="preserve">
+    <value>Ausgangszustand</value>
+  </data>
+    <data name="PlanningGoal" xml:space="preserve">
+    <value>Ziel</value>
+  </data>
+    <data name="PlanningCurrentState" xml:space="preserve">
+    <value>Aktueller Zustand</value>
+  </data>
+    <data name="PlanningAvailableActions" xml:space="preserve">
+    <value>Anwendbare Aktionen</value>
+  </data>
+    <data name="PlanningAppliedAction" xml:space="preserve">
+    <value>Angewandte Aktion</value>
+  </data>
+    <data name="PlanningNoActionYet" xml:space="preserve">
+    <value>Noch keine Aktion angewandt</value>
+  </data>
+    <data name="PlanningPlan" xml:space="preserve">
+    <value>Plan</value>
+  </data>
+    <data name="PlanningGoalStatus" xml:space="preserve">
+    <value>Zielstatus</value>
+  </data>
+    <data name="PlanningGoalPending" xml:space="preserve">
+    <value>Ziel noch nicht erreicht</value>
+  </data>
+    <data name="PlanningGoalSatisfied" xml:space="preserve">
+    <value>Ziel erfüllt</value>
+  </data>
+    <data name="LearningDemos" xml:space="preserve">
+    <value>Lern-Demos</value>
+  </data>
+    <data name="DecisionTreeDemo" xml:space="preserve">
+    <value>Restaurant-Lerndemo</value>
+  </data>
+    <data name="Learner" xml:space="preserve">
+    <value>Lernverfahren</value>
+  </data>
+    <data name="MajorityLearnerDemo" xml:space="preserve">
+    <value>Majority Learner</value>
+  </data>
+    <data name="DecisionTreeLearnerDemo" xml:space="preserve">
+    <value>Entscheidungsbaum</value>
+  </data>
+    <data name="LearningDataset" xml:space="preserve">
+    <value>Datensatz</value>
+  </data>
+    <data name="LearningRestaurantDataset" xml:space="preserve">
+    <value>Restaurant-Wartedatensatz</value>
+  </data>
+    <data name="LearningAccuracy" xml:space="preserve">
+    <value>Korrekte Klassifikationen</value>
+  </data>
+    <data name="LearningBestAttribute" xml:space="preserve">
+    <value>Bester Informationsgewinn</value>
+  </data>
+    <data name="LearningStumpCount" xml:space="preserve">
+    <value>Erzeugte Stumps</value>
+  </data>
+    <data name="LearningAttributeGains" xml:space="preserve">
+    <value>Attributgewinne</value>
+  </data>
+    <data name="LearningExample" xml:space="preserve">
+    <value>Beispiel</value>
+  </data>
+    <data name="LearningPrediction" xml:space="preserve">
+    <value>Vorhersage</value>
+  </data>
+    <data name="LearningActual" xml:space="preserve">
+    <value>Istwert</value>
+  </data>
+    <data name="LearningCorrectPrediction" xml:space="preserve">
+    <value>Vorhersage stimmt mit dem Zielwert überein</value>
+  </data>
+    <data name="LearningWrongPrediction" xml:space="preserve">
+    <value>Vorhersage weicht vom Zielwert ab</value>
+  </data>
     <data name="Algorithm" xml:space="preserve">
     <value>Algorithmus</value>
   </data>

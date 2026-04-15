@@ -40,6 +40,105 @@
     <data name="ConstraintSatisfactionDemos" xml:space="preserve">
     <value>Constraint Satisfaction Demos</value>
   </data>
+    <data name="PlanningDemos" xml:space="preserve">
+    <value>Planning Demos</value>
+  </data>
+    <data name="PlanningDemo" xml:space="preserve">
+    <value>Go Home Planning Demo</value>
+  </data>
+    <data name="PlanningScenario" xml:space="preserve">
+    <value>Scenario</value>
+  </data>
+    <data name="PlanningScenarioGoHomeToSfo" xml:space="preserve">
+    <value>Go Home to SFO</value>
+  </data>
+    <data name="PlanningScenarioParcelToLab" xml:space="preserve">
+    <value>Deliver Parcel to Lab</value>
+  </data>
+    <data name="PlanningAlgorithm" xml:space="preserve">
+    <value>Planner</value>
+  </data>
+    <data name="PlanningAlgorithmHierarchical" xml:space="preserve">
+    <value>Hierarchical planning</value>
+  </data>
+    <data name="PlanningInitialState" xml:space="preserve">
+    <value>Initial state</value>
+  </data>
+    <data name="PlanningGoal" xml:space="preserve">
+    <value>Goal</value>
+  </data>
+    <data name="PlanningCurrentState" xml:space="preserve">
+    <value>Current state</value>
+  </data>
+    <data name="PlanningAvailableActions" xml:space="preserve">
+    <value>Applicable actions</value>
+  </data>
+    <data name="PlanningAppliedAction" xml:space="preserve">
+    <value>Applied action</value>
+  </data>
+    <data name="PlanningNoActionYet" xml:space="preserve">
+    <value>No action applied yet</value>
+  </data>
+    <data name="PlanningPlan" xml:space="preserve">
+    <value>Plan</value>
+  </data>
+    <data name="PlanningGoalStatus" xml:space="preserve">
+    <value>Goal status</value>
+  </data>
+    <data name="PlanningGoalPending" xml:space="preserve">
+    <value>Goal not reached yet</value>
+  </data>
+    <data name="PlanningGoalSatisfied" xml:space="preserve">
+    <value>Goal satisfied</value>
+  </data>
+    <data name="LearningDemos" xml:space="preserve">
+    <value>Learning Demos</value>
+  </data>
+    <data name="DecisionTreeDemo" xml:space="preserve">
+    <value>Restaurant Learning Demo</value>
+  </data>
+    <data name="Learner" xml:space="preserve">
+    <value>Learner</value>
+  </data>
+    <data name="MajorityLearnerDemo" xml:space="preserve">
+    <value>Majority Learner</value>
+  </data>
+    <data name="DecisionTreeLearnerDemo" xml:space="preserve">
+    <value>Decision Tree</value>
+  </data>
+    <data name="LearningDataset" xml:space="preserve">
+    <value>Dataset</value>
+  </data>
+    <data name="LearningRestaurantDataset" xml:space="preserve">
+    <value>Restaurant waiting dataset</value>
+  </data>
+    <data name="LearningAccuracy" xml:space="preserve">
+    <value>Correct classifications</value>
+  </data>
+    <data name="LearningBestAttribute" xml:space="preserve">
+    <value>Best information gain</value>
+  </data>
+    <data name="LearningStumpCount" xml:space="preserve">
+    <value>Generated stumps</value>
+  </data>
+    <data name="LearningAttributeGains" xml:space="preserve">
+    <value>Attribute gains</value>
+  </data>
+    <data name="LearningExample" xml:space="preserve">
+    <value>Example</value>
+  </data>
+    <data name="LearningPrediction" xml:space="preserve">
+    <value>Prediction</value>
+  </data>
+    <data name="LearningActual" xml:space="preserve">
+    <value>Actual</value>
+  </data>
+    <data name="LearningCorrectPrediction" xml:space="preserve">
+    <value>Prediction matches the target value</value>
+  </data>
+    <data name="LearningWrongPrediction" xml:space="preserve">
+    <value>Prediction differs from the target value</value>
+  </data>
     <data name="Algorithm" xml:space="preserve">
     <value>Algorithm</value>
   </data>

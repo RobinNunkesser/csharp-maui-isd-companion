@@ -93,6 +93,204 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
 
+        internal static string PlanningDemos {
+            get {
+                return ResourceManager.GetString("PlanningDemos", resourceCulture);
+            }
+        }
+
+        internal static string PlanningDemo {
+            get {
+                return ResourceManager.GetString("PlanningDemo", resourceCulture);
+            }
+        }
+
+        internal static string PlanningScenario {
+            get {
+                return ResourceManager.GetString("PlanningScenario", resourceCulture);
+            }
+        }
+
+        internal static string PlanningScenarioGoHomeToSfo {
+            get {
+                return ResourceManager.GetString("PlanningScenarioGoHomeToSfo", resourceCulture);
+            }
+        }
+
+        internal static string PlanningScenarioParcelToLab {
+            get {
+                return ResourceManager.GetString("PlanningScenarioParcelToLab", resourceCulture);
+            }
+        }
+
+        internal static string PlanningAlgorithm {
+            get {
+                return ResourceManager.GetString("PlanningAlgorithm", resourceCulture);
+            }
+        }
+
+        internal static string PlanningAlgorithmHierarchical {
+            get {
+                return ResourceManager.GetString("PlanningAlgorithmHierarchical", resourceCulture);
+            }
+        }
+
+        internal static string PlanningInitialState {
+            get {
+                return ResourceManager.GetString("PlanningInitialState", resourceCulture);
+            }
+        }
+
+        internal static string PlanningGoal {
+            get {
+                return ResourceManager.GetString("PlanningGoal", resourceCulture);
+            }
+        }
+
+        internal static string PlanningCurrentState {
+            get {
+                return ResourceManager.GetString("PlanningCurrentState", resourceCulture);
+            }
+        }
+
+        internal static string PlanningAvailableActions {
+            get {
+                return ResourceManager.GetString("PlanningAvailableActions", resourceCulture);
+            }
+        }
+
+        internal static string PlanningAppliedAction {
+            get {
+                return ResourceManager.GetString("PlanningAppliedAction", resourceCulture);
+            }
+        }
+
+        internal static string PlanningNoActionYet {
+            get {
+                return ResourceManager.GetString("PlanningNoActionYet", resourceCulture);
+            }
+        }
+
+        internal static string PlanningPlan {
+            get {
+                return ResourceManager.GetString("PlanningPlan", resourceCulture);
+            }
+        }
+
+        internal static string PlanningGoalStatus {
+            get {
+                return ResourceManager.GetString("PlanningGoalStatus", resourceCulture);
+            }
+        }
+
+        internal static string PlanningGoalPending {
+            get {
+                return ResourceManager.GetString("PlanningGoalPending", resourceCulture);
+            }
+        }
+
+        internal static string PlanningGoalSatisfied {
+            get {
+                return ResourceManager.GetString("PlanningGoalSatisfied", resourceCulture);
+            }
+        }
+
+        internal static string LearningDemos {
+            get {
+                return ResourceManager.GetString("LearningDemos", resourceCulture);
+            }
+        }
+
+        internal static string DecisionTreeDemo {
+            get {
+                return ResourceManager.GetString("DecisionTreeDemo", resourceCulture);
+            }
+        }
+
+        internal static string Learner {
+            get {
+                return ResourceManager.GetString("Learner", resourceCulture);
+            }
+        }
+
+        internal static string MajorityLearnerDemo {
+            get {
+                return ResourceManager.GetString("MajorityLearnerDemo", resourceCulture);
+            }
+        }
+
+        internal static string DecisionTreeLearnerDemo {
+            get {
+                return ResourceManager.GetString("DecisionTreeLearnerDemo", resourceCulture);
+            }
+        }
+
+        internal static string LearningDataset {
+            get {
+                return ResourceManager.GetString("LearningDataset", resourceCulture);
+            }
+        }
+
+        internal static string LearningRestaurantDataset {
+            get {
+                return ResourceManager.GetString("LearningRestaurantDataset", resourceCulture);
+            }
+        }
+
+        internal static string LearningAccuracy {
+            get {
+                return ResourceManager.GetString("LearningAccuracy", resourceCulture);
+            }
+        }
+
+        internal static string LearningBestAttribute {
+            get {
+                return ResourceManager.GetString("LearningBestAttribute", resourceCulture);
+            }
+        }
+
+        internal static string LearningStumpCount {
+            get {
+                return ResourceManager.GetString("LearningStumpCount", resourceCulture);
+            }
+        }
+
+        internal static string LearningAttributeGains {
+            get {
+                return ResourceManager.GetString("LearningAttributeGains", resourceCulture);
+            }
+        }
+
+        internal static string LearningExample {
+            get {
+                return ResourceManager.GetString("LearningExample", resourceCulture);
+            }
+        }
+
+        internal static string LearningPrediction {
+            get {
+                return ResourceManager.GetString("LearningPrediction", resourceCulture);
+            }
+        }
+
+        internal static string LearningActual {
+            get {
+                return ResourceManager.GetString("LearningActual", resourceCulture);
+            }
+        }
+
+        internal static string LearningCorrectPrediction {
+            get {
+                return ResourceManager.GetString("LearningCorrectPrediction", resourceCulture);
+            }
+        }
+
+        internal static string LearningWrongPrediction {
+            get {
+                return ResourceManager.GetString("LearningWrongPrediction", resourceCulture);
+            }
+        }
+
         internal static string Algorithm {
             get {
                 return ResourceManager.GetString("Algorithm", resourceCulture);

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StudyCompanion"
+             xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
+             x:Class="StudyCompanion.AILearningPage"
+             Title="{x:Static localization:AppResources.DecisionTreeDemo}">
+
+    <Shell.TabBarIsVisible>false</Shell.TabBarIsVisible>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="16" Spacing="12">
+                <Label Text="{x:Static localization:AppResources.Learner}" FontAttributes="Bold" />
+                <Picker ItemsSource="{Binding Learners}" SelectedIndex="{Binding SelectedLearnerIndex}" />
+
+                <Label Text="{Binding LearnerText}" FontAttributes="Bold" />
+                <Label Text="{Binding DatasetText}" />
+
+                <Label Text="{Binding StepText}" FontAttributes="Bold" />
+                <Label Text="{Binding SummaryText}" LineBreakMode="WordWrap" />
+
+                <Label Text="{Binding AccuracyText}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding BestAttributeText}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding StumpCountText}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding GainsText}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding ExampleText}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding PredictionText}" LineBreakMode="WordWrap" />
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ContentView Grid.Row="1" Padding="16,8">
+            <local:ExerciseControlsView
+                NewExerciseCommand="{Binding ButtonNewExercise}"
+                PreviousStepCommand="{Binding ButtonPreviousStep}"
+                NextStepCommand="{Binding ButtonNextStep}"
+                ShowSolutionCommand="{Binding ButtonCompleteSolution}" />
+        </ContentView>
+    </Grid>
+</ContentPage>

@@ -23,6 +23,16 @@
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:AINQueensPage}" />
                 </TableSection>
+                <TableSection Title="{x:Static localization:AppResources.PlanningDemos}">
+                    <TextCell Text="{x:Static localization:AppResources.PlanningDemo}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:AIPlanningPage}" />
+                </TableSection>
+                <TableSection Title="{x:Static localization:AppResources.LearningDemos}">
+                    <TextCell Text="{x:Static localization:AppResources.DecisionTreeDemo}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:AILearningPage}" />
+                </TableSection>
             </TableRoot>
         </TableView>
     </ContentPage.Content>
