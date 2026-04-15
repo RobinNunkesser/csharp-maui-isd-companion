@@ -136,6 +136,39 @@
     <data name="LearningWrongPrediction" xml:space="preserve">
     <value>Vorhersage weicht vom Zielwert ab</value>
   </data>
+    <data name="CrossValidationDemo" xml:space="preserve">
+    <value>Cross-Validation-Demo</value>
+  </data>
+    <data name="CrossValidationLearner" xml:space="preserve">
+    <value>Validierungs-Lernverfahren</value>
+  </data>
+    <data name="CrossValidationDemoLearner" xml:space="preserve">
+    <value>Parametrisierter Demo-Learner</value>
+  </data>
+    <data name="CrossValidationFolds" xml:space="preserve">
+    <value>Folds</value>
+  </data>
+    <data name="CrossValidationThreshold" xml:space="preserve">
+    <value>Schwelle für Trainingsfehler</value>
+  </data>
+    <data name="CrossValidationSelectedParameter" xml:space="preserve">
+    <value>Gewählte Parametergröße</value>
+  </data>
+    <data name="CrossValidationParameter" xml:space="preserve">
+    <value>Parametergröße</value>
+  </data>
+    <data name="CrossValidationTrainingError" xml:space="preserve">
+    <value>Trainingsfehler</value>
+  </data>
+    <data name="CrossValidationValidationError" xml:space="preserve">
+    <value>Validierungsfehler</value>
+  </data>
+    <data name="CrossValidationBestChoice" xml:space="preserve">
+    <value>Dieser Kandidat wird durch Cross Validation ausgewählt</value>
+  </data>
+    <data name="CrossValidationModelSelection" xml:space="preserve">
+    <value>Vergleiche Trainings- und Validierungsfehler für diese Parametergröße</value>
+  </data>
     <data name="Algorithm" xml:space="preserve">
     <value>Algorithmus</value>
   </data>

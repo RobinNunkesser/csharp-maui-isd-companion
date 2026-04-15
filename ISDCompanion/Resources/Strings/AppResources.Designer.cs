@@ -291,6 +291,72 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
 
+        internal static string CrossValidationDemo {
+            get {
+                return ResourceManager.GetString("CrossValidationDemo", resourceCulture);
+            }
+        }
+
+        internal static string CrossValidationLearner {
+            get {
+                return ResourceManager.GetString("CrossValidationLearner", resourceCulture);
+            }
+        }
+
+        internal static string CrossValidationDemoLearner {
+            get {
+                return ResourceManager.GetString("CrossValidationDemoLearner", resourceCulture);
+            }
+        }
+
+        internal static string CrossValidationFolds {
+            get {
+                return ResourceManager.GetString("CrossValidationFolds", resourceCulture);
+            }
+        }
+
+        internal static string CrossValidationThreshold {
+            get {
+                return ResourceManager.GetString("CrossValidationThreshold", resourceCulture);
+            }
+        }
+
+        internal static string CrossValidationSelectedParameter {
+            get {
+                return ResourceManager.GetString("CrossValidationSelectedParameter", resourceCulture);
+            }
+        }
+
+        internal static string CrossValidationParameter {
+            get {
+                return ResourceManager.GetString("CrossValidationParameter", resourceCulture);
+            }
+        }
+
+        internal static string CrossValidationTrainingError {
+            get {
+                return ResourceManager.GetString("CrossValidationTrainingError", resourceCulture);
+            }
+        }
+
+        internal static string CrossValidationValidationError {
+            get {
+                return ResourceManager.GetString("CrossValidationValidationError", resourceCulture);
+            }
+        }
+
+        internal static string CrossValidationBestChoice {
+            get {
+                return ResourceManager.GetString("CrossValidationBestChoice", resourceCulture);
+            }
+        }
+
+        internal static string CrossValidationModelSelection {
+            get {
+                return ResourceManager.GetString("CrossValidationModelSelection", resourceCulture);
+            }
+        }
+
         internal static string Algorithm {
             get {
                 return ResourceManager.GetString("Algorithm", resourceCulture);

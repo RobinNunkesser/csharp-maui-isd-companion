@@ -139,6 +139,39 @@
     <data name="LearningWrongPrediction" xml:space="preserve">
     <value>Prediction differs from the target value</value>
   </data>
+    <data name="CrossValidationDemo" xml:space="preserve">
+    <value>Cross Validation Demo</value>
+  </data>
+    <data name="CrossValidationLearner" xml:space="preserve">
+    <value>Validation learner</value>
+  </data>
+    <data name="CrossValidationDemoLearner" xml:space="preserve">
+    <value>Parameterized demo learner</value>
+  </data>
+    <data name="CrossValidationFolds" xml:space="preserve">
+    <value>Folds</value>
+  </data>
+    <data name="CrossValidationThreshold" xml:space="preserve">
+    <value>Training error threshold</value>
+  </data>
+    <data name="CrossValidationSelectedParameter" xml:space="preserve">
+    <value>Selected parameter size</value>
+  </data>
+    <data name="CrossValidationParameter" xml:space="preserve">
+    <value>Parameter size</value>
+  </data>
+    <data name="CrossValidationTrainingError" xml:space="preserve">
+    <value>Training error</value>
+  </data>
+    <data name="CrossValidationValidationError" xml:space="preserve">
+    <value>Validation error</value>
+  </data>
+    <data name="CrossValidationBestChoice" xml:space="preserve">
+    <value>This candidate is selected by cross validation</value>
+  </data>
+    <data name="CrossValidationModelSelection" xml:space="preserve">
+    <value>Compare training and validation error for this parameter size</value>
+  </data>
     <data name="Algorithm" xml:space="preserve">
     <value>Algorithm</value>
   </data>
