@@ -32,6 +32,9 @@
                     <TextCell Text="{x:Static localization:AppResources.DecisionTreeDemo}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:AILearningPage}" />
+                    <TextCell Text="{x:Static localization:AppResources.ConstraintLearningDemo}"
+                              Command="{Binding NavigateCommand}"
+                              CommandParameter="{x:Type local:AIConstraintLearningPage}" />
                     <TextCell Text="{x:Static localization:AppResources.CrossValidationDemo}"
                               Command="{Binding NavigateCommand}"
                               CommandParameter="{x:Type local:AICrossValidationPage}" />

@@ -207,6 +207,12 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
 
+        internal static string ConstraintLearningDemo {
+            get {
+                return ResourceManager.GetString("ConstraintLearningDemo", resourceCulture);
+            }
+        }
+
         internal static string Learner {
             get {
                 return ResourceManager.GetString("Learner", resourceCulture);
@@ -354,6 +360,84 @@ namespace StudyCompanion.Resources.Strings {
         internal static string CrossValidationModelSelection {
             get {
                 return ResourceManager.GetString("CrossValidationModelSelection", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningDataset {
+            get {
+                return ResourceManager.GetString("ConstraintLearningDataset", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningBinaryColorDataset {
+            get {
+                return ResourceManager.GetString("ConstraintLearningBinaryColorDataset", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningVariables {
+            get {
+                return ResourceManager.GetString("ConstraintLearningVariables", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningHypothesisSpace {
+            get {
+                return ResourceManager.GetString("ConstraintLearningHypothesisSpace", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningLearnedConstraint {
+            get {
+                return ResourceManager.GetString("ConstraintLearningLearnedConstraint", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningCspTransfer {
+            get {
+                return ResourceManager.GetString("ConstraintLearningCspTransfer", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningExample {
+            get {
+                return ResourceManager.GetString("ConstraintLearningExample", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningEliminated {
+            get {
+                return ResourceManager.GetString("ConstraintLearningEliminated", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningRemaining {
+            get {
+                return ResourceManager.GetString("ConstraintLearningRemaining", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningPositiveExample {
+            get {
+                return ResourceManager.GetString("ConstraintLearningPositiveExample", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningNegativeExample {
+            get {
+                return ResourceManager.GetString("ConstraintLearningNegativeExample", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningConstraintFound {
+            get {
+                return ResourceManager.GetString("ConstraintLearningConstraintFound", resourceCulture);
+            }
+        }
+
+        internal static string ConstraintLearningFilterHypotheses {
+            get {
+                return ResourceManager.GetString("ConstraintLearningFilterHypotheses", resourceCulture);
             }
         }
 

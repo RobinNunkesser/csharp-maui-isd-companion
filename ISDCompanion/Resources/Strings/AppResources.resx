@@ -97,6 +97,9 @@
     <data name="DecisionTreeDemo" xml:space="preserve">
     <value>Restaurant Learning Demo</value>
   </data>
+    <data name="ConstraintLearningDemo" xml:space="preserve">
+    <value>Constraint Learning Demo</value>
+  </data>
     <data name="Learner" xml:space="preserve">
     <value>Learner</value>
   </data>
@@ -171,6 +174,45 @@
   </data>
     <data name="CrossValidationModelSelection" xml:space="preserve">
     <value>Compare training and validation error for this parameter size</value>
+  </data>
+    <data name="ConstraintLearningDataset" xml:space="preserve">
+    <value>Dataset</value>
+  </data>
+    <data name="ConstraintLearningBinaryColorDataset" xml:space="preserve">
+    <value>Binary color-pair examples</value>
+  </data>
+    <data name="ConstraintLearningVariables" xml:space="preserve">
+    <value>Variables</value>
+  </data>
+    <data name="ConstraintLearningHypothesisSpace" xml:space="preserve">
+    <value>Hypothesis space</value>
+  </data>
+    <data name="ConstraintLearningLearnedConstraint" xml:space="preserve">
+    <value>Learned constraint</value>
+  </data>
+    <data name="ConstraintLearningCspTransfer" xml:space="preserve">
+    <value>CSP transfer</value>
+  </data>
+    <data name="ConstraintLearningExample" xml:space="preserve">
+    <value>Example</value>
+  </data>
+    <data name="ConstraintLearningEliminated" xml:space="preserve">
+    <value>Eliminated hypotheses</value>
+  </data>
+    <data name="ConstraintLearningRemaining" xml:space="preserve">
+    <value>Remaining hypotheses</value>
+  </data>
+    <data name="ConstraintLearningPositiveExample" xml:space="preserve">
+    <value>positive example</value>
+  </data>
+    <data name="ConstraintLearningNegativeExample" xml:space="preserve">
+    <value>negative example</value>
+  </data>
+    <data name="ConstraintLearningConstraintFound" xml:space="preserve">
+    <value>A single constraint relation remains after filtering</value>
+  </data>
+    <data name="ConstraintLearningFilterHypotheses" xml:space="preserve">
+    <value>This example removes all hypotheses that contradict the label</value>
   </data>
     <data name="Algorithm" xml:space="preserve">
     <value>Algorithm</value>

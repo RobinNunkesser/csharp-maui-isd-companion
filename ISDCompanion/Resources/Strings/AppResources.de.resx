@@ -94,6 +94,9 @@
     <data name="DecisionTreeDemo" xml:space="preserve">
     <value>Restaurant-Lerndemo</value>
   </data>
+    <data name="ConstraintLearningDemo" xml:space="preserve">
+    <value>Constraint-Learning-Demo</value>
+  </data>
     <data name="Learner" xml:space="preserve">
     <value>Lernverfahren</value>
   </data>
@@ -168,6 +171,45 @@
   </data>
     <data name="CrossValidationModelSelection" xml:space="preserve">
     <value>Vergleiche Trainings- und Validierungsfehler für diese Parametergröße</value>
+  </data>
+    <data name="ConstraintLearningDataset" xml:space="preserve">
+    <value>Datensatz</value>
+  </data>
+    <data name="ConstraintLearningBinaryColorDataset" xml:space="preserve">
+    <value>Binäre Farbpaar-Beispiele</value>
+  </data>
+    <data name="ConstraintLearningVariables" xml:space="preserve">
+    <value>Variablen</value>
+  </data>
+    <data name="ConstraintLearningHypothesisSpace" xml:space="preserve">
+    <value>Hypothesenraum</value>
+  </data>
+    <data name="ConstraintLearningLearnedConstraint" xml:space="preserve">
+    <value>Gelernte Constraint</value>
+  </data>
+    <data name="ConstraintLearningCspTransfer" xml:space="preserve">
+    <value>CSP-Übertragung</value>
+  </data>
+    <data name="ConstraintLearningExample" xml:space="preserve">
+    <value>Beispiel</value>
+  </data>
+    <data name="ConstraintLearningEliminated" xml:space="preserve">
+    <value>Eliminierte Hypothesen</value>
+  </data>
+    <data name="ConstraintLearningRemaining" xml:space="preserve">
+    <value>Verbleibende Hypothesen</value>
+  </data>
+    <data name="ConstraintLearningPositiveExample" xml:space="preserve">
+    <value>positives Beispiel</value>
+  </data>
+    <data name="ConstraintLearningNegativeExample" xml:space="preserve">
+    <value>negatives Beispiel</value>
+  </data>
+    <data name="ConstraintLearningConstraintFound" xml:space="preserve">
+    <value>Nach dem Filtern bleibt genau eine Constraint-Relation übrig</value>
+  </data>
+    <data name="ConstraintLearningFilterHypotheses" xml:space="preserve">
+    <value>Dieses Beispiel entfernt alle Hypothesen, die dem Label widersprechen</value>
   </data>
     <data name="Algorithm" xml:space="preserve">
     <value>Algorithmus</value>
