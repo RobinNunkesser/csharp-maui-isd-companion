@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text.Json;
 using System.Windows.Input;
 using Italbytz.Exam.Trivia.Abstractions;
 using StudyCompanion.Resources.Strings;
@@ -7,8 +8,10 @@ namespace StudyCompanion
 {
     public class QuizViewModel : ViewModel
     {
+        private const string QuizHistoryPreferenceKey = "QuizHistory";
         private readonly Random _random = new();
         private readonly QuizCatalog[] _catalogs;
+        private QuizHistoryStore _historyStore = QuizHistoryStore.CreateDefault();
         private IQuestion[] _questions = Array.Empty<IQuestion>();
         private int _index;
         private int _correctAnswers;
@@ -18,7 +21,32 @@ namespace StudyCompanion
         private int _bestStreak;
         private int _selectedCatalogIndex;
 
-        private sealed record QuizCatalog(string Title, Func<IQuestion[]> QuestionFactory);
+        private sealed record QuizCatalog(string Id, string Title, Func<IQuestion[]> QuestionFactory);
+
+        private sealed class QuizHistoryStore
+        {
+            public QuizHistoryEntry Overall { get; set; } = new();
+            public Dictionary<string, QuizHistoryEntry> Catalogs { get; set; } = new(StringComparer.Ordinal);
+
+            public static QuizHistoryStore CreateDefault()
+            {
+                return new QuizHistoryStore
+                {
+                    Catalogs = new Dictionary<string, QuizHistoryEntry>(StringComparer.Ordinal)
+                };
+            }
+        }
+
+        private sealed class QuizHistoryEntry
+        {
+            public int SessionsPlayed { get; set; }
+            public int QuestionsAnswered { get; set; }
+            public int CorrectAnswers { get; set; }
+            public int WrongAnswers { get; set; }
+            public int SkippedQuestions { get; set; }
+            public int BestStreak { get; set; }
+            public string LastPlayedUtc { get; set; } = string.Empty;
+        }
 
         public int TotalQuestions => _questions.Length;
 
@@ -107,11 +135,19 @@ namespace StudyCompanion
 
         public string CompletionText => CompletionRatio.ToString("P0", CultureInfo.CurrentCulture);
 
+        public string LifetimeAccuracyText => LifetimeAccuracyRatio.ToString("P0", CultureInfo.CurrentCulture);
+
+        public string LifetimeCompletionText => LifetimeCompletionRatio.ToString("P0", CultureInfo.CurrentCulture);
+
         public int RemainingQuestions => Math.Max(0, TotalQuestions - AnsweredQuestions);
 
         public double AccuracyRatio => AnsweredQuestions == 0 ? 0 : (double)CorrectAnswers / AnsweredQuestions;
 
         public double CompletionRatio => TotalQuestions == 0 ? 0 : (double)AnsweredQuestions / TotalQuestions;
+
+        public double LifetimeAccuracyRatio => LifetimeAnsweredQuestions == 0 ? 0 : (double)LifetimeCorrectAnswers / LifetimeAnsweredQuestions;
+
+        public double LifetimeCompletionRatio => LifetimeAvailableQuestions == 0 ? 0 : (double)LifetimeAnsweredQuestions / LifetimeAvailableQuestions;
 
         public double CorrectRatio => AnsweredQuestions == 0 ? 0 : (double)CorrectAnswers / AnsweredQuestions;
 
@@ -119,9 +155,32 @@ namespace StudyCompanion
 
         public double SkippedRatio => AnsweredQuestions == 0 ? 0 : (double)SkippedQuestions / AnsweredQuestions;
 
+        public int LifetimeSessionsPlayed => SelectedHistory.SessionsPlayed;
+
+        public int LifetimeAnsweredQuestions => SelectedHistory.QuestionsAnswered;
+
+        public int LifetimeCorrectAnswers => SelectedHistory.CorrectAnswers;
+
+        public int LifetimeWrongAnswers => SelectedHistory.WrongAnswers;
+
+        public int LifetimeSkippedQuestions => SelectedHistory.SkippedQuestions;
+
+        public int LifetimeBestStreak => SelectedHistory.BestStreak;
+
+        public int OverallSessionsPlayed => _historyStore.Overall.SessionsPlayed;
+
+        public int OverallAnsweredQuestions => _historyStore.Overall.QuestionsAnswered;
+
+        public string LastPlayedText => string.IsNullOrWhiteSpace(SelectedHistory.LastPlayedUtc)
+            ? AppResources.QuizNoHistoryYet
+            : DateTime.TryParse(SelectedHistory.LastPlayedUtc, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out var parsed)
+                ? parsed.ToLocalTime().ToString("g", CultureInfo.CurrentCulture)
+                : AppResources.QuizNoHistoryYet;
+
         public bool HasActiveQuestion => _index < _questions.Length;
 
         public ICommand RestartQuizCommand { get; }
+        public ICommand ResetHistoryCommand { get; }
 
         private bool buttonsEnabled = true;
         public bool ButtonsEnabled
@@ -171,12 +230,14 @@ namespace StudyCompanion
         {
             _catalogs =
             [
-                new QuizCatalog(AppResources.QuizAllCatalogs, () => Italbytz.Exam.Networking.YesNoQuestions.Questions.Concat(Italbytz.Exam.OperatingSystems.YesNoQuestions.Questions).Cast<IQuestion>().ToArray()),
-                new QuizCatalog(AppResources.Networks, () => Italbytz.Exam.Networking.YesNoQuestions.Questions.Cast<IQuestion>().ToArray()),
-                new QuizCatalog(AppResources.OperatingSystems, () => Italbytz.Exam.OperatingSystems.YesNoQuestions.Questions.Cast<IQuestion>().ToArray())
+                new QuizCatalog("all", AppResources.QuizAllCatalogs, () => Italbytz.Exam.Networking.YesNoQuestions.Questions.Concat(Italbytz.Exam.OperatingSystems.YesNoQuestions.Questions).Cast<IQuestion>().ToArray()),
+                new QuizCatalog("networks", AppResources.Networks, () => Italbytz.Exam.Networking.YesNoQuestions.Questions.Cast<IQuestion>().ToArray()),
+                new QuizCatalog("operating-systems", AppResources.OperatingSystems, () => Italbytz.Exam.OperatingSystems.YesNoQuestions.Questions.Cast<IQuestion>().ToArray())
             ];
 
+            LoadHistory();
             RestartQuizCommand = new Command(ResetQuiz);
+            ResetHistoryCommand = new Command(ResetHistory);
             ResetQuiz();
         }
 
@@ -232,11 +293,18 @@ namespace StudyCompanion
             Answer = string.Empty;
             FeedbackColor = Colors.Transparent;
             ButtonsEnabled = HasActiveQuestion;
+
+            if (!HasActiveQuestion)
+            {
+                PersistCurrentSession();
+            }
+
             RaiseSessionProperties();
         }
 
         private void ResetQuiz()
         {
+            PersistCurrentSession();
             _questions = _catalogs[_selectedCatalogIndex].QuestionFactory().ToArray();
             Shuffle(_questions);
             _index = 0;
@@ -251,7 +319,82 @@ namespace StudyCompanion
             RaiseSessionProperties();
         }
 
+        private void ResetHistory()
+        {
+            _historyStore = QuizHistoryStore.CreateDefault();
+            SaveHistory();
+            RaiseSessionProperties();
+        }
+
         private string SelectedCatalogName => _catalogs[_selectedCatalogIndex].Title;
+
+        private int LifetimeAvailableQuestions => Math.Max(TotalQuestions * Math.Max(LifetimeSessionsPlayed, 1), TotalQuestions);
+
+        private QuizCatalog SelectedCatalog => _catalogs[_selectedCatalogIndex];
+
+        private QuizHistoryEntry SelectedHistory
+        {
+            get
+            {
+                if (!_historyStore.Catalogs.TryGetValue(SelectedCatalog.Id, out var entry))
+                {
+                    entry = new QuizHistoryEntry();
+                    _historyStore.Catalogs[SelectedCatalog.Id] = entry;
+                }
+
+                return entry;
+            }
+        }
+
+        private void PersistCurrentSession()
+        {
+            if (AnsweredQuestions == 0)
+            {
+                return;
+            }
+
+            UpdateHistoryEntry(SelectedHistory);
+            UpdateHistoryEntry(_historyStore.Overall);
+            SaveHistory();
+        }
+
+        private void UpdateHistoryEntry(QuizHistoryEntry entry)
+        {
+            entry.SessionsPlayed++;
+            entry.QuestionsAnswered += AnsweredQuestions;
+            entry.CorrectAnswers += CorrectAnswers;
+            entry.WrongAnswers += WrongAnswers;
+            entry.SkippedQuestions += SkippedQuestions;
+            entry.BestStreak = Math.Max(entry.BestStreak, BestStreak);
+            entry.LastPlayedUtc = DateTime.UtcNow.ToString("O", CultureInfo.InvariantCulture);
+        }
+
+        private void LoadHistory()
+        {
+            var serialized = Preferences.Get(QuizHistoryPreferenceKey, string.Empty);
+            if (string.IsNullOrWhiteSpace(serialized))
+            {
+                _historyStore = QuizHistoryStore.CreateDefault();
+                return;
+            }
+
+            try
+            {
+                _historyStore = JsonSerializer.Deserialize<QuizHistoryStore>(serialized) ?? QuizHistoryStore.CreateDefault();
+                _historyStore.Catalogs ??= new Dictionary<string, QuizHistoryEntry>(StringComparer.Ordinal);
+                _historyStore.Overall ??= new QuizHistoryEntry();
+            }
+            catch
+            {
+                _historyStore = QuizHistoryStore.CreateDefault();
+            }
+        }
+
+        private void SaveHistory()
+        {
+            var serialized = JsonSerializer.Serialize(_historyStore);
+            Preferences.Set(QuizHistoryPreferenceKey, serialized);
+        }
 
         private void Shuffle(IQuestion[] questions)
         {
@@ -272,11 +415,24 @@ namespace StudyCompanion
             OnPropertyChanged(nameof(SessionStatusText));
             OnPropertyChanged(nameof(AccuracyText));
             OnPropertyChanged(nameof(CompletionText));
+            OnPropertyChanged(nameof(LifetimeAccuracyText));
+            OnPropertyChanged(nameof(LifetimeCompletionText));
             OnPropertyChanged(nameof(AccuracyRatio));
             OnPropertyChanged(nameof(CompletionRatio));
+            OnPropertyChanged(nameof(LifetimeAccuracyRatio));
+            OnPropertyChanged(nameof(LifetimeCompletionRatio));
             OnPropertyChanged(nameof(CorrectRatio));
             OnPropertyChanged(nameof(WrongRatio));
             OnPropertyChanged(nameof(SkippedRatio));
+            OnPropertyChanged(nameof(LifetimeSessionsPlayed));
+            OnPropertyChanged(nameof(LifetimeAnsweredQuestions));
+            OnPropertyChanged(nameof(LifetimeCorrectAnswers));
+            OnPropertyChanged(nameof(LifetimeWrongAnswers));
+            OnPropertyChanged(nameof(LifetimeSkippedQuestions));
+            OnPropertyChanged(nameof(LifetimeBestStreak));
+            OnPropertyChanged(nameof(OverallSessionsPlayed));
+            OnPropertyChanged(nameof(OverallAnsweredQuestions));
+            OnPropertyChanged(nameof(LastPlayedText));
             OnPropertyChanged(nameof(HasActiveQuestion));
             OnPropertyChanged(nameof(HasFeedback));
         }

@@ -764,6 +764,36 @@ namespace StudyCompanion.Resources.Strings {
                 return ResourceManager.GetString("QuizCorrectAnswer", resourceCulture);
             }
         }
+
+        internal static string QuizLifetimeStats {
+            get {
+                return ResourceManager.GetString("QuizLifetimeStats", resourceCulture);
+            }
+        }
+
+        internal static string QuizSessionsPlayed {
+            get {
+                return ResourceManager.GetString("QuizSessionsPlayed", resourceCulture);
+            }
+        }
+
+        internal static string QuizLastPlayed {
+            get {
+                return ResourceManager.GetString("QuizLastPlayed", resourceCulture);
+            }
+        }
+
+        internal static string QuizNoHistoryYet {
+            get {
+                return ResourceManager.GetString("QuizNoHistoryYet", resourceCulture);
+            }
+        }
+
+        internal static string QuizResetHistory {
+            get {
+                return ResourceManager.GetString("QuizResetHistory", resourceCulture);
+            }
+        }
         
         internal static string Buddy {
             get {

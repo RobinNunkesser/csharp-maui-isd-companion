@@ -76,10 +76,52 @@
                                    </Border.StrokeShape>
                                    <VerticalStackLayout Spacing="12">
                                           <Grid ColumnDefinitions="*,Auto">
-                                                 <Label Text="{x:Static localization:AppResources.QuizCompletion}" FontAttributes="Bold" TextColor="#102A43" />
-                                                 <Label Grid.Column="1" Text="{Binding CompletionText}" TextColor="#486581" />
+                                                 <Label Text="{x:Static localization:AppResources.QuizLifetimeStats}"
+                                                        FontAttributes="Bold"
+                                                        TextColor="#102A43" />
+                                                 <Button Grid.Column="1"
+                                                         Text="{x:Static localization:AppResources.QuizResetHistory}"
+                                                         Command="{Binding ResetHistoryCommand}"
+                                                         BackgroundColor="#FEE2E2"
+                                                         TextColor="#991B1B"
+                                                         CornerRadius="18"
+                                                         Padding="12,8" />
                                           </Grid>
-                                          <ProgressBar Progress="{Binding CompletionRatio}" ProgressColor="#2F855A" BackgroundColor="#E2E8F0" HeightRequest="10" />
+                                          <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+                                                 <Border Grid.Row="0" Grid.Column="0" Padding="14" BackgroundColor="#EFF6FF" Stroke="#BFDBFE">
+                                                        <Border.StrokeShape><RoundRectangle CornerRadius="18" /></Border.StrokeShape>
+                                                        <VerticalStackLayout Spacing="4">
+                                                               <Label Text="{x:Static localization:AppResources.QuizSessionsPlayed}" FontSize="12" TextColor="#1D4ED8" />
+                                                               <Label Text="{Binding LifetimeSessionsPlayed}" FontSize="22" FontAttributes="Bold" TextColor="#1E3A8A" />
+                                                        </VerticalStackLayout>
+                                                 </Border>
+                                                 <Border Grid.Row="0" Grid.Column="1" Padding="14" BackgroundColor="#F5F3FF" Stroke="#DDD6FE">
+                                                        <Border.StrokeShape><RoundRectangle CornerRadius="18" /></Border.StrokeShape>
+                                                        <VerticalStackLayout Spacing="4">
+                                                               <Label Text="{x:Static localization:AppResources.QuizAccuracy}" FontSize="12" TextColor="#6D28D9" />
+                                                               <Label Text="{Binding LifetimeAccuracyText}" FontSize="22" FontAttributes="Bold" TextColor="#5B21B6" />
+                                                        </VerticalStackLayout>
+                                                 </Border>
+                                                 <Border Grid.Row="1" Grid.Column="0" Padding="14" BackgroundColor="#ECFDF5" Stroke="#A7F3D0">
+                                                        <Border.StrokeShape><RoundRectangle CornerRadius="18" /></Border.StrokeShape>
+                                                        <VerticalStackLayout Spacing="4">
+                                                               <Label Text="{x:Static localization:AppResources.QuizBestStreak}" FontSize="12" TextColor="#047857" />
+                                                               <Label Text="{Binding LifetimeBestStreak}" FontSize="22" FontAttributes="Bold" TextColor="#065F46" />
+                                                        </VerticalStackLayout>
+                                                 </Border>
+                                                 <Border Grid.Row="1" Grid.Column="1" Padding="14" BackgroundColor="#FFF7ED" Stroke="#FED7AA">
+                                                        <Border.StrokeShape><RoundRectangle CornerRadius="18" /></Border.StrokeShape>
+                                                        <VerticalStackLayout Spacing="4">
+                                                               <Label Text="{x:Static localization:AppResources.QuizLastPlayed}" FontSize="12" TextColor="#C2410C" />
+                                                               <Label Text="{Binding LastPlayedText}" FontSize="16" FontAttributes="Bold" TextColor="#9A3412" />
+                                                        </VerticalStackLayout>
+                                                 </Border>
+                                          </Grid>
+                                          <Grid ColumnDefinitions="*,Auto">
+                                                 <Label Text="{x:Static localization:AppResources.QuizCompletion}" FontAttributes="Bold" TextColor="#102A43" />
+                                                 <Label Grid.Column="1" Text="{Binding LifetimeCompletionText}" TextColor="#486581" />
+                                          </Grid>
+                                          <ProgressBar Progress="{Binding LifetimeCompletionRatio}" ProgressColor="#2F855A" BackgroundColor="#E2E8F0" HeightRequest="10" />
                                    </VerticalStackLayout>
                             </Border>
 

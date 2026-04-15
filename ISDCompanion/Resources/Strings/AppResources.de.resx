@@ -373,6 +373,21 @@
     <data name="QuizCorrectAnswer" xml:space="preserve">
     <value>Korrekte Antwort: {0}</value>
   </data>
+    <data name="QuizLifetimeStats" xml:space="preserve">
+    <value>Gespeicherte Historie</value>
+  </data>
+    <data name="QuizSessionsPlayed" xml:space="preserve">
+    <value>Gespielte Runden</value>
+  </data>
+    <data name="QuizLastPlayed" xml:space="preserve">
+    <value>Zuletzt gespielt</value>
+  </data>
+    <data name="QuizNoHistoryYet" xml:space="preserve">
+    <value>Noch keine Historie</value>
+  </data>
+    <data name="QuizResetHistory" xml:space="preserve">
+    <value>Historie löschen</value>
+  </data>
     <data name="Buddy" xml:space="preserve">
     <value>Buddy</value>
   </data>
