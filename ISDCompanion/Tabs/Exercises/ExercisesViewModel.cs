@@ -1,13 +1,10 @@
 ﻿using System.Windows.Input;
-using Italbytz.Exam.Trivia.Abstractions;
 
 namespace StudyCompanion
 {
     public class ExercisesViewModel
     {
         public ICommand NavigateCommand { get; set; }
-        public ICommand NetworksQuizCommand { get; set; }
-        public ICommand OpSysQuizCommand { get; set; }
 
         public ExercisesViewModel(INavigation navigation)
         {
@@ -17,27 +14,6 @@ namespace StudyCompanion
                 if (Activator.CreateInstance(pageType) is not Page page) return;
                 await navigation.PushAsync(page);
             });
-            NetworksQuizCommand = new Command(async () =>
-            {
-                await navigation.PushAsync(new QuizPage(new QuizViewModel(Italbytz.Exam.Networking.YesNoQuestions.Questions)));
-            });
-            OpSysQuizCommand = new Command(async () =>
-            {
-                await navigation.PushAsync(new QuizPage(new QuizViewModel(Italbytz.Exam.OperatingSystems.YesNoQuestions.Questions)));
-            });
         }
-
-        private class YesNoQuestion : IYesNoQuestion
-        {
-            public bool Answer { get; set; }
-            public string Category { get; set; } = string.Empty;
-            public QuestionType QuestionType { get; set; }
-            public Choices ChoicesType { get; set; }
-            public Difficulty Difficulty { get; set; }
-            public string Text { get; set; } = string.Empty;
-            public IQuestion AlternativeQuestion { get; set; } = null!;
-        }
-
-
     }
 }

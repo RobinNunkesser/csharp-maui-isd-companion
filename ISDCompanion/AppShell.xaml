@@ -16,6 +16,9 @@
         <ShellContent Title="{x:Static localization:AppResources.OperatingSystems}" ContentTemplate="{DataTemplate local:OperatingSystemsExercisesPage}" />
         <ShellContent Title="{x:Static localization:AppResources.ArtificialIntelligence}" ContentTemplate="{DataTemplate local:AIExercisesPage}" />
     </FlyoutItem>
+    <FlyoutItem Title="{x:Static localization:AppResources.Quiz}" Icon="assignment_black_24dp.png">
+        <ShellContent ContentTemplate="{DataTemplate local:QuizPage}" />
+    </FlyoutItem>
     <FlyoutItem Title="{x:Static localization:AppResources.Settings}" Icon="settings_black_24dp.png">
         <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" />
     </FlyoutItem>

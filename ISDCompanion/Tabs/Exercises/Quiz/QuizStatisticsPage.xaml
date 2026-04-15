@@ -5,38 +5,109 @@
              xmlns:localization="clr-namespace:StudyCompanion.Resources.Strings"
              x:Class="StudyCompanion.QuizStatisticsPage"
              x:DataType="local:QuizViewModel"
-             Title="{x:Static localization:AppResources.title_statistics}">
+                      Title="{x:Static localization:AppResources.title_statistics}"
+                      BackgroundColor="#F4F7FB">
     <ContentPage.Content>
-        <Grid RowSpacing="8"
-              Padding="16,0,16,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Label Grid.Row="1" Grid.Column="0" 
-                   Text="{x:Static localization:AppResources.label_sum}" HorizontalOptions="StartAndExpand"/>
-            <Label Grid.Row="1" Grid.Column="1" 
-                   Text="{Binding AnsweredQuestions}" HorizontalOptions="End"/>
-            <Label Grid.Row="2" Grid.Column="0"
-                   Text="{x:Static localization:AppResources.label_correct}" HorizontalOptions="StartAndExpand"/>
-            <Label Grid.Row="2" Grid.Column="1"
-                   Text="{Binding CorrectAnswers}" HorizontalOptions="End"/>
-            <Label Grid.Row="3" Grid.Column="0" 
-                   Text="{x:Static localization:AppResources.label_wrong}" HorizontalOptions="StartAndExpand"/>
-            <Label Grid.Row="3" Grid.Column="1" 
-                   Text="{Binding WrongAnswers}" HorizontalOptions="End"/>
-            <Label Grid.Row="4" Grid.Column="0"
-                   Text="{x:Static localization:AppResources.label_skipped}" HorizontalOptions="StartAndExpand"/>
-            <Label Grid.Row="4" Grid.Column="1"
-                   Text="{Binding SkippedQuestions}" HorizontalOptions="End"/>
-        </Grid>
+              <ScrollView>
+                     <VerticalStackLayout Padding="20" Spacing="16">
+                            <Border Padding="20" BackgroundColor="White" Stroke="#D9E3F0" StrokeThickness="1">
+                                   <Border.StrokeShape>
+                                          <RoundRectangle CornerRadius="24" />
+                                   </Border.StrokeShape>
+                                   <VerticalStackLayout Spacing="6">
+                                          <Label Text="{x:Static localization:AppResources.title_statistics}"
+                                                    FontSize="28"
+                                                    FontAttributes="Bold"
+                                                    TextColor="#102A43" />
+                                          <Label Text="{Binding CatalogSummaryText}"
+                                                    FontSize="14"
+                                                    TextColor="#486581" />
+                                   </VerticalStackLayout>
+                            </Border>
+
+                            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+                                   <Border Grid.Row="0" Grid.Column="0" Padding="16" BackgroundColor="#F0FDF4" Stroke="#B7E4C7">
+                                          <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                                          <VerticalStackLayout Spacing="4">
+                                                 <Label Text="{x:Static localization:AppResources.label_sum}" FontSize="12" TextColor="#52796F" />
+                                                 <Label Text="{Binding AnsweredQuestions}" FontSize="24" FontAttributes="Bold" TextColor="#1B4332" />
+                                          </VerticalStackLayout>
+                                   </Border>
+                                   <Border Grid.Row="0" Grid.Column="1" Padding="16" BackgroundColor="#ECFDF5" Stroke="#A7F3D0">
+                                          <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                                          <VerticalStackLayout Spacing="4">
+                                                 <Label Text="{x:Static localization:AppResources.label_correct}" FontSize="12" TextColor="#065F46" />
+                                                 <Label Text="{Binding CorrectAnswers}" FontSize="24" FontAttributes="Bold" TextColor="#065F46" />
+                                          </VerticalStackLayout>
+                                   </Border>
+                                   <Border Grid.Row="1" Grid.Column="0" Padding="16" BackgroundColor="#FEF2F2" Stroke="#FECACA">
+                                          <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                                          <VerticalStackLayout Spacing="4">
+                                                 <Label Text="{x:Static localization:AppResources.label_wrong}" FontSize="12" TextColor="#991B1B" />
+                                                 <Label Text="{Binding WrongAnswers}" FontSize="24" FontAttributes="Bold" TextColor="#991B1B" />
+                                          </VerticalStackLayout>
+                                   </Border>
+                                   <Border Grid.Row="1" Grid.Column="1" Padding="16" BackgroundColor="#FFF7ED" Stroke="#FED7AA">
+                                          <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                                          <VerticalStackLayout Spacing="4">
+                                                 <Label Text="{x:Static localization:AppResources.label_skipped}" FontSize="12" TextColor="#9A3412" />
+                                                 <Label Text="{Binding SkippedQuestions}" FontSize="24" FontAttributes="Bold" TextColor="#9A3412" />
+                                          </VerticalStackLayout>
+                                   </Border>
+                                   <Border Grid.Row="2" Grid.Column="0" Padding="16" BackgroundColor="#EEF2FF" Stroke="#C7D2FE">
+                                          <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                                          <VerticalStackLayout Spacing="4">
+                                                 <Label Text="{x:Static localization:AppResources.QuizBestStreak}" FontSize="12" TextColor="#3730A3" />
+                                                 <Label Text="{Binding BestStreak}" FontSize="24" FontAttributes="Bold" TextColor="#312E81" />
+                                          </VerticalStackLayout>
+                                   </Border>
+                                   <Border Grid.Row="2" Grid.Column="1" Padding="16" BackgroundColor="#FDF2F8" Stroke="#FBCFE8">
+                                          <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                                          <VerticalStackLayout Spacing="4">
+                                                 <Label Text="{x:Static localization:AppResources.QuizAccuracy}" FontSize="12" TextColor="#9D174D" />
+                                                 <Label Text="{Binding AccuracyText}" FontSize="24" FontAttributes="Bold" TextColor="#831843" />
+                                          </VerticalStackLayout>
+                                   </Border>
+                            </Grid>
+
+                            <Border Padding="18" BackgroundColor="White" Stroke="#D9E3F0" StrokeThickness="1">
+                                   <Border.StrokeShape>
+                                          <RoundRectangle CornerRadius="22" />
+                                   </Border.StrokeShape>
+                                   <VerticalStackLayout Spacing="12">
+                                          <Grid ColumnDefinitions="*,Auto">
+                                                 <Label Text="{x:Static localization:AppResources.QuizCompletion}" FontAttributes="Bold" TextColor="#102A43" />
+                                                 <Label Grid.Column="1" Text="{Binding CompletionText}" TextColor="#486581" />
+                                          </Grid>
+                                          <ProgressBar Progress="{Binding CompletionRatio}" ProgressColor="#2F855A" BackgroundColor="#E2E8F0" HeightRequest="10" />
+                                   </VerticalStackLayout>
+                            </Border>
+
+                            <Border Padding="18" BackgroundColor="White" Stroke="#D9E3F0" StrokeThickness="1">
+                                   <Border.StrokeShape>
+                                          <RoundRectangle CornerRadius="22" />
+                                   </Border.StrokeShape>
+                                   <VerticalStackLayout Spacing="14">
+                                          <Label Text="{x:Static localization:AppResources.Quiz}"
+                                                    FontAttributes="Bold"
+                                                    TextColor="#102A43" />
+
+                                          <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto" RowSpacing="10" ColumnSpacing="12">
+                                                 <Label Grid.Row="0" Text="{x:Static localization:AppResources.label_correct}" TextColor="#486581" />
+                                                 <ProgressBar Grid.Row="0" Grid.Column="1" Progress="{Binding CorrectRatio}" ProgressColor="#16A34A" BackgroundColor="#E2E8F0" HeightRequest="8" VerticalOptions="Center" />
+                                                 <Label Grid.Row="0" Grid.Column="2" Text="{Binding CorrectAnswers}" TextColor="#102A43" />
+
+                                                 <Label Grid.Row="1" Text="{x:Static localization:AppResources.label_wrong}" TextColor="#486581" />
+                                                 <ProgressBar Grid.Row="1" Grid.Column="1" Progress="{Binding WrongRatio}" ProgressColor="#DC2626" BackgroundColor="#E2E8F0" HeightRequest="8" VerticalOptions="Center" />
+                                                 <Label Grid.Row="1" Grid.Column="2" Text="{Binding WrongAnswers}" TextColor="#102A43" />
+
+                                                 <Label Grid.Row="2" Text="{x:Static localization:AppResources.label_skipped}" TextColor="#486581" />
+                                                 <ProgressBar Grid.Row="2" Grid.Column="1" Progress="{Binding SkippedRatio}" ProgressColor="#D97706" BackgroundColor="#E2E8F0" HeightRequest="8" VerticalOptions="Center" />
+                                                 <Label Grid.Row="2" Grid.Column="2" Text="{Binding SkippedQuestions}" TextColor="#102A43" />
+                                          </Grid>
+                                   </VerticalStackLayout>
+                            </Border>
+                     </VerticalStackLayout>
+              </ScrollView>
     </ContentPage.Content>
 </ContentPage>

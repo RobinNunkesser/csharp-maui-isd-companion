@@ -334,6 +334,45 @@
     <data name="Quiz" xml:space="preserve">
     <value>Quiz</value>
   </data>
+    <data name="QuizCatalog" xml:space="preserve">
+    <value>Fragenkatalog</value>
+  </data>
+    <data name="QuizAllCatalogs" xml:space="preserve">
+    <value>Alle Kataloge</value>
+  </data>
+    <data name="QuizCatalogSummary" xml:space="preserve">
+    <value>Katalog: {0} ({1} Fragen)</value>
+  </data>
+    <data name="QuizQuestionNumber" xml:space="preserve">
+    <value>Frage {0} von {1}</value>
+  </data>
+    <data name="QuizTrueFalseHint" xml:space="preserve">
+    <value>Entscheide, ob die Aussage richtig oder falsch ist.</value>
+  </data>
+    <data name="QuizCompleted" xml:space="preserve">
+    <value>Die Runde ist abgeschlossen. Starte das Quiz neu oder wechsle den Katalog.</value>
+  </data>
+    <data name="QuizRestart" xml:space="preserve">
+    <value>Neu starten</value>
+  </data>
+    <data name="QuizAccuracy" xml:space="preserve">
+    <value>Trefferquote</value>
+  </data>
+    <data name="QuizRemaining" xml:space="preserve">
+    <value>Offen</value>
+  </data>
+    <data name="QuizCurrentStreak" xml:space="preserve">
+    <value>Aktuelle Serie</value>
+  </data>
+    <data name="QuizBestStreak" xml:space="preserve">
+    <value>Beste Serie</value>
+  </data>
+    <data name="QuizCompletion" xml:space="preserve">
+    <value>Fortschritt</value>
+  </data>
+    <data name="QuizCorrectAnswer" xml:space="preserve">
+    <value>Korrekte Antwort: {0}</value>
+  </data>
     <data name="Buddy" xml:space="preserve">
     <value>Buddy</value>
   </data>

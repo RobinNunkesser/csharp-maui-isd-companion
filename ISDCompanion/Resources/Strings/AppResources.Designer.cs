@@ -686,6 +686,84 @@ namespace StudyCompanion.Resources.Strings {
                 return ResourceManager.GetString("Quiz", resourceCulture);
             }
         }
+
+        internal static string QuizCatalog {
+            get {
+                return ResourceManager.GetString("QuizCatalog", resourceCulture);
+            }
+        }
+
+        internal static string QuizAllCatalogs {
+            get {
+                return ResourceManager.GetString("QuizAllCatalogs", resourceCulture);
+            }
+        }
+
+        internal static string QuizCatalogSummary {
+            get {
+                return ResourceManager.GetString("QuizCatalogSummary", resourceCulture);
+            }
+        }
+
+        internal static string QuizQuestionNumber {
+            get {
+                return ResourceManager.GetString("QuizQuestionNumber", resourceCulture);
+            }
+        }
+
+        internal static string QuizTrueFalseHint {
+            get {
+                return ResourceManager.GetString("QuizTrueFalseHint", resourceCulture);
+            }
+        }
+
+        internal static string QuizCompleted {
+            get {
+                return ResourceManager.GetString("QuizCompleted", resourceCulture);
+            }
+        }
+
+        internal static string QuizRestart {
+            get {
+                return ResourceManager.GetString("QuizRestart", resourceCulture);
+            }
+        }
+
+        internal static string QuizAccuracy {
+            get {
+                return ResourceManager.GetString("QuizAccuracy", resourceCulture);
+            }
+        }
+
+        internal static string QuizRemaining {
+            get {
+                return ResourceManager.GetString("QuizRemaining", resourceCulture);
+            }
+        }
+
+        internal static string QuizCurrentStreak {
+            get {
+                return ResourceManager.GetString("QuizCurrentStreak", resourceCulture);
+            }
+        }
+
+        internal static string QuizBestStreak {
+            get {
+                return ResourceManager.GetString("QuizBestStreak", resourceCulture);
+            }
+        }
+
+        internal static string QuizCompletion {
+            get {
+                return ResourceManager.GetString("QuizCompletion", resourceCulture);
+            }
+        }
+
+        internal static string QuizCorrectAnswer {
+            get {
+                return ResourceManager.GetString("QuizCorrectAnswer", resourceCulture);
+            }
+        }
         
         internal static string Buddy {
             get {

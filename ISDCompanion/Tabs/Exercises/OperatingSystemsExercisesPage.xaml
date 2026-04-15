@@ -15,7 +15,6 @@
                     <TextCell Text="{x:Static localization:AppResources.Buddy}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:BuddyPage}" />
                     <TextCell Text="{x:Static localization:AppResources.Scheduling}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:SchedulingPage}" />
                     <TextCell Text="{x:Static localization:AppResources.RealtimeScheduling}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:RealtimeSchedulingPage}" />
-                    <TextCell Text="{x:Static localization:AppResources.Quiz}" Command="{Binding OpSysQuizCommand}" />
                 </TableSection>
             </TableRoot>
         </TableView>

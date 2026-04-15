@@ -16,7 +16,6 @@
                     <TextCell Text="{x:Static localization:AppResources.MST}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:MSTPage}" />
                     <TextCell Text="{x:Static localization:AppResources.ShortestPaths}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:ShortestPathsPage}" />
                     <TextCell Text="{x:Static localization:AppResources.Netmasks}" Command="{Binding NavigateCommand}" CommandParameter="{x:Type local:NetmaskPage}" />
-                    <TextCell Text="{x:Static localization:AppResources.Quiz}" Command="{Binding NetworksQuizCommand}" />
                 </TableSection>
             </TableRoot>
         </TableView>
