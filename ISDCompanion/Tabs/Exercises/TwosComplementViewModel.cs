@@ -5,7 +5,7 @@ namespace StudyCompanion;
 public class TwosComplementViewModel : ExerciseViewModel
 {
 
-    private string _positiveBinary;
+    private string _positiveBinary = string.Empty;
     public string PositiveBinary
     {
         get => _positiveBinary;
@@ -17,7 +17,7 @@ public class TwosComplementViewModel : ExerciseViewModel
         }
     }
     
-    private string _complementBinary;
+    private string _complementBinary = string.Empty;
     public string ComplementBinary
     {
         get => _complementBinary;
@@ -35,7 +35,7 @@ public class TwosComplementViewModel : ExerciseViewModel
         var solver = new TwosComplementSolver();
         var solution = solver.Solve(parameters);
 
-        PositiveBinary = "-"+Convert.ToString(parameters.PositiveBinary,2).PadLeft(8, '0');;
+        PositiveBinary = "-"+Convert.ToString(parameters.PositiveBinary,2).PadLeft(8, '0');
         ComplementBinary = Convert.ToString(solution.ComplementBinary,2)[8..];
     }
 }

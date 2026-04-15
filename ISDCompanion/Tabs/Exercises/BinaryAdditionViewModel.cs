@@ -4,7 +4,7 @@ namespace StudyCompanion;
 
 public class BinaryAdditionViewModel : ExerciseViewModel
 {
-    private string _summand1;
+    private string _summand1 = string.Empty;
     public string Summand1
     {
         get => _summand1;
@@ -16,7 +16,7 @@ public class BinaryAdditionViewModel : ExerciseViewModel
         }
     }
     
-    private string _summand2;
+    private string _summand2 = string.Empty;
     public string Summand2
     {
         get => _summand2;
@@ -28,7 +28,7 @@ public class BinaryAdditionViewModel : ExerciseViewModel
         }
     }
     
-    private string _sum;
+    private string _sum = string.Empty;
     public string Sum
     {
         get => _sum;
@@ -46,8 +46,8 @@ public class BinaryAdditionViewModel : ExerciseViewModel
         var solver = new BinaryAdditionSolver();
         var solution = solver.Solve(parameters);
 
-        Summand1 = Convert.ToString(parameters.Summand1,2).PadLeft(9, ' ');;
+        Summand1 = Convert.ToString(parameters.Summand1,2).PadLeft(9, ' ');
         Summand2 = Convert.ToString(parameters.Summand2,2).PadLeft(9, ' ');
-        Sum = Convert.ToString(solution.Sum,2).PadLeft(9, ' ');;
+        Sum = Convert.ToString(solution.Sum,2).PadLeft(9, ' ');
     }
 }

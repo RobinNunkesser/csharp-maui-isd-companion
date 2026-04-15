@@ -147,6 +147,14 @@ public class AINQueensViewModel : StepwiseExerciseViewModel
     {
     }
 
+    protected override bool CanMoveToNextStep() => _simulation.Steps.Count > 0 && CurrentSolutionStep < _simulation.Steps.Count;
+
+    protected override bool CanMoveToPreviousStep() => CurrentSolutionStep > 0;
+
+    protected override bool CanShowCompleteSolution() => _simulation.Steps.Count > 0 && CurrentSolutionStep < _simulation.Steps.Count;
+
+    protected override bool CanShowInfo() => false;
+
     private AINQueensAlgorithm CurrentAlgorithm => SelectedAlgorithmIndex == 0
         ? AINQueensAlgorithm.Backtracking
         : AINQueensAlgorithm.MinConflicts;
@@ -155,6 +163,8 @@ public class AINQueensViewModel : StepwiseExerciseViewModel
 
     private void RenderState()
     {
+        RefreshCommandStates();
+
         if (_simulation.Steps.Count == 0 || CurrentSolutionStep == 0)
         {
             Exercise_Content = CreateBoardView(_simulation.BoardSize, _simulation.InitialQueens, GetConflictedColumns(_simulation.InitialQueens), null);

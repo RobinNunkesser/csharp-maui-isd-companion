@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Input;
-
-namespace StudyCompanion
+﻿namespace StudyCompanion
 {
     public abstract class StepCollectionViewModel<StepType> : StepwiseExerciseViewModel where StepType : ExerciseStepViewModel
     {
@@ -18,8 +15,15 @@ namespace StudyCompanion
             {
                 steps = value;
                 OnPropertyChanged();
+                RefreshCommandStates();
             }
         }
+
+        protected override bool CanMoveToNextStep() => Steps != null && CurrentSolutionStep < NoOfSteps;
+
+        protected override bool CanMoveToPreviousStep() => Steps != null && CurrentSolutionStep > 0;
+
+        protected override bool CanShowCompleteSolution() => Steps != null && CurrentSolutionStep < NoOfSteps;
 
         protected override void showCompleteSolution()
         {
@@ -38,11 +42,13 @@ namespace StudyCompanion
 
         protected void showCurrentStep()
         {
+            if (Steps == null) return;
             Steps[CurrentSolutionStep].Visible = true;
         }
 
         protected void hideCurrentStep()
         {
+            if (Steps == null) return;
             Steps[CurrentSolutionStep].Visible = false;
         }
 

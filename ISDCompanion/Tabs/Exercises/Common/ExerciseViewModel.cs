@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using Microsoft.Maui.ApplicationModel;
+using System.Windows.Input;
 
 namespace StudyCompanion
 {
@@ -13,6 +14,15 @@ namespace StudyCompanion
             NewParams = new Command(Initialize);
         }
 
-        public virtual void Initialize() => Task.Run(newExercise);
+        public virtual void Initialize()
+        {
+            if (MainThread.IsMainThread)
+            {
+                newExercise();
+                return;
+            }
+
+            MainThread.BeginInvokeOnMainThread(newExercise);
+        }
     }
 }

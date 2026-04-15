@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
-using StudyCompanion.Resources.Strings;
+﻿using StudyCompanion.Resources.Strings;
 using StudyCompanion.Services;
 using Italbytz.OperatingSystems;
 
@@ -10,7 +6,11 @@ namespace StudyCompanion
 {
     public class SchedulingViewModel : Baseclass_Table_ViewModel
     {
-        SchedulingParameters parameters;
+        private SchedulingParameters? parameters;
+        private string? sjf;
+        private string? prio;
+        private string? fcfs;
+        private string? rr;
 
         public void AfterRender()
         {
@@ -49,7 +49,12 @@ namespace StudyCompanion
 
         private void ComputeItems()
         {
-            string solution = null;
+            if (parameters == null)
+            {
+                return;
+            }
+
+            ITableGenService? tableGenService = null;
 
             if (selectedStrategy == -1)
             {
@@ -59,45 +64,41 @@ namespace StudyCompanion
             switch (selectedStrategy)
             {
                 case 0:
-                    solution = sjf;
-                    if (solution != null)
+                    if (!string.IsNullOrWhiteSpace(sjf))
                     {
-                        _TableGenService = new Scheduling_TableGenService(parameters, solution, Scheduling_TableGenService.Algorithm.ShortestJobFirst);
-                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
-                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
+                        tableGenService = new Scheduling_TableGenService(parameters, sjf, Scheduling_TableGenService.Algorithm.ShortestJobFirst);
                     }
                     break;
                 case 1:
-                    solution = prio;
-                    if (solution != null)
+                    if (!string.IsNullOrWhiteSpace(prio))
                     {
-                        _TableGenService = new Scheduling_TableGenService(parameters, solution, Scheduling_TableGenService.Algorithm.Priority);
-                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
-                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
+                        tableGenService = new Scheduling_TableGenService(parameters, prio, Scheduling_TableGenService.Algorithm.Priority);
                     }
                     break;
                 case 2:
-                    solution = fcfs;
-                    if (solution != null)
+                    if (!string.IsNullOrWhiteSpace(fcfs))
                     {
-                        _TableGenService = new Scheduling_TableGenService(parameters, solution, Scheduling_TableGenService.Algorithm.FirstComeFirstServed);
-                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
-                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
+                        tableGenService = new Scheduling_TableGenService(parameters, fcfs, Scheduling_TableGenService.Algorithm.FirstComeFirstServed);
                     }
                     break;
                 case 3:
-                    solution = rr;
-                    if (solution != null)
+                    if (!string.IsNullOrWhiteSpace(rr))
                     {
-                        _TableGenService = new Scheduling_RoundRobin_TableGenService(parameters, solution);
-                        Exercise_Content_Header = _TableGenService.GenerateTable_TableHeader();
-                        Exercise_Content = _TableGenService.GenerateTable_EmptyTable();
+                        tableGenService = new Scheduling_RoundRobin_TableGenService(parameters, rr);
                     }
                     break;
             }
 
-            Info_Text = _TableGenService.GetInfoText();
-            Info_Button_Clickable = _TableGenService.InfoAvailable();
+            if (tableGenService == null)
+            {
+                return;
+            }
+
+            _TableGenService = tableGenService;
+            Exercise_Content_Header = tableGenService.GenerateTable_TableHeader();
+            Exercise_Content = tableGenService.GenerateTable_EmptyTable();
+            Info_Text = tableGenService.GetInfoText();
+            Info_Button_Clickable = tableGenService.InfoAvailable();
         }
 
         private int selectedStrategy = 0;
@@ -119,15 +120,7 @@ namespace StudyCompanion
         {
             AfterRender();
 
-            Info_Button_Clickable = _TableGenService.InfoAvailable();
+            Info_Button_Clickable = _TableGenService?.InfoAvailable() ?? false;
         }
-
-        private string sjf;
-
-        private string prio;
-
-        private string fcfs;
-
-        private string rr;
     }
 }

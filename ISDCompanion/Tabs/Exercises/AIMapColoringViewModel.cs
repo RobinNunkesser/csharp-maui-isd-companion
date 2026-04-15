@@ -127,12 +127,22 @@ public class AIMapColoringViewModel : StepwiseExerciseViewModel
     {
     }
 
+    protected override bool CanMoveToNextStep() => _simulation.Steps.Count > 0 && CurrentSolutionStep < _simulation.Steps.Count;
+
+    protected override bool CanMoveToPreviousStep() => CurrentSolutionStep > 0;
+
+    protected override bool CanShowCompleteSolution() => _simulation.Steps.Count > 0 && CurrentSolutionStep < _simulation.Steps.Count;
+
+    protected override bool CanShowInfo() => false;
+
     private AIMapColoringAlgorithm CurrentAlgorithm => SelectedAlgorithmIndex == 0
         ? AIMapColoringAlgorithm.Backtracking
         : AIMapColoringAlgorithm.MinConflicts;
 
     private void RenderState()
     {
+        RefreshCommandStates();
+
         if (_simulation.Steps.Count == 0 || CurrentSolutionStep == 0)
         {
             Exercise_Content = CreateMapView(_simulation.InitialAssignment, new HashSet<string>(), null);

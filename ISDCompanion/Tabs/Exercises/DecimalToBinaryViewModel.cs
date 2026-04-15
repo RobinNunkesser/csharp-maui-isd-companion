@@ -4,7 +4,7 @@ namespace StudyCompanion;
 
 public class DecimalToBinaryViewModel: ExerciseViewModel
 {
-    private string _decimal;
+    private string _decimal = string.Empty;
     public string Decimal
     {
         get => _decimal;
@@ -18,7 +18,7 @@ public class DecimalToBinaryViewModel: ExerciseViewModel
         }
     }
     
-    private string _binary;
+    private string _binary = string.Empty;
     public string Binary
     {
         get => _binary;

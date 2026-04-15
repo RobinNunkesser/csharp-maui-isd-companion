@@ -1,11 +1,9 @@
 using Italbytz.ComputingSystems;
-using Italbytz.Networking;
-
 namespace StudyCompanion;
 
 public class BinaryToDecimalViewModel : ExerciseViewModel
 {
-    private string _decimal;
+    private string _decimal = string.Empty;
     public string Decimal
     {
         get => _decimal;
@@ -19,7 +17,7 @@ public class BinaryToDecimalViewModel : ExerciseViewModel
         }
     }
     
-    private string _binary;
+    private string _binary = string.Empty;
     public string Binary
     {
         get => _binary;

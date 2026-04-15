@@ -6,10 +6,10 @@ namespace StudyCompanion
 {
     public class MSTViewModel : StepwiseExerciseViewModel
     {
-        protected MinimumSpanningTreeParameters MinimumSpanningTreeParameters { get; set; }
-        protected MinimumSpanningTreeSolver MinimumSpanningTreeSolver { get; set; }
+        protected MinimumSpanningTreeParameters? MinimumSpanningTreeParameters { get; set; }
+        protected MinimumSpanningTreeSolver? MinimumSpanningTreeSolver { get; set; }
 
-        protected IMinimumSpanningTreeSolution MSTVSolution { get; set; }
+        protected IMinimumSpanningTreeSolution? MSTVSolution { get; set; }
 
         private GraphicsView? _GraphContent = null;
         public View? Exercise_Content
@@ -25,6 +25,14 @@ namespace StudyCompanion
             }
         }
 
+        protected override bool CanMoveToNextStep() => MSTVSolution != null && CurrentSolutionStep < MSTVSolution.Edges.Count();
+
+        protected override bool CanMoveToPreviousStep() => MSTVSolution != null && CurrentSolutionStep > 0;
+
+        protected override bool CanShowCompleteSolution() => MSTVSolution != null && CurrentSolutionStep < MSTVSolution.Edges.Count();
+
+        protected override bool CanShowInfo() => false;
+
         protected override void newExercise()
         {
             CurrentSolutionStep = 0;
@@ -37,11 +45,16 @@ namespace StudyCompanion
             {
                 Drawable = new GraphDrawable(MinimumSpanningTreeParameters.Graph, (edge) => false)
             };
-
+            RefreshCommandStates();
         }
 
         protected override void nextStep()
         {
+            if (MinimumSpanningTreeParameters == null || MSTVSolution == null)
+            {
+                return;
+            }
+
             if (CurrentSolutionStep < MSTVSolution.Edges.Count())
             {
                 var markedEdges = MSTVSolution.Edges.Take(++CurrentSolutionStep);
@@ -61,6 +74,11 @@ namespace StudyCompanion
 
         protected override void previousStep()
         {
+            if (MinimumSpanningTreeParameters == null || MSTVSolution == null)
+            {
+                return;
+            }
+
             if (CurrentSolutionStep > 0)
             {
                 CurrentSolutionStep--;
@@ -81,6 +99,11 @@ namespace StudyCompanion
 
         protected override void showCompleteSolution()
         {
+            if (MinimumSpanningTreeParameters == null || MSTVSolution == null)
+            {
+                return;
+            }
+
             Func<ITaggedEdge<string, double>, bool> mark = (edge) => MSTVSolution.Edges.Contains(edge);
             CurrentSolutionStep = MSTVSolution.Edges.Count();
 

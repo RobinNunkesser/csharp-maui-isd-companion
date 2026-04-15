@@ -4,7 +4,7 @@ namespace StudyCompanion
 {
     public class NetmaskViewModel : ExerciseViewModel
     {
-        private string address;
+        private string address = string.Empty;
         public string Address
         {
             get => address;
@@ -18,7 +18,7 @@ namespace StudyCompanion
             }
         }
 
-        private string network;
+        private string network = string.Empty;
         public string Network
         {
             get => network;
@@ -32,7 +32,7 @@ namespace StudyCompanion
             }
         }
 
-        private string host;
+        private string host = string.Empty;
         public string Host
         {
             get => host;

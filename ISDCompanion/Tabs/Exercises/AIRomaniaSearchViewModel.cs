@@ -212,6 +212,14 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
     {
     }
 
+    protected override bool CanMoveToNextStep() => _steps.Count > 0 && CurrentSolutionStep < _steps.Count;
+
+    protected override bool CanMoveToPreviousStep() => CurrentSolutionStep > 0;
+
+    protected override bool CanShowCompleteSolution() => _steps.Count > 0 && CurrentSolutionStep < _steps.Count;
+
+    protected override bool CanShowInfo() => false;
+
     private RomaniaSearchAlgorithm CurrentAlgorithm => SelectedAlgorithmIndex switch
     {
         0 => RomaniaSearchAlgorithm.AStarSearch,
@@ -230,6 +238,8 @@ public class AIRomaniaSearchViewModel : StepwiseExerciseViewModel
 
     private void RenderState()
     {
+        RefreshCommandStates();
+
         if (_steps.Count == 0 || CurrentSolutionStep == 0)
         {
             var initialFrontier = new HashSet<string> { CurrentStartCity };

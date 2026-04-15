@@ -1,4 +1,6 @@
-﻿namespace StudyCompanion
+﻿using System.Linq;
+
+namespace StudyCompanion
 {
     public abstract class Baseclass_Table_ViewModel : StepwiseExerciseViewModel
     {
@@ -14,7 +16,7 @@
                 OnPropertyChanged();
             }
         }
-        private View _Exercise_Header { get; set; }
+        private View _Exercise_Header { get; set; } = new ContentView();
 
         public View Exercise_Content
         {
@@ -28,7 +30,7 @@
                 OnPropertyChanged();
             }
         }
-        private View _Exercise_Content { get; set; }
+        private View _Exercise_Content { get; set; } = new ContentView();
 
 
         public View Exercise_Content_Header
@@ -43,7 +45,7 @@
                 OnPropertyChanged();
             }
         }
-        private View _Exercise_Content_Header { get; set; }
+        private View _Exercise_Content_Header { get; set; } = new ContentView();
 
 
         public String Info_Text
@@ -58,7 +60,7 @@
                 OnPropertyChanged();
             }
         }
-        private String _Info_Text { get; set; }
+        private String _Info_Text { get; set; } = string.Empty;
 
         public bool Info_Button_Clickable
         {
@@ -70,26 +72,31 @@
             {
                 _Info_Button_Clickable = value;
                 OnPropertyChanged();
+                RefreshCommandStates();
             }
         }
         private bool _Info_Button_Clickable { get; set; }
 
 
-        public ITableGenService _TableGenService { get; set; }
+        public ITableGenService? _TableGenService { get; set; }
 
 
         public delegate void ScrollToPositionAction(int x, int y, bool isAnimated);
-        public event ScrollToPositionAction ScrollToPosition;
+        public event ScrollToPositionAction? ScrollToPosition;
 
 
         public void scroll()
         {
+            if (_TableGenService == null) return;
             ScrollToPosition?.Invoke(_TableGenService.X_CoordoninatesOfInterest(), _TableGenService.Y_CoordoninatesOfInterest(), true);
         }
+
+        protected override bool CanShowInfo() => Info_Button_Clickable && !string.IsNullOrWhiteSpace(Info_Text);
 
 
         protected override void nextStep()
         {
+            if (_TableGenService == null) return;
             Exercise_Content = _TableGenService.GenerateTable_NextStep();
             Info_Text = _TableGenService.GetInfoText();
             Info_Button_Clickable = _TableGenService.InfoAvailable();
@@ -98,6 +105,7 @@
 
         protected override void previousStep()
         {
+            if (_TableGenService == null) return;
             Exercise_Content = _TableGenService.GenerateTable_PreviousStep();
             Info_Text = _TableGenService.GetInfoText();
             Info_Button_Clickable = _TableGenService.InfoAvailable();
@@ -106,14 +114,22 @@
 
         protected override void showCompleteSolution()
         {
+            if (_TableGenService == null) return;
             Exercise_Content = _TableGenService.GenerateTable_ShowSolution();
+            Info_Text = _TableGenService.GetInfoText();
             Info_Button_Clickable = _TableGenService.InfoAvailable();
             scroll();
         }
 
         protected override async void showInfo()
         {
-            await App.Current.MainPage.DisplayAlert("Info", Info_Text, "Ok");
+            var page = Shell.Current?.CurrentPage
+                ?? Application.Current?.Windows.FirstOrDefault()?.Page;
+
+            if (page != null)
+            {
+                await page.DisplayAlertAsync("Info", Info_Text, "Ok");
+            }
         }
     }
 }

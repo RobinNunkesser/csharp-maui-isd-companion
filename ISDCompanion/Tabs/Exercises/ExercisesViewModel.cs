@@ -13,7 +13,8 @@ namespace StudyCompanion
         {
             NavigateCommand = new Command<Type>(async (Type pageType) =>
             {
-                var page = (Page)Activator.CreateInstance(pageType);
+                if (!typeof(Page).IsAssignableFrom(pageType)) return;
+                if (Activator.CreateInstance(pageType) is not Page page) return;
                 await navigation.PushAsync(page);
             });
             NetworksQuizCommand = new Command(async () =>
@@ -29,12 +30,12 @@ namespace StudyCompanion
         private class YesNoQuestion : IYesNoQuestion
         {
             public bool Answer { get; set; }
-            public string Category { get; set; }
+            public string Category { get; set; } = string.Empty;
             public QuestionType QuestionType { get; set; }
             public Choices ChoicesType { get; set; }
             public Difficulty Difficulty { get; set; }
-            public string Text { get; set; }
-            public IQuestion AlternativeQuestion { get; set; }
+            public string Text { get; set; } = string.Empty;
+            public IQuestion AlternativeQuestion { get; set; } = null!;
         }
 
 
