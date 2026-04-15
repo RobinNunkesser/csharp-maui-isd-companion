@@ -126,6 +126,19 @@
                                FontSize="13"
                                TextColor="#486581"
                                HorizontalOptions="Center" />
+                        <Border Padding="10,6"
+                                BackgroundColor="#EFF6FF"
+                                Stroke="#BFDBFE"
+                                HorizontalOptions="Center"
+                                IsVisible="{Binding HasQuestionCategory}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14" />
+                            </Border.StrokeShape>
+                            <Label Text="{Binding CurrentQuestionCategory}"
+                                   FontSize="12"
+                                   TextColor="#1D4ED8"
+                                   HorizontalTextAlignment="Center" />
+                        </Border>
                         <Label Text="{Binding Question}"
                                FontSize="24"
                                FontAttributes="Bold"
@@ -140,7 +153,7 @@
                                FontAttributes="Bold"
                                HorizontalOptions="Center"
                                HorizontalTextAlignment="Center" />
-                        <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                           <Grid ColumnDefinitions="*,*" ColumnSpacing="12" IsVisible="{Binding IsBooleanQuestion}">
                             <Button Grid.Column="0"
                                     Text="{x:Static localization:AppResources.Wrong}"
                                     IsEnabled="{Binding ButtonsEnabled}"
@@ -158,6 +171,22 @@
                                     CornerRadius="20"
                                     Padding="16,14" />
                         </Grid>
+                        <VerticalStackLayout Spacing="10"
+                                             IsVisible="{Binding IsMultipleChoiceQuestion}"
+                                             BindableLayout.ItemsSource="{Binding AnswerOptions}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Text="{Binding Text}"
+                                            CommandParameter="{Binding Index}"
+                                            IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type local:QuizPage}}, Path=BindingContext.ButtonsEnabled}"
+                                            Clicked="Option_Clicked"
+                                            BackgroundColor="#EFF6FF"
+                                            TextColor="#0F172A"
+                                            CornerRadius="18"
+                                            Padding="16,14" />
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
                         <Button Text="{x:Static localization:AppResources.Skip}"
                                 IsEnabled="{Binding ButtonsEnabled}"
                                 Clicked="Skip_Clicked"

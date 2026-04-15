@@ -388,6 +388,33 @@
     <data name="QuizResetHistory" xml:space="preserve">
     <value>Historie löschen</value>
   </data>
+    <data name="QuizOpenTriviaBoolean" xml:space="preserve">
+      <value>Open Trivia DB (Wahr/Falsch)</value>
+    </data>
+    <data name="QuizOpenTriviaMixed" xml:space="preserve">
+      <value>Open Trivia DB (Gemischt)</value>
+    </data>
+    <data name="QuizOpenTriviaFilm" xml:space="preserve">
+      <value>Open Trivia DB: Film</value>
+    </data>
+    <data name="QuizOpenTriviaGames" xml:space="preserve">
+      <value>Open Trivia DB: Videospiele</value>
+    </data>
+    <data name="QuizOpenTriviaScience" xml:space="preserve">
+      <value>Open Trivia DB: Science &amp; Nature</value>
+    </data>
+    <data name="QuizLoading" xml:space="preserve">
+      <value>Fragen werden geladen ...</value>
+    </data>
+    <data name="QuizMultipleChoiceHint" xml:space="preserve">
+      <value>Wähle die richtige Antwort aus.</value>
+    </data>
+    <data name="QuizUsingCachedQuestions" xml:space="preserve">
+      <value>Es werden zwischengespeicherte Online-Fragen verwendet.</value>
+    </data>
+    <data name="QuizOpenTriviaFetchFailed" xml:space="preserve">
+      <value>Online-Fragen konnten nicht geladen werden. Bitte mit Neu starten erneut versuchen.</value>
+    </data>
     <data name="Buddy" xml:space="preserve">
     <value>Buddy</value>
   </data>

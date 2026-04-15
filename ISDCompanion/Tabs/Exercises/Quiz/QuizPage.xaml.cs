@@ -24,6 +24,16 @@ public partial class QuizPage : ContentPage
         await HandleAnswerAsync(true);
     }
 
+    async void Option_Clicked(object sender, EventArgs e)
+    {
+        if (sender is not Button { CommandParameter: int optionIndex })
+        {
+            return;
+        }
+
+        await HandleAnswerAsync(optionIndex);
+    }
+
     void Skip_Clicked(object sender, EventArgs e)
     {
         if (!_viewModel.ButtonsEnabled || !_viewModel.HasActiveQuestion)
@@ -49,6 +59,22 @@ public partial class QuizPage : ContentPage
 
         _viewModel.ButtonsEnabled = false;
         _viewModel.SubmitAnswer(value);
+        answerLabel.Opacity = 0;
+        await answerLabel.FadeToAsync(1, 180);
+        await Task.Delay(900);
+        await answerLabel.FadeToAsync(0, 150);
+        _viewModel.AdvanceToNextQuestion();
+    }
+
+    private async Task HandleAnswerAsync(int selectedIndex)
+    {
+        if (!_viewModel.ButtonsEnabled || !_viewModel.HasActiveQuestion)
+        {
+            return;
+        }
+
+        _viewModel.ButtonsEnabled = false;
+        _viewModel.SubmitAnswer(selectedIndex);
         answerLabel.Opacity = 0;
         await answerLabel.FadeToAsync(1, 180);
         await Task.Delay(900);
