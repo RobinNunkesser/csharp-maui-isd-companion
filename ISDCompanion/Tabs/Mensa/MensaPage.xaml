@@ -16,14 +16,11 @@
                      IconImageSource="info_black_24dp.png" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <Grid
-            RowDefinitions="Auto,*"
-            ColumnDefinitions="*">
-            <Border Grid.Row="0"
-                    IsVisible="{Binding HasMealDate}"
-                    Padding="12,8"
-                    BackgroundColor="Transparent">
-                <VerticalStackLayout Spacing="2">
+        <CollectionView IsGrouped="true"
+                        ItemsSource="{Binding Meals}"
+                        VerticalOptions="Fill">
+            <CollectionView.Header>
+                <VerticalStackLayout Padding="12,8" Spacing="2">
                     <Label Text="{Binding MealDateText}"
                            FontAttributes="Bold"
                            FontSize="Small" />
@@ -32,10 +29,7 @@
                            TextColor="DarkOrange"
                            FontSize="Small" />
                 </VerticalStackLayout>
-            </Border>
-            <CollectionView Grid.Row="1" IsGrouped="true"
-                            ItemsSource="{Binding Meals}"
-                            VerticalOptions="Fill">
+            </CollectionView.Header>
                 <CollectionView.EmptyView>
                     <ActivityIndicator IsRunning="True" />
                 </CollectionView.EmptyView>
@@ -77,6 +71,5 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </Grid>
     </ContentPage.Content>
 </ContentPage>
