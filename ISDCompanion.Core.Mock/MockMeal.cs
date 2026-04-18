@@ -15,6 +15,7 @@ namespace Italbytz.Adapters.Meal.OpenMensa
         public Allergens Allergens { get; set; }
         public Additives Additives { get; set; }
         public Category Category { get; set; }
+        public Badge[] Badges { get; set; } = Array.Empty<Badge>();
         public IPrice Price { get; set; } = new MockPrice();
     }
 }

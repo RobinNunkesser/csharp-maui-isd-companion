@@ -9,6 +9,8 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:PriceConverter x:Key="PriceConverter" />
+            <local:BadgesTextConverter x:Key="BadgesTextConverter" />
+            <local:BadgesVisibleConverter x:Key="BadgesVisibleConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
@@ -70,6 +72,10 @@
                                        FontSize="13"
                                        FontAttributes="Bold"
                                        TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
+                                <Label Text="{Binding Badges, Converter={StaticResource BadgesTextConverter}}"
+                                       IsVisible="{Binding Badges, Converter={StaticResource BadgesVisibleConverter}}"
+                                       FontSize="11"
+                                       TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource PrimaryDark}}" />
                             </VerticalStackLayout>
                         </Grid>
                     </Border>
