@@ -19,18 +19,6 @@
         <CollectionView IsGrouped="true"
                         ItemsSource="{Binding Meals}"
                         VerticalOptions="Fill">
-            <CollectionView.Header>
-                <VerticalStackLayout Padding="12,8" Spacing="2">
-                    <Label x:Name="mealDateLabel"
-                           FontAttributes="Bold"
-                           FontSize="Small" />
-                    <Label x:Name="mensaClosedLabel"
-                           Text="{x:Static localization:AppResources.MensaClosedToday}"
-                           IsVisible="False"
-                           TextColor="DarkOrange"
-                           FontSize="Small" />
-                </VerticalStackLayout>
-            </CollectionView.Header>
                 <CollectionView.EmptyView>
                     <ActivityIndicator IsRunning="True" />
                 </CollectionView.EmptyView>

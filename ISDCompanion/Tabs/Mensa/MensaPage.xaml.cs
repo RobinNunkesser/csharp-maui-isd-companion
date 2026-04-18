@@ -49,8 +49,6 @@ public partial class MensaPage : ContentPage
         if (meals.Count > 0)
         {
             _viewModel.SetMeals(meals);
-            mealDateLabel.Text = _viewModel.MealDateText;
-            mensaClosedLabel.IsVisible = _viewModel.IsFutureDate;
         }
         else
         {
