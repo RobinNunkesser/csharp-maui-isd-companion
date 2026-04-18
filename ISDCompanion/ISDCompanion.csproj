@@ -266,8 +266,8 @@
             <ReferenceSourceTarget></ReferenceSourceTarget>
         </ProjectReference>
         <ProjectReference Include="..\ISDCompanion.Shared\ISDCompanion.Shared.csproj"/>
-        <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-meal\src\Italbytz.Meal.Abstractions\Italbytz.Meal.Abstractions.csproj" />
-        <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-meal\src\Italbytz.Meal.STWPB\Italbytz.Meal.STWPB.csproj" />
+        <PackageReference Include="Italbytz.Meal.Abstractions" />
+        <PackageReference Include="Italbytz.Meal.STWPB" />
         <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.CSP\Italbytz.AI.CSP.csproj" />
         <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.Learning.Abstractions\Italbytz.AI.Learning.Abstractions.csproj" />
         <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.Learning\Italbytz.AI.Learning.csproj" />

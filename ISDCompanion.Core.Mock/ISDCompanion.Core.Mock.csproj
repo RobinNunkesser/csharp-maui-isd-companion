@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\ISDCompanion.Core\ISDCompanion.Core.csproj"/>
-        <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-meal\src\Italbytz.Meal.Abstractions\Italbytz.Meal.Abstractions.csproj" />
+        <PackageReference Include="Italbytz.Meal.Abstractions" />
     </ItemGroup>
 
 </Project>

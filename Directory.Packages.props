@@ -13,8 +13,8 @@
     <PackageVersion Include="Italbytz.Trivia.OpenTriviaDb" Version="1.0.0-preview.1" />
     <PackageVersion Include="Italbytz.Graph" Version="1.0.0-preview.3" />
     <PackageVersion Include="Italbytz.Graph.Maui" Version="1.0.0-preview.3" />
-    <PackageVersion Include="Italbytz.Meal.Abstractions" Version="1.0.0-preview.3" />
-    <PackageVersion Include="Italbytz.Meal.STWPB" Version="1.0.0-preview.3" />
+    <PackageVersion Include="Italbytz.Meal.Abstractions" Version="1.0.0-preview.4" />
+    <PackageVersion Include="Italbytz.Meal.STWPB" Version="1.0.0-preview.4" />
     <PackageVersion Include="Italbytz.Networking" Version="1.0.0-preview.3" />
     <PackageVersion Include="Italbytz.OperatingSystems" Version="1.0.0-preview.3" />
 
