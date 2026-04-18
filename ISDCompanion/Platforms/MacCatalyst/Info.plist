@@ -62,5 +62,7 @@
 	<false/>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.education</string>
+	<key>CFBundleIdentifier</key>
+	<string>de.hshl.isd.companion</string>
 </dict>
 </plist>

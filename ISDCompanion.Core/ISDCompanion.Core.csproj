@@ -18,7 +18,10 @@
         <None Remove="Italbytz.Ports.Common"/>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Italbytz.Meal.Abstractions"/>
         <PackageReference Include="Italbytz.Common.Abstractions"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-meal\src\Italbytz.Meal.Abstractions\Italbytz.Meal.Abstractions.csproj" />
     </ItemGroup>
 </Project>

@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
 using System.Text.Json;
 using System.Windows.Input;
-using Italbytz.Exam.OpenTriviaDb;
-using Italbytz.Exam.Trivia.Abstractions;
+using Italbytz.Trivia.OpenTriviaDb;
+using Italbytz.Trivia.Abstractions;
 using StudyCompanion.Resources.Strings;
 
 namespace StudyCompanion

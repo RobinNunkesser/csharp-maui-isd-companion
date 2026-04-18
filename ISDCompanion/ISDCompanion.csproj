@@ -26,7 +26,9 @@
         <WindowsPackageType>None</WindowsPackageType>
 
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+        <AppBundleManifest Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">Platforms\iOS\Info.plist</AppBundleManifest>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+        <AppBundleManifest Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">Platforms\MacCatalyst\Info.plist</AppBundleManifest>
         <ValidateXcodeVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">false</ValidateXcodeVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
@@ -133,8 +135,6 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Italbytz.ComputingSystems"/>
-        <PackageReference Include="Italbytz.Meal.STWPB"/>
-        <PackageReference Include="Italbytz.Meal.Abstractions"/>
         <PackageReference Include="Italbytz.Trivia.Abstractions"/>
         <PackageReference Include="Italbytz.Networking"/>
         <PackageReference Include="Italbytz.Exam.Networking"/>
@@ -266,6 +266,8 @@
             <ReferenceSourceTarget></ReferenceSourceTarget>
         </ProjectReference>
         <ProjectReference Include="..\ISDCompanion.Shared\ISDCompanion.Shared.csproj"/>
+        <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-meal\src\Italbytz.Meal.Abstractions\Italbytz.Meal.Abstractions.csproj" />
+        <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-meal\src\Italbytz.Meal.STWPB\Italbytz.Meal.STWPB.csproj" />
         <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.CSP\Italbytz.AI.CSP.csproj" />
         <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.Learning.Abstractions\Italbytz.AI.Learning.Abstractions.csproj" />
         <ProjectReference Include="..\..\..\..\packages\dotnet\nuget-ai\src\Italbytz.AI.Learning\Italbytz.AI.Learning.csproj" />
