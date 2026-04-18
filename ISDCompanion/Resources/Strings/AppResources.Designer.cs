@@ -1023,6 +1023,12 @@ namespace StudyCompanion.Resources.Strings {
             }
         }
         
+        internal static string MensaClosedToday {
+            get {
+                return ResourceManager.GetString("MensaClosedToday", resourceCulture);
+            }
+        }
+        
         internal static string ErrorMessage {
             get {
                 return ResourceManager.GetString("ErrorMessage", resourceCulture);
