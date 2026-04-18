@@ -49,13 +49,11 @@ public partial class MensaPage : ContentPage
         if (meals.Count > 0)
         {
             _viewModel.SetMeals(meals);
+            Title = _viewModel.MealDateText;
             if (_viewModel.IsFutureDate)
-            {
-                Title = _viewModel.MealDateText;
                 await DisplayAlert(AppResources.Mensa,
                     $"{AppResources.MensaClosedToday}\n{_viewModel.MealDateText}",
                     AppResources.OK);
-            }
         }
         else
         {
