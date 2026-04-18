@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using Italbytz.Meal.Abstractions;
 using StudyCompanion.Resources.Strings;
@@ -16,6 +17,29 @@ namespace StudyCompanion
         private MealSectionViewModel _soups;
         private MealSectionViewModel _sideDishes;
         private MealSectionViewModel _desserts;
+
+        private DateTime? _mealDate;
+
+        public DateTime? MealDate
+        {
+            get => _mealDate;
+            private set
+            {
+                _mealDate = value;
+                OnPropertyChanged(nameof(MealDate));
+                OnPropertyChanged(nameof(HasMealDate));
+                OnPropertyChanged(nameof(MealDateText));
+                OnPropertyChanged(nameof(IsFutureDate));
+            }
+        }
+
+        public bool HasMealDate => _mealDate.HasValue;
+
+        public bool IsFutureDate => _mealDate.HasValue && _mealDate.Value.Date != DateTime.Today;
+
+        public string MealDateText => _mealDate.HasValue
+            ? _mealDate.Value.ToString("dddd, d. MMMM yyyy", CultureInfo.CurrentCulture)
+            : string.Empty;
 
         public MensaViewModel()
         {
@@ -80,6 +104,15 @@ namespace StudyCompanion
 
             Meals = receivedMeals;
             OnPropertyChanged(nameof(Meals));
+
+            var firstMealDate = meals
+                .SelectMany(c => c.Meals)
+                .Select(m => m.Date)
+                .Where(d => d != DateTime.MinValue)
+                .OrderBy(d => d)
+                .Cast<DateTime?>()
+                .FirstOrDefault();
+            MealDate = firstMealDate;
         }
 
         private static bool ExcludeMeal(IMeal meal)

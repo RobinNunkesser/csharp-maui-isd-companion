@@ -17,9 +17,30 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid
-            RowDefinitions="*"
+            RowDefinitions="Auto,*"
             ColumnDefinitions="*">
-            <CollectionView Grid.Row="0" IsGrouped="true"
+            <Border Grid.Row="0"
+                    IsVisible="{Binding HasMealDate}"
+                    Padding="12,8"
+                    BackgroundColor="Transparent">
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border"
+                                 Binding="{Binding IsFutureDate}"
+                                 Value="True">
+                        <Setter Property="BackgroundColor" Value="#FFF3E0" />
+                    </DataTrigger>
+                </Border.Triggers>
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="{Binding MealDateText}"
+                           FontAttributes="Bold"
+                           FontSize="Small" />
+                    <Label Text="{x:Static localization:AppResources.MensaClosedToday}"
+                           IsVisible="{Binding IsFutureDate}"
+                           TextColor="DarkOrange"
+                           FontSize="Small" />
+                </VerticalStackLayout>
+            </Border>
+            <CollectionView Grid.Row="1" IsGrouped="true"
                             ItemsSource="{Binding Meals}"
                             VerticalOptions="Fill">
                 <CollectionView.EmptyView>

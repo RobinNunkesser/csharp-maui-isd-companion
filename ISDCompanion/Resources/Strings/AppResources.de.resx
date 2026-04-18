@@ -502,6 +502,9 @@
     <data name="NoMeals" xml:space="preserve">
     <value>Keine Essen zur Anzeige. Mensa geschlossen?</value>
   </data>
+    <data name="MensaClosedToday" xml:space="preserve">
+    <value>Mensa heute geschlossen – nächster Öffnungstag</value>
+  </data>
     <data name="ErrorMessage" xml:space="preserve">
     <value>Fehler beim Abrufen der Daten. Bitte später erneut probieren.</value>
   </data>

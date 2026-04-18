@@ -9,6 +9,7 @@ namespace Italbytz.Adapters.Meal.OpenMensa
         {
         }
 
+        public DateTime Date { get; set; } = DateTime.Today;
         public string Name { get; set; } = "";
         public string Image { get; set; } = "";
         public Allergens Allergens { get; set; }
