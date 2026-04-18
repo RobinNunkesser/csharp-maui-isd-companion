@@ -22,7 +22,7 @@
             <Border Grid.Row="0"
                     IsVisible="{Binding HasMealDate}"
                     Padding="12,8"
-                    BackgroundColor="{Binding BannerBackgroundColor}">
+                    BackgroundColor="Transparent">
                 <VerticalStackLayout Spacing="2">
                     <Label Text="{Binding MealDateText}"
                            FontAttributes="Bold"
