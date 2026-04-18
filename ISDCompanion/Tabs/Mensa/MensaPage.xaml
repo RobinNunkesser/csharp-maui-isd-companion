@@ -22,14 +22,7 @@
             <Border Grid.Row="0"
                     IsVisible="{Binding HasMealDate}"
                     Padding="12,8"
-                    BackgroundColor="Transparent">
-                <Border.Triggers>
-                    <DataTrigger TargetType="Border"
-                                 Binding="{Binding IsFutureDate}"
-                                 Value="True">
-                        <Setter Property="BackgroundColor" Value="#FFF3E0" />
-                    </DataTrigger>
-                </Border.Triggers>
+                    BackgroundColor="{Binding BannerBackgroundColor}">
                 <VerticalStackLayout Spacing="2">
                     <Label Text="{Binding MealDateText}"
                            FontAttributes="Bold"

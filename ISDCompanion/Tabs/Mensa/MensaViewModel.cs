@@ -30,6 +30,7 @@ namespace StudyCompanion
                 OnPropertyChanged(nameof(HasMealDate));
                 OnPropertyChanged(nameof(MealDateText));
                 OnPropertyChanged(nameof(IsFutureDate));
+                OnPropertyChanged(nameof(BannerBackgroundColor));
             }
         }
 
@@ -40,6 +41,8 @@ namespace StudyCompanion
         public string MealDateText => _mealDate.HasValue
             ? _mealDate.Value.ToString("dddd, d. MMMM yyyy", CultureInfo.CurrentCulture)
             : string.Empty;
+
+        public Color BannerBackgroundColor => IsFutureDate ? Color.FromArgb("#FFF3E0") : Colors.Transparent;
 
         public MensaViewModel()
         {
