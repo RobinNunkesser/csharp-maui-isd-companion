@@ -14,7 +14,8 @@ namespace Italbytz.Adapters.Meal.Mock
                 Price = new MockPrice() { Students = 1.0, Employees = 2.0, Pupils = 3.0, Others = 4.0 },
                 Allergens = Allergens.Gluten,
                 Additives = Additives.FlavorEnhancer,
-                Category = Category.Dish
+                Category = Category.Dish,
+                Badges = [Badge.Vegan, Badge.GlutenFree]
             },
             new MockMeal() {
                 Name = "Lorem Ipsum Dish with eggs and food coloring",
@@ -22,7 +23,8 @@ namespace Italbytz.Adapters.Meal.Mock
                 Price = new MockPrice() { Students = 5.0, Employees = 6.0, Pupils = 7.0, Others = 8.0 },
                 Allergens = Allergens.Eggs,
                 Additives = Additives.FoodColoring,
-                Category = Category.Dish
+                Category = Category.Dish,
+                Badges = [Badge.Vegetarian]
             }
         };
 
@@ -33,7 +35,8 @@ namespace Italbytz.Adapters.Meal.Mock
                 Price = new MockPrice() { Students = 1.1, Employees = 2.1, Pupils = 3.1, Others = 4.1 },
                 Allergens = Allergens.Eggs,
                 Additives = Additives.FlavorEnhancer,
-                Category = Category.Dessert
+                Category = Category.Dessert,
+                Badges = [Badge.LactoseFree]
             }
         };
     }
