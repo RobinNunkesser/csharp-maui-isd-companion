@@ -129,13 +129,13 @@
         <Folder Include="Tabs\Exercises\Quiz\"/>
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="../../../../packages/dotnet/nuget-exam/src/Italbytz.Exam.OpenTriviaDb/Italbytz.Exam.OpenTriviaDb.csproj" />
+        <PackageReference Include="Italbytz.Trivia.OpenTriviaDb" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Italbytz.ComputingSystems"/>
         <PackageReference Include="Italbytz.Meal.STWPB"/>
         <PackageReference Include="Italbytz.Meal.Abstractions"/>
-        <PackageReference Include="Italbytz.Exam.Trivia.Abstractions"/>
+        <PackageReference Include="Italbytz.Trivia.Abstractions"/>
         <PackageReference Include="Italbytz.Networking"/>
         <PackageReference Include="Italbytz.Exam.Networking"/>
         <PackageReference Include="Italbytz.OperatingSystems"/>

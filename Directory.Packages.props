@@ -9,7 +9,8 @@
     <PackageVersion Include="Italbytz.ComputingSystems" Version="1.0.0-preview.3" />
     <PackageVersion Include="Italbytz.Exam.Networking" Version="1.0.0-preview.3" />
     <PackageVersion Include="Italbytz.Exam.OperatingSystems" Version="1.0.0-preview.3" />
-    <PackageVersion Include="Italbytz.Exam.Trivia.Abstractions" Version="1.0.0-preview.3" />
+    <PackageVersion Include="Italbytz.Trivia.Abstractions" Version="1.0.0-preview.1" />
+    <PackageVersion Include="Italbytz.Trivia.OpenTriviaDb" Version="1.0.0-preview.1" />
     <PackageVersion Include="Italbytz.Graph" Version="1.0.0-preview.3" />
     <PackageVersion Include="Italbytz.Graph.Maui" Version="1.0.0-preview.3" />
     <PackageVersion Include="Italbytz.Meal.Abstractions" Version="1.0.0-preview.3" />
