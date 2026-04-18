@@ -21,11 +21,12 @@
                         VerticalOptions="Fill">
             <CollectionView.Header>
                 <VerticalStackLayout Padding="12,8" Spacing="2">
-                    <Label Text="{Binding MealDateText}"
+                    <Label x:Name="mealDateLabel"
                            FontAttributes="Bold"
                            FontSize="Small" />
-                    <Label Text="{x:Static localization:AppResources.MensaClosedToday}"
-                           IsVisible="{Binding IsFutureDate}"
+                    <Label x:Name="mensaClosedLabel"
+                           Text="{x:Static localization:AppResources.MensaClosedToday}"
+                           IsVisible="False"
                            TextColor="DarkOrange"
                            FontSize="Small" />
                 </VerticalStackLayout>
