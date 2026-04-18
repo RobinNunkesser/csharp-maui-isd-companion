@@ -11,12 +11,12 @@ namespace StudyCompanion
 
     public class MensaViewModel : INotifyPropertyChanged
     {
-        public List<MealSectionViewModel> Meals { get; set; }
+        public List<MealSectionViewModel> Meals { get; set; } = [];
 
-        private MealSectionViewModel _mainDishes;
-        private MealSectionViewModel _soups;
-        private MealSectionViewModel _sideDishes;
-        private MealSectionViewModel _desserts;
+        private MealSectionViewModel _mainDishes = new();
+        private MealSectionViewModel _soups = new();
+        private MealSectionViewModel _sideDishes = new();
+        private MealSectionViewModel _desserts = new();
 
         private DateTime? _mealDate;
 
@@ -43,7 +43,6 @@ namespace StudyCompanion
 
         public MensaViewModel()
         {
-            Meals = [];
         }
 
         internal void SetMeals(List<IMealCollection> meals)
